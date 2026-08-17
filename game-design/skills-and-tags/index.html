@@ -1,0 +1,1759 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Живая игровая и техническая документация CodeDungeon">
+      
+      
+      
+      
+        <link rel="prev" href="../combat-and-actions/">
+      
+      
+        <link rel="next" href="../items-and-crafting/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Навыки и теги - CodeDungeon — документация</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="CodeDungeon — документация" class="md-header__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CodeDungeon — документация
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Навыки и теги
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить тёмную тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Включить тёмную тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить светлую тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Включить светлую тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CodeDungeon — документация" class="md-nav__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CodeDungeon — документация
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Игровой дизайн
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Игровой дизайн
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главный индекс GDD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vision-and-pillars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Видение и опоры
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-loop-and-runs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Основной цикл и забеги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-brain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Мозг персонажа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../combat-and-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бой и фазы действий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Навыки и теги
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Навыки и теги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подтверждено
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Область общего контракта
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Область действия оружейных модификаторов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Композиция механик и тегов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идентификаторы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Предлагаемые категории тегов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Два способа вызова активного навыка
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Два способа вызова активного навыка">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прямой вызов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выбор по тегам
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Композиция запросов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Модификаторы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Конверсии
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Неутверждённая семантика выбора результата
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Правила ведения словаря
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Открытые вопросы
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../items-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Предметы и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../passive-tree-and-sockets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пассивное дерево и ячейки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../progression-and-idle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Прогрессия и idle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глоссарий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Техническая документация
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Техническая документация
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ROADMAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../item-content-crafting-engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Item Content and Crafting Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../item-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Item Persistence Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../art-generation/currency-jewelry-2026-08-15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Генерация арта — валюта и украшения
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GDD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy GDD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Планы разработки
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Планы разработки
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plans/2026-02-25-3d-migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3D migration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plans/2026-02-23-subphase-c-treasure-shop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Treasure & shop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plans/2026-02-23-subphase-b-floor-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Floor map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plans/2026-02-23-subphase-a-isometric-view/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Isometric view
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plans/2026-02-23-phase4a-ui-foundation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UI foundation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plans/2026-02-23-phase3a-combat-foundation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Combat foundation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plans/2026-02-23-phase2-ai-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI system
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plans/2026-02-23-isometric-dungeon-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Isometric dungeon system
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подтверждено
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Область общего контракта
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Область действия оружейных модификаторов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Композиция механик и тегов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идентификаторы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Предлагаемые категории тегов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Два способа вызова активного навыка
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Два способа вызова активного навыка">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прямой вызов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выбор по тегам
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Композиция запросов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Модификаторы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Конверсии
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Неутверждённая семантика выбора результата
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Правила ведения словаря
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Открытые вопросы
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/game-design/skills-and-tags.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="_1">Навыки и теги<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Этот документ — единый источник истины для общего контракта тегов, навыков и модификаторов. Конкретный баланс и полный каталог контента появятся позднее.</p>
+<h2 id="_2">Подтверждено<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Есть активные и пассивные навыки.</li>
+<li>Оба типа навыков имеют теги.</li>
+<li>Теги являются универсальным контрактом почти для всех gameplay-сущностей. Разные подсистемы используют один общий язык тегов вместо собственных несовместимых классификаций.</li>
+<li>В общий контракт как минимум входят активные навыки, пассивные узлы, AI-bubbles, предметы и их модификаторы, действия и манёвры, создаваемые эффекты (включая снаряды и области), состояния и контроль, персонажи, враги и призванные существа. Точные исключения ещё не определены.</li>
+<li>Примеры смыслов тегов: физический урон, ближний бой, снаряд, здоровье.</li>
+<li>Модификаторы используют теги, чтобы менять подходящие навыки.</li>
+<li>Алгоритм может вызвать активный навык напрямую либо подобрать его по тегам.</li>
+<li>Активный навык вставляется в узел-гнездо основного пассивного дерева и получает собственную локальную паутину вариантов развития и изменения.</li>
+<li>Персонаж в конечном счёте имеет два полноценных набора активных навыков: каждый принадлежит одному из двух билдов и переключается вместе с соответствующими оружием и пассивным деревом.</li>
+<li>При этом навыки обоих билдов зарегистрированы в едином глобальном пространстве имён и состояния Brain. Bubbles могут ссылаться на любой установленный навык, проверять его теги и перезарядку независимо от активного набора.</li>
+<li>Глобальная адресуемость отделена от исполнимости: навык неактивного билда нельзя применить до явного действия смены билда, и система не переключает его автоматически.</li>
+<li>Каждый вызов навыка должен предоставлять валидатору формальные требования к активному билду и совместимому оружию. Предлагается проверять достижимые пути графа до запуска и повторять проверку runtime guard непосредственно перед исполнением; точная политика блокировки запуска ещё открыта.</li>
+<li>Внутри каждого билда очки навыков являются общим бюджетом для его полного дерева и локальных паутин; полный заработанный бюджет независимо доступен обоим билдам.</li>
+<li>Камень активного навыка хранит желаемую раскладку своей локальной паутины отдельно от текущих активных оплаченных узлов. При извлечении камня очки активных узлов возвращаются персонажу; неоплаченные запомненные узлы не дают эффект.</li>
+<li>Узлы основного дерева могут модифицировать активные навыки и programming bubbles по тегам; точная семантика такого влияния ещё не утверждена.</li>
+<li>Запрос тегов поддерживает композицию <strong>AND</strong>, <strong>OR</strong> и <strong>NOT</strong>. Выражение можно собрать внутри одного bubble либо композицией отдельных логических bubbles.</li>
+<li>Конверсия разрешена: модификаторы могут целиком преобразовать один исходный тип в другой, например физический урон в огненный. Подход вдохновлён общей идеей конверсий из Path of Exile, но не утверждает и не копирует её конкретные правила.</li>
+<li>Добавленная к сущности механика добавляет соответствующий ей тег, не стирая несвязанные признаки. Например, добавление взрыва к снаряду оставляет признак снаряда и добавляет признак области/AoE. Конкретный системный ID для этого признака (<code>area</code>, <code>aoe</code> или иной) ещё не выбран.</li>
+</ul>
+<h2 id="_3">Область общего контракта<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Теги должны одинаково описывать применимость, выбор и взаимодействие сущностей независимо от подсистемы-владельца. Один и тот же канонический тег используется мозгом, деревом, боем, предметами и эффектами; локальные аналоги с тем же смыслом не создаются.</p>
+<p>Минимально тегируются:</p>
+<ul>
+<li>активные навыки и пассивные узлы;</li>
+<li>AI-bubbles, включая составные модули;</li>
+<li>предметы и модификаторы;</li>
+<li>действия и манёвры;</li>
+<li>порождённые эффекты, снаряды и области;</li>
+<li>состояния и эффекты контроля;</li>
+<li>персонажи, враги и призванные существа.</li>
+</ul>
+<p>Наличие общего контракта не означает, что каждый тег применим к каждому типу сущности. Словарь должен определять допустимые носители и точную семантику тега. Сущности, которым теги не нужны, будут перечислены как явные исключения после появления практических случаев.</p>
+<h2 id="_4">Область действия оружейных модификаторов<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Характеристики, теги и модификаторы оружейного набора участвуют в расчётах только тогда, когда этот набор активен. Неактивный набор сохраняет собственное внутреннее состояние, но не предоставляет персонажу, навыкам или другим сущностям никакие характеристики и модификаторы.</p>
+<p>Область переключения расширена до полного билда: активными становятся связанный набор оружия, навыки и пассивное дерево. Броня, украшения, флаконы и остальная неоружейная экипировка общие. Текущее здоровье и значения ресурсов принадлежат непрерывному персонажу.</p>
+<p>Применённые временные эффекты получают значения по effective tags и модификаторам в момент применения, сохраняют этот snapshot и продолжаются обычную длительность после смены. Непрерывные эффекты, явно зависящие от активного источника билда, прекращаются вместе с его деактивацией. Теги сами по себе не определяют этот режим; он является явным свойством контента.</p>
+<p>Граница активации совпадает с атомарным исполнением действия смены набора: во время подготовки ещё действует старый комплект, а во время восстановления — уже новый. Перезарядка принадлежит навыку или персонажу, а не оружейному набору, поэтому переключение не меняет её ход и значение.</p>
+<h2 id="_5">Композиция механик и тегов<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Когда модификатор или развитие навыка добавляет новую механику, итоговая сущность получает соответствующий тег этой механики. Это композиционное расширение: остальные действующие теги сохраняются, если отдельное правило явно не преобразует их.</p>
+<p>Пример: снаряд получает механику взрыва. После изменения он по-прежнему подходит под запрос «снаряд», а созданная взрывом область также добавляет ему признак области/AoE. Нужно отдельно решить, будет ли канонический ID называться <code>area</code>, <code>aoe</code> или иначе.</p>
+<p>Интерфейс и диагностический лог должны показывать происхождение добавленного тега: базовое определение, добавленная механика, модификатор или другой источник. Происхождение существует только для объяснимости и не участвует в проверке применимости: AI и модификаторы работают с итоговым набором тегов. Правила наследования тегов порождёнными сущностями определяются отдельно.</p>
+<h2 id="_6">Идентификаторы<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p><strong>Предлагаемый контракт:</strong> системный идентификатор тега — стабильная English ASCII-строка в <code>snake_case</code>. Он не меняется при переименовании отображаемого текста. Названия и описания локализуются отдельно.</p>
+<p>Пример:</p>
+<table>
+<thead>
+<tr>
+<th>Stable ID</th>
+<th>Русское отображение</th>
+<th>Категория</th>
+<th>Статус</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>physical_damage</code></td>
+<td>Физический урон</td>
+<td>урон</td>
+<td>предложение</td>
+</tr>
+<tr>
+<td><code>melee</code></td>
+<td>Ближний бой</td>
+<td>способ применения</td>
+<td>предложение</td>
+</tr>
+<tr>
+<td><code>projectile</code></td>
+<td>Снаряд</td>
+<td>форма/доставка</td>
+<td>предложение</td>
+</tr>
+<tr>
+<td><code>health</code></td>
+<td>Здоровье</td>
+<td>ресурс</td>
+<td>предложение</td>
+</tr>
+</tbody>
+</table>
+<p>Примеры не утверждают окончательные имена или полный словарь.</p>
+<h2 id="_7">Предлагаемые категории тегов<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li>тип сущности: активный или пассивный навык;</li>
+<li>урон и стихия;</li>
+<li>способ применения и дистанция;</li>
+<li>форма доставки: удар, снаряд, область и подобное;</li>
+<li>ресурс: здоровье, мана или иной ресурс;</li>
+<li>эффект: усиление, ослабление, лечение, контроль;</li>
+<li>цель: враг, союзник, сам персонаж, область.</li>
+</ul>
+<p>Категории помогают в редакторе и валидации, но сами по себе не обязаны ограничивать число тегов на навыке.</p>
+<h2 id="_8">Два способа вызова активного навыка<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">Прямой вызов<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>Алгоритм хранит стабильный ID конкретного установленного активного навыка в глобальном пространстве Brain. Это позволяет читать его состояние независимо от активного билда; применимость всё равно проверяется по текущей активной конфигурации.</p>
+<h3 id="_10">Выбор по тегам<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>Алгоритм задаёт запрос тегов к глобально зарегистрированным навыкам обоих билдов. Фильтры готовности и исполнимости должны быть различимы: подходящий навык может быть готов по кулдауну, но требовать предварительной явной смены билда.</p>
+<h2 id="_11">Композиция запросов<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>Подтверждённые логические операции:</p>
+<ul>
+<li><strong>AND</strong> — кандидат обязан удовлетворять всем дочерним условиям;</li>
+<li><strong>OR</strong> — кандидат обязан удовлетворять хотя бы одному дочернему условию;</li>
+<li><strong>NOT</strong> — кандидат не должен удовлетворять дочернему условию.</li>
+</ul>
+<p>Эти операции можно выразить внутри bubble запроса либо отдельными логическими bubbles. Оба представления должны сводиться к одной семантике запроса и давать одинаковый результат при одинаковых входных данных.</p>
+<h2 id="_12">Модификаторы<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p><strong>Предлагаемый контракт:</strong> модификатор содержит условие применимости по тегам и типизированное изменение свойства. Навык не должен вручную знать обо всех модификаторах. Порядок расчёта и правила совместимости должны быть определены отдельно в единой формульной подсистеме.</p>
+<p>Модификаторы экипировки и пассивов могут менять параметры <a href="../combat-and-actions/">фаз действия</a>, включая длительности фаз, штраф скорости движения, а также предел или правило расчёта доли ресурса, теряемой при сорванной подготовке. Без модификаторов эта доля зависит от прогресса подготовки и находится в базовом диапазоне 0–50% полной стоимости действия. Теги определяют область применимости изменения. Точные формулы, порядок вычислений и допустимые пределы масштабирования пока не утверждены.</p>
+<h2 id="_13">Конверсии<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>Каждая конверсия всегда преобразует указанный источник в указанную цель целиком, на <strong>100%</strong>. Частичных и процентных конверсий нет: одна конверсия не делит исходную величину между прежним и новым типами. Поэтому системе не нужны сложение процентов конверсии, нормализация их суммы или отдельное правило для суммы выше 100%.</p>
+<p>Конверсия — простая замена тега в итоговом наборе: тег источника удаляется, тег цели добавляется, остальные непреобразованные применимые теги сохраняются. Например, удар мечом с тегами ближнего боя, удара и физического урона после конверсии <code>physical_damage → fire_damage</code> теряет <code>physical_damage</code>, получает <code>fire_damage</code> и сохраняет теги ближнего боя и удара.</p>
+<p>AI, запросы и модификаторы после конверсии проверяют только итоговый набор <strong>effective tags</strong>. Удалённый тег источника больше не делает сущность подходящей для модификаторов: в примере модификатор физического урона не применяется, а модификатор огненного урона применяется. Лог может показать событие замены <code>physical_damage → fire_damage</code>, но происхождение тега не участвует в расчёте.</p>
+<p>Последовательные цепочки конверсий разрешены. Для гарантированного завершения расчёта один и тот же тип не может повторно появиться в пределах одной цепочки: цепь с циклом или повторным типом считается недопустимой и должна быть отклонена валидатором. Например, возврат из <code>fire_damage</code> обратно в уже встречавшийся <code>physical_damage</code> запрещён.</p>
+<p>Конкурирующие конверсии из одного effective source tag не являются допустимым gameplay-случаем и не разрешаются порядком или приоритетом. В итоговом билде для каждого исходного effective tag может быть активно не более одной исходящей конверсии. Контент, пассивное дерево, предметы и крафт должны быть сбалансированы и ограничены так, чтобы валидный билд не мог одновременно активировать две такие конверсии.</p>
+<p>Нарушение этого инварианта — не неоднозначность расчёта, а <strong>invalid configuration / content error</strong>. UI и валидатор должны не допустить конфликт либо явно показать его; система не должна молча выбирать одну из целей. Точный UX предотвращения и исправления конфликта пока не определён.</p>
+<p>Нужно отдельно определить:</p>
+<ul>
+<li>общий порядок конверсий относительно других типов модификаторов;</li>
+<li>наследование тегов созданными сущностями, например снарядом или призванным существом;</li>
+<li>применимость модификатора, который сам изменяет теги условия своей применимости;</li>
+</ul>
+<p>Path of Exile служит только ориентиром для выразительности конверсий. Его точные формулы, порядок и ограничения не считаются частью контракта проекта.</p>
+<h2 id="_14">Неутверждённая семантика выбора результата<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<p>Нужно выбрать и зафиксировать:</p>
+<ul>
+<li>как ранжировать несколько подходящих навыков: приоритет игрока, кулдаун, стоимость, случайность или оценочная функция;</li>
+<li>что делать, если подходящих готовых навыков нет;</li>
+<li>применяются ли запросы по тегам к пассивам, или пассивы только фильтруются модификаторами.</li>
+</ul>
+<p>До утверждения этих правил формат запроса нельзя считать стабильным публичным контрактом.</p>
+<h2 id="_15">Правила ведения словаря<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Один смысл — один канонический ID.</li>
+<li>Синонимы существуют только в локализованном интерфейсе, а не как разные системные теги.</li>
+<li>Удалённый опубликованный ID не переиспользуется с новым смыслом.</li>
+<li>Новый тег получает описание семантики и примеры того, что входит и не входит в его область.</li>
+<li>Составные игровые понятия не следует кодировать десятками почти одинаковых тегов без реальной потребности.</li>
+</ul>
+<h2 id="_16">Открытые вопросы<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Какие категории нужны для первой играбельной версии?</li>
+<li>Какие сущности являются явными исключениями из универсального контракта тегов?</li>
+<li>Какие теги и в каком объёме наследуют созданные сущности?</li>
+<li>Какой stable ID использовать для механики области/AoE?</li>
+<li>Как разрешать циклы, когда изменение тегов влияет на применимость самого модификатора?</li>
+<li>Какие теги описывают механику, а какие — только интерфейсный поиск?</li>
+<li>Как теги узлов дерева сопоставляются с тегами навыков и bubbles: точное совпадение, составной запрос или другое правило?</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

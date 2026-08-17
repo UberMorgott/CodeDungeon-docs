@@ -1,0 +1,3612 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Живая игровая и техническая документация CodeDungeon">
+      
+      
+      
+      
+        <link rel="prev" href="../art-generation/currency-jewelry-2026-08-15/">
+      
+      
+        <link rel="next" href="../plans/2026-02-25-3d-migration/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Legacy GDD - CodeDungeon — документация</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#game-design-document-codedungeon" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href=".." title="CodeDungeon — документация" class="md-header__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CodeDungeon — документация
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Legacy GDD
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить тёмную тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Включить тёмную тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить светлую тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Включить светлую тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CodeDungeon — документация" class="md-nav__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CodeDungeon — документация
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Игровой дизайн
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Игровой дизайн
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../game-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главный индекс GDD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../game-design/vision-and-pillars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Видение и опоры
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../game-design/core-loop-and-runs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Основной цикл и забеги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../game-design/ai-brain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Мозг персонажа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../game-design/combat-and-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бой и фазы действий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../game-design/skills-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Навыки и теги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../game-design/items-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Предметы и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../game-design/passive-tree-and-sockets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пассивное дерево и ячейки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../game-design/progression-and-idle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Прогрессия и idle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../game-design/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глоссарий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Техническая документация
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Техническая документация
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ROADMAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../item-content-crafting-engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Item Content and Crafting Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../item-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Item Persistence Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../art-generation/currency-jewelry-2026-08-15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Генерация арта — валюта и украшения
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy GDD
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy GDD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-core-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Core Concept
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-core-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Core Loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-blueprint-system-ai-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Blueprint System (AI Programming)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Blueprint System (AI Programming)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Концепция
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Типы нод
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обращение к скиллам
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aggressive-melee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пример блюпринта "Aggressive Melee"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complexity-curve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complexity Curve
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-memory-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Memory System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Memory System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Концепция
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Глобальная vs Локальная
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Стоимость нод (примеры)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Начальная память и рост
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-modules-behavioral-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Modules (Behavioral Modes)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Modules (Behavioral Modes)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Концепция
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Структура
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Приоритет модулей
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условия активации модуля
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета-прогрессия модулей
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-skill-socket-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Skill Socket System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Skill Socket System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#poe-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Концепция (PoE-style)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Типы сокетов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связи (Links)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Теги скиллов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета-прогрессия сокетов
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-meta-progression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Meta-Progression
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Meta-Progression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета-валюта
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Дерево прогрессии
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прогрессия НЕ даёт прямую силу
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-combat-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Combat &amp; Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Combat &amp; Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Боевая система
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Типы комнат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Интерактивные объекты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Локации (биомы)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-balance-system-pvp-ready" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Balance System (PvP-Ready)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Balance System (PvP-Ready)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Принципы баланса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Базовые статы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Формула урона
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diminishing-returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Формула брони/сопротивления (diminishing returns)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ttk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TTK таблица (цель для баланса)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Масштабирование по этажам подземелья
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Скилл-множители
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-playback-replay-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Playback &amp; Replay System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Playback &amp; Replay System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ключевой инсайт: бой = предзаписанное видео
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как это работает
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Управление воспроизведением
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Техническая реализация
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-debug-overlay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Debug Overlay
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-multiplayer-network-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Multiplayer &amp; Network Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Multiplayer &amp; Network Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Модель
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сетевая модель (Batch Simulation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что это даёт
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Протокол
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Лут
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-pvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Будущее PvP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Будущее PvP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Арена
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Почему это работает
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-a-glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appendix A: Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-b-reference-games" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appendix B: Reference Games
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Планы разработки
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Планы разработки
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plans/2026-02-25-3d-migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3D migration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plans/2026-02-23-subphase-c-treasure-shop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Treasure & shop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plans/2026-02-23-subphase-b-floor-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Floor map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plans/2026-02-23-subphase-a-isometric-view/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Isometric view
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plans/2026-02-23-phase4a-ui-foundation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UI foundation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plans/2026-02-23-phase3a-combat-foundation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Combat foundation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plans/2026-02-23-phase2-ai-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI system
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plans/2026-02-23-isometric-dungeon-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Isometric dungeon system
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-core-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Core Concept
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-core-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Core Loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-blueprint-system-ai-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Blueprint System (AI Programming)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Blueprint System (AI Programming)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Концепция
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Типы нод
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обращение к скиллам
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aggressive-melee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пример блюпринта "Aggressive Melee"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complexity-curve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complexity Curve
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-memory-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Memory System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Memory System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Концепция
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Глобальная vs Локальная
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Стоимость нод (примеры)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Начальная память и рост
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-modules-behavioral-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Modules (Behavioral Modes)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Modules (Behavioral Modes)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Концепция
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Структура
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Приоритет модулей
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условия активации модуля
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета-прогрессия модулей
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-skill-socket-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Skill Socket System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Skill Socket System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#poe-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Концепция (PoE-style)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Типы сокетов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связи (Links)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Теги скиллов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета-прогрессия сокетов
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-meta-progression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Meta-Progression
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Meta-Progression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета-валюта
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Дерево прогрессии
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прогрессия НЕ даёт прямую силу
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-combat-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Combat &amp; Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Combat &amp; Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Боевая система
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Типы комнат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Интерактивные объекты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Локации (биомы)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-balance-system-pvp-ready" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Balance System (PvP-Ready)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Balance System (PvP-Ready)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Принципы баланса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Базовые статы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Формула урона
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diminishing-returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Формула брони/сопротивления (diminishing returns)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ttk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TTK таблица (цель для баланса)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Масштабирование по этажам подземелья
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Скилл-множители
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-playback-replay-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Playback &amp; Replay System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Playback &amp; Replay System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ключевой инсайт: бой = предзаписанное видео
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как это работает
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Управление воспроизведением
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Техническая реализация
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-debug-overlay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Debug Overlay
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-multiplayer-network-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Multiplayer &amp; Network Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Multiplayer &amp; Network Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Модель
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сетевая модель (Batch Simulation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что это даёт
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Протокол
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Лут
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-pvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Будущее PvP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Будущее PvP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Арена
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Почему это работает
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-a-glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appendix A: Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-b-reference-games" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appendix B: Reference Games
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/GDD.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="game-design-document-codedungeon">Game Design Document — CodeDungeon<a class="headerlink" href="#game-design-document-codedungeon" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Рабочее название. Roguelite где ты не играешь за персонажа — ты программируешь его.</p>
+</blockquote>
+<h2 id="1-core-concept">1. Core Concept<a class="headerlink" href="#1-core-concept" title="Permanent link">&para;</a></h2>
+<p><strong>Жанр:</strong> Top-down 2D multiplayer co-op roguelite с AI-программированием</p>
+<p><strong>Elevator pitch:</strong> Вместо того чтобы управлять персонажем напрямую, игрок программирует его поведение через визуальные блюпринты. Персонаж сражается автономно, а игрок наблюдает — как его "код" справляется с подземельями. Между забегами игрок разбирает лут, вставляет скиллы в сокеты, пишет новые блюпринты и оптимизирует AI под ограниченную память.</p>
+<p><strong>Ключевое отличие:</strong> Удовольствие не от рефлексов, а от того что твой "код" работает. Ты архитектор, а не пилот.</p>
+<p><strong>Режим наблюдения:</strong> Во время боя игрок только смотрит. Никаких кнопок, микрокоманд или ультимейтов. Чистая автономия AI. Если персонаж делает глупость — это баг в твоём блюпринте, иди чини.</p>
+<h2 id="2-core-loop">2. Core Loop<a class="headerlink" href="#2-core-loop" title="Permanent link">&para;</a></h2>
+<pre><code>┌─────────────────────────────────────────────────────┐
+│                      БАЗА                           │
+│  Разбор лута → Вставка скиллов в сокеты →           │
+│  Написание/правка блюпринтов → Распределение памяти │
+│  → Мета-прогрессия (новые ноды, сокеты, модули)     │
+└───────────────────────┬─────────────────────────────┘
+                        │
+                        ▼
+┌─────────────────────────────────────────────────────┐
+│                     ЗАБЕГ                            │
+│  Вход в подземелье → Комната 1 (бой, авто) →        │
+│  Лут падает в сумку → Комната 2 → ... →             │
+│  Босс → Конец забега → Возврат на базу              │
+└─────────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>Между комнатами:</strong> Никакого редактирования. Лут копится, AI работает как есть.</p>
+<p><strong>На базе (между забегами):</strong>
+- Разбор инвентаря (скиллы, саппорты, экипировка)
+- Вставка скиллов в сокет-ноды
+- Редактирование блюпринтов AI
+- Распределение памяти между модулями
+- Трата мета-валюты на прогрессию</p>
+<h2 id="3-blueprint-system-ai-programming">3. Blueprint System (AI Programming)<a class="headerlink" href="#3-blueprint-system-ai-programming" title="Permanent link">&para;</a></h2>
+<h3 id="_1">Концепция<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>Блюпринты — визуальный язык программирования поведения персонажа. Игрок строит графы из нод (условия, действия, приоритеты), определяющие что персонаж делает в каждой ситуации.</p>
+<h3 id="_2">Типы нод<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p><strong>Условия (Conditions):</strong>
+- <code>HP Below %</code> — проверка здоровья (своего или цели)
+- <code>Enemy In Range</code> — враг в радиусе (ближний/дальний)
+- <code>Ally HP Below %</code> — здоровье союзника
+- <code>Skill Ready</code> — скилл снят с кулдауна
+- <code>Enemy Count</code> — количество врагов в радиусе
+- <code>Has Tag</code> — проверка тегов на цели (boss, elite, ranged)
+- <code>Module Active</code> — проверка текущего активного модуля</p>
+<p><strong>Действия (Actions):</strong>
+- <code>Use Skill [name/tag]</code> — использовать скилл по имени или тегу
+- <code>Move To [target]</code> — двигаться к цели (enemy, ally, cover, away)
+- <code>Move Away From [target]</code> — отступить
+- <code>Take Cover</code> — найти и занять укрытие
+- <code>Wait [seconds]</code> — ждать</p>
+<p><strong>Управление потоком (Flow Control):</strong>
+- <code>Priority Selector</code> — выполняет первый подходящий дочерний нод
+- <code>Sequence</code> — выполняет все дочерние по порядку
+- <code>Loop</code> — повторяет блок
+- <code>Random</code> — случайный выбор из дочерних нод</p>
+<p><strong>Таргетинг (Targeting):</strong>
+- <code>Nearest Enemy</code> — ближайший враг
+- <code>Lowest HP Enemy</code> — самый раненый враг
+- <code>Lowest HP Ally</code> — самый раненый союзник
+- <code>Highest Threat</code> — враг наносящий больше всего урона
+- <code>By Tag [tag]</code> — цель с определённым тегом</p>
+<h3 id="_3">Обращение к скиллам<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>Скиллы указываются <strong>по имени или тегу</strong>:
+- <code>Use Skill "Fireball"</code> — конкретный скилл
+- <code>Use Skill [tag:heal]</code> — любой скилл с тегом <code>heal</code>
+- <code>Use Skill [tag:aoe, tag:damage]</code> — AoE + урон</p>
+<p>Если скилл вставлен в сокет, но нигде не используется в блюпринте — игрок получает <strong>warning</strong> (не ошибку). Скилл просто не будет применяться.</p>
+<h3 id="aggressive-melee">Пример блюпринта "Aggressive Melee"<a class="headerlink" href="#aggressive-melee" title="Permanent link">&para;</a></h3>
+<pre><code>Priority Selector
+├── [HP Below 20%] → Use Skill [tag:heal] → Move Away From [Nearest Enemy]
+├── [Enemy In Range 2m] → Use Skill [tag:melee] → Sequence:
+│   ├── Use Skill &quot;Slash&quot;
+│   └── Use Skill &quot;Kick&quot; (if ready)
+├── [Enemy Count &gt; 3, In Range 5m] → Use Skill [tag:aoe]
+└── [Default] → Move To [Nearest Enemy]
+</code></pre>
+<h3 id="complexity-curve">Complexity Curve<a class="headerlink" href="#complexity-curve" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Meta Level</th>
+<th>Доступные ноды</th>
+<th>Пример</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (старт)</td>
+<td>5 базовых</td>
+<td>HP check, Use Skill, Move To, Nearest Enemy, Priority Selector</td>
+</tr>
+<tr>
+<td>5</td>
+<td>+5 средних</td>
+<td>Enemy Count, Ally HP, Sequence, Take Cover, Lowest HP</td>
+</tr>
+<tr>
+<td>10</td>
+<td>+5 продвинутых</td>
+<td>Loop, Random, Has Tag, Highest Threat, Module Active</td>
+</tr>
+<tr>
+<td>15</td>
+<td>+5 экспертных</td>
+<td>Custom variables, Cooldown tracking, Combo chains, Conditional tags</td>
+</tr>
+<tr>
+<td>20+</td>
+<td>Полный набор</td>
+<td>Всё открыто, дальше — расширение памяти и сокетов</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-memory-system">4. Memory System<a class="headerlink" href="#4-memory-system" title="Permanent link">&para;</a></h2>
+<h3 id="_4">Концепция<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Память — единый ограниченный ресурс, аналог RAM. Каждый нод в блюпринте, каждый модуль, каждое условие стоит определённое количество единиц памяти. Если память кончилась — нельзя добавить новые ноды. Нужно оптимизировать или расширить через мета-прогрессию.</p>
+<h3 id="vs">Глобальная vs Локальная<a class="headerlink" href="#vs" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Тип</th>
+<th>Аналогия</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Глобальная</strong></td>
+<td><code>~/.claude/CLAUDE.md</code></td>
+<td>Базовое поведение, работает ВСЕГДА: уворот от снарядов, подбор HP, базовое позиционирование</td>
+</tr>
+<tr>
+<td><strong>Локальная</strong> (по модулям)</td>
+<td><code>project/CLAUDE.md</code></td>
+<td>Специфичное поведение модуля: атака, лечение, танкование</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Общий пул памяти</strong> делится между:
+- Глобальным AI (всегда активен)
+- Модулями (каждый жрёт свою долю)</p>
+<p>Распределение — выбор игрока. Мощный глобальный AI = меньше памяти на модули. Много модулей = каждый тупее.</p>
+<h3 id="_5">Стоимость нод (примеры)<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Нод</th>
+<th>Стоимость памяти</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HP Below %</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>Move To</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>Use Skill</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>Priority Selector</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>Sequence</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>Enemy Count</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>Has Tag</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>Loop</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>Custom Variable</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>Combo Chain</code></td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">Начальная память и рост<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Meta Level</th>
+<th>Общая память</th>
+<th>Рекомендуемое разделение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>20</td>
+<td>8 global + 12 на 1 модуль</td>
+</tr>
+<tr>
+<td>5</td>
+<td>35</td>
+<td>10 global + 25 на 2 модуля</td>
+</tr>
+<tr>
+<td>10</td>
+<td>55</td>
+<td>15 global + 40 на 3 модуля</td>
+</tr>
+<tr>
+<td>20</td>
+<td>100</td>
+<td>20 global + 80 на 4-5 модулей</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-modules-behavioral-modes">5. Modules (Behavioral Modes)<a class="headerlink" href="#5-modules-behavioral-modes" title="Permanent link">&para;</a></h2>
+<h3 id="_7">Концепция<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>Модули — именованные блоки поведения, которые активируются автоматически по условиям. Аналог функций/классов в программировании. Каждый модуль содержит свой блюпринт и стоит отдельную память.</p>
+<h3 id="_8">Структура<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<pre><code>Персонаж
+├── Глобальный AI (всегда активен)
+│   ├── Dodge projectiles
+│   ├── Pick up health if HP &lt; 50%
+│   └── Basic positioning
+├── Module: &quot;Aggressor&quot; (condition: enemies &gt; 0)
+│   └── [Attack blueprint...]
+├── Module: &quot;Healer&quot; (condition: ally HP &lt; 40%)
+│   └── [Healing blueprint...]
+└── Module: &quot;Survivor&quot; (condition: own HP &lt; 25%)
+    └── [Defensive blueprint...]
+</code></pre>
+<h3 id="_9">Приоритет модулей<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>Модули имеют числовой приоритет (1 = высший). Если несколько условий true одновременно — активируется модуль с наивысшим приоритетом. Глобальный AI работает ПОВЕРХ любого модуля (всегда).</p>
+<h3 id="_10">Условия активации модуля<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>Каждый модуль имеет условие включения — по сути мини-блюпринт из 1-3 нод условий:
+- <code>Own HP Below 25%</code> → Survivor mode
+- <code>Ally HP Below 40%</code> → Healer mode
+- <code>Enemy Count &gt; 0</code> → Aggressor mode
+- <code>Boss Present</code> → Boss Fight mode
+- <code>Default</code> → Idle mode</p>
+<p>Условие активации модуля <strong>тоже стоит память</strong> (из пула того модуля).</p>
+<h3 id="-">Мета-прогрессия модулей<a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Meta Level</th>
+<th>Слоты модулей</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1 модуль</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2 модуля</td>
+</tr>
+<tr>
+<td>10</td>
+<td>3 модуля</td>
+</tr>
+<tr>
+<td>15</td>
+<td>4 модуля</td>
+</tr>
+<tr>
+<td>20</td>
+<td>5 модулей</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-skill-socket-system">6. Skill Socket System<a class="headerlink" href="#6-skill-socket-system" title="Permanent link">&para;</a></h2>
+<h3 id="poe-style">Концепция (PoE-style)<a class="headerlink" href="#poe-style" title="Permanent link">&para;</a></h3>
+<p>Скиллы вставляются в сокеты. К скиллам подключаются саппорты, модифицирующие поведение. Скиллы имеют теги для обращения из блюпринтов.</p>
+<h3 id="_11">Типы сокетов<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Тип</th>
+<th>Цвет</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Active</strong></td>
+<td>Красный</td>
+<td>Атакующие скиллы (Slash, Fireball, Arrow)</td>
+</tr>
+<tr>
+<td><strong>Support</strong></td>
+<td>Синий</td>
+<td>Модификаторы скиллов (AoE, Lifesteal, Crit Chance)</td>
+</tr>
+<tr>
+<td><strong>Utility</strong></td>
+<td>Зелёный</td>
+<td>Утилиты (Heal, Shield, Dash)</td>
+</tr>
+<tr>
+<td><strong>Passive</strong></td>
+<td>Жёлтый</td>
+<td>Постоянные бонусы (не в блюпринтах, работают автоматически)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="links">Связи (Links)<a class="headerlink" href="#links" title="Permanent link">&para;</a></h3>
+<p>Саппорты подключаются к активным скиллам через связи (links):</p>
+<pre><code>[Fireball] ──── [AoE Support] ──── [Burn Support]
+    │
+    └── Теги: damage, fire, aoe, ranged
+</code></pre>
+<p>Результат: Fireball с увеличенной AoE зоной и эффектом горения.</p>
+<h3 id="_12">Теги скиллов<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>Каждый скилл имеет набор тегов:
+- <strong>Тип урона:</strong> <code>physical</code>, <code>fire</code>, <code>ice</code>, <code>lightning</code>, <code>poison</code>
+- <strong>Дальность:</strong> <code>melee</code>, <code>ranged</code>
+- <strong>Эффект:</strong> <code>damage</code>, <code>heal</code>, <code>buff</code>, <code>debuff</code>, <code>crowd-control</code>
+- <strong>Область:</strong> <code>single-target</code>, <code>aoe</code>, <code>cone</code>, <code>line</code></p>
+<p>Блюпринты обращаются к скиллам по тегам: <code>Use Skill [tag:heal, tag:aoe]</code> → используй любой AoE хил.</p>
+<h3 id="-_1">Мета-прогрессия сокетов<a class="headerlink" href="#-_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Meta Level</th>
+<th>Active сокеты</th>
+<th>Support сокеты</th>
+<th>Utility сокеты</th>
+<th>Passive слоты</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>10</td>
+<td>4</td>
+<td>4</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>15</td>
+<td>5</td>
+<td>5</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>20</td>
+<td>6</td>
+<td>6</td>
+<td>5</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-meta-progression">7. Meta-Progression<a class="headerlink" href="#7-meta-progression" title="Permanent link">&para;</a></h2>
+<h3 id="-_2">Мета-валюта<a class="headerlink" href="#-_2" title="Permanent link">&para;</a></h3>
+<p><strong>Code Fragments</strong> — основная мета-валюта. Выпадает из врагов и боссов, сохраняется между забегами.</p>
+<h3 id="_13">Дерево прогрессии<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<pre><code>Meta Tree
+├── AI Nodes (новые ноды для блюпринтов)
+│   ├── Tier 1: Basic (HP Check, Move, Use Skill, Priority)
+│   ├── Tier 2: Tactical (Cover, Ally HP, Enemy Count)
+│   ├── Tier 3: Advanced (Loop, Random, Has Tag)
+│   └── Tier 4: Expert (Variables, Combos, Conditional Tags)
+├── Memory (расширение RAM)
+│   ├── +5 memory per upgrade
+│   └── Upgrades get progressively more expensive
+├── Module Slots (новые слоты модулей)
+│   └── Each slot costs significantly more than previous
+├── Skill Sockets (новые сокеты)
+│   ├── Active socket slots
+│   ├── Support socket slots
+│   ├── Utility socket slots
+│   └── Passive slots
+└── Quality of Life
+    ├── Blueprint templates (pre-made module templates)
+    ├── Auto-loot filters
+    └── Replay speed options
+</code></pre>
+<h3 id="_14">Прогрессия НЕ даёт прямую силу<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>Мета НЕ увеличивает урон, HP или статы. Мета даёт <strong>инструменты</strong>: больше нод, больше памяти, больше скилл-слотов. Сила приходит от того, как хорошо ты используешь эти инструменты.</p>
+<h2 id="8-combat-environment">8. Combat &amp; Environment<a class="headerlink" href="#8-combat-environment" title="Permanent link">&para;</a></h2>
+<h3 id="_15">Боевая система<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Tick-rate:</strong> 30 TPS (серверная симуляция, НЕ в реальном времени)</li>
+<li><strong>Batch simulation:</strong> Вся комната симулируется мгновенно (~100ms), результат отдаётся целиком</li>
+<li><strong>Хитбоксы:</strong> Коллизии через physics shapes (круги, капсулы)</li>
+<li><strong>Снаряды:</strong> Серверные, с проверкой попадания на каждом тике</li>
+<li><strong>Статус-эффекты:</strong> Burn (DoT), Freeze (slow), Poison (DoT + heal reduction), Stun (no action)</li>
+<li><strong>Детерминизм:</strong> Фиксированный seed рандома → одинаковый результат при одинаковых входных данных</li>
+</ul>
+<h3 id="_16">Типы комнат<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Combat</strong></td>
+<td>Стандартный бой, 1-3 волны мобов</td>
+</tr>
+<tr>
+<td><strong>Elite</strong></td>
+<td>Один мощный элитный враг + мобы</td>
+</tr>
+<tr>
+<td><strong>Boss</strong></td>
+<td>Босс с фазами и механиками</td>
+</tr>
+<tr>
+<td><strong>Treasure</strong></td>
+<td>Без врагов, повышенный лут</td>
+</tr>
+<tr>
+<td><strong>Challenge</strong></td>
+<td>Особые условия (таймер, no-hit, ограничения)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_17">Интерактивные объекты<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Объект</th>
+<th>Поведение</th>
+<th>AI-взаимодействие</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Каверы</strong> (стены, бочки)</td>
+<td>Блокируют снаряды, разрушаемые</td>
+<td>AI может использовать <code>Take Cover</code></td>
+</tr>
+<tr>
+<td><strong>Разрушаемые</strong> (ящики, горшки)</td>
+<td>Ломаются от урона, могут дропнуть лут</td>
+<td>AI автоматически ломает при контакте</td>
+</tr>
+<tr>
+<td><strong>Толкаемые</strong> (бочки, блоки)</td>
+<td>Физика, можно двигать</td>
+<td>AI может толкать для создания барьеров</td>
+</tr>
+<tr>
+<td><strong>Ловушки</strong> (шипы, лава, турели)</td>
+<td>Наносят урон при контакте/в зоне</td>
+<td>AI уклоняется через глобальный AI</td>
+</tr>
+<tr>
+<td><strong>Двери</strong></td>
+<td>Открываются после зачистки комнаты</td>
+<td>Авто-переход</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_18">Локации (биомы)<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Биом</th>
+<th>Тематика</th>
+<th>Особенности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sewers</strong></td>
+<td>Канализация, стартовый</td>
+<td>Узкие коридоры, мало каверов</td>
+</tr>
+<tr>
+<td><strong>Catacombs</strong></td>
+<td>Подземелье, кости</td>
+<td>Ловушки, тёмные зоны</td>
+</tr>
+<tr>
+<td><strong>Library</strong></td>
+<td>Заброшенная библиотека</td>
+<td>Разрушаемые полки, магические враги</td>
+</tr>
+<tr>
+<td><strong>Forge</strong></td>
+<td>Кузница, лава</td>
+<td>Лавовые зоны, огненные враги</td>
+</tr>
+<tr>
+<td><strong>Throne</strong></td>
+<td>Финальный</td>
+<td>Открытые арены, сложные боссы</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-balance-system-pvp-ready">9. Balance System (PvP-Ready)<a class="headerlink" href="#9-balance-system-pvp-ready" title="Permanent link">&para;</a></h2>
+<h3 id="_19">Принципы баланса<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Нет инфляции чисел</strong> — HP и урон растут линейно, не экспоненциально</li>
+<li><strong>Всё относительно</strong> — урон выражается в % от базового, не в абсолютных числах</li>
+<li><strong>Time-to-Kill (TTK)</strong> — основная метрика баланса</li>
+<li><strong>PvP-ready</strong> — те же формулы работают для PvP без перебалансировки</li>
+</ol>
+<h3 id="_20">Базовые статы<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Стат</th>
+<th>Описание</th>
+<th>Базовое значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>max_hp</code></td>
+<td>Максимальное здоровье</td>
+<td>100</td>
+</tr>
+<tr>
+<td><code>base_damage</code></td>
+<td>Базовый урон</td>
+<td>10</td>
+</tr>
+<tr>
+<td><code>armor</code></td>
+<td>Снижение физ. урона (%)</td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>resistance</code></td>
+<td>Снижение маг. урона (%)</td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>speed</code></td>
+<td>Скорость передвижения (px/s)</td>
+<td>200</td>
+</tr>
+<tr>
+<td><code>attack_speed</code></td>
+<td>Атак в секунду</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><code>crit_chance</code></td>
+<td>Шанс крита (%)</td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>crit_damage</code></td>
+<td>Множитель крита</td>
+<td>1.5x</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_21">Формула урона<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<pre><code>raw_damage = base_damage * skill_multiplier * (1 + bonus_damage%)
+mitigation = armor% (for physical) or resistance% (for magical)
+final_damage = raw_damage * (1 - mitigation / 100)
+
+// Крит
+if (random &lt; crit_chance):
+    final_damage *= crit_damage
+</code></pre>
+<h3 id="diminishing-returns">Формула брони/сопротивления (diminishing returns)<a class="headerlink" href="#diminishing-returns" title="Permanent link">&para;</a></h3>
+<pre><code>effective_mitigation% = armor / (armor + K)
+</code></pre>
+<p>Где <code>K</code> — константа = 100. Это даёт:
+- 0 armor → 0% mitigation
+- 50 armor → 33% mitigation
+- 100 armor → 50% mitigation
+- 200 armor → 67% mitigation
+- 500 armor → 83% mitigation</p>
+<p>Никогда не достигает 100%. Работает одинаково для PvE и PvP.</p>
+<h3 id="ttk">TTK таблица (цель для баланса)<a class="headerlink" href="#ttk" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Сценарий</th>
+<th>Target TTK</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Player vs Normal mob</td>
+<td>2-4 секунды</td>
+</tr>
+<tr>
+<td>Player vs Elite mob</td>
+<td>8-15 секунд</td>
+</tr>
+<tr>
+<td>Player vs Boss</td>
+<td>60-120 секунд</td>
+</tr>
+<tr>
+<td>Player vs Player (PvP)</td>
+<td>5-10 секунд</td>
+</tr>
+<tr>
+<td>Mob vs Player (no armor)</td>
+<td>8-12 секунд</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_22">Масштабирование по этажам подземелья<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<pre><code>enemy_hp = base_hp * (1 + floor * 0.1)
+enemy_damage = base_damage * (1 + floor * 0.08)
+</code></pre>
+<p>Пример (этаж 10):
+- Моб HP: 100 * (1 + 10 * 0.1) = 200 HP
+- Моб урон: 10 * (1 + 10 * 0.08) = 18 damage</p>
+<p>Рост <strong>линейный</strong>, не экспоненциальный. На этаже 50 моб имеет 600 HP, не 1,500,000,000.</p>
+<h3 id="-_3">Скилл-множители<a class="headerlink" href="#-_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Тип скилла</th>
+<th>Multiplier</th>
+<th>Cooldown</th>
+<th>Пример</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Быстрая атака</td>
+<td>0.8x</td>
+<td>0.3s</td>
+<td>Jab</td>
+</tr>
+<tr>
+<td>Обычная атака</td>
+<td>1.0x</td>
+<td>0.8s</td>
+<td>Slash</td>
+</tr>
+<tr>
+<td>Сильная атака</td>
+<td>1.5x</td>
+<td>2.0s</td>
+<td>Heavy Strike</td>
+</tr>
+<tr>
+<td>AoE</td>
+<td>0.6x (per target)</td>
+<td>3.0s</td>
+<td>Whirlwind</td>
+</tr>
+<tr>
+<td>Heal</td>
+<td>0.5x (as heal)</td>
+<td>4.0s</td>
+<td>Mend</td>
+</tr>
+<tr>
+<td>Ultimate</td>
+<td>3.0x</td>
+<td>15.0s</td>
+<td>Meteor</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-playback-replay-system">10. Playback &amp; Replay System<a class="headerlink" href="#10-playback-replay-system" title="Permanent link">&para;</a></h2>
+<h3 id="_23">Ключевой инсайт: бой = предзаписанное видео<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<p>Поскольку игрок НЕ отправляет input во время боя, сервер может просимулировать всю комнату <strong>мгновенно</strong> и отдать результат целиком. Клиент — это <strong>видеоплеер</strong>, а не игровой клиент.</p>
+<h3 id="_24">Как это работает<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<pre><code>1. Клиент отправляет: блюпринты + экипировку + скиллы
+2. Сервер за ~100ms симулирует всю комнату (1800 тиков = 60 сек боя)
+3. Сервер возвращает: массив snapshots + лут + результат
+4. Клиент проигрывает snapshots как видео
+</code></pre>
+<h3 id="_25">Управление воспроизведением<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Действие</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Play/Pause</strong></td>
+<td>Запуск/пауза воспроизведения</td>
+</tr>
+<tr>
+<td><strong>Fast Forward</strong></td>
+<td>x2, x4, x8 скорость</td>
+</tr>
+<tr>
+<td><strong>Slow Motion</strong></td>
+<td>x0.5, x0.25 скорость</td>
+</tr>
+<tr>
+<td><strong>Rewind</strong></td>
+<td>Перемотка назад (просто seek по массиву snapshots)</td>
+</tr>
+<tr>
+<td><strong>Timeline</strong></td>
+<td>Scrub bar по всему забегу</td>
+</tr>
+<tr>
+<td><strong>Room Jump</strong></td>
+<td>Быстрый переход между комнатами</td>
+</tr>
+<tr>
+<td><strong>Camera</strong></td>
+<td>Свободная камера, привязка к персонажу</td>
+</tr>
+<tr>
+<td><strong>Skip</strong></td>
+<td>Пропустить комнату (результат уже известен)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_26">Техническая реализация<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Сервер генерирует массив <code>SimulationResult { snapshots[], loot[], outcome }</code></li>
+<li>Каждый snapshot: позиции сущностей, HP, действия, события</li>
+<li>Формат: protobuf, сжатие delta (каждый snapshot = diff от предыдущего)</li>
+<li>Размер: ~0.5-2 MB на комнату (30 TPS * ~60 сек * delta compression)</li>
+<li>Клиент хранит весь забег локально для пересмотра</li>
+</ul>
+<h3 id="ai-debug-overlay">AI Debug Overlay<a class="headerlink" href="#ai-debug-overlay" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Какой модуль активен (подсветка)</li>
+<li>Какой нод блюпринта сейчас выполняется</li>
+<li>Какую цель выбрал и почему</li>
+<li>Decision tree visualization в реальном времени</li>
+<li>Доступен и во время первого просмотра, и при replay</li>
+</ul>
+<h2 id="11-multiplayer-network-architecture">11. Multiplayer &amp; Network Architecture<a class="headerlink" href="#11-multiplayer-network-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="_27">Модель<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Co-op:</strong> 1-4 игрока в одном подземелье</li>
+<li><strong>Авторитетный сервер:</strong> Вся симуляция на сервере, batch mode</li>
+<li><strong>Каждый сам за себя:</strong> Нет принудительных ролей, нет team UI</li>
+<li><strong>Помощь через блюпринты:</strong> Ничто не мешает написать модуль <code>Healer</code> с условием <code>Ally HP Below 40%</code></li>
+</ul>
+<h3 id="batch-simulation">Сетевая модель (Batch Simulation)<a class="headerlink" href="#batch-simulation" title="Permanent link">&para;</a></h3>
+<pre><code>Phase 1 — LOBBY (WebSocket):
+  Client → Server: подключение, выбор/создание комнаты
+
+Phase 2 — UPLOAD (HTTP POST или WS message):
+  Client → Server: блюпринты + экипировка + скиллы всех игроков
+  Server: ждёт пока все игроки отправят свои билды
+
+Phase 3 — SIMULATE (серверная сторона, ~100ms):
+  Server: batch simulation всей комнаты
+  - Загружает блюпринты всех игроков
+  - Генерирует комнату (враги, объекты, layout) из seed
+  - Прогоняет N тиков до конца боя
+  - Собирает: snapshots[], loot per player, outcome
+
+Phase 4 — DELIVER (один ответ):
+  Server → Client: SimulationResult (весь бой целиком)
+  Client: проигрывает как видео
+
+Phase 5 — NEXT ROOM:
+  Repeat от Phase 2
+</code></pre>
+<h3 id="_28">Что это даёт<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Проблема классики</th>
+<th>Наше решение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Client prediction</td>
+<td>Не нужно — нет input</td>
+</tr>
+<tr>
+<td>Rollback netcode</td>
+<td>Не нужно — нет input</td>
+</tr>
+<tr>
+<td>Input delay / lag compensation</td>
+<td>Не нужно — нет input</td>
+</tr>
+<tr>
+<td>Snapshot interpolation</td>
+<td>Не нужно — все кадры уже есть</td>
+</tr>
+<tr>
+<td>Desync</td>
+<td>Невозможен — один сервер, один результат, все видят одно и то же</td>
+</tr>
+<tr>
+<td>Cheating (speed hack, aimbot)</td>
+<td>Невозможен — клиент ничего не контролирует</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_29">Протокол<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<p>По сути REST-like поверх WebSocket:
+- <code>UploadBuild</code> → клиент шлёт свой билд
+- <code>SimulateRoom</code> → сервер симулирует и возвращает результат
+- <code>NextRoom</code> / <code>EndRun</code> → управление забегом
+- WebSocket нужен только для lobby sync (все готовы → старт)</p>
+<h3 id="_30">Лут<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Лут индивидуальный (каждый видит и получает свой)</li>
+<li>Лут генерируется сервером в момент симуляции</li>
+<li>Нет trade между игроками (MVP)</li>
+</ul>
+<h2 id="12-pvp">12. Будущее PvP<a class="headerlink" href="#12-pvp" title="Permanent link">&para;</a></h2>
+<h3 id="_31">Арена<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<p>Те же персонажи, те же блюпринты, те же формулы. Два игрока (или две команды) ставят своих AI друг против друга.</p>
+<h3 id="_32">Почему это работает<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Баланс PvP-ready с самого начала (diminishing returns, линейный рост)</li>
+<li>Нет прямого контроля — PvP это соревнование "чей код лучше"</li>
+<li>Мета не даёт прямой силы, только инструменты</li>
+<li>Одинаковые формулы для PvE и PvP</li>
+</ul>
+<hr />
+<h2 id="appendix-a-glossary">Appendix A: Glossary<a class="headerlink" href="#appendix-a-glossary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Термин</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Blueprint</strong></td>
+<td>Визуальный граф поведения AI персонажа</td>
+</tr>
+<tr>
+<td><strong>Node (AI)</strong></td>
+<td>Элемент блюпринта: условие, действие или управление потоком</td>
+</tr>
+<tr>
+<td><strong>Module</strong></td>
+<td>Именованный блок поведения с условием активации</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>Ресурс, лимитирующий размер блюпринтов</td>
+</tr>
+<tr>
+<td><strong>Socket</strong></td>
+<td>Слот для вставки скилла (PoE-style)</td>
+</tr>
+<tr>
+<td><strong>Support</strong></td>
+<td>Модификатор скилла, подключаемый через link</td>
+</tr>
+<tr>
+<td><strong>Tag</strong></td>
+<td>Метка скилла для обращения из блюпринта</td>
+</tr>
+<tr>
+<td><strong>Code Fragments</strong></td>
+<td>Мета-валюта для прогрессии</td>
+</tr>
+<tr>
+<td><strong>TTK</strong></td>
+<td>Time to Kill — время убийства цели</td>
+</tr>
+<tr>
+<td><strong>Snapshot</strong></td>
+<td>Серверный кадр состояния мира (30 в секунду)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="appendix-b-reference-games">Appendix B: Reference Games<a class="headerlink" href="#appendix-b-reference-games" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Игра</th>
+<th>Что берём</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gladiabots</strong></td>
+<td>AI-программирование через визуальные правила</td>
+</tr>
+<tr>
+<td><strong>Path of Exile</strong></td>
+<td>Сокет-система (скиллы + саппорты + линки)</td>
+</tr>
+<tr>
+<td><strong>Enter the Gungeon</strong></td>
+<td>Top-down action, room-based dungeons</td>
+</tr>
+<tr>
+<td><strong>Slay the Spire</strong></td>
+<td>Roguelite мета-прогрессия, deckbuilding → blueprintbuilding</td>
+</tr>
+<tr>
+<td><strong>Auto Chess / TFT</strong></td>
+<td>Наблюдение вместо прямого управления</td>
+</tr>
+<tr>
+<td><strong>Factorio</strong></td>
+<td>Удовольствие от "мой код/система работает"</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.action.edit"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

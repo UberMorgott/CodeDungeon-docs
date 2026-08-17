@@ -1,0 +1,3690 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Живая игровая и техническая документация CodeDungeon">
+      
+      
+      
+      
+        <link rel="prev" href="../2026-02-23-phase3a-combat-foundation/">
+      
+      
+        <link rel="next" href="../2026-02-23-isometric-dungeon-system/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>AI system - CodeDungeon — документация</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#phase-2-ai-system-implementation-plan" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="CodeDungeon — документация" class="md-header__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CodeDungeon — документация
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AI system
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить тёмную тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Включить тёмную тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить светлую тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Включить светлую тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CodeDungeon — документация" class="md-nav__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CodeDungeon — документация
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Игровой дизайн
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Игровой дизайн
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главный индекс GDD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/vision-and-pillars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Видение и опоры
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/core-loop-and-runs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Основной цикл и забеги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/ai-brain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Мозг персонажа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/combat-and-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бой и фазы действий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/skills-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Навыки и теги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/items-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Предметы и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/passive-tree-and-sockets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пассивное дерево и ячейки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/progression-and-idle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Прогрессия и idle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глоссарий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Техническая документация
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Техническая документация
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ROADMAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../item-content-crafting-engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Item Content and Crafting Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../item-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Item Persistence Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../art-generation/currency-jewelry-2026-08-15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Генерация арта — валюта и украшения
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GDD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy GDD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Планы разработки
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Планы разработки
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-02-25-3d-migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3D migration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-02-23-subphase-c-treasure-shop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Treasure & shop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-02-23-subphase-b-floor-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Floor map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-02-23-subphase-a-isometric-view/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Isometric view
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-02-23-phase4a-ui-foundation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UI foundation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-02-23-phase3a-combat-foundation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Combat foundation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI system
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI system
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#task-1-proto-schema-blueprint-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 1: Proto Schema — Blueprint Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-2-ai-framework-node-interface-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 2: AI Framework — Node Interface &amp; Context
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-3-basic-nodes-flow-conditions-targeting-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 3: Basic Nodes — Flow, Conditions, Targeting, Actions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task 3: Basic Nodes — Flow, Conditions, Targeting, Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-write-tests-for-all-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Write tests for all nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-tests-to-verify-they-fail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Run tests to verify they fail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-implement-flow-control-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Implement flow control nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-implement-condition-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Implement condition nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-implement-targeting-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Implement targeting nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-implement-action-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Implement action nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-run-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Run tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-4-blueprint-builder-proto-to-node-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 4: Blueprint Builder — Proto to Node Tree
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task 4: Blueprint Builder — Proto to Node Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-write-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Write tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-tests-to-verify-they-fail_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Run tests to verify they fail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-implement-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Implement builder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-run-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Run tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-5-module-executor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 5: Module Executor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task 5: Module Executor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-write-tests_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Write tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-tests-to-verify-they-fail_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Run tests to verify they fail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-implement-executor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Implement executor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-run-tests_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Run tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-commit_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-6-memory-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 6: Memory System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task 6: Memory System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-write-tests_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Write tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-tests-to-verify-they-fail_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Run tests to verify they fail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-implement-memory-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Implement memory system
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-run-tests_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Run tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-commit_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-7-server-integration-simulator-handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 7: Server Integration — Simulator + Handler
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task 7: Server Integration — Simulator + Handler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-update-simconfig-to-carry-player-builds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Update SimConfig to carry player builds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-refactor-entity-to-use-ai-executor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Refactor entity to use AI executor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-update-handler-to-parse-uploadbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Update handler to parse UploadBuild
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-update-existing-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Update existing tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-run-all-server-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Run all server tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-8-client-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 8: Client Integration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task 8: Client Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-update-send_upload_build-to-send-a-playerbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Update send_upload_build to send a PlayerBuild
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-a-hardcoded-default-build-in-maingd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create a hardcoded default build in main.gd
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-9-e2e-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 9: E2E Verification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task 9: E2E Verification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-run-server-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Run server tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-start-server-and-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Start server and client
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-verify-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Verify flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-final-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Final commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependency Graph
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-for-implementer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes for Implementer
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-02-23-isometric-dungeon-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Isometric dungeon system
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#task-1-proto-schema-blueprint-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 1: Proto Schema — Blueprint Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-2-ai-framework-node-interface-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 2: AI Framework — Node Interface &amp; Context
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-3-basic-nodes-flow-conditions-targeting-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 3: Basic Nodes — Flow, Conditions, Targeting, Actions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task 3: Basic Nodes — Flow, Conditions, Targeting, Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-write-tests-for-all-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Write tests for all nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-tests-to-verify-they-fail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Run tests to verify they fail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-implement-flow-control-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Implement flow control nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-implement-condition-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Implement condition nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-implement-targeting-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Implement targeting nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-implement-action-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Implement action nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-run-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Run tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-4-blueprint-builder-proto-to-node-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 4: Blueprint Builder — Proto to Node Tree
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task 4: Blueprint Builder — Proto to Node Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-write-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Write tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-tests-to-verify-they-fail_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Run tests to verify they fail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-implement-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Implement builder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-run-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Run tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-5-module-executor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 5: Module Executor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task 5: Module Executor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-write-tests_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Write tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-tests-to-verify-they-fail_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Run tests to verify they fail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-implement-executor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Implement executor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-run-tests_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Run tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-commit_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-6-memory-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 6: Memory System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task 6: Memory System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-write-tests_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Write tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-tests-to-verify-they-fail_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Run tests to verify they fail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-implement-memory-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Implement memory system
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-run-tests_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Run tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-commit_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-7-server-integration-simulator-handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 7: Server Integration — Simulator + Handler
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task 7: Server Integration — Simulator + Handler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-update-simconfig-to-carry-player-builds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Update SimConfig to carry player builds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-refactor-entity-to-use-ai-executor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Refactor entity to use AI executor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-update-handler-to-parse-uploadbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Update handler to parse UploadBuild
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-update-existing-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Update existing tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-run-all-server-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Run all server tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-8-client-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 8: Client Integration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task 8: Client Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-update-send_upload_build-to-send-a-playerbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Update send_upload_build to send a PlayerBuild
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-a-hardcoded-default-build-in-maingd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create a hardcoded default build in main.gd
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-9-e2e-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 9: E2E Verification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task 9: E2E Verification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-run-server-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Run server tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-start-server-and-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Start server and client
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-verify-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Verify flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-final-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Final commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependency Graph
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-for-implementer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes for Implementer
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/plans/2026-02-23-phase2-ai-system.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="phase-2-ai-system-implementation-plan">Phase 2: AI System — Implementation Plan<a class="headerlink" href="#phase-2-ai-system-implementation-plan" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>For Claude:</strong> REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.</p>
+</blockquote>
+<p><strong>Goal:</strong> Replace hardcoded AI with a behavior tree system where player builds define entity behavior through blueprints, modules, and memory allocation.</p>
+<p><strong>Architecture:</strong> Protobuf-defined blueprint schema → server-side behavior tree executor (<code>internal/ai/</code> package) → module system with priority-based activation → memory cost validation. Client sends serialized <code>PlayerBuild</code> via <code>UploadBuild</code>; server parses it into a Node tree and runs it each tick instead of hardcoded if/else. Default blueprint replicates current hardcoded behavior for backward compat.</p>
+<p><strong>Tech Stack:</strong> Go 1.25, Protobuf + protojson, Godot 4.6 GDScript, gorilla/websocket</p>
+<hr />
+<h2 id="task-1-proto-schema-blueprint-types">Task 1: Proto Schema — Blueprint Types<a class="headerlink" href="#task-1-proto-schema-blueprint-types" title="Permanent link">&para;</a></h2>
+<p><strong>Files:</strong>
+- Modify: <code>shared/proto/game.proto</code>
+- Regenerate: <code>server/pkg/proto/game.pb.go</code></p>
+<p><strong>Step 1: Add blueprint message types to game.proto</strong></p>
+<p>Add after existing message definitions:</p>
+<pre><code class="language-protobuf">// === AI Blueprint System ===
+
+enum NodeType {
+  NODE_PRIORITY_SELECTOR = 0;
+  NODE_SEQUENCE = 1;
+  NODE_HP_BELOW = 2;
+  NODE_ENEMY_IN_RANGE = 3;
+  NODE_MOVE_TO = 4;
+  NODE_USE_SKILL = 5;
+  NODE_NEAREST_ENEMY = 6;
+  NODE_LOWEST_HP_ENEMY = 7;
+  NODE_WAIT = 8;
+}
+
+message BlueprintNode {
+  NodeType type = 1;
+  map&lt;string, string&gt; parameters = 2;
+  repeated BlueprintNode children = 3;
+}
+
+message Module {
+  string name = 1;
+  int32 priority = 2;
+  BlueprintNode condition = 3;
+  BlueprintNode blueprint = 4;
+}
+
+message PlayerBuild {
+  BlueprintNode global_ai = 1;
+  repeated Module modules = 2;
+  int32 total_memory = 3;
+  int32 global_memory = 4;
+}
+</code></pre>
+<p><strong>Step 2: Update UploadBuild to use typed field</strong></p>
+<p>Replace the existing <code>UploadBuild</code> message:</p>
+<pre><code class="language-protobuf">message UploadBuild {
+  PlayerBuild build = 1;
+}
+</code></pre>
+<p>Remove the old <code>bytes build_data = 1;</code> field.</p>
+<p><strong>Step 3: Regenerate Go code</strong></p>
+<p>Run: <code>bash shared/generate.sh</code></p>
+<p>Expected: <code>server/pkg/proto/game.pb.go</code> updated with new types.</p>
+<p><strong>Step 4: Verify compilation</strong></p>
+<p>Run: <code>cd server &amp;&amp; go build ./...</code></p>
+<p>Expected: clean build, no errors.</p>
+<p><strong>Step 5: Commit</strong></p>
+<pre><code class="language-bash">git add shared/proto/game.proto server/pkg/proto/game.pb.go
+git commit -m &quot;proto: add blueprint, module, and PlayerBuild types for AI system&quot;
+</code></pre>
+<hr />
+<h2 id="task-2-ai-framework-node-interface-context">Task 2: AI Framework — Node Interface &amp; Context<a class="headerlink" href="#task-2-ai-framework-node-interface-context" title="Permanent link">&para;</a></h2>
+<p><strong>Files:</strong>
+- Create: <code>server/internal/ai/node.go</code></p>
+<p><strong>Step 1: Create the AI package with core types</strong></p>
+<pre><code class="language-go">package ai
+
+import pb &quot;roguelite-server/pkg/proto&quot;
+
+// Status is the result of evaluating a behavior tree node.
+type Status int
+
+const (
+    Success Status = iota
+    Failure
+)
+
+// Action is what an entity should do this tick.
+type Action struct {
+    Type     pb.EntityAction
+    TargetID string
+}
+
+// Context carries per-tick evaluation state through the tree.
+type Context struct {
+    Self     *Entity
+    Entities []*Entity
+    Target   *Entity // set by targeting nodes, read by action nodes
+    Tick     int
+}
+
+// Entity is the AI-visible view of a game entity.
+type Entity struct {
+    ID     string
+    Type   pb.EntityType
+    X, Y   float64
+    HP     int32
+    MaxHP  int32
+    Armor  float64
+    Damage int32
+    Speed  float64
+    Alive  bool
+
+    Cooldown int // ticks until next attack
+}
+
+// Node is a single behavior tree node.
+type Node interface {
+    Evaluate(ctx *Context) (Status, *Action)
+}
+</code></pre>
+<p><strong>Step 2: Verify compilation</strong></p>
+<p>Run: <code>cd server &amp;&amp; go build ./internal/ai/</code></p>
+<p>Expected: clean build.</p>
+<p><strong>Step 3: Commit</strong></p>
+<pre><code class="language-bash">git add server/internal/ai/node.go
+git commit -m &quot;ai: add Node interface, Context, Entity, Action core types&quot;
+</code></pre>
+<hr />
+<h2 id="task-3-basic-nodes-flow-conditions-targeting-actions">Task 3: Basic Nodes — Flow, Conditions, Targeting, Actions<a class="headerlink" href="#task-3-basic-nodes-flow-conditions-targeting-actions" title="Permanent link">&para;</a></h2>
+<p><strong>Files:</strong>
+- Create: <code>server/internal/ai/flow.go</code>
+- Create: <code>server/internal/ai/conditions.go</code>
+- Create: <code>server/internal/ai/targeting.go</code>
+- Create: <code>server/internal/ai/actions.go</code>
+- Create: <code>server/internal/ai/nodes_test.go</code></p>
+<h3 id="step-1-write-tests-for-all-nodes">Step 1: Write tests for all nodes<a class="headerlink" href="#step-1-write-tests-for-all-nodes" title="Permanent link">&para;</a></h3>
+<p>File: <code>server/internal/ai/nodes_test.go</code></p>
+<pre><code class="language-go">package ai
+
+import (
+    &quot;testing&quot;
+
+    pb &quot;roguelite-server/pkg/proto&quot;
+)
+
+// --- helpers ---
+
+func makePlayer(id string, x, y float64, hp int32) *Entity {
+    return &amp;Entity{ID: id, Type: pb.EntityType_PLAYER, X: x, Y: y, HP: hp, MaxHP: 100, Alive: true, Damage: 10, Speed: 3}
+}
+
+func makeEnemy(id string, x, y float64, hp int32) *Entity {
+    return &amp;Entity{ID: id, Type: pb.EntityType_ENEMY_MELEE, X: x, Y: y, HP: hp, MaxHP: 50, Alive: true, Damage: 8, Speed: 2}
+}
+
+func ctx(self *Entity, others ...*Entity) *Context {
+    all := append([]*Entity{self}, others...)
+    return &amp;Context{Self: self, Entities: all, Tick: 0}
+}
+
+// --- PrioritySelector ---
+
+func TestPrioritySelector_FirstSuccess(t *testing.T) {
+    action := &amp;Action{Type: pb.EntityAction_ATTACK, TargetID: &quot;e1&quot;}
+    node := &amp;PrioritySelector{Children: []Node{
+        &amp;stubNode{status: Failure},
+        &amp;stubNode{status: Success, action: action},
+        &amp;stubNode{status: Success, action: &amp;Action{Type: pb.EntityAction_MOVE}},
+    }}
+    s, a := node.Evaluate(&amp;Context{})
+    if s != Success || a.TargetID != &quot;e1&quot; {
+        t.Fatalf(&quot;expected first successful child, got status=%d action=%v&quot;, s, a)
+    }
+}
+
+func TestPrioritySelector_AllFail(t *testing.T) {
+    node := &amp;PrioritySelector{Children: []Node{
+        &amp;stubNode{status: Failure},
+        &amp;stubNode{status: Failure},
+    }}
+    s, _ := node.Evaluate(&amp;Context{})
+    if s != Failure {
+        t.Fatal(&quot;expected Failure when all children fail&quot;)
+    }
+}
+
+// --- Sequence ---
+
+func TestSequence_AllSuccess(t *testing.T) {
+    action := &amp;Action{Type: pb.EntityAction_ATTACK}
+    node := &amp;Sequence{Children: []Node{
+        &amp;stubNode{status: Success, action: nil},
+        &amp;stubNode{status: Success, action: action},
+    }}
+    s, a := node.Evaluate(&amp;Context{})
+    if s != Success || a.Type != pb.EntityAction_ATTACK {
+        t.Fatalf(&quot;expected Success with last action, got status=%d action=%v&quot;, s, a)
+    }
+}
+
+func TestSequence_FailsEarly(t *testing.T) {
+    node := &amp;Sequence{Children: []Node{
+        &amp;stubNode{status: Failure},
+        &amp;stubNode{status: Success, action: &amp;Action{Type: pb.EntityAction_ATTACK}},
+    }}
+    s, _ := node.Evaluate(&amp;Context{})
+    if s != Failure {
+        t.Fatal(&quot;expected Failure on first failing child&quot;)
+    }
+}
+
+// --- HPBelow ---
+
+func TestHPBelow_True(t *testing.T) {
+    self := makePlayer(&quot;p1&quot;, 0, 0, 15) // 15/100 = 15%
+    c := ctx(self)
+    node := &amp;HPBelow{Threshold: 20, Target: &quot;self&quot;}
+    s, _ := node.Evaluate(c)
+    if s != Success {
+        t.Fatal(&quot;expected Success when HP below threshold&quot;)
+    }
+}
+
+func TestHPBelow_False(t *testing.T) {
+    self := makePlayer(&quot;p1&quot;, 0, 0, 80)
+    c := ctx(self)
+    node := &amp;HPBelow{Threshold: 20, Target: &quot;self&quot;}
+    s, _ := node.Evaluate(c)
+    if s != Failure {
+        t.Fatal(&quot;expected Failure when HP above threshold&quot;)
+    }
+}
+
+// --- EnemyInRange ---
+
+func TestEnemyInRange_True(t *testing.T) {
+    self := makePlayer(&quot;p1&quot;, 0, 0, 100)
+    enemy := makeEnemy(&quot;e1&quot;, 30, 0, 50) // dist=30, range=40
+    c := ctx(self, enemy)
+    node := &amp;EnemyInRange{Range: 40}
+    s, _ := node.Evaluate(c)
+    if s != Success {
+        t.Fatal(&quot;expected Success when enemy in range&quot;)
+    }
+}
+
+func TestEnemyInRange_False(t *testing.T) {
+    self := makePlayer(&quot;p1&quot;, 0, 0, 100)
+    enemy := makeEnemy(&quot;e1&quot;, 100, 0, 50) // dist=100, range=40
+    c := ctx(self, enemy)
+    node := &amp;EnemyInRange{Range: 40}
+    s, _ := node.Evaluate(c)
+    if s != Failure {
+        t.Fatal(&quot;expected Failure when no enemy in range&quot;)
+    }
+}
+
+// --- NearestEnemy ---
+
+func TestNearestEnemy_SetsTarget(t *testing.T) {
+    self := makePlayer(&quot;p1&quot;, 0, 0, 100)
+    far := makeEnemy(&quot;e1&quot;, 200, 0, 50)
+    near := makeEnemy(&quot;e2&quot;, 50, 0, 50)
+    c := ctx(self, far, near)
+    node := &amp;NearestEnemy{}
+    s, _ := node.Evaluate(c)
+    if s != Success || c.Target == nil || c.Target.ID != &quot;e2&quot; {
+        t.Fatalf(&quot;expected Target=e2, got %v&quot;, c.Target)
+    }
+}
+
+func TestNearestEnemy_NoEnemies(t *testing.T) {
+    self := makePlayer(&quot;p1&quot;, 0, 0, 100)
+    c := ctx(self)
+    node := &amp;NearestEnemy{}
+    s, _ := node.Evaluate(c)
+    if s != Failure {
+        t.Fatal(&quot;expected Failure with no enemies&quot;)
+    }
+}
+
+// --- LowestHPEnemy ---
+
+func TestLowestHPEnemy_SetsTarget(t *testing.T) {
+    self := makePlayer(&quot;p1&quot;, 0, 0, 100)
+    e1 := makeEnemy(&quot;e1&quot;, 50, 0, 40)
+    e2 := makeEnemy(&quot;e2&quot;, 80, 0, 10) // lowest HP
+    c := ctx(self, e1, e2)
+    node := &amp;LowestHPEnemy{}
+    s, _ := node.Evaluate(c)
+    if s != Success || c.Target == nil || c.Target.ID != &quot;e2&quot; {
+        t.Fatalf(&quot;expected Target=e2, got %v&quot;, c.Target)
+    }
+}
+
+// --- MoveTo ---
+
+func TestMoveTo_ReturnsAction(t *testing.T) {
+    self := makePlayer(&quot;p1&quot;, 0, 0, 100)
+    target := makeEnemy(&quot;e1&quot;, 100, 0, 50)
+    c := ctx(self, target)
+    c.Target = target
+    node := &amp;MoveTo{}
+    s, a := node.Evaluate(c)
+    if s != Success || a.Type != pb.EntityAction_MOVE || a.TargetID != &quot;e1&quot; {
+        t.Fatalf(&quot;expected MOVE to e1, got status=%d action=%v&quot;, s, a)
+    }
+}
+
+func TestMoveTo_NoTarget(t *testing.T) {
+    self := makePlayer(&quot;p1&quot;, 0, 0, 100)
+    c := ctx(self)
+    node := &amp;MoveTo{}
+    s, _ := node.Evaluate(c)
+    if s != Failure {
+        t.Fatal(&quot;expected Failure with no target&quot;)
+    }
+}
+
+// --- UseSkill ---
+
+func TestUseSkill_OnCooldown(t *testing.T) {
+    self := makePlayer(&quot;p1&quot;, 0, 0, 100)
+    self.Cooldown = 5
+    target := makeEnemy(&quot;e1&quot;, 30, 0, 50)
+    c := ctx(self, target)
+    c.Target = target
+    node := &amp;UseSkill{}
+    s, _ := node.Evaluate(c)
+    if s != Failure {
+        t.Fatal(&quot;expected Failure when on cooldown&quot;)
+    }
+}
+
+func TestUseSkill_Ready(t *testing.T) {
+    self := makePlayer(&quot;p1&quot;, 0, 0, 100)
+    self.Cooldown = 0
+    target := makeEnemy(&quot;e1&quot;, 30, 0, 50)
+    c := ctx(self, target)
+    c.Target = target
+    node := &amp;UseSkill{}
+    s, a := node.Evaluate(c)
+    if s != Success || a.Type != pb.EntityAction_ATTACK || a.TargetID != &quot;e1&quot; {
+        t.Fatalf(&quot;expected ATTACK e1, got status=%d action=%v&quot;, s, a)
+    }
+}
+
+// --- stub ---
+
+type stubNode struct {
+    status Status
+    action *Action
+}
+
+func (n *stubNode) Evaluate(_ *Context) (Status, *Action) {
+    return n.status, n.action
+}
+</code></pre>
+<h3 id="step-2-run-tests-to-verify-they-fail">Step 2: Run tests to verify they fail<a class="headerlink" href="#step-2-run-tests-to-verify-they-fail" title="Permanent link">&para;</a></h3>
+<p>Run: <code>cd server &amp;&amp; go test ./internal/ai/ -v</code></p>
+<p>Expected: compilation errors (types not defined yet).</p>
+<h3 id="step-3-implement-flow-control-nodes">Step 3: Implement flow control nodes<a class="headerlink" href="#step-3-implement-flow-control-nodes" title="Permanent link">&para;</a></h3>
+<p>File: <code>server/internal/ai/flow.go</code></p>
+<pre><code class="language-go">package ai
+
+// PrioritySelector evaluates children top-to-bottom, returns first success.
+type PrioritySelector struct {
+    Children []Node
+}
+
+func (n *PrioritySelector) Evaluate(ctx *Context) (Status, *Action) {
+    for _, child := range n.Children {
+        s, a := child.Evaluate(ctx)
+        if s == Success {
+            return Success, a
+        }
+    }
+    return Failure, nil
+}
+
+// Sequence evaluates children in order, fails on first failure.
+// Returns the last successful child's action.
+type Sequence struct {
+    Children []Node
+}
+
+func (n *Sequence) Evaluate(ctx *Context) (Status, *Action) {
+    var lastAction *Action
+    for _, child := range n.Children {
+        s, a := child.Evaluate(ctx)
+        if s == Failure {
+            return Failure, nil
+        }
+        if a != nil {
+            lastAction = a
+        }
+    }
+    return Success, lastAction
+}
+</code></pre>
+<h3 id="step-4-implement-condition-nodes">Step 4: Implement condition nodes<a class="headerlink" href="#step-4-implement-condition-nodes" title="Permanent link">&para;</a></h3>
+<p>File: <code>server/internal/ai/conditions.go</code></p>
+<pre><code class="language-go">package ai
+
+import (
+    &quot;math&quot;
+
+    pb &quot;roguelite-server/pkg/proto&quot;
+)
+
+// HPBelow succeeds when target's HP is below threshold percent.
+type HPBelow struct {
+    Threshold float64 // 0-100
+    Target    string  // &quot;self&quot; (future: &quot;ally&quot;, &quot;enemy&quot;)
+}
+
+func (n *HPBelow) Evaluate(ctx *Context) (Status, *Action) {
+    var e *Entity
+    switch n.Target {
+    case &quot;self&quot;, &quot;&quot;:
+        e = ctx.Self
+    default:
+        e = ctx.Self
+    }
+    pct := float64(e.HP) / float64(e.MaxHP) * 100
+    if pct &lt; n.Threshold {
+        return Success, nil
+    }
+    return Failure, nil
+}
+
+// EnemyInRange succeeds if any living enemy is within Range pixels.
+type EnemyInRange struct {
+    Range float64
+}
+
+func (n *EnemyInRange) Evaluate(ctx *Context) (Status, *Action) {
+    for _, e := range ctx.Entities {
+        if e == ctx.Self || !e.Alive || !isEnemy(ctx.Self, e) {
+            continue
+        }
+        if dist(ctx.Self, e) &lt;= n.Range {
+            return Success, nil
+        }
+    }
+    return Failure, nil
+}
+
+func isEnemy(self, other *Entity) bool {
+    selfIsPlayer := self.Type == pb.EntityType_PLAYER
+    otherIsPlayer := other.Type == pb.EntityType_PLAYER
+    return selfIsPlayer != otherIsPlayer
+}
+
+func dist(a, b *Entity) float64 {
+    dx := a.X - b.X
+    dy := a.Y - b.Y
+    return math.Sqrt(dx*dx + dy*dy)
+}
+</code></pre>
+<h3 id="step-5-implement-targeting-nodes">Step 5: Implement targeting nodes<a class="headerlink" href="#step-5-implement-targeting-nodes" title="Permanent link">&para;</a></h3>
+<p>File: <code>server/internal/ai/targeting.go</code></p>
+<pre><code class="language-go">package ai
+
+import &quot;math&quot;
+
+// NearestEnemy sets ctx.Target to the closest living enemy.
+type NearestEnemy struct{}
+
+func (n *NearestEnemy) Evaluate(ctx *Context) (Status, *Action) {
+    var best *Entity
+    bestDist := math.MaxFloat64
+    for _, e := range ctx.Entities {
+        if e == ctx.Self || !e.Alive || !isEnemy(ctx.Self, e) {
+            continue
+        }
+        d := dist(ctx.Self, e)
+        if d &lt; bestDist {
+            bestDist = d
+            best = e
+        }
+    }
+    if best == nil {
+        return Failure, nil
+    }
+    ctx.Target = best
+    return Success, nil
+}
+
+// LowestHPEnemy sets ctx.Target to the living enemy with lowest HP.
+type LowestHPEnemy struct{}
+
+func (n *LowestHPEnemy) Evaluate(ctx *Context) (Status, *Action) {
+    var best *Entity
+    for _, e := range ctx.Entities {
+        if e == ctx.Self || !e.Alive || !isEnemy(ctx.Self, e) {
+            continue
+        }
+        if best == nil || e.HP &lt; best.HP {
+            best = e
+        }
+    }
+    if best == nil {
+        return Failure, nil
+    }
+    ctx.Target = best
+    return Success, nil
+}
+</code></pre>
+<h3 id="step-6-implement-action-nodes">Step 6: Implement action nodes<a class="headerlink" href="#step-6-implement-action-nodes" title="Permanent link">&para;</a></h3>
+<p>File: <code>server/internal/ai/actions.go</code></p>
+<pre><code class="language-go">package ai
+
+import pb &quot;roguelite-server/pkg/proto&quot;
+
+// MoveTo returns a MOVE action toward ctx.Target.
+type MoveTo struct{}
+
+func (n *MoveTo) Evaluate(ctx *Context) (Status, *Action) {
+    if ctx.Target == nil {
+        return Failure, nil
+    }
+    return Success, &amp;Action{Type: pb.EntityAction_MOVE, TargetID: ctx.Target.ID}
+}
+
+// UseSkill returns an ATTACK action on ctx.Target if not on cooldown.
+// Phase 2: skill = basic attack. Phase 3: skill lookup by name/tag.
+type UseSkill struct{}
+
+func (n *UseSkill) Evaluate(ctx *Context) (Status, *Action) {
+    if ctx.Target == nil || ctx.Self.Cooldown &gt; 0 {
+        return Failure, nil
+    }
+    return Success, &amp;Action{Type: pb.EntityAction_ATTACK, TargetID: ctx.Target.ID}
+}
+
+// Wait returns an IDLE action.
+type Wait struct{}
+
+func (n *Wait) Evaluate(ctx *Context) (Status, *Action) {
+    return Success, &amp;Action{Type: pb.EntityAction_IDLE}
+}
+</code></pre>
+<h3 id="step-7-run-tests">Step 7: Run tests<a class="headerlink" href="#step-7-run-tests" title="Permanent link">&para;</a></h3>
+<p>Run: <code>cd server &amp;&amp; go test ./internal/ai/ -v</code></p>
+<p>Expected: all tests pass.</p>
+<h3 id="step-8-commit">Step 8: Commit<a class="headerlink" href="#step-8-commit" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">git add server/internal/ai/
+git commit -m &quot;ai: implement basic behavior tree nodes — flow, conditions, targeting, actions&quot;
+</code></pre>
+<hr />
+<h2 id="task-4-blueprint-builder-proto-to-node-tree">Task 4: Blueprint Builder — Proto to Node Tree<a class="headerlink" href="#task-4-blueprint-builder-proto-to-node-tree" title="Permanent link">&para;</a></h2>
+<p><strong>Files:</strong>
+- Create: <code>server/internal/ai/builder.go</code>
+- Create: <code>server/internal/ai/builder_test.go</code></p>
+<h3 id="step-1-write-tests">Step 1: Write tests<a class="headerlink" href="#step-1-write-tests" title="Permanent link">&para;</a></h3>
+<p>File: <code>server/internal/ai/builder_test.go</code></p>
+<pre><code class="language-go">package ai
+
+import (
+    &quot;testing&quot;
+
+    pb &quot;roguelite-server/pkg/proto&quot;
+)
+
+func TestBuildTree_PrioritySelector(t *testing.T) {
+    proto := &amp;pb.BlueprintNode{
+        Type: pb.NodeType_NODE_PRIORITY_SELECTOR,
+        Children: []*pb.BlueprintNode{
+            {Type: pb.NodeType_NODE_NEAREST_ENEMY},
+            {Type: pb.NodeType_NODE_MOVE_TO},
+        },
+    }
+    node, err := BuildTree(proto)
+    if err != nil {
+        t.Fatal(err)
+    }
+    ps, ok := node.(*PrioritySelector)
+    if !ok {
+        t.Fatalf(&quot;expected *PrioritySelector, got %T&quot;, node)
+    }
+    if len(ps.Children) != 2 {
+        t.Fatalf(&quot;expected 2 children, got %d&quot;, len(ps.Children))
+    }
+}
+
+func TestBuildTree_HPBelowParams(t *testing.T) {
+    proto := &amp;pb.BlueprintNode{
+        Type:       pb.NodeType_NODE_HP_BELOW,
+        Parameters: map[string]string{&quot;threshold&quot;: &quot;25&quot;, &quot;target&quot;: &quot;self&quot;},
+    }
+    node, err := BuildTree(proto)
+    if err != nil {
+        t.Fatal(err)
+    }
+    hp, ok := node.(*HPBelow)
+    if !ok {
+        t.Fatalf(&quot;expected *HPBelow, got %T&quot;, node)
+    }
+    if hp.Threshold != 25 {
+        t.Fatalf(&quot;expected threshold=25, got %f&quot;, hp.Threshold)
+    }
+}
+
+func TestBuildTree_EnemyInRangeParams(t *testing.T) {
+    proto := &amp;pb.BlueprintNode{
+        Type:       pb.NodeType_NODE_ENEMY_IN_RANGE,
+        Parameters: map[string]string{&quot;range&quot;: &quot;60&quot;},
+    }
+    node, err := BuildTree(proto)
+    if err != nil {
+        t.Fatal(err)
+    }
+    eir, ok := node.(*EnemyInRange)
+    if !ok {
+        t.Fatalf(&quot;expected *EnemyInRange, got %T&quot;, node)
+    }
+    if eir.Range != 60 {
+        t.Fatalf(&quot;expected range=60, got %f&quot;, eir.Range)
+    }
+}
+
+func TestBuildTree_NilReturnsDefault(t *testing.T) {
+    node, err := BuildTree(nil)
+    if err != nil {
+        t.Fatal(err)
+    }
+    // default: PrioritySelector(NearestEnemy → UseSkill, NearestEnemy → MoveTo)
+    ps, ok := node.(*PrioritySelector)
+    if !ok {
+        t.Fatalf(&quot;expected *PrioritySelector default, got %T&quot;, node)
+    }
+    if len(ps.Children) != 2 {
+        t.Fatalf(&quot;expected 2 children in default tree, got %d&quot;, len(ps.Children))
+    }
+}
+
+func TestBuildTree_FullBlueprint(t *testing.T) {
+    // PrioritySelector:
+    //   Sequence(EnemyInRange(40), UseSkill)
+    //   Sequence(NearestEnemy, MoveTo)
+    proto := &amp;pb.BlueprintNode{
+        Type: pb.NodeType_NODE_PRIORITY_SELECTOR,
+        Children: []*pb.BlueprintNode{
+            {
+                Type: pb.NodeType_NODE_SEQUENCE,
+                Children: []*pb.BlueprintNode{
+                    {Type: pb.NodeType_NODE_ENEMY_IN_RANGE, Parameters: map[string]string{&quot;range&quot;: &quot;40&quot;}},
+                    {Type: pb.NodeType_NODE_USE_SKILL},
+                },
+            },
+            {
+                Type: pb.NodeType_NODE_SEQUENCE,
+                Children: []*pb.BlueprintNode{
+                    {Type: pb.NodeType_NODE_NEAREST_ENEMY},
+                    {Type: pb.NodeType_NODE_MOVE_TO},
+                },
+            },
+        },
+    }
+
+    node, err := BuildTree(proto)
+    if err != nil {
+        t.Fatal(err)
+    }
+
+    // Evaluate: enemy far away → first sequence fails (not in range) → second succeeds (move)
+    self := makePlayer(&quot;p1&quot;, 0, 0, 100)
+    enemy := makeEnemy(&quot;e1&quot;, 200, 0, 50)
+    c := ctx(self, enemy)
+    s, a := node.Evaluate(c)
+    if s != Success || a.Type != pb.EntityAction_MOVE {
+        t.Fatalf(&quot;expected MOVE when enemy far, got status=%d action=%v&quot;, s, a)
+    }
+
+    // Evaluate: enemy close → first sequence succeeds (attack)
+    enemy.X = 30
+    c2 := ctx(self, enemy)
+    s2, a2 := node.Evaluate(c2)
+    if s2 != Success || a2.Type != pb.EntityAction_ATTACK {
+        t.Fatalf(&quot;expected ATTACK when enemy close, got status=%d action=%v&quot;, s2, a2)
+    }
+}
+</code></pre>
+<h3 id="step-2-run-tests-to-verify-they-fail_1">Step 2: Run tests to verify they fail<a class="headerlink" href="#step-2-run-tests-to-verify-they-fail_1" title="Permanent link">&para;</a></h3>
+<p>Run: <code>cd server &amp;&amp; go test ./internal/ai/ -v -run TestBuild</code></p>
+<p>Expected: compilation error — <code>BuildTree</code> not defined.</p>
+<h3 id="step-3-implement-builder">Step 3: Implement builder<a class="headerlink" href="#step-3-implement-builder" title="Permanent link">&para;</a></h3>
+<p>File: <code>server/internal/ai/builder.go</code></p>
+<pre><code class="language-go">package ai
+
+import (
+    &quot;fmt&quot;
+    &quot;strconv&quot;
+
+    pb &quot;roguelite-server/pkg/proto&quot;
+)
+
+// BuildTree converts a protobuf BlueprintNode into an executable Node tree.
+// Returns the default behavior tree if proto is nil.
+func BuildTree(proto *pb.BlueprintNode) (Node, error) {
+    if proto == nil {
+        return DefaultTree(), nil
+    }
+    return buildNode(proto)
+}
+
+// DefaultTree returns the fallback AI: find nearest enemy, attack or move.
+func DefaultTree() Node {
+    return &amp;PrioritySelector{Children: []Node{
+        &amp;Sequence{Children: []Node{
+            &amp;NearestEnemy{},
+            &amp;EnemyInRange{Range: 40},
+            &amp;UseSkill{},
+        }},
+        &amp;Sequence{Children: []Node{
+            &amp;NearestEnemy{},
+            &amp;MoveTo{},
+        }},
+    }}
+}
+
+func buildNode(proto *pb.BlueprintNode) (Node, error) {
+    switch proto.Type {
+    case pb.NodeType_NODE_PRIORITY_SELECTOR:
+        children, err := buildChildren(proto.Children)
+        if err != nil {
+            return nil, err
+        }
+        return &amp;PrioritySelector{Children: children}, nil
+
+    case pb.NodeType_NODE_SEQUENCE:
+        children, err := buildChildren(proto.Children)
+        if err != nil {
+            return nil, err
+        }
+        return &amp;Sequence{Children: children}, nil
+
+    case pb.NodeType_NODE_HP_BELOW:
+        threshold := paramFloat(proto.Parameters, &quot;threshold&quot;, 50)
+        target := paramStr(proto.Parameters, &quot;target&quot;, &quot;self&quot;)
+        return &amp;HPBelow{Threshold: threshold, Target: target}, nil
+
+    case pb.NodeType_NODE_ENEMY_IN_RANGE:
+        r := paramFloat(proto.Parameters, &quot;range&quot;, 40)
+        return &amp;EnemyInRange{Range: r}, nil
+
+    case pb.NodeType_NODE_MOVE_TO:
+        return &amp;MoveTo{}, nil
+
+    case pb.NodeType_NODE_USE_SKILL:
+        return &amp;UseSkill{}, nil
+
+    case pb.NodeType_NODE_NEAREST_ENEMY:
+        return &amp;NearestEnemy{}, nil
+
+    case pb.NodeType_NODE_LOWEST_HP_ENEMY:
+        return &amp;LowestHPEnemy{}, nil
+
+    case pb.NodeType_NODE_WAIT:
+        return &amp;Wait{}, nil
+
+    default:
+        return nil, fmt.Errorf(&quot;unknown node type: %d&quot;, proto.Type)
+    }
+}
+
+func buildChildren(protos []*pb.BlueprintNode) ([]Node, error) {
+    nodes := make([]Node, 0, len(protos))
+    for _, p := range protos {
+        n, err := buildNode(p)
+        if err != nil {
+            return nil, err
+        }
+        nodes = append(nodes, n)
+    }
+    return nodes, nil
+}
+
+func paramFloat(params map[string]string, key string, fallback float64) float64 {
+    v, ok := params[key]
+    if !ok {
+        return fallback
+    }
+    f, err := strconv.ParseFloat(v, 64)
+    if err != nil {
+        return fallback
+    }
+    return f
+}
+
+func paramStr(params map[string]string, key string, fallback string) string {
+    v, ok := params[key]
+    if !ok {
+        return fallback
+    }
+    return v
+}
+</code></pre>
+<h3 id="step-4-run-tests">Step 4: Run tests<a class="headerlink" href="#step-4-run-tests" title="Permanent link">&para;</a></h3>
+<p>Run: <code>cd server &amp;&amp; go test ./internal/ai/ -v -run TestBuild</code></p>
+<p>Expected: all pass.</p>
+<h3 id="step-5-commit">Step 5: Commit<a class="headerlink" href="#step-5-commit" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">git add server/internal/ai/builder.go server/internal/ai/builder_test.go
+git commit -m &quot;ai: add blueprint builder — proto BlueprintNode to executable Node tree&quot;
+</code></pre>
+<hr />
+<h2 id="task-5-module-executor">Task 5: Module Executor<a class="headerlink" href="#task-5-module-executor" title="Permanent link">&para;</a></h2>
+<p><strong>Files:</strong>
+- Create: <code>server/internal/ai/executor.go</code>
+- Create: <code>server/internal/ai/executor_test.go</code></p>
+<h3 id="step-1-write-tests_1">Step 1: Write tests<a class="headerlink" href="#step-1-write-tests_1" title="Permanent link">&para;</a></h3>
+<p>File: <code>server/internal/ai/executor_test.go</code></p>
+<pre><code class="language-go">package ai
+
+import (
+    &quot;testing&quot;
+
+    pb &quot;roguelite-server/pkg/proto&quot;
+)
+
+func TestExecutor_GlobalOnly(t *testing.T) {
+    // No modules, just global AI
+    globalTree := &amp;PrioritySelector{Children: []Node{
+        &amp;Sequence{Children: []Node{&amp;NearestEnemy{}, &amp;MoveTo{}}},
+    }}
+    exec := NewExecutor(globalTree, nil)
+
+    self := makePlayer(&quot;p1&quot;, 0, 0, 100)
+    enemy := makeEnemy(&quot;e1&quot;, 200, 0, 50)
+    c := ctx(self, enemy)
+
+    s, a := exec.Evaluate(c)
+    if s != Success || a.Type != pb.EntityAction_MOVE {
+        t.Fatalf(&quot;expected MOVE, got status=%d action=%v&quot;, s, a)
+    }
+}
+
+func TestExecutor_ModuleActivation(t *testing.T) {
+    // Global: move to nearest
+    // Module &quot;aggro&quot; (priority 1, condition: always true): attack
+    global := &amp;Sequence{Children: []Node{&amp;NearestEnemy{}, &amp;MoveTo{}}}
+    aggroMod := &amp;ExecutorModule{
+        Name:      &quot;aggro&quot;,
+        Priority:  1,
+        Condition: &amp;stubNode{status: Success},
+        Tree:      &amp;Sequence{Children: []Node{&amp;NearestEnemy{}, &amp;UseSkill{}}},
+    }
+
+    exec := NewExecutor(global, []*ExecutorModule{aggroMod})
+
+    self := makePlayer(&quot;p1&quot;, 0, 0, 100)
+    enemy := makeEnemy(&quot;e1&quot;, 30, 0, 50)
+    c := ctx(self, enemy)
+
+    s, a := exec.Evaluate(c)
+    if s != Success || a.Type != pb.EntityAction_ATTACK {
+        t.Fatalf(&quot;expected ATTACK from module, got status=%d action=%v&quot;, s, a)
+    }
+}
+
+func TestExecutor_ModulePriority(t *testing.T) {
+    // Two modules both active, higher priority (lower number) wins
+    mod1 := &amp;ExecutorModule{
+        Name: &quot;heal&quot;, Priority: 2,
+        Condition: &amp;stubNode{status: Success},
+        Tree:      &amp;Wait{},
+    }
+    mod2 := &amp;ExecutorModule{
+        Name: &quot;aggro&quot;, Priority: 1,
+        Condition: &amp;stubNode{status: Success},
+        Tree:      &amp;Sequence{Children: []Node{&amp;NearestEnemy{}, &amp;UseSkill{}}},
+    }
+
+    exec := NewExecutor(&amp;Wait{}, []*ExecutorModule{mod1, mod2})
+
+    self := makePlayer(&quot;p1&quot;, 0, 0, 100)
+    enemy := makeEnemy(&quot;e1&quot;, 30, 0, 50)
+    c := ctx(self, enemy)
+
+    s, a := exec.Evaluate(c)
+    if s != Success || a.Type != pb.EntityAction_ATTACK {
+        t.Fatalf(&quot;expected ATTACK from higher-priority module, got status=%d action=%v&quot;, s, a)
+    }
+}
+
+func TestExecutor_ModuleConditionFalse(t *testing.T) {
+    // Module condition fails → fall back to global
+    mod := &amp;ExecutorModule{
+        Name: &quot;aggro&quot;, Priority: 1,
+        Condition: &amp;stubNode{status: Failure},
+        Tree:      &amp;Sequence{Children: []Node{&amp;NearestEnemy{}, &amp;UseSkill{}}},
+    }
+
+    global := &amp;Sequence{Children: []Node{&amp;NearestEnemy{}, &amp;MoveTo{}}}
+    exec := NewExecutor(global, []*ExecutorModule{mod})
+
+    self := makePlayer(&quot;p1&quot;, 0, 0, 100)
+    enemy := makeEnemy(&quot;e1&quot;, 200, 0, 50)
+    c := ctx(self, enemy)
+
+    s, a := exec.Evaluate(c)
+    if s != Success || a.Type != pb.EntityAction_MOVE {
+        t.Fatalf(&quot;expected MOVE from global (module inactive), got status=%d action=%v&quot;, s, a)
+    }
+}
+</code></pre>
+<h3 id="step-2-run-tests-to-verify-they-fail_2">Step 2: Run tests to verify they fail<a class="headerlink" href="#step-2-run-tests-to-verify-they-fail_2" title="Permanent link">&para;</a></h3>
+<p>Run: <code>cd server &amp;&amp; go test ./internal/ai/ -v -run TestExecutor</code></p>
+<p>Expected: compilation error — <code>NewExecutor</code>, <code>ExecutorModule</code> not defined.</p>
+<h3 id="step-3-implement-executor">Step 3: Implement executor<a class="headerlink" href="#step-3-implement-executor" title="Permanent link">&para;</a></h3>
+<p>File: <code>server/internal/ai/executor.go</code></p>
+<pre><code class="language-go">package ai
+
+import &quot;sort&quot;
+
+// ExecutorModule is a runtime module with pre-built condition and behavior trees.
+type ExecutorModule struct {
+    Name      string
+    Priority  int // 1 = highest
+    Condition Node
+    Tree      Node
+}
+
+// Executor runs the AI for one entity per tick.
+// Evaluates modules by priority, falls back to global AI.
+type Executor struct {
+    Global  Node
+    Modules []*ExecutorModule // sorted by priority ascending (1 first)
+}
+
+// NewExecutor creates an executor with sorted modules.
+func NewExecutor(global Node, modules []*ExecutorModule) *Executor {
+    sorted := make([]*ExecutorModule, len(modules))
+    copy(sorted, modules)
+    sort.Slice(sorted, func(i, j int) bool {
+        return sorted[i].Priority &lt; sorted[j].Priority
+    })
+    return &amp;Executor{Global: global, Modules: sorted}
+}
+
+// Evaluate runs the AI decision for one tick.
+// Checks modules by priority, uses first whose condition succeeds.
+// Falls back to global AI if no module activates.
+func (e *Executor) Evaluate(ctx *Context) (Status, *Action) {
+    for _, mod := range e.Modules {
+        s, _ := mod.Condition.Evaluate(ctx)
+        if s == Success {
+            return mod.Tree.Evaluate(ctx)
+        }
+    }
+    return e.Global.Evaluate(ctx)
+}
+</code></pre>
+<h3 id="step-4-run-tests_1">Step 4: Run tests<a class="headerlink" href="#step-4-run-tests_1" title="Permanent link">&para;</a></h3>
+<p>Run: <code>cd server &amp;&amp; go test ./internal/ai/ -v -run TestExecutor</code></p>
+<p>Expected: all pass.</p>
+<h3 id="step-5-commit_1">Step 5: Commit<a class="headerlink" href="#step-5-commit_1" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">git add server/internal/ai/executor.go server/internal/ai/executor_test.go
+git commit -m &quot;ai: add module executor — priority-based module selection with global fallback&quot;
+</code></pre>
+<hr />
+<h2 id="task-6-memory-system">Task 6: Memory System<a class="headerlink" href="#task-6-memory-system" title="Permanent link">&para;</a></h2>
+<p><strong>Files:</strong>
+- Create: <code>server/internal/ai/memory.go</code>
+- Create: <code>server/internal/ai/memory_test.go</code></p>
+<h3 id="step-1-write-tests_2">Step 1: Write tests<a class="headerlink" href="#step-1-write-tests_2" title="Permanent link">&para;</a></h3>
+<p>File: <code>server/internal/ai/memory_test.go</code></p>
+<pre><code class="language-go">package ai
+
+import (
+    &quot;testing&quot;
+
+    pb &quot;roguelite-server/pkg/proto&quot;
+)
+
+func TestNodeCost(t *testing.T) {
+    tests := []struct {
+        nodeType pb.NodeType
+        want     int32
+    }{
+        {pb.NodeType_NODE_HP_BELOW, 1},
+        {pb.NodeType_NODE_MOVE_TO, 1},
+        {pb.NodeType_NODE_SEQUENCE, 1},
+        {pb.NodeType_NODE_USE_SKILL, 2},
+        {pb.NodeType_NODE_PRIORITY_SELECTOR, 2},
+        {pb.NodeType_NODE_ENEMY_IN_RANGE, 2},
+        {pb.NodeType_NODE_NEAREST_ENEMY, 1},
+        {pb.NodeType_NODE_LOWEST_HP_ENEMY, 1},
+        {pb.NodeType_NODE_WAIT, 1},
+    }
+    for _, tt := range tests {
+        got := NodeCost(tt.nodeType)
+        if got != tt.want {
+            t.Errorf(&quot;NodeCost(%v) = %d, want %d&quot;, tt.nodeType, got, tt.want)
+        }
+    }
+}
+
+func TestTreeCost(t *testing.T) {
+    // PrioritySelector(2) + HPBelow(1) + UseSkill(2) = 5
+    tree := &amp;pb.BlueprintNode{
+        Type: pb.NodeType_NODE_PRIORITY_SELECTOR,
+        Children: []*pb.BlueprintNode{
+            {Type: pb.NodeType_NODE_HP_BELOW},
+            {Type: pb.NodeType_NODE_USE_SKILL},
+        },
+    }
+    if got := TreeCost(tree); got != 5 {
+        t.Fatalf(&quot;expected cost=5, got %d&quot;, got)
+    }
+}
+
+func TestTreeCost_Nil(t *testing.T) {
+    if got := TreeCost(nil); got != 0 {
+        t.Fatalf(&quot;expected cost=0 for nil, got %d&quot;, got)
+    }
+}
+
+func TestValidateBuild_OK(t *testing.T) {
+    build := &amp;pb.PlayerBuild{
+        TotalMemory:  20,
+        GlobalMemory: 8,
+        GlobalAi: &amp;pb.BlueprintNode{
+            Type: pb.NodeType_NODE_PRIORITY_SELECTOR, // cost=2
+            Children: []*pb.BlueprintNode{
+                {Type: pb.NodeType_NODE_NEAREST_ENEMY}, // cost=1
+                {Type: pb.NodeType_NODE_MOVE_TO},       // cost=1
+            },
+        }, // total global = 4, fits in 8
+        Modules: []*pb.Module{
+            {
+                Name:     &quot;aggro&quot;,
+                Priority: 1,
+                Condition: &amp;pb.BlueprintNode{
+                    Type: pb.NodeType_NODE_ENEMY_IN_RANGE, // cost=2
+                },
+                Blueprint: &amp;pb.BlueprintNode{
+                    Type: pb.NodeType_NODE_USE_SKILL, // cost=2
+                },
+            }, // module total = 4, fits in 20-8=12
+        },
+    }
+    err := ValidateBuild(build)
+    if err != nil {
+        t.Fatalf(&quot;expected valid, got %v&quot;, err)
+    }
+}
+
+func TestValidateBuild_GlobalOverflow(t *testing.T) {
+    build := &amp;pb.PlayerBuild{
+        TotalMemory:  20,
+        GlobalMemory: 3, // only 3 available
+        GlobalAi: &amp;pb.BlueprintNode{
+            Type: pb.NodeType_NODE_PRIORITY_SELECTOR, // cost=2
+            Children: []*pb.BlueprintNode{
+                {Type: pb.NodeType_NODE_USE_SKILL}, // cost=2 → total 4 &gt; 3
+            },
+        },
+    }
+    err := ValidateBuild(build)
+    if err == nil {
+        t.Fatal(&quot;expected error for global memory overflow&quot;)
+    }
+}
+
+func TestValidateBuild_ModuleOverflow(t *testing.T) {
+    build := &amp;pb.PlayerBuild{
+        TotalMemory:  10,
+        GlobalMemory: 8, // leaves 2 for modules
+        GlobalAi:     &amp;pb.BlueprintNode{Type: pb.NodeType_NODE_WAIT}, // cost=1
+        Modules: []*pb.Module{
+            {
+                Name:      &quot;big&quot;,
+                Priority:  1,
+                Condition: &amp;pb.BlueprintNode{Type: pb.NodeType_NODE_HP_BELOW},     // cost=1
+                Blueprint: &amp;pb.BlueprintNode{Type: pb.NodeType_NODE_USE_SKILL},    // cost=2
+            }, // module total = 3 &gt; 2 available
+        },
+    }
+    err := ValidateBuild(build)
+    if err == nil {
+        t.Fatal(&quot;expected error for module memory overflow&quot;)
+    }
+}
+</code></pre>
+<h3 id="step-2-run-tests-to-verify-they-fail_3">Step 2: Run tests to verify they fail<a class="headerlink" href="#step-2-run-tests-to-verify-they-fail_3" title="Permanent link">&para;</a></h3>
+<p>Run: <code>cd server &amp;&amp; go test ./internal/ai/ -v -run "TestNodeCost|TestTreeCost|TestValidate"</code></p>
+<p>Expected: compilation error.</p>
+<h3 id="step-3-implement-memory-system">Step 3: Implement memory system<a class="headerlink" href="#step-3-implement-memory-system" title="Permanent link">&para;</a></h3>
+<p>File: <code>server/internal/ai/memory.go</code></p>
+<pre><code class="language-go">package ai
+
+import (
+    &quot;fmt&quot;
+
+    pb &quot;roguelite-server/pkg/proto&quot;
+)
+
+// Node memory costs from GDD.
+var nodeCosts = map[pb.NodeType]int32{
+    pb.NodeType_NODE_HP_BELOW:           1,
+    pb.NodeType_NODE_MOVE_TO:            1,
+    pb.NodeType_NODE_SEQUENCE:           1,
+    pb.NodeType_NODE_NEAREST_ENEMY:      1,
+    pb.NodeType_NODE_LOWEST_HP_ENEMY:    1,
+    pb.NodeType_NODE_WAIT:               1,
+    pb.NodeType_NODE_USE_SKILL:          2,
+    pb.NodeType_NODE_PRIORITY_SELECTOR:  2,
+    pb.NodeType_NODE_ENEMY_IN_RANGE:     2,
+}
+
+// NodeCost returns the memory cost for a single node type.
+func NodeCost(t pb.NodeType) int32 {
+    if c, ok := nodeCosts[t]; ok {
+        return c
+    }
+    return 1
+}
+
+// TreeCost returns total memory cost of a blueprint tree.
+func TreeCost(node *pb.BlueprintNode) int32 {
+    if node == nil {
+        return 0
+    }
+    cost := NodeCost(node.Type)
+    for _, child := range node.Children {
+        cost += TreeCost(child)
+    }
+    return cost
+}
+
+// ValidateBuild checks that a player build fits within memory limits.
+func ValidateBuild(build *pb.PlayerBuild) error {
+    if build == nil {
+        return nil // nil build = use defaults
+    }
+
+    globalCost := TreeCost(build.GlobalAi)
+    if globalCost &gt; build.GlobalMemory {
+        return fmt.Errorf(&quot;global AI cost %d exceeds allocated memory %d&quot;, globalCost, build.GlobalMemory)
+    }
+
+    moduleMemory := build.TotalMemory - build.GlobalMemory
+    var moduleCost int32
+    for _, mod := range build.Modules {
+        moduleCost += TreeCost(mod.Condition)
+        moduleCost += TreeCost(mod.Blueprint)
+    }
+    if moduleCost &gt; moduleMemory {
+        return fmt.Errorf(&quot;modules cost %d exceeds allocated memory %d&quot;, moduleCost, moduleMemory)
+    }
+
+    return nil
+}
+</code></pre>
+<h3 id="step-4-run-tests_2">Step 4: Run tests<a class="headerlink" href="#step-4-run-tests_2" title="Permanent link">&para;</a></h3>
+<p>Run: <code>cd server &amp;&amp; go test ./internal/ai/ -v -run "TestNodeCost|TestTreeCost|TestValidate"</code></p>
+<p>Expected: all pass.</p>
+<h3 id="step-5-commit_2">Step 5: Commit<a class="headerlink" href="#step-5-commit_2" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">git add server/internal/ai/memory.go server/internal/ai/memory_test.go
+git commit -m &quot;ai: add memory system — node costs, tree cost calc, build validation&quot;
+</code></pre>
+<hr />
+<h2 id="task-7-server-integration-simulator-handler">Task 7: Server Integration — Simulator + Handler<a class="headerlink" href="#task-7-server-integration-simulator-handler" title="Permanent link">&para;</a></h2>
+<p><strong>Files:</strong>
+- Modify: <code>server/internal/game/simulator.go</code>
+- Modify: <code>server/internal/game/handler.go</code>
+- Modify: <code>server/internal/game/simulator_test.go</code></p>
+<h3 id="step-1-update-simconfig-to-carry-player-builds">Step 1: Update SimConfig to carry player builds<a class="headerlink" href="#step-1-update-simconfig-to-carry-player-builds" title="Permanent link">&para;</a></h3>
+<p>In <code>simulator.go</code>, update <code>EntityConfig</code> and add AI executor integration:</p>
+<pre><code class="language-go">// Add to EntityConfig:
+type EntityConfig struct {
+    ID     string
+    Type   pb.EntityType
+    X, Y   float64
+    HP     int32
+    Armor  float64
+    Damage int32
+    Speed  float64
+    Build  *pb.PlayerBuild // nil = default AI
+}
+</code></pre>
+<h3 id="step-2-refactor-entity-to-use-ai-executor">Step 2: Refactor entity to use AI executor<a class="headerlink" href="#step-2-refactor-entity-to-use-ai-executor" title="Permanent link">&para;</a></h3>
+<p>Replace the inline hardcoded AI in the tick loop. Each entity gets an <code>*ai.Executor</code>. The tick loop calls <code>executor.Evaluate()</code> and applies the returned action.</p>
+<p>Key changes to <code>Simulate()</code>:
+1. For each entity, build an <code>*ai.Executor</code> from its <code>Build</code> (or <code>ai.DefaultTree()</code> if nil)
+2. Each tick: convert internal entities to <code>[]*ai.Entity</code>, create <code>ai.Context</code>, call <code>Evaluate()</code>
+3. Apply the returned <code>Action</code>: MOVE (existing move logic), ATTACK (existing damage logic), IDLE (skip)
+4. Remove the inline <code>findNearestTarget</code> + if/else attack/move code</p>
+<h3 id="step-3-update-handler-to-parse-uploadbuild">Step 3: Update handler to parse UploadBuild<a class="headerlink" href="#step-3-update-handler-to-parse-uploadbuild" title="Permanent link">&para;</a></h3>
+<p>In <code>handler.go</code>, update <code>handleUploadBuild</code>:
+1. Unmarshal <code>UploadBuild</code> from JSON (it now has a <code>build</code> field with <code>PlayerBuild</code>)
+2. Validate build with <code>ai.ValidateBuild()</code>
+3. Store the parsed <code>*pb.PlayerBuild</code> in <code>room.PlayerState</code> (add a <code>Build *pb.PlayerBuild</code> field to <code>PlayerState</code>)
+4. In <code>buildSimConfig()</code>, pass <code>player.Build</code> to <code>EntityConfig.Build</code></p>
+<p>Update <code>room.PlayerState</code>:</p>
+<pre><code class="language-go">type PlayerState struct {
+    ClientID  string
+    Name      string
+    Build     *pb.PlayerBuild // parsed from UploadBuild
+    Ready     bool
+}
+</code></pre>
+<p>Remove the old <code>BuildData []byte</code> field.</p>
+<h3 id="step-4-update-existing-tests">Step 4: Update existing tests<a class="headerlink" href="#step-4-update-existing-tests" title="Permanent link">&para;</a></h3>
+<p>In <code>simulator_test.go</code>, update <code>EntityConfig</code> literals to include <code>Build: nil</code> (default AI). Existing tests should still pass since nil build = default behavior = same as old hardcoded AI.</p>
+<h3 id="step-5-run-all-server-tests">Step 5: Run all server tests<a class="headerlink" href="#step-5-run-all-server-tests" title="Permanent link">&para;</a></h3>
+<p>Run: <code>cd server &amp;&amp; go test ./... -v</code></p>
+<p>Expected: all pass (both <code>ai/</code> and <code>game/</code> packages).</p>
+<h3 id="step-6-commit">Step 6: Commit<a class="headerlink" href="#step-6-commit" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">git add server/internal/game/ server/internal/room/
+git commit -m &quot;game: integrate AI executor into simulator, parse PlayerBuild in handler&quot;
+</code></pre>
+<hr />
+<h2 id="task-8-client-integration">Task 8: Client Integration<a class="headerlink" href="#task-8-client-integration" title="Permanent link">&para;</a></h2>
+<p><strong>Files:</strong>
+- Modify: <code>roguelite/scripts/autoload/network_manager.gd</code>
+- Modify: <code>roguelite/scripts/main.gd</code></p>
+<h3 id="step-1-update-send_upload_build-to-send-a-playerbuild">Step 1: Update send_upload_build to send a PlayerBuild<a class="headerlink" href="#step-1-update-send_upload_build-to-send-a-playerbuild" title="Permanent link">&para;</a></h3>
+<p>In <code>network_manager.gd</code>, change <code>send_upload_build()</code> to accept a Dictionary and send it as the <code>build</code> field:</p>
+<pre><code class="language-gdscript">func send_upload_build(build: Dictionary = {}) -&gt; void:
+    var payload := {}
+    if build.size() &gt; 0:
+        payload[&quot;build&quot;] = build
+    _send_packet(OP_CLIENT_UPLOAD_BUILD, payload)
+</code></pre>
+<h3 id="step-2-create-a-hardcoded-default-build-in-maingd">Step 2: Create a hardcoded default build in main.gd<a class="headerlink" href="#step-2-create-a-hardcoded-default-build-in-maingd" title="Permanent link">&para;</a></h3>
+<p>In <code>main.gd</code>, create a function that returns the default blueprint as a Dictionary matching the proto JSON format:</p>
+<pre><code class="language-gdscript">func _make_default_build() -&gt; Dictionary:
+    return {
+        &quot;globalAi&quot;: {
+            &quot;type&quot;: &quot;NODE_PRIORITY_SELECTOR&quot;,
+            &quot;children&quot;: [
+                {
+                    &quot;type&quot;: &quot;NODE_SEQUENCE&quot;,
+                    &quot;children&quot;: [
+                        {&quot;type&quot;: &quot;NODE_NEAREST_ENEMY&quot;},
+                        {&quot;type&quot;: &quot;NODE_ENEMY_IN_RANGE&quot;, &quot;parameters&quot;: {&quot;range&quot;: &quot;40&quot;}},
+                        {&quot;type&quot;: &quot;NODE_USE_SKILL&quot;}
+                    ]
+                },
+                {
+                    &quot;type&quot;: &quot;NODE_SEQUENCE&quot;,
+                    &quot;children&quot;: [
+                        {&quot;type&quot;: &quot;NODE_NEAREST_ENEMY&quot;},
+                        {&quot;type&quot;: &quot;NODE_MOVE_TO&quot;}
+                    ]
+                }
+            ]
+        },
+        &quot;totalMemory&quot;: 20,
+        &quot;globalMemory&quot;: 20
+    }
+</code></pre>
+<p>Update the join response handler to send this build:</p>
+<pre><code class="language-gdscript">NetworkManager.send_upload_build(_make_default_build())
+</code></pre>
+<h3 id="step-3-commit">Step 3: Commit<a class="headerlink" href="#step-3-commit" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">git add roguelite/scripts/
+git commit -m &quot;client: send default PlayerBuild blueprint via UploadBuild&quot;
+</code></pre>
+<hr />
+<h2 id="task-9-e2e-verification">Task 9: E2E Verification<a class="headerlink" href="#task-9-e2e-verification" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-run-server-tests">Step 1: Run server tests<a class="headerlink" href="#step-1-run-server-tests" title="Permanent link">&para;</a></h3>
+<p>Run: <code>cd server &amp;&amp; go test ./... -v</code></p>
+<p>Expected: all pass.</p>
+<h3 id="step-2-start-server-and-client">Step 2: Start server and client<a class="headerlink" href="#step-2-start-server-and-client" title="Permanent link">&para;</a></h3>
+<p>Run server: <code>cd server &amp;&amp; go run ./cmd/server</code></p>
+<p>Open Godot editor with roguelite project, run the game.</p>
+<h3 id="step-3-verify-flow">Step 3: Verify flow<a class="headerlink" href="#step-3-verify-flow" title="Permanent link">&para;</a></h3>
+<p>Expected behavior (identical to Phase 1 visually, but now driven by blueprint):
+1. Client connects → sends JoinRequest
+2. Client sends UploadBuild with PlayerBuild JSON (default blueprint)
+3. Client sends ReadySignal
+4. Server validates build, builds AI executor from blueprint
+5. Server simulates room using executor (not hardcoded AI)
+6. Server sends SimulationResult
+7. Client plays back snapshots — player attacks enemies, same as before</p>
+<h3 id="step-4-final-commit">Step 4: Final commit<a class="headerlink" href="#step-4-final-commit" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">git add -A
+git commit -m &quot;phase2: AI system — blueprint model, behavior tree executor, modules, memory&quot;
+</code></pre>
+<hr />
+<h2 id="dependency-graph">Dependency Graph<a class="headerlink" href="#dependency-graph" title="Permanent link">&para;</a></h2>
+<pre><code>Task 1 (Proto) ─┬─→ Task 2 (AI Framework) ──→ Task 3 (Nodes) ──→ Task 4 (Builder)
+                 │                                                        │
+                 │                                                        ▼
+                 │                              Task 5 (Executor) ◄── Task 4
+                 │                                     │
+                 │                                     ▼
+                 │                              Task 6 (Memory)
+                 │                                     │
+                 ├─────────────────────────────────────▼
+                 │                              Task 7 (Server Integration)
+                 │                                     │
+                 └─────────────────────────────────────▼
+                                                Task 8 (Client Integration)
+                                                       │
+                                                       ▼
+                                                Task 9 (E2E Verification)
+</code></pre>
+<h2 id="notes-for-implementer">Notes for Implementer<a class="headerlink" href="#notes-for-implementer" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Phase 2 UseSkill = basic attack.</strong> No skill lookup, no sockets, no cooldown management beyond the existing tick-based cooldown. Phase 3 adds real skills.</li>
+<li><strong>Default blueprint must produce identical behavior to Phase 1 hardcoded AI.</strong> This is the acceptance test: simulation results should be the same before and after.</li>
+<li><strong>Enemy AI stays hardcoded in Phase 2.</strong> Enemies don't use blueprints — they get <code>DefaultTree()</code>. Player AI customization via blueprints is the goal.</li>
+<li><strong>No blueprint editor UI in Phase 2.</strong> Client sends a hardcoded default build. Blueprint editor is Phase 4 (step 19).</li>
+<li><strong>protojson enum serialization:</strong> Proto enums serialize as strings in JSON (<code>"NODE_PRIORITY_SELECTOR"</code> not <code>0</code>). GDScript must send string enum values.</li>
+<li><strong>Memory validation is server-side only.</strong> Client doesn't enforce limits in Phase 2. Server rejects invalid builds with SERVER_ERROR.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
