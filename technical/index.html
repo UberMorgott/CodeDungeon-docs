@@ -10,31 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/game-design/vision-and-pillars/">
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/">
       
       
-        <link rel="prev" href="../architecture/">
+        <link rel="prev" href="../game-design/glossary/">
       
       
-        <link rel="next" href="../core-loop-and-runs/">
+        <link rel="next" href="tech-stack/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Видение и опоры - CodeDungeon — документация</title>
+        <title>Обзор - CodeDungeon — документация</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,9 +53,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -96,7 +96,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
-    <a href="../.." title="CodeDungeon — документация" class="md-header__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+    <a href=".." title="CodeDungeon — документация" class="md-header__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Видение и опоры
+              Обзор
             
           </span>
         </div>
@@ -234,7 +234,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="CodeDungeon — документация" class="md-nav__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+    <a href=".." title="CodeDungeon — документация" class="md-nav__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -264,7 +264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -288,20 +288,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -322,7 +320,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -340,7 +338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../game-design/" class="md-nav__link">
         
   
   
@@ -368,7 +366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture/" class="md-nav__link">
+      <a href="../game-design/architecture/" class="md-nav__link">
         
   
   
@@ -393,37 +391,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Видение и опоры
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../game-design/vision-and-pillars/" class="md-nav__link">
         
   
   
@@ -439,81 +410,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Содержание">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Подтверждено
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Рабочая формулировка фантазии игрока
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Предлагаемые опоры дизайна
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Официальное позиционирование
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Открытые вопросы
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -526,7 +422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../core-loop-and-runs/" class="md-nav__link">
+      <a href="../game-design/core-loop-and-runs/" class="md-nav__link">
         
   
   
@@ -554,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ai-brain/" class="md-nav__link">
+      <a href="../game-design/ai-brain/" class="md-nav__link">
         
   
   
@@ -582,7 +478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../combat-and-actions/" class="md-nav__link">
+      <a href="../game-design/combat-and-actions/" class="md-nav__link">
         
   
   
@@ -610,7 +506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../passive-tree-and-sockets/" class="md-nav__link">
+      <a href="../game-design/passive-tree-and-sockets/" class="md-nav__link">
         
   
   
@@ -638,7 +534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../skills-and-tags/" class="md-nav__link">
+      <a href="../game-design/skills-and-tags/" class="md-nav__link">
         
   
   
@@ -666,7 +562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../items-and-crafting/" class="md-nav__link">
+      <a href="../game-design/items-and-crafting/" class="md-nav__link">
         
   
   
@@ -694,7 +590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../progression-and-idle/" class="md-nav__link">
+      <a href="../game-design/progression-and-idle/" class="md-nav__link">
         
   
   
@@ -722,7 +618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../glossary/" class="md-nav__link">
+      <a href="../game-design/glossary/" class="md-nav__link">
         
   
   
@@ -754,18 +650,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -786,7 +684,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -801,10 +699,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../technical/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -820,6 +745,48 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Статусы решений
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Документы
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -832,7 +799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../technical/tech-stack/" class="md-nav__link">
+      <a href="tech-stack/" class="md-nav__link">
         
   
   
@@ -890,7 +857,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Подтверждено
+        Статусы решений
       
     </span>
   </a>
@@ -901,40 +868,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Рабочая формулировка фантазии игрока
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Предлагаемые опоры дизайна
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Официальное позиционирование
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Открытые вопросы
+        Документы
       
     </span>
   </a>
@@ -958,7 +892,7 @@
 
 
   
-    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/game-design/vision-and-pillars.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/technical/index.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -966,50 +900,24 @@
   
 
 
-<h1 id="_1">Видение и опоры проекта<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">Подтверждено<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h1 id="_1">Техническая документация<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Этот раздел фиксирует инженерные решения CodeDungeon: чем собирается игра, где проходит граница ответственности каждой технологии и на каком этапе она действительно нужна. Он дополняет, но не дублирует <a href="../game-design/">живой GDD</a>: правила игры принадлежат тематическим файлам GDD, а технический раздел описывает способы их реализации.</p>
+<h2 id="_2">Статусы решений<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Структура забегов с сохранением прогресса называется roguelite. Термин общепринятый, собственный не изобретается.</li>
-<li>Сеттинг — фэнтези с артефактной магией. Игрок не является бойцом: он задаёт поведение созданному существу (голем, фамильяр, конструкт), а оно действует само.</li>
-<li>Сеттинг служит внутримировым объяснением автономного боя: игрок не управляет персонажем в реальном времени, потому что по фикции не может — поведение задаётся заранее.</li>
-<li>Арт-направление — тёмное дарк-фэнтези. Веселья нет: тон унылый и давящий, мир гнетёт. Игра трёхмерная.</li>
-<li>Зрелищность боя достигается контрастом: вспышки магии и артефактов на мрачном фоне, а не яркостью и позитивом.</li>
-<li>Огонь, холод, флаконы и крафт предметов из уже написанных разделов ложатся в этот сеттинг без переделок.</li>
-<li>Целевая платформа — PC, распространение через Steam. Управление — клавиатура и мышь, большой экран.</li>
-<li>Следствие для интерфейса: редактор поведения рассчитан на настольный экран; компромиссы ради маленьких экранов и геймпада не закладываются.</li>
-<li>Idle означает непрямое управление: игрок контролирует всё вне сражения, но не управляет персонажем непосредственно во время боя.</li>
-<li>Билд состоит не только из силы персонажа, но и из алгоритма его поведения.</li>
-<li>Развитие включает пассивное дерево, вдохновлённое Path of Exile, с ячейками для активных навыков.</li>
-<li>Активные и пассивные навыки имеют теги, через которые работают модификаторы и универсальные команды алгоритма.</li>
-<li>Бои должны быть красивым зрелищем, за которым интересно наблюдать.</li>
-<li>Игра поддерживает одиночный, кооперативный и PvP-режимы. В Offline roguelike-забеги и фиксированные миссии доступны в solo и private co-op; PvP проходит в отдельных матчах на арене без карты забега и миссий.</li>
-<li>В будущем Online нет roguelike-забегов. Его PvE — только линейная серия боёв на истощение, включая боссов: заранее собранный отряд идёт из боя в бой без карты маршрута, выбора узлов, торговца и сервисных комнат. Новые участники после старта не подключаются; если публичный подбор длится дольше заданного порога, пустые места до старта могут занять серверные боты, подобранные примерно под среднюю силу людей в отряде.</li>
-<li>Статы, предметы, навыки и модификаторы с самого начала проектируются с ограниченным числовым масштабированием и с учётом будущего PvP-баланса. Недопустим абсурдный разрыв между величинами здоровья и урона.</li>
-<li>MVP выпускается без публичного Online: одиночная игра работает локально, а приватный co-op создаёт один из игроков. LAN, Steam и другие способы соединения являются сменными транспортными адаптерами и могут добавляться позже; удалённые аккаунты, публичный матчмейкинг, production-база и античит в MVP не входят.</li>
-<li>Offline- и будущие Online-персонажи принадлежат разным realm’ам. Локальные результаты, предметы и сила не импортируются в доверенный Online. PvP реализуется последним, но общий расчёт боя с начала разработки обязан быть пригоден для симметричных противоборствующих сторон и версионируемых правил режима.</li>
-<li>Экономики realm’ов разделены. В Online прямые подарки и передачи предметов запрещены: смена владельца между игроками возможна только через авторитетный рынок, а купленный предмет нельзя повторно выставить одну неделю. В Offline/private co-op участники текущей сессии свободно передают предметы и ресурсы, принимая недоверенность локальной игры; такие ценности не переходят в Online.</li>
+<li><strong>Наблюдается</strong> — технология или граница уже присутствует в репозитории; это не означает production-готовность.</li>
+<li><strong>Принято</strong> — целевой выбор утверждён, даже если реализация ещё не началась.</li>
+<li><strong>Отложено</strong> — решение намеренно не входит в текущий этап; указан сигнал, при котором к нему возвращаются.</li>
 </ul>
-<h2 id="_3">Рабочая формулировка фантазии игрока<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p><strong>Предложение:</strong> игрок — архитектор автономного героя. Он собирает способности, развивает дерево и проектирует логику поведения, после чего наблюдает, насколько хорошо система справляется с испытаниями.</p>
-<h2 id="_4">Предлагаемые опоры дизайна<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Подготовка важнее реакции.</strong> Главные решения принимаются при создании билда и алгоритма.</li>
-<li><strong>Поведение — часть билда.</strong> Одинаковый набор навыков может играть по-разному из-за настроек ИИ.</li>
-<li><strong>Композиционность.</strong> Теги и модификаторы позволяют системам сочетаться без уникального кода для каждой пары.</li>
-<li><strong>Объяснимость.</strong> Игрок должен понимать, почему персонаж выбрал конкретное действие.</li>
-<li><strong>Постепенное усложнение.</strong> Простая рабочая настройка доступна сразу, сложные конструкции открывают глубину позднее.</li>
-<li><strong>Контролируемый масштаб чисел.</strong> Рост силы сохраняет читаемые соотношения между атакой и защитой и не разрушает будущую соревновательную игру.</li>
-</ol>
-<h2 id="_5">Официальное позиционирование<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p><strong>Подтверждено.</strong> Официальная формулировка позиционирования, менять текст нельзя:</p>
-<blockquote>
-<p>Roguelite, где ты программируешь героя визуальными блоками, а забег — прогон твоего алгоритма.</p>
-</blockquote>
-<p>Эта фраза каноническая для описания игры одним предложением. Любые витрины, презентации и материалы используют её без переписывания.</p>
-<h2 id="_6">Открытые вопросы<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>Статусы могут сочетаться: например, <strong>Наблюдается + Принято</strong> означает, что технология уже есть и остаётся целевой; <strong>Принято, не внедрено</strong> — выбор сделан, но соответствующий этап ещё не начат. Это не дополнительные уровни готовности.</p>
+<h2 id="_3">Документы<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Какая конкретная палитра, уровень стилизации и визуальные референсы реализуют выбранное дарк-фэнтези?</li>
+<li><a href="tech-stack/">Технологический стек</a> — технологии по этапам, владение данными, потоки интеграции, ограничения и условия замены.</li>
+<li><a href="../game-design/architecture/">Архитектурный скелет</a> — владельцы игровых подсистем и их контракты.</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Не перечень установленной инфраструктуры</p>
+<p>Future Online стек — зафиксированное направление, а не утверждение о существующих кластерах. MVP остаётся offline-first: Godot и локальный Go-sidecar без production Online-инфраструктуры.</p>
+</div>
 
 
 
@@ -1065,12 +973,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.top", "search.highlight", "search.suggest", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.top", "search.highlight", "search.suggest", "content.action.edit"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="../../javascripts/navigation-state.js"></script>
+        <script src="../javascripts/navigation-state.js"></script>
       
     
   </body>

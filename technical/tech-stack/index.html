@@ -1,0 +1,1899 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Живая игровая и техническая документация CodeDungeon">
+      
+      
+      
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/tech-stack/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Технологический стек - CodeDungeon — документация</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="CodeDungeon — документация" class="md-header__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CodeDungeon — документация
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Технологический стек
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить тёмную тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Включить тёмную тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить светлую тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Включить светлую тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CodeDungeon — документация" class="md-nav__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CodeDungeon — документация
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Игровой дизайн
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Игровой дизайн
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектурный скелет
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/vision-and-pillars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Видение и опоры
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/core-loop-and-runs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Основной цикл и забеги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/ai-brain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Мозг персонажа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/combat-and-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бой и фазы действий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/passive-tree-and-sockets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пассивное дерево и ячейки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/skills-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Навыки и теги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/items-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Предметы и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/progression-and-idle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Прогрессия и idle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глоссарий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Техническая документация
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Техническая документация
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Технологический стек
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Технологический стек
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Принцип выбора
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Карта решений
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime игры
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Runtime игры">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#godot-47-gdscript-forward-plus-jolt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Godot 4.7, GDScript, Forward Plus и Jolt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-1256-gameplayapplication-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Go 1.25.6 и единый gameplay/application core
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-sidecar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Локальный Go-sidecar
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Транспорт и контракты
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Транспорт и контракты">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transport-abstraction-websocket-steam-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transport abstraction, WebSocket и Steam adapter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protobuf-buf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protobuf и Buf
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Данные и контент
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Данные и контент">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sqlite-wal-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQLite в WAL-режиме
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-transactional-outbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PostgreSQL и transactional outbox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#immutable-versioned-content-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Immutable versioned content packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chunked-replay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chunked replay
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mvp-future-online" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Эксплуатация: от MVP к Future Online
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Эксплуатация: от MVP к Future Online">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Локальные логи MVP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-workers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Go workers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nats-jetstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NATS JetStream
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#victoriametrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VictoriaMetrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#victorialogs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VictoriaLogs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opentelemetry-collector-tempo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenTelemetry Collector и Tempo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grafana
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caddy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caddy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seaweedfs-s3-compatible-object-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SeaweedFS / S3-compatible object storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Разработка, сборка и публикация
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Разработка, сборка и публикация">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkdocs-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MkDocs Material
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что намеренно не выбрано
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Порядок внедрения
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Принцип выбора
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Карта решений
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime игры
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Runtime игры">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#godot-47-gdscript-forward-plus-jolt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Godot 4.7, GDScript, Forward Plus и Jolt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-1256-gameplayapplication-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Go 1.25.6 и единый gameplay/application core
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-sidecar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Локальный Go-sidecar
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Транспорт и контракты
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Транспорт и контракты">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transport-abstraction-websocket-steam-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transport abstraction, WebSocket и Steam adapter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protobuf-buf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protobuf и Buf
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Данные и контент
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Данные и контент">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sqlite-wal-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQLite в WAL-режиме
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-transactional-outbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PostgreSQL и transactional outbox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#immutable-versioned-content-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Immutable versioned content packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chunked-replay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chunked replay
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mvp-future-online" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Эксплуатация: от MVP к Future Online
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Эксплуатация: от MVP к Future Online">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Локальные логи MVP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-workers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Go workers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nats-jetstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NATS JetStream
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#victoriametrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VictoriaMetrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#victorialogs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VictoriaLogs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opentelemetry-collector-tempo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenTelemetry Collector и Tempo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grafana
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caddy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caddy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seaweedfs-s3-compatible-object-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SeaweedFS / S3-compatible object storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Разработка, сборка и публикация
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Разработка, сборка и публикация">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkdocs-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MkDocs Material
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что намеренно не выбрано
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Порядок внедрения
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/technical/tech-stack.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="_1">Технологический стек<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">Принцип выбора<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>CodeDungeon придерживается <strong>Go-first, но не Go-only</strong>: gameplay и прикладные сервисы пишутся на Go, инфраструктурным Go-проектам отдаётся предпочтение, когда они зрелы и подходят задаче. Ради языка реализации не заменяются надёжные транзакционные базы и не пишутся собственные брокеры, SQL-хранилища или OLAP-движки.</p>
+<p>Стек развивается по этапам. MVP не несёт на компьютере игрока production-брокер, PostgreSQL или систему мониторинга. Тот же Go gameplay/application core запускается локально, у host private co-op и позднее в доверенном Online; меняются краевые адаптеры, а не правила игры. Канонические границы подсистем определены в <a href="../../game-design/architecture/">архитектурном скелете</a>.</p>
+<h2 id="_3">Карта решений<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Технология</th>
+<th>Статус</th>
+<th>Этап</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Godot 4.7 feature tag, GDScript, Forward Plus, Jolt</td>
+<td>Наблюдается и принято</td>
+<td>MVP и далее</td>
+<td>UI, представление, ввод, звук и воспроизведение серверного состояния</td>
+</tr>
+<tr>
+<td>Go 1.25.6</td>
+<td>Наблюдается и принято</td>
+<td>MVP и далее</td>
+<td>Авторитетный gameplay/application core, sidecar и будущие Online-сервисы</td>
+</tr>
+<tr>
+<td>Go sidecar</td>
+<td>Наблюдается + принято</td>
+<td>solo MVP, private co-op host</td>
+<td>Отдельный локальный процесс с тем же core</td>
+</tr>
+<tr>
+<td>WebSocket + versioned ProtoJSON</td>
+<td>Наблюдается + принято; envelope не внедрён</td>
+<td>MVP, LAN/private co-op</td>
+<td>Надёжный упорядоченный transport adapter</td>
+</tr>
+<tr>
+<td>Steam transport adapter</td>
+<td>Отложено</td>
+<td>private co-op после LAN</td>
+<td>Lobby/relay-подключение без изменения gameplay-протокола</td>
+</tr>
+<tr>
+<td>Protobuf + Buf</td>
+<td>Protobuf наблюдается; versioning/Buf приняты</td>
+<td>MVP и далее</td>
+<td>Единые совместимые сетевые и event-контракты</td>
+</tr>
+<tr>
+<td>SQLite WAL</td>
+<td>Принято, не внедрено</td>
+<td>local MVP</td>
+<td>Авторитетное локальное сохранение персонажей и забегов</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>Принято, не внедрено</td>
+<td>future Online</td>
+<td>Транзакционный источник истины Online</td>
+</tr>
+<tr>
+<td>Immutable content packages</td>
+<td>Принято, не внедрено целиком</td>
+<td>MVP и далее</td>
+<td>Версионированный баланс и определения контента</td>
+</tr>
+<tr>
+<td>Chunked replay: binary Protobuf + измеряемый codec</td>
+<td>Принято, не внедрено</td>
+<td>MVP и далее</td>
+<td>Компактная запись, seek, анализ и воспроизведение</td>
+</tr>
+<tr>
+<td>Локальные структурированные логи</td>
+<td>Принято; частично наблюдается</td>
+<td>MVP/private co-op</td>
+<td>Диагностика Godot и sidecar без Online-инфраструктуры</td>
+</tr>
+<tr>
+<td>Go workers</td>
+<td>Принято, не внедрено</td>
+<td>Online по мере фоновых задач</td>
+<td>Outbox relay, projections и batch analytics</td>
+</tr>
+<tr>
+<td>NATS JetStream</td>
+<td>Принято, не развёрнуто</td>
+<td>Online после появления consumers</td>
+<td>Durable events, jobs и projections после commit</td>
+</tr>
+<tr>
+<td>VictoriaMetrics</td>
+<td>Принято, не развёрнуто</td>
+<td>Online operations</td>
+<td>Метрики и временные ряды</td>
+</tr>
+<tr>
+<td>VictoriaLogs</td>
+<td>Принято, не развёрнуто</td>
+<td>Online operations</td>
+<td>Централизованные структурированные логи</td>
+</tr>
+<tr>
+<td>OpenTelemetry Collector + Tempo</td>
+<td>Принято, не развёрнуто</td>
+<td>Online operations</td>
+<td>Распределённые трассы между сервисами</td>
+</tr>
+<tr>
+<td>Grafana</td>
+<td>Принято, не развёрнуто</td>
+<td>Online operations</td>
+<td>Общие dashboards над metrics/logs/traces</td>
+</tr>
+<tr>
+<td>Caddy</td>
+<td>Принято, не развёрнуто</td>
+<td>публичный Online edge</td>
+<td>TLS termination и контролируемый входной gateway</td>
+</tr>
+<tr>
+<td>S3-compatible storage; SeaweedFS — кандидат</td>
+<td>Контракт принят; реализация отложена</td>
+<td>Online при появлении крупных объектов</td>
+<td>Replay, content packages и сырой архив событий</td>
+</tr>
+<tr>
+<td>GitHub Actions</td>
+<td>Наблюдается; расширение принято</td>
+<td>сейчас и далее</td>
+<td>Воспроизводимые проверки, сборки и публикация</td>
+</tr>
+<tr>
+<td>MkDocs Material</td>
+<td>Наблюдается и принято</td>
+<td>сейчас</td>
+<td>Публикация GDD и технической документации</td>
+</tr>
+</tbody>
+</table>
+<h2 id="runtime">Runtime игры<a class="headerlink" href="#runtime" title="Permanent link">&para;</a></h2>
+<h3 id="godot-47-gdscript-forward-plus-jolt">Godot 4.7, GDScript, Forward Plus и Jolt<a class="headerlink" href="#godot-47-gdscript-forward-plus-jolt" title="Permanent link">&para;</a></h3>
+<p><strong>Статус и этап.</strong> Репозиторий объявляет feature tag <code>4.7</code>, renderer <code>Forward Plus</code> и <code>Jolt Physics</code>; клиент написан на GDScript. Это принятый клиентский стек MVP и последующих режимов. См. <a href="https://github.com/UberMorgott/CodeDungeon/blob/main/roguelite/project.godot"><code>project.godot</code></a> и <a href="https://docs.godotengine.org/en/latest/">документацию Godot</a>.</p>
+<p><strong>Для чего и почему.</strong> Godot отвечает за сцены, UI, ввод, камеру, визуальные и звуковые эффекты и воспроизведение подтверждённых Go-сервером событий. Он уже является рабочей основой проекта; Forward Plus подходит целевому 3D-клиенту, Jolt — штатная выбранная физика.</p>
+<p><strong>Владеет / не владеет.</strong> Клиент владеет только presentation-state и локальными черновиками UI. Он не владеет характеристиками, формулами, результатом боя, наградами, предметами, кошельком, таймерами режима или доступностью Online-лота.</p>
+<p><strong>Интеграция и ограничения.</strong> Godot посылает намерения со stable ID через <code>GameTransport</code>, получает snapshots/events и строит локальную проекцию. Сетевые payload, размеры очередей и тяжёлый replay не должны блокировать main thread. Внешние данные считаются недоверенными; клиент не является anti-cheat boundary.</p>
+<p><strong>Сигнал замены.</strong> Движок не меняется из-за отдельной нехватки API: сначала рассматриваются GDExtension или краевой адаптер. Полная замена возможна только при подтверждённом блокере целевых платформ или производительности и отдельном migration plan.</p>
+<h3 id="go-1256-gameplayapplication-core">Go 1.25.6 и единый gameplay/application core<a class="headerlink" href="#go-1256-gameplayapplication-core" title="Permanent link">&para;</a></h3>
+<p><strong>Статус и этап.</strong> <a href="https://github.com/UberMorgott/CodeDungeon/blob/main/server/go.mod"><code>server/go.mod</code></a> фиксирует Go 1.25.6. Go уже реализует сеть, комнаты, симуляцию, AI и часть формул/предметных подсистем; он остаётся языком авторитетного core, локального sidecar и будущих Online-сервисов. <a href="https://go.dev/doc/">Документация Go</a>.</p>
+<p><strong>Для чего и почему.</strong> Один headless core позволяет одинаково считать solo, host-based co-op и dedicated Online, тестировать формулы без рендера и горизонтально запускать сервисы позднее. Простая поставка бинарников и зрелая concurrency/tooling-экосистема подходят маленькой команде.</p>
+<p><strong>Владеет / не владеет.</strong> Go владеет игровыми командами, state transitions, формулами, RNG/seed, инвентарём и результатами. Он не владеет визуальным layout Godot и не должен напрямую импортировать UI. Доменный core не зависит от WebSocket, SQLite/PostgreSQL, NATS или конкретного облака — только от малых портов.</p>
+<p><strong>Ограничения.</strong> Blocking I/O получает timeout/cancellation; goroutine имеет явный lifecycle; публичные команды валидируются и идемпотентны. Детерминизм проверяется fixtures и replay-тестами. Нагрузку подтверждают benchmarks/pprof, а не предположения.</p>
+<p><strong>Сигнал замены.</strong> Go не заменяется ради моды или одного сервиса. Другой язык допустим для изолированного готового компонента только при измеренном преимуществе и стабильном контракте; gameplay core остаётся единым.</p>
+<h3 id="go-sidecar">Локальный Go-sidecar<a class="headerlink" href="#go-sidecar" title="Permanent link">&para;</a></h3>
+<p><strong>Статус и этап.</strong> Godot уже умеет находить и запускать server binary, но production lifecycle ещё неполон. Цель solo MVP — отдельный Go-процесс рядом с клиентом; private co-op использует тот же процесс у host.</p>
+<p><strong>Для чего и почему.</strong> Sidecar сохраняет одинаковую серверную авторитетность во всех топологиях и изолирует падение/нагрузку симуляции от UI. Это дешевле двух реализаций правил или встраивания Go через cgo/GDExtension.</p>
+<p><strong>Владеет / не владеет.</strong> Sidecar владеет локальной authoritative session и открывает application contracts. Godot запускает, проверяет readiness и завершает процесс, но не редактирует его БД и не подменяет решения.</p>
+<p><strong>Интеграция и безопасность.</strong> Нужны случайный loopback port, одноразовый token, version/content-hash handshake, process handle, readiness и graceful shutdown. По умолчанию listener не доступен извне; host mode открывается только явно. Crash recovery идёт через SQLite/checkpoint, а не через клиентский snapshot.</p>
+<p><strong>Сигнал замены.</strong> Встраивание рассматривается только если измеренные startup/IPC/упаковочные издержки sidecar критичны. Для Online меняется deployment adapter, а core не переписывается.</p>
+<h2 id="_4">Транспорт и контракты<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="transport-abstraction-websocket-steam-adapter">Transport abstraction, WebSocket и Steam adapter<a class="headerlink" href="#transport-abstraction-websocket-steam-adapter" title="Permanent link">&para;</a></h3>
+<p><strong>Статус и этап.</strong> Сейчас сервер и Godot используют binary WebSocket frames: <code>[u16 little-endian opcode][gzip(ProtoJSON)]</code>; это видно в <a href="https://github.com/UberMorgott/CodeDungeon/blob/main/server/internal/network/packet.go"><code>packet.go</code></a> и <a href="https://github.com/UberMorgott/CodeDungeon/blob/main/roguelite/scripts/autoload/network_manager.gd"><code>network_manager.gd</code></a>. Для MVP принят WebSocket-адаптер; LAN следует после localhost, Steam lobby/relay — отдельный поздний адаптер private co-op.</p>
+<p><strong>Почему.</strong> Бой рассчитывается сервером, а не синхронизирует позиции 60 раз в секунду. Поэтому важнее порядок, надёжная доставка, reconnect и диагностика, чем минимальные микросекунды IPC. WebSocket переносит бинарные кадры и одинаково работает локально и по сети. Сырая TCP/UDP, shared memory и platform-specific pipes добавят собственный framing/lifecycle без измеренной пользы.</p>
+<p><strong>Граница.</strong> <code>GameTransport</code> переносит versioned envelope и не знает gameplay-смысл. Протокол не знает, доставлен он WebSocket, LAN или Steam. Steam identity/relay не проникают в симулятор.</p>
+<p><strong>Ограничения.</strong> Envelope должен получить protocol version, request/session ID, sequence, content hash, размерные лимиты и negotiation. Нужны heartbeat, timeout, bounded queues/backpressure, TLS для удалённого подключения и защита от replay/duplicate command. Gzip для маленьких сообщений не считается вечным решением.</p>
+<p><strong>Сигнал замены.</strong> Codec или transport меняется только по capture/benchmark: CPU, allocation, latency, bandwidth и ограничения платформ. Binary Protobuf может остаться внутри WebSocket. Steam adapter добавляется при реализации приглашений/relay, не заменяя localhost/LAN.</p>
+<h3 id="protobuf-buf">Protobuf и Buf<a class="headerlink" href="#protobuf-buf" title="Permanent link">&para;</a></h3>
+<p><strong>Статус и этап.</strong> Монолитный <a href="https://github.com/UberMorgott/CodeDungeon/blob/main/shared/proto/game.proto"><code>game.proto</code></a>, Go generated types и <code>buf.gen.yaml</code> существуют; полноценного <code>buf.yaml</code> и проходящего lint/breaking baseline пока нет. Godot вручную повторяет opcode и JSON-поля. Принята миграция к versioned bounded contracts и <a href="https://buf.build/docs/">Buf</a> для format/lint/breaking checks. <a href="https://protobuf.dev/programming-guides/proto3/">Правила совместимости Protobuf</a>.</p>
+<p><strong>Назначение и владение.</strong> Protobuf — единственный источник wire/event schema, stable IDs и evolution rules. Он не владеет доменными правилами и не становится общей свалкой внутренних моделей.</p>
+<p><strong>Интеграция.</strong> На MVP payload остаётся ProtoJSON ради простой Godot-интеграции, но проходит через versioned envelope. Contract fixtures проверяются Go ↔ Godot. Контракты постепенно делятся по областям и версиям (<code>combat.v1</code>, <code>items.v1</code>, <code>sessions.v1</code>), без одновременного rewrite.</p>
+<p><strong>Ограничения.</strong> Нельзя переиспользовать field numbers, удалённые поля резервируются, breaking checks обязательны. ProtoJSON имеет более слабую evolution-совместимость, поэтому неизвестные поля и enum, числовые типы и naming проверяются отдельно.</p>
+<p><strong>Сигнал замены.</strong> Binary Protobuf для live protocol включается после надёжного Godot codec и замеров. FlatBuffers/другой формат рассматривается только если реальные профили показывают критичную стоимость protobuf и доказан migration benefit.</p>
+<h2 id="_5">Данные и контент<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="sqlite-wal-">SQLite в WAL-режиме<a class="headerlink" href="#sqlite-wal-" title="Permanent link">&para;</a></h3>
+<p><strong>Статус и этап.</strong> Принято для local MVP, но ещё не является текущим хранилищем. <a href="https://sqlite.org/wal.html">SQLite WAL</a> — авторитетное persistence локального realm.</p>
+<p><strong>Для чего и почему.</strong> В одном переносимом файле транзакционно сохраняются персонажи, предметы, валюты, билды, прогресс, checkpoints и миграции. Это безопаснее набора JSON-файлов и удобно для backup/Steam Cloud.</p>
+<p><strong>Владеет / не владеет.</strong> Базой владеет Go persistence adapter; Godot никогда не открывает её напрямую. Replay и immutable content packages хранятся отдельно. Локальные данные не импортируются как сила доверенного Online-персонажа.</p>
+<p><strong>Ограничения.</strong> Один writer, короткие транзакции, foreign keys, schema migrations, integrity check и backup policy. WAL/SHM должны корректно закрываться перед cloud sync; нельзя синхронизировать активно открытую БД. Секреты/Online credentials в ней не хранятся открыто.</p>
+<p><strong>Сигнал замены.</strong> SQLite остаётся локальным выбором, пока один профиль/host-процесс является владельцем. Multi-writer или удалённый Online — это другой adapter на PostgreSQL, не миграция local DB в серверную.</p>
+<h3 id="postgresql-transactional-outbox">PostgreSQL и transactional outbox<a class="headerlink" href="#postgresql-transactional-outbox" title="Permanent link">&para;</a></h3>
+<p><strong>Статус и этап.</strong> Принято для future Online, не развёрнуто в MVP. <a href="https://www.postgresql.org/docs/">PostgreSQL</a> — единственный транзакционный источник истины для Online accounts, characters, item ownership, wallet/ledger, listings, reservations и settlements.</p>
+<p><strong>Почему.</strong> Рынку нужны атомарность, ограничения, блокировки, индексы, migrations и audit-friendly transactions. PostgreSQL зрелее и операционно проще первого distributed SQL-кластера.</p>
+<p><strong>Владеет / не владеет.</strong> Только write-path доменного сервиса меняет его таблицы. Read projections, NATS, кэш, каталог и аналитика не подтверждают владение предметом или баланс. Сервисы не читают чужие таблицы напрямую, а вызывают контракт владельца.</p>
+<p><strong>Поток commit → event.</strong> Команда покупки синхронно и в одной транзакции проверяет revision/резерв, списывает wallet, меняет owner, закрывает listing и пишет outbox row. После commit клиент получает подтверждение. Отдельный Go relay читает outbox и публикует versioned event в NATS; consumer идемпотентен. Если NATS недоступен, settlement остаётся корректным, а relay повторяет доставку.</p>
+<div class="highlight"><pre><span></span><code>Godot intent -&gt; Go settlement service -&gt; PostgreSQL transaction
+                                      |-&gt; wallet/item/listing
+                                      `-&gt; outbox row
+                         commit -&gt; authoritative response
+                                      |
+                               Go outbox relay -&gt; NATS -&gt; projections/telemetry
+</code></pre></div>
+<p><strong>Ограничения.</strong> Least-privilege roles, TLS, encrypted backups, tested restore, migrations with rollback/expand-contract, idempotency keys и serializable/locking policy для денежных инвариантов. Outbox чистится только после подтверждённой публикации согласно retention.</p>
+<p><strong>Сигнал замены.</strong> Репликация, partitioning и managed PostgreSQL рассматриваются по нагрузке. CockroachDB не выбран: к distributed SQL возвращаемся только при доказанной синхронной multi-region write-задаче, которую PostgreSQL topology не решает приемлемо.</p>
+<h3 id="immutable-versioned-content-packages">Immutable versioned content packages<a class="headerlink" href="#immutable-versioned-content-packages" title="Permanent link">&para;</a></h3>
+<p><strong>Статус и этап.</strong> Целевая граница принята; текущий контент ещё не полностью переведён. Пакет содержит определения, формулы/параметры, схемы и stable IDs с <code>content_version</code> и hash.</p>
+<p><strong>Почему и владение.</strong> Один опубликованный пакет — единый read-only источник баланса для core, редактора, симуляций и replay. Runtime не меняет загруженную версию; визуальный balance editor создаёт draft, validator/simulation проверяет, publisher подписывает новую immutable version.</p>
+<p><strong>Интеграция и безопасность.</strong> Session закрепляет content hash; replay записывает его; server проверяет подпись/hash и совместимость схемы. Draft никогда не становится live без publish/audit/rollback path. Пакет не хранит player state.</p>
+<p><strong>Сигнал замены.</strong> Формат контейнера и remote distribution выбираются после прототипа editor/publisher. Неизменяемость, version/hash и validation остаются контрактом независимо от storage.</p>
+<h3 id="chunked-replay">Chunked replay<a class="headerlink" href="#chunked-replay" title="Permanent link">&para;</a></h3>
+<p><strong>Статус и этап.</strong> Replay как gameplay-функция утверждён, целевой файловый формат ещё не реализован. Принято: versioned header, binary Protobuf event chunks, checkpoints, index и checksums.</p>
+<p><strong>Почему.</strong> Чанки позволяют seek, частичную загрузку, восстановление после повреждения и ограниченное хранение. Header фиксирует schema/core/content/mode versions, seed и codec. Godot не обязан читать файл: Go replay reader отдаёт presentation events.</p>
+<p><strong>Хранение и ограничения.</strong> Локально replay — отдельные файлы с retention/size quota; Online — object storage. PII и auth tokens не записываются, пользовательские данные получают retention/deletion policy. Checksums защищают от повреждения, а Online replay не считается источником истины наград.</p>
+<p><strong>Codec decision.</strong> Gzip уже доступен, zstd — кандидат. Выбор делается corpus benchmark на реальных боях по ratio, encode/decode CPU, allocations и seek latency; codec записан на chunk/header, поэтому миграция не ломает старые replay.</p>
+<h2 id="mvp-future-online">Эксплуатация: от MVP к Future Online<a class="headerlink" href="#mvp-future-online" title="Permanent link">&para;</a></h2>
+<p>Локальные логи входят в MVP. Go workers и централизованные компоненты ниже разворачиваются только на стороне будущего Online и не устанавливаются на компьютер игрока.</p>
+<h3 id="mvp">Локальные логи MVP<a class="headerlink" href="#mvp" title="Permanent link">&para;</a></h3>
+<p><strong>Статус и назначение.</strong> В Go уже используется стандартный <code>log/slog</code>; принят baseline из структурированных JSON-логов sidecar и вращаемых локальных логов Godot для MVP/private co-op. Это диагностика запуска, handshake, command ID, ошибок сохранения и падений без NATS или централизованного кластера.</p>
+<p><strong>Почему и владение.</strong> Стандартный Go logger не добавляет инфраструктурной зависимости, а отдельные client/server файлы позволяют сопоставить проблему по correlation ID. Логи принадлежат операционному слою и не являются игровым state, replay или audit truth.</p>
+<p><strong>Интеграция и ограничения.</strong> Sidecar пишет bounded rotating files и сообщает Godot безопасный путь/diagnostic ID; Godot не парсит логи как состояние. Токены, полный blueprint, содержимое БД и персональные данные не логируются. Автоматическая отправка наружу запрещена без privacy policy и согласия.</p>
+<p><strong>Сигнал замены.</strong> Локальные логи остаются всегда; VictoriaLogs добавляется, когда несколько управляемых Online-инстансов требуют общего поиска. Crash reporting выбирается отдельно после privacy/legal решения.</p>
+<h3 id="go-workers">Go workers<a class="headerlink" href="#go-workers" title="Permanent link">&para;</a></h3>
+<p><strong>Статус и назначение.</strong> Приняты для future Online, не внедрены. Малые Go-процессы выполняют outbox relay, projection updates, retention, notifications и известные batch-агрегации.</p>
+<p><strong>Почему.</strong> Они переиспользуют доменные контракты и единый toolchain, легко профилируются и сначала могут читать PostgreSQL outbox без брокера. Это не отдельная «worker-платформа» в MVP.</p>
+<p><strong>Владеет / не владеет.</strong> Worker владеет только своей задачей/checkpoint; не подтверждает wallet, item ownership или settlement и не правит чужие таблицы в обход API. Authoritative изменение выполняется доменным сервисом в PostgreSQL.</p>
+<p><strong>Ограничения и сигнал.</strong> Каждый job идемпотентен, имеет lease/timeout/retry budget, dead-letter policy, bounded concurrency и graceful shutdown. NATS подключается, когда независимых consumers и потоков становится достаточно; Temporal рассматривается только для долгих многошаговых workflows с необходимым восстановлением.</p>
+<h3 id="nats-jetstream">NATS JetStream<a class="headerlink" href="#nats-jetstream" title="Permanent link">&para;</a></h3>
+<p><strong>Назначение.</strong> <a href="https://docs.nats.io/nats-concepts/jetstream">NATS JetStream</a> — принятый первый durable event/job/projection bus для Online: результаты боёв, уведомления, обновления read-моделей, telemetry и фоновые задания.</p>
+<p><strong>Почему.</strong> Сервер написан на Go, есть официальный Go client; один стек покрывает pub/sub, request/reply и durable consumers при меньшей ранней операционной цене, чем Kafka.</p>
+<p><strong>Не владеет.</strong> NATS никогда не является wallet/item/listing truth и не стоит между игроком и подтверждением settlement. Источник — committed PostgreSQL + outbox.</p>
+<p><strong>Ограничения.</strong> At-least-once означает идемпотентных consumers, explicit ack, dead-letter/advisory policy, bounded retention, quotas и replication. ACL разделяют subjects; payload versioned; секреты и лишние PII не публикуются.</p>
+<p><strong>Сигнал внедрения/замены.</strong> Внедряется, когда direct outbox workers перестают быть достаточны и появляются независимые consumers. Kafka/Redpanda пересматриваются только при измеренной нехватке throughput/retention/replay, большой Kafka-экосистеме или организационном managed-standard; сейчас Kafka не выбрана.</p>
+<h3 id="victoriametrics">VictoriaMetrics<a class="headerlink" href="#victoriametrics" title="Permanent link">&para;</a></h3>
+<p><strong>Назначение.</strong> <a href="https://docs.victoriametrics.com/">VictoriaMetrics</a> хранит числовые time-series: latency, error rate, queue depth, match duration, settlement rate и технические balance aggregates.</p>
+<p><strong>Почему.</strong> Go-native, эффективна для интенсивной записи и совместима с привычной Prometheus-моделью. Она не заменяет domain events или OLAP.</p>
+<p><strong>Ограничения и сигнал.</strong> Запрещены unbounded/high-cardinality labels вроде player/item/request ID; retention и sampling задаются по стоимости. Вводится вместе с первым управляемым Online окружением. Замена рассматривается при доказанном несовпадении query/retention/managed requirements.</p>
+<h3 id="victorialogs">VictoriaLogs<a class="headerlink" href="#victorialogs" title="Permanent link">&para;</a></h3>
+<p><strong>Назначение.</strong> <a href="https://docs.victoriametrics.com/victorialogs/">VictoriaLogs</a> принимает структурированные JSON-логи Go-сервисов и edge/gateway: ошибки, audit-safe operational context и корреляционные ID. Загрузка клиентских Godot-логов, если она когда-либо появится, является отдельным opt-in потоком с privacy policy.</p>
+<p><strong>Почему.</strong> Go-first операционный стек и единая интеграция с dashboards. Лог не является event store и не подтверждает расчёт.</p>
+<p><strong>Ограничения и сигнал.</strong> Токены, payload blueprint, персональные и платёжные данные редактируются/не логируются; retention и доступ разделены, audit trail хранится отдельно по требованиям. Вводится, когда локальных rotating logs недостаточно нескольким Online-инстансам.</p>
+<h3 id="opentelemetry-collector-tempo">OpenTelemetry Collector и Tempo<a class="headerlink" href="#opentelemetry-collector-tempo" title="Permanent link">&para;</a></h3>
+<p><strong>Назначение.</strong> <a href="https://opentelemetry.io/docs/collector/">OpenTelemetry</a> стандартизует traces/metrics context, Collector принимает и маршрутизирует telemetry; <a href="https://grafana.com/docs/tempo/latest/">Grafana Tempo</a> хранит distributed traces.</p>
+<p><strong>Почему.</strong> Позволяет проследить command от edge через application service, PostgreSQL/outbox и consumers без связывания домена с vendor SDK.</p>
+<p><strong>Не владеет и ограничения.</strong> Trace не является audit/event truth. Context propagation обязателен, но baggage не содержит секретов; sampling ограничивает цену и объём. Вводится при разбиении Online на несколько процессов, когда одного request ID в логах недостаточно.</p>
+<h3 id="grafana">Grafana<a class="headerlink" href="#grafana" title="Permanent link">&para;</a></h3>
+<p><strong>Назначение.</strong> <a href="https://grafana.com/docs/grafana/latest/">Grafana</a> объединяет dashboards/alerts над VictoriaMetrics, VictoriaLogs и Tempo. Это осознанное исключение формулировки «всё на Go»: backend написан на Go, но интерфейс браузерный и не является частью game runtime.</p>
+<p><strong>Владение и ограничения.</strong> Grafana только читает observability stores; не меняет баланс, кошелёк или gameplay. SSO/RBAC, read-only datasources, audit административных изменений и отсутствие публичного anonymous access обязательны.</p>
+<p><strong>Сигнал.</strong> Вводится вместе с первыми общими Online dashboards; заменяется только если другой UI заметно лучше закрывает эксплуатацию выбранных stores.</p>
+<h3 id="caddy">Caddy<a class="headerlink" href="#caddy" title="Permanent link">&para;</a></h3>
+<p><strong>Назначение.</strong> <a href="https://caddyserver.com/docs/">Caddy</a> — Go-native edge/gateway для TLS termination, routing, безопасных заголовков и базовых лимитов публичного Online.</p>
+<p><strong>Почему.</strong> Он даёт маленькой Go-команде простой конфиг, автоматизацию сертификатов и один понятный edge без написания собственного TLS-proxy.</p>
+<p><strong>Граница.</strong> Caddy не аутентифицирует игровые права и не содержит gameplay logic; после TLS запрос проходит в identity/application layer. Внутренние sidecar/LAN соединения не требуют его установки игроком.</p>
+<p><strong>Ограничения и сигнал.</strong> Автоматические сертификаты, минимальные exposed routes, timeouts/body limits, rate limits и trusted-proxy policy. Вводится при первом публичном endpoint; managed load balancer/CDN заменяет его при требованиях платформы или DDoS-защиты.</p>
+<h3 id="seaweedfs-s3-compatible-object-storage">SeaweedFS / S3-compatible object storage<a class="headerlink" href="#seaweedfs-s3-compatible-object-storage" title="Permanent link">&para;</a></h3>
+<p><strong>Статус.</strong> Контракт S3-compatible object storage принят, конкретный provider не выбран. <a href="https://github.com/seaweedfs/seaweedfs">SeaweedFS</a> — Go-native self-hosted кандидат; managed S3-compatible сервис может быть операционно выгоднее.</p>
+<p><strong>Назначение.</strong> Крупные immutable объекты: replay chunks, опубликованные content packages и дешёвый сырой архив событий. Не inventory DB и не очередь.</p>
+<p><strong>Почему.</strong> Object API отделяет большие blobs от транзакционных строк PostgreSQL и позволяет менять self-hosted/managed provider без изменения домена. SeaweedFS сохраняет Go-first вариант, но не навязывает команде эксплуатацию storage-кластера.</p>
+<p><strong>Интеграция и ограничения.</strong> PostgreSQL хранит metadata/ownership/status, object store — blob по content-addressed key; upload завершается проверкой hash, lifecycle/retention удаляет старое. Шифрование, private buckets, short-lived signed URLs, quotas и backup/replication обязательны.</p>
+<p><strong>Сигнал выбора/замены.</strong> Provider выбирается по реальному объёму, egress, durability, latency и цене эксплуатации. Self-hosted SeaweedFS берётся только если команда готова владеть дисками/репликацией; иначе managed storage.</p>
+<h2 id="_6">Разработка, сборка и публикация<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="github-actions">GitHub Actions<a class="headerlink" href="#github-actions" title="Permanent link">&para;</a></h3>
+<p><strong>Наблюдается.</strong> Сейчас workflow собирает <code>mkdocs build --strict</code> и публикует сайт; полноценного CI игры в репозитории нет. См. <a href="https://github.com/UberMorgott/CodeDungeon/blob/main/.github/workflows/docs.yml"><code>docs.yml</code></a>.</p>
+<p><strong>Почему.</strong> Репозиторий уже размещён на GitHub, поэтому Actions даёт проверки рядом с PR, минимальную дополнительную эксплуатацию и единый audit trail сборки/публикации.</p>
+<p><strong>Принятое расширение.</strong> Быстрый PR gate: <code>gofmt</code>, <code>go vet</code>, <code>go test</code>, Buf format/lint/breaking/generated check, Godot headless import/script tests, Go ↔ Godot protocol fixtures и <code>mkdocs build --strict</code>. Merge/nightly: <code>go test -race</code>, determinism/replay corpus, Windows/Linux build и smoke run. Нагрузочные market/matchmaking/replay tests запускаются отдельно и публикуют сравнимый baseline.</p>
+<p><strong>Ограничения.</strong> Версии actions/toolchain фиксируются, secrets имеют минимальные права, untrusted PR не получает deploy credentials, artifacts получают checksum/SBOM по мере выхода к distribution. Сборки не объявляются поддерживаемыми, пока нет автоматической матрицы и smoke tests; текущий основной подтверждённый target определяется release plan отдельно.</p>
+<h3 id="mkdocs-material">MkDocs Material<a class="headerlink" href="#mkdocs-material" title="Permanent link">&para;</a></h3>
+<p><strong>Статус.</strong> Уже используется для строгой сборки и публикации этого сайта. <a href="https://www.mkdocs.org/">MkDocs</a> и <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a> превращают Markdown рядом с кодом в searchable документацию.</p>
+<p><strong>Почему.</strong> Markdown удобно review-ить вместе с кодом, strict build ловит навигационные ошибки, а Material даёт русский поиск и читаемый сайт без отдельного приложения.</p>
+<p><strong>Граница.</strong> Тематический GDD остаётся каноном gameplay-правил; технический раздел ссылается на него и не создаёт вторую версию решений. Сгенерированная ветка сайта не редактируется вручную.</p>
+<p><strong>Сигнал замены.</strong> Только если объём/API reference требует другого генератора и миграция сохраняет ссылки, strict validation и удобное совместное редактирование.</p>
+<h2 id="_7">Что намеренно не выбрано<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>ClickHouse</strong> не нужен MVP и не выбран для Online заранее. VictoriaMetrics хранит агрегированные ряды, object storage — сырой архив, Go workers — известные агрегаты. ClickHouse пересматривается, когда реальные объёмы требуют произвольного OLAP по многим измерениям и существующий pipeline не отвечает SLO/стоимости; писать собственный OLAP на Go нельзя.</li>
+<li><strong>Kafka/Redpanda</strong> не выбраны: первой шиной является NATS JetStream после появления потребности. Условие пересмотра описано в разделе NATS.</li>
+<li><strong>CockroachDB</strong> не выбрана: PostgreSQL достаточно до доказанной active multi-region write-задачи.</li>
+<li><strong>Redis</strong> не является обязательным слоем. Кэш, rate limit или ephemeral presence добавляются только по измеренному bottleneck; Redis никогда не источник истины wallet/items.</li>
+<li><strong>Kubernetes и микросервисы</strong> не входят в MVP. Сначала modular monolith/несколько понятных Go-процессов; orchestration вводится при реальной операционной потребности нескольких independently scaled/deployed services.</li>
+<li><strong>gRPC между Godot и Go, custom UDP/QUIC, shared memory, named pipes, Docker на ПК игрока и Go через cgo/GDExtension</strong> не выбраны без измеренного блокера WebSocket-sidecar.</li>
+<li><strong>Temporal и отдельный search engine</strong> откладываются до появления соответственно долгих восстановимых workflows или каталога, который измеренно не обслуживают PostgreSQL/read projections.</li>
+</ul>
+<h2 id="_8">Порядок внедрения<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>MVP:</strong> укрепить Go-sidecar lifecycle; ввести transport interface/versioned envelope и contract tests; SQLite WAL; immutable content package boundary; chunked replay prototype; расширить CI.</li>
+<li><strong>Private co-op:</strong> localhost → LAN/direct connection → Steam lobby/relay adapter; сохранить один gameplay protocol и host authority.</li>
+<li><strong>Online prototype:</strong> PostgreSQL, identity/persistence adapters и transactional outbox; пока consumers мало, Go workers могут читать outbox напрямую.</li>
+<li><strong>Online operations:</strong> NATS JetStream после появления независимых consumers; затем VictoriaMetrics/Logs, OpenTelemetry/Tempo, Grafana и Caddy.</li>
+<li><strong>Масштаб:</strong> object storage provider и topology выбираются по нагрузочным профилям. Kafka, ClickHouse, distributed SQL, Kubernetes или отдельный search допускаются только по измеренным триггерам, а не как стартовый шаблон.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.top", "search.highlight", "search.suggest", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/navigation-state.js"></script>
+      
+    
+  </body>
+</html>
