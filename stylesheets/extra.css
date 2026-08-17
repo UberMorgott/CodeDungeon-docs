@@ -1,0 +1,9 @@
+/*
+ * Material duplicates the current page table of contents inside the primary
+ * drawer on narrower screens. That makes the document navigation appear to
+ * change its contents on every page. Keep the stable document tree on the
+ * left; the separate table of contents remains available on the right.
+ */
+.md-nav--primary .md-nav--secondary {
+  display: none;
+}
