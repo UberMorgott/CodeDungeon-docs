@@ -508,6 +508,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../physical-combat-and-replay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Физический бой и запись
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visual-direction-and-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Визуальное направление и камера
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../passive-tree-and-sockets/" class="md-nav__link">
         
   
@@ -809,6 +865,90 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Конвейер 3D-ассетов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/item-content-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Контент предметов и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/item-persistence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Хранение предметов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -898,6 +1038,36 @@
 <td>Пассивный навык</td>
 <td>Навык, который действует без прямого вызова</td>
 <td>подтверждено</td>
+</tr>
+<tr>
+<td>Battle Record</td>
+<td>Версионированная авторитетная запись уже рассчитанного боя: упорядоченные gameplay-события и достаточное физическое состояние для seek и воспроизведения без повторного запуска AI или physics</td>
+<td>назначение подтверждено; схема и формат открыты</td>
+</tr>
+<tr>
+<td>Motion primitive</td>
+<td>Отдельный кандидат телесного исполнения семейства действий с метаданными применимости; Brain выбирает намерение, а способ выбора primitive по контексту проверяется прототипом</td>
+<td>предложение термина и механики</td>
+</tr>
+<tr>
+<td>Damage Resolver</td>
+<td>Граница, интерпретирующая факт физического контакта как gameplay-последствия; не владеет движением тел и формулами build</td>
+<td>назначение подтверждено; material model открыт</td>
+</tr>
+<tr>
+<td>Recovery Resolver</td>
+<td>Предлагаемый исполнитель обязательного восстановления из фактической позы, импульса, опоры и состояния оружия; не решает, требуется ли восстановление</td>
+<td>предложение термина и реализации</td>
+</tr>
+<tr>
+<td>Body profile</td>
+<td>Версионированный визуальный контракт канонической формы тела, к которому pipeline подгоняет совместимую экипировку; не является gameplay-классом или набором характеристик</td>
+<td>принято как направление asset pipeline; состав открыт</td>
+</tr>
+<tr>
+<td>Provenance ассета</td>
+<td>Запись происхождения визуального source: автор или сервис, версия инструмента, существенные параметры, hashes и лицензия; используется для аудита и допуска к публикации</td>
+<td>принято как требование asset pipeline</td>
 </tr>
 <tr>
 <td>Тег</td>

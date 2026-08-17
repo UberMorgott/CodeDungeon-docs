@@ -10,13 +10,11 @@
       
       
       
-        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/game-design/passive-tree-and-sockets/">
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/item-persistence/">
       
       
-        <link rel="prev" href="../visual-direction-and-camera/">
+        <link rel="prev" href="../item-content-and-crafting/">
       
-      
-        <link rel="next" href="../skills-and-tags/">
       
       
         
@@ -27,7 +25,7 @@
     
     
       
-        <title>Пассивное дерево и ячейки - CodeDungeon — документация</title>
+        <title>Хранение предметов - CodeDungeon — документация</title>
       
     
     
@@ -116,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Пассивное дерево и ячейки
+              Хранение предметов
             
           </span>
         </div>
@@ -288,20 +286,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -322,12 +318,432 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
   
     Игровой дизайн
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектурный скелет
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/vision-and-pillars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Видение и опоры
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/core-loop-and-runs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Основной цикл и забеги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/ai-brain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Мозг персонажа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/combat-and-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бой и фазы действий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/physical-combat-and-replay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Физический бой и запись
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/visual-direction-and-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Визуальное направление и камера
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/passive-tree-and-sockets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пассивное дерево и ячейки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/skills-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Навыки и теги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/items-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Предметы и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/progression-and-idle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Прогрессия и idle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глоссарий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Техническая документация
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Техническая документация
   
 
           </label>
@@ -368,14 +784,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture/" class="md-nav__link">
+      <a href="../tech-stack/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Архитектурный скелет
+    Технологический стек
   
 
     
@@ -396,14 +812,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../vision-and-pillars/" class="md-nav__link">
+      <a href="../asset-pipeline/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Видение и опоры
+    Конвейер 3D-ассетов
   
 
     
@@ -424,126 +840,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../core-loop-and-runs/" class="md-nav__link">
+      <a href="../item-content-and-crafting/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Основной цикл и забеги
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ai-brain/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Мозг персонажа
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../combat-and-actions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Бой и фазы действий
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../physical-combat-and-replay/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Физический бой и запись
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../visual-direction-and-camera/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Визуальное направление и камера
+    Контент предметов и крафт
   
 
     
@@ -580,7 +884,7 @@
   <span class="md-ellipsis">
     
   
-    Пассивное дерево и ячейки
+    Хранение предметов
   
 
     
@@ -598,7 +902,7 @@
   <span class="md-ellipsis">
     
   
-    Пассивное дерево и ячейки
+    Хранение предметов
   
 
     
@@ -627,7 +931,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Подтверждено
+        Решение
       
     </span>
   </a>
@@ -638,7 +942,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Предлагаемая роль дерева
+        Топология базы данных
       
     </span>
   </a>
@@ -649,7 +953,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Предлагаемое разделение ответственности
+        Атомарные операции
       
     </span>
   </a>
@@ -660,7 +964,7 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Открытые вопросы
+        Кодирование и миграции
       
     </span>
   </a>
@@ -671,7 +975,7 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Закрытый риск дизайна
+        Ёмкость и наблюдаемость
       
     </span>
   </a>
@@ -682,312 +986,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../skills-and-tags/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Навыки и теги
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../items-and-crafting/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Предметы и крафт
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../progression-and-idle/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Прогрессия и idle
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../glossary/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Глоссарий
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Техническая документация
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Техническая документация
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../technical/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Обзор
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../technical/tech-stack/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Технологический стек
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../technical/asset-pipeline/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Конвейер 3D-ассетов
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../technical/item-content-and-crafting/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Контент предметов и крафт
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../technical/item-persistence/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Хранение предметов
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1030,7 +1028,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Подтверждено
+        Решение
       
     </span>
   </a>
@@ -1041,7 +1039,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Предлагаемая роль дерева
+        Топология базы данных
       
     </span>
   </a>
@@ -1052,7 +1050,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Предлагаемое разделение ответственности
+        Атомарные операции
       
     </span>
   </a>
@@ -1063,7 +1061,7 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Открытые вопросы
+        Кодирование и миграции
       
     </span>
   </a>
@@ -1074,7 +1072,7 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Закрытый риск дизайна
+        Ёмкость и наблюдаемость
       
     </span>
   </a>
@@ -1098,7 +1096,7 @@
 
 
   
-    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/game-design/passive-tree-and-sockets.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/technical/item-persistence.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1106,65 +1104,59 @@
   
 
 
-<h1 id="_1">Пассивное дерево и ячейки активных навыков<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">Подтверждено<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h1 id="_1">Хранение предметов<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">Решение<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Определения предметов — база, metadata аффиксов, локализация, диапазоны и теги — являются неизменяемым контентом, адресуемым стабильными <code>uint32</code> ID. Экземпляр предмета хранит только идентичность, владельца и расположение, версию, стак, компактные изменяемые значения, RNG seed и пары ID/значение выпавших аффиксов. Строки и данные определений не повторяются в каждом выпавшем предмете.</p>
+<p><code>server/internal/itemstore</code> — граница адаптера. Игровые правила зависят от <code>Store</code>, а не от драйвера базы данных. <code>Memory</code> служит исполняемой спецификацией и тестовым backend, но не production-базой MMO.</p>
+<p>Контракты неизменяемых определений и чистых операций крафта описаны в <a href="../item-content-and-crafting/">документе о контенте предметов и движке крафта</a>. Игровой дизайн принадлежит <a href="../../game-design/items-and-crafting/">документу о предметах и крафте</a>.</p>
+<h2 id="_3">Топология базы данных<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
-<li>В игре есть ветка/дерево пассивных навыков, вдохновлённое деревом Path of Exile.</li>
-<li>В дереве предусмотрены ячейки для активных навыков.</li>
-<li>Пассивные узлы и активные навыки участвуют в универсальной системе тегов вместе с остальными gameplay-сущностями; канонический контракт определён в <a href="../skills-and-tags/">документе о тегах</a>.</li>
-<li>Основное дерево имеет направления силы, ловкости и интеллекта. Их машинные идентификаторы — <code>str</code>, <code>dex</code> и <code>int</code>.</li>
-<li>Сокращённые идентификаторы направлений являются осознанным исключением из общего правила «теги пишутся полными словами». Атрибуты — не теги, а короткие служебные идентификаторы направлений дерева, привычные по жанру.</li>
-<li>Среди узлов основного дерева встречаются узлы-гнёзда. В гнездо вставляется активный навык.</li>
-<li>От вставленного навыка раскрывается его собственная локальная паутина развития с вариантами улучшения и изменения навыка.</li>
-<li>Внутри каждого билда один бюджет очков навыков расходуется либо на продвижение по его пассивному дереву, либо на локальные паутины его активных навыков.</li>
-<li>Очки навыков, основной путь и развитие активных навыков сохраняются навсегда между забегами.</li>
-<li>Любой узел основного дерева и локальной паутины навыка стоит ровно 1 очко навыков. Сила узла задаётся его местом на дереве и длиной пути к нему, а не ценой.</li>
-<li>Сброс вложений выполняется поузлово: игрок снимает отдельные узлы, а не только всё дерево целиком.</li>
-<li>Поузловая перестройка доступна вне боя: в промежутках между боями и в таверне. Во время боя перестройка невозможна.</li>
-<li>Перестройка стоит игровую валюту. Цена задумана как доступная, а не как барьер: эксперимент с билдом — ядро игры, и налог на эксперимент бьёт в её суть. Конкретные значения цены снятия узла и полного сброса являются параметрами баланса и в GDD не фиксируются.</li>
-<li>В режиме разработки перестройка бесплатна. Это dev-режим для тестирования билдов, а не игровое правило.</li>
-<li>Ячейки не имеют ограничений: любой камень активного навыка вставляется в любое гнездо. Ни атрибут ветки, ни теги навыка не сужают выбор.</li>
-<li>Выбор игрока определяется только положением гнезда на дереве: какие узлы основного дерева находятся рядом и какая локальная паутина от него раскроется.</li>
-<li>При извлечении камня активного навыка из гнезда все очки, фактически оплачивавшие активные узлы его локальной паутины, возвращаются персонажу.</li>
-<li>Камень сохраняет память желаемой раскладки: какие узлы и перки его локальной паутины были выбраны до извлечения.</li>
-<li>При повторной вставке камня прежняя раскладка отображается снова. Эффект дают только узлы, которые в текущем состоянии фактически оплачены очками. Ранее выбранные, но неоплаченные из-за нехватки очков узлы показываются красными и не дают эффект.</li>
-<li>При повторной вставке очки списываются автоматически, без ручного подтверждения, столько, на сколько хватает свободных очков.</li>
-<li>Порядок оплаты детерминированный: восстановление идёт от гнезда наружу по пути, ближние к гнезду узлы становятся активными первыми.</li>
-<li>Желаемая сохранённая раскладка камня и текущий набор активных оплаченных узлов — разные состояния и не должны смешиваться.</li>
-<li>Узлы основного дерева могут влиять на характеристики персонажа и на навыки по тегам. На programming bubbles и алгоритм мозга дерево не влияет.</li>
-<li>Влияние основного дерева на навык в гнезде состоит из двух слоёв.</li>
-<li>Первый слой — обычные узлы дерева: они действуют по тегам глобально. Узел, усиливающий определённые теги, влияет на все навыки с этими тегами независимо от того, где на дереве стоит гнездо. Геометрической дистанции у такого влияния нет.</li>
-<li>Второй слой — узлы-якоря: особые узлы, расположенные рядом с гнездом, действуют только на навык этого гнезда и его локальную паутину.</li>
-<li>Поэтому место гнезда на дереве решает, какие якоря окажутся доступны, но не меняет действие обычных теговых узлов.</li>
-<li>У одного персонажа предусмотрены два полноценных билда. Каждый набор оружия связан со своим полным пассивным деревом и набором активных навыков; при атомарном исполнении смены оружия вместе переключается весь билд.</li>
-<li>Второй билд является поздней разблокировкой и переломным моментом прогрессии: он открывается, когда игрок уже открыл и прошёл почти всё содержимое. Сначала игрок осваивает один билд, затем учится связывать две самостоятельные специализации в одну боевую стратегию.</li>
-<li>Смысл второго билда — сознательный скачок мощности: два полных дерева и два набора активных навыков дают качественно новый уровень возможностей, а не постепенное усиление.</li>
-<li>Конкретное условие открытия является значением баланса, определяется при наполнении содержимого и в GDD не фиксируется.</li>
-<li>Для будущего Online-персонажа очки пассивного дерева и доступ к второму билду зарабатываются независимо в Online-realm с начала его силовой прогрессии. Полный стартовый Brain-entitlement не открывает пассивные узлы или второй билд, а Offline-развитие не переносится.</li>
-<li>Это углубление одного персонажа, а не расширение ростера. Например, персонаж переключается на билд с лечебным посохом, лечится и накладывает усиления, затем полноценной трёхфазной сменой возвращается к билду с двуручным мечом.</li>
-<li>Заработанные очки навыков не делятся между двумя билдами, а дублируют доступный бюджет каждого дерева. Если персонаж заработал 50 очков, первый и второй билд могут независимо распределить по 50 очков. Вложения одного дерева не уменьшают бюджет другого.</li>
-<li>Активность дерева переключается вместе с билдом, однако установленные в обоих деревьях навыки остаются глобально адресуемыми для Brain. Это позволяет алгоритму читать их состояние и планировать смену, но не позволяет применить навык неактивного дерева без явного действия переключения.</li>
-<li>Пассивные деревья не дают максимальную Memory. Ёмкость Brain является глобальной для двух билдов, поэтому переключение дерева не уменьшает лимит и не инвалидирует уже настроенный алгоритм.</li>
+<li><strong>Solo/local/offline:</strong> предпочтительный долговечный адаптер — SQLite в WAL mode. Следует использовать одну writer transaction, подготовленные batch statements и периодические checkpoints. Драйвер SQLite выбирается только при реализации адаптера: не следует заранее добавлять CGO или крупную зависимость.</li>
+<li><strong>Авторитетные co-op/PvP:</strong> предпочтительная модель — PostgreSQL-compatible SQL. Она предоставляет row locking, транзакционный крафт и передачи, зрелые replication, backup и operational tooling. Партиционирование по account/owner вводится только после подтверждающих измерений. SQLite нельзя использовать как базу на общем сетевом диске.</li>
+<li><strong>Redis:</strong> допустим позднее для краткоживущих caches и locks, но никогда не является источником истины для предметов во владении игроков.</li>
 </ul>
-<h2 id="_3">Предлагаемая роль дерева<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>Дерево одновременно выражает направление развития билда и создаёт места для активных возможностей. Путь игрока по дереву должен давать осмысленные комбинации, а не только линейное увеличение чисел.</p>
-<h2 id="_4">Предлагаемое разделение ответственности<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Пассивные узлы дают постоянные правила или модификаторы.</li>
-<li>Ячейки принимают активные навыки.</li>
-<li>Система тегов определяет применимость модификаторов к навыкам.</li>
-<li>Узлы могут работать с составными условиями <strong>AND</strong>, <strong>OR</strong> и <strong>NOT</strong>. После конверсии применимость узла проверяется только по итоговому набору effective tags. Дерево вместе с предметами, контентом и крафтом не должно позволять валидному билду активировать более одной исходящей конверсии для одного source tag; такой конфликт является ошибкой конфигурации, а не выбором по приоритету.</li>
-<li>Мозг персонажа решает, когда вызвать установленный активный навык, но не определяет его числовой эффект.</li>
-</ul>
-<h2 id="_5">Открытые вопросы<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Сколько узлов-якорей приходится на одно гнездо и как далеко они могут стоять? Это вопрос наполнения дерева.</li>
-<li>Как именно теги определяют влияние узла на персонажа или навык?</li>
-<li>Можно ли менять активные навыки без сброса пассивного пути?</li>
-<li>Какова конкретная валютная цена снятия узла и полного сброса? Доступность перестройки подтверждена, открыты только числовые значения баланса.</li>
-</ul>
-<h2 id="_6">Закрытый риск дизайна<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<p><strong>Закрыто:</strong> риск запретительной цены перестройки билда снят. Смягчение обеспечивается тем, что сброс поузловой, а не полный; очки за камень активного навыка возвращаются целиком при извлечении; раскладка камня запоминается. Цена перестройки задаётся как доступная, а в режиме разработки перестройка бесплатна.</p>
+<p>Строка базы данных хранит доступные для запросов колонки владельца, расположения и версии, а также компактный версионированный payload для менее часто запрашиваемого состояния экземпляра. Весь предмет нельзя помещать в JSON.</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">item_instance</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="n">item_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">  </span><span class="n">definition_id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">  </span><span class="n">owner_kind</span><span class="w"> </span><span class="nb">SMALLINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">  </span><span class="n">owner_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">  </span><span class="n">location_kind</span><span class="w"> </span><span class="nb">SMALLINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">  </span><span class="n">container_id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="n">grid_x</span><span class="w"> </span><span class="nb">SMALLINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="n">grid_y</span><span class="w"> </span><span class="nb">SMALLINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="n">slot</span><span class="w"> </span><span class="nb">SMALLINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="n">stack_count</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">stack_count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<span class="w">  </span><span class="k">version</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">  </span><span class="n">payload</span><span class="w"> </span><span class="n">BYTEA</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">);</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">item_owner_location</span>
+<span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">item_instance</span><span class="p">(</span><span class="n">owner_kind</span><span class="p">,</span><span class="w"> </span><span class="n">owner_id</span><span class="p">,</span><span class="w"> </span><span class="n">location_kind</span><span class="p">,</span><span class="w"> </span><span class="n">container_id</span><span class="p">,</span><span class="w"> </span><span class="n">item_id</span><span class="p">);</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">item_operation</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="n">owner_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">  </span><span class="n">operation_id</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">  </span><span class="k">result</span><span class="w"> </span><span class="n">BYTEA</span><span class="p">,</span>
+<span class="w">  </span><span class="n">created_at</span><span class="w"> </span><span class="n">TIMESTAMPTZ</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">now</span><span class="p">(),</span>
+<span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">owner_id</span><span class="p">,</span><span class="w"> </span><span class="n">operation_id</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>SQLite использует эквивалентные колонки <code>INTEGER</code> и <code>BLOB</code>. Ключи <code>item_operation</code> делают повторные сетевые запросы идемпотентными; production-адаптеры обязаны хранить или архивировать их как минимум в течение максимального окна повторов.</p>
+<h2 id="_4">Атомарные операции<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Передача, экипировка, salvage и craft выполняются внутри <code>Store.Transact</code>. Чтение и запись используют <code>version</code> как optimistic concurrency token. Передача меняет владельца и расположение в одной транзакции. Крафт расходует материалы и изменяет или создаёт результат в той же транзакции, поэтому отключение не может дублировать предметы. Разделение и слияние стака также выполняется одной транзакцией: проверить совпадение definition и stackable state, уменьшить или удалить источник, затем увеличить или создать назначение.</p>
+<p>In-memory реализация сериализует транзакции ради корректности. SQL-адаптер должен использовать <code>SELECT ... FOR UPDATE</code> в стабильном порядке item ID для предотвращения deadlock и <code>UPDATE ... WHERE item_id=? AND version=?</code> для обнаружения устаревших клиентов.</p>
+<p>Будущий Online-рынок — application service над этой границей, а не второй источник истины предметов. Он владеет состоянием лота и выбором покупателя; <code>itemstore</code> владеет идентичностью и владельцем предмета, wallet — доступными и зарезервированными средствами. Settlement должен атомарно и идемпотентно проверить лот и ревизию предмета, передать владение предметом и платёж, закрыть лот, применить блокировку повторного выставления и освободить проигравшие резервы. Catalog projections обновляются транзакционным или outbox-событием с допустимой задержкой, но каждое намерение покупки повторно проверяется по авторитетному состоянию, чтобы устаревшая projection не могла продать предмет дважды. Жизненный цикл лота определяет <a href="../../game-design/items-and-crafting/">опубликованный GDD</a>.</p>
+<h2 id="_5">Кодирование и миграции<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Payload начинается с версии кодека и использует unsigned varints вместе с zig-zag encoding знаковых значений роллов. Естественные boolean-состояния разделяют поле флагов <code>uint16</code>. Остальные данные остаются явными: ручная межполевая упаковка по битам намеренно исключена, потому что осложняет миграции и отладку, а overhead строки и индекса базы обычно превышает экономию нескольких байтов.</p>
+<p>Definition ID никогда не переиспользуются. Ревизии контента либо сохраняют обратную совместимость, либо мигрируют записи возобновляемыми batch-операциями. Поддержка декодером предыдущей версии сохраняется во время rolling deployment; backfill записывает новую версию и проверяет количество записей и checksums, после чего старое декодирование удаляется отдельным поздним релизом.</p>
+<h2 id="_6">Ёмкость и наблюдаемость<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>Страницы инвентаря загружаются по индексированному ключу owner/location, а не выборкой всех предметов мира. Batch get сохраняет запрошенный порядок ID среди найденных записей; list pagination использует монотонный <code>item_id</code>, а не offsets. Неизменяемые определения кешируются глобально, небольшие активные инвентари — на сессию.</p>
+<p>Следует измерять transaction latency, conflict rate, payload bytes/item, rows read, idempotency hits и причины ошибок craft/transfer.</p>
+<p>Команды измерения:</p>
+<div class="highlight"><pre><span></span><code>go test ./internal/itemstore
+go test -run '^$' -bench BenchmarkCodec -benchmem ./internal/itemstore
+go test -run '^$' -bench BenchmarkEncodeMillion -benchtime=1x -benchmem ./internal/itemstore
+</code></pre></div>
+<p>Benchmark миллиона предметов намеренно запускается только явно, поскольку создаёт крупную синтетическую fixture. Результаты зависят от машины и записываются в release/performance notes, а не фиксируются как обещания производительности.</p>
 
 
 

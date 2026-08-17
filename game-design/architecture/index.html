@@ -608,6 +608,17 @@
   <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       
+        Визуальные ассеты и их сборка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         Телеметрия и мониторинг
       
     </span>
@@ -632,7 +643,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       
         Что можно разрабатывать параллельно
@@ -643,7 +654,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       
         Интеграционные ворота
@@ -654,7 +665,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       
         Дорожная карта миграции
@@ -665,7 +676,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       
         Нерешённые архитектурные решения
@@ -783,6 +794,62 @@
     
   
     Бой и фазы действий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physical-combat-and-replay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Физический бой и запись
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visual-direction-and-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Визуальное направление и камера
   
 
     
@@ -1046,6 +1113,90 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Конвейер 3D-ассетов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/item-content-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Контент предметов и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/item-persistence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Хранение предметов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1260,6 +1411,17 @@
   <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       
+        Визуальные ассеты и их сборка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         Телеметрия и мониторинг
       
     </span>
@@ -1284,7 +1446,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       
         Что можно разрабатывать параллельно
@@ -1295,7 +1457,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       
         Интеграционные ворота
@@ -1306,7 +1468,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       
         Дорожная карта миграции
@@ -1317,7 +1479,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       
         Нерешённые архитектурные решения
@@ -1361,7 +1523,7 @@
 <li><strong>TARGET:</strong> обязательная целевая граница.</li>
 <li><strong>MIGRATION SEAM:</strong> совместимый шов, через который прототип заменяется без одновременной переделки всей игры.</li>
 </ul>
-<p>Главный инвариант: авторитетный Go core единолично владеет игровыми данными и решениями. Godot отправляет намерения со стабильными ID и отображает подтверждённое core состояние; он не рассчитывает исход боя, награды, характеристики, доступность контента или прогрессию. В MVP solo Godot запускает упакованный локальный server-sidecar, а в приватном co-op тот же core авторитетен на машине host. Такая локальная авторитетность обеспечивает единый порядок вычислений и детерминизм, но не является защитой от владельца машины и не обещает античит.</p>
+<p>Главный инвариант: авторитетный Go core единолично владеет игровыми данными и решениями. Godot отправляет намерения со стабильными ID и отображает подтверждённое core состояние; он не рассчитывает исход боя, награды, характеристики, доступность контента или прогрессию. В MVP solo Godot запускает упакованный локальный server-sidecar, а в приватном co-op тот же core авторитетен на машине host. Локальная авторитетность задаёт детерминированные правила gameplay-решений и формул и однозначный порядок уже возникших событий одного тика. Она не обещает повторный прогон с побитово одинаковыми физическими траекториями или всей последовательностью зависящих от них событий: авторитетный результат фиксируется в Battle Record и при replay не пересчитывается. Эта граница также не является защитой от владельца машины и не обещает античит.</p>
 <p>Core не привязан к топологии развёртывания. MVP использует локальный профиль для solo и player-hosted профиль для co-op; LAN, Steam и иные способы соединения подключаются транспортными адаптерами. Будущий Online разворачивает тот же gameplay/application core в доверенной удалённой среде и добавляет удалённые identity, persistence, matchmaking и operations-адаптеры. Offline- и Online-персонажи образуют разные realm’ы: перенос локальных результатов, предметов или силы в доверенный Online запрещён.</p>
 <h2 id="_3">Карта зависимостей<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>На схеме вызовов <code>A -&gt; B</code> всегда означает: <strong>A вызывает публичный контракт B</strong>. Это направление compile-time/application dependency, а не владение данными.</p>
@@ -1412,8 +1574,8 @@ Critical account/economy audit events ~&gt; Transactional outbox ~&gt; Audit con
 <p><strong>CURRENT — prototype:</strong> <code>server/internal/dungeon/generator.go</code> и <code>templates.go</code> предоставляют детерминированные функции генерации и размера комнаты, но <code>server/internal/game/handler.go</code> вызывает их напрямую, а экземпляр карты хранится в <code>room.Room</code>. <strong>MIGRATION SEAM:</strong> обернуть текущий <code>dungeon.Generate</code> портом <code>DungeonGenerator</code>, ввести отдельные <code>MapDefinition</code> и <code>RunMapState</code>, затем переключить handler на оркестратор без изменения legacy-ответа <code>FloorMap</code>. GDD: <a href="../core-loop-and-runs/">карта, типы узлов и необратимый выбор пути</a>, <a href="../progression-and-idle/">системный гейтинг контента</a>.</p>
 <h3 id="_8">Бой и действия<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p><strong>TARGET. Владеет:</strong> временем симуляции, сущностями боя, фазами действий, ресурсами внутри встречи, положением, эффектами, попаданиями и итогом encounter. Внешний код не меняет HP или action state.</p>
-<p><strong>Обещает:</strong> принять валидированный immutable <code>EncounterSpec</code> и вернуть <code>EncounterResult</code> плюс упорядоченный поток replay-событий; одинаковый seed и версии входов дают одинаковый результат. Контракт встречи поддерживает симметричные factions, проверку допустимости цели и <code>ModeRules</code>, не зашивая предположение «игрок всегда атакует монстра». <strong>Требует:</strong> разрешённый core build, канонические формулы/модификаторы, AI executor, версию контента и версию правил режима. <strong>Запрещено:</strong> UI управлять паузой симуляции или пересчитывать исход; режиму проникать во внутренний tick-loop; добавлять разбросанные ветви <code>if PvP</code> вместо правил режима.</p>
-<p><strong>CURRENT — prototype:</strong> <code>server/internal/game/simulator.go</code> содержит значительную часть боя, а <code>server/internal/combatformula</code> уже выделяет центральный formula engine; клиент проигрывает snapshots. <strong>MIGRATION SEAM:</strong> <code>Simulator</code> зависит только от интерфейсов formula/AI/content, после чего старые локальные расчёты удаляются по contract-тестам. GDD: <a href="../combat-and-actions/">бой и действия</a>.</p>
+<p><strong>Обещает:</strong> принять валидированный immutable <code>EncounterSpec</code> и вернуть <code>EncounterResult</code> плюс упорядоченный поток replay-событий. Seed и версии входов однозначно задают псевдослучайные gameplay-решения, формулы и правила порядка событий одного тика, но не гарантируют повторный прогон со всей той же последовательностью событий при недетерминированной физической траектории. Её авторитетная история входит в Battle Record. Контракт встречи поддерживает симметричные factions, проверку допустимости цели и <code>ModeRules</code>, не зашивая предположение «игрок всегда атакует монстра». <strong>Требует:</strong> разрешённый core build, канонические формулы/модификаторы, AI executor, версию контента и версию правил режима. <strong>Запрещено:</strong> UI управлять паузой симуляции или пересчитывать исход; replay повторно запускать AI или physics; режиму проникать во внутренний tick-loop; добавлять разбросанные ветви <code>if PvP</code> вместо правил режима.</p>
+<p><strong>CURRENT — prototype:</strong> <code>server/internal/game/simulator.go</code> содержит значительную часть боя, а <code>server/internal/combatformula</code> уже выделяет центральный formula engine; клиент проигрывает snapshots. <strong>MIGRATION SEAM:</strong> <code>Simulator</code> зависит только от интерфейсов formula/AI/content, после чего старые локальные расчёты удаляются по contract-тестам. GDD: <a href="../combat-and-actions/">бой и действия</a>, <a href="../physical-combat-and-replay/">физический бой и запись</a>.</p>
 <h3 id="ai-brain">AI Brain и валидатор<a class="headerlink" href="#ai-brain" title="Permanent link">&para;</a></h3>
 <p><strong>TARGET. Владеет:</strong> канонической схемой blueprint, каталогом узлов и портов, Memory-бюджетом, компиляцией/валидацией графа, планированием, interrupts, диагностикой решений и контрактом обмена <code>BlueprintExchange</code>. Редактор владеет только черновым расположением элементов интерфейса.</p>
 <p><strong>Обещает:</strong> <code>ValidateBlueprint</code>, <code>CompileBlueprint</code>, <code>ImportBlueprint</code>, <code>ExportBlueprint</code>, <code>Decide</code> и стабильные machine-readable ошибки; versioned declarative envelope со schema/content version, stable IDs, явными миграциями и детерминированным каноническим представлением там, где порядок незначим; никогда не исполнять невалидный graph. Внутриигровая библиотека, строка для clipboard и переносимый файл используют один codec и validator. <strong>Требует:</strong> серверный каталог навыков/тегов, entitlements прогрессии и read-only combat perception. <strong>Запрещено:</strong> клиентскому валидатору быть последней инстанцией или определять gameplay-семантику узла; импорту — содержать исполняемый код, файловые пути/ссылки, секреты, произвольные payload’ы или данные прогресса и силы.</p>
@@ -1443,9 +1605,9 @@ Critical account/economy audit events ~&gt; Transactional outbox ~&gt; Audit con
 <p><strong>Обещает:</strong> snapshot по character/profile ID, проверку entitlement и идемпотентное применение награды/покупки. <strong>Требует:</strong> identity/profile port, versioned progression rules и подтверждённый результат оркестратора. <strong>Запрещено:</strong> хранить прогрессию внутри room/session, начислять её из network handler или смешивать offline- и Online-realm.</p>
 <p><strong>CURRENT — prototype:</strong> <code>server/internal/game/progression.go</code> хранится через структуры комнаты и обслуживается handler. <strong>MIGRATION SEAM:</strong> <code>ProgressionService</code> с repository-портом сначала использует memory adapter, затем внешнее хранилище без изменения callers. GDD: <a href="../progression-and-idle/">прогрессия и idle</a>, <a href="../ai-brain/">мозг персонажа</a>.</p>
 <h3 id="replay">Replay<a class="headerlink" href="#replay" title="Permanent link">&para;</a></h3>
-<p><strong>TARGET. Владеет:</strong> каноническим event stream, metadata (session, seed, schema/content/build versions), индексом и политикой retention. Срок хранения конфигурируемый и пока не имеет фиксированного числа; storage adapter может выбирать compression/chunking, не меняя семантику событий.</p>
-<p><strong>Обещает:</strong> записать завершённый replay, потоково прочитать его и явно сообщить об истечении/несовместимой версии. <strong>Требует:</strong> события боя и решения AI, не UI-снимки. <strong>Запрещено:</strong> telemetry считать replay своим хранилищем или клиенту быть единственной копией результата.</p>
-<p><strong>CURRENT — prototype:</strong> <code>SimulationResult</code> отправляет все snapshots/events, а Godot <code>playback_manager.gd</code> проигрывает их в памяти. <strong>MIGRATION SEAM:</strong> сначала envelope + codec + memory/file adapter, затем измерения размера определят retention и production storage. GDD: <a href="../combat-and-actions/">бой и действия</a>, <a href="../core-loop-and-runs/">основной цикл</a>.</p>
+<p><strong>TARGET. Владеет:</strong> сохранением и выдачей канонического Battle Record, его индексом и политикой retention. Состав записи, physical snapshots, правила seek и версии схем принадлежат тематической спецификации.</p>
+<p><strong>Обещает:</strong> записать завершённый replay, потоково прочитать его и явно сообщить об истечении/несовместимой версии. <strong>Требует:</strong> авторитетный Battle Record, не UI-снимки. <strong>Запрещено:</strong> telemetry считать replay своим хранилищем, клиенту быть единственной копией результата или playback повторно запускать AI/physics.</p>
+<p><strong>CURRENT — prototype:</strong> <code>SimulationResult</code> отправляет все snapshots/events, а Godot <code>playback_manager.gd</code> проигрывает их в памяти. <strong>MIGRATION SEAM:</strong> сначала envelope + codec + memory/file adapter, затем измерения размера определят retention и production storage. GDD: <a href="../physical-combat-and-replay/">физический бой и запись</a>, <a href="../combat-and-actions/">бой и действия</a>, <a href="../core-loop-and-runs/">основной цикл</a>.</p>
 <h3 id="_12">Протокол и транспорт<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p><strong>CURRENT — prototype:</strong> WebSocket-пакет имеет wire-формат <code>[u16 little-endian opcode][gzip(protojson UTF-8)]</code>; серверная реализация — <code>server/internal/network/packet.go</code>, Godot вручную повторяет opcode и JSON-поля в <code>network_manager.gd</code>. Все области собраны в монолитном <code>shared/proto/game.proto</code>.</p>
 <p><strong>TARGET. Владеет:</strong> transport — соединением, лимитами, framing и доставкой; schema packages — wire-visible сообщениями. Доменные системы не зависят от WebSocket, opcode или protojson. Новые контракты вводятся по bounded context и версии (<code>session.v1</code>, <code>combat.v1</code>, <code>items.v1</code>, <code>progression.v1</code>, <code>telemetry.v1</code>); несовместимое изменение создаёт новую версию, поля не переиспользуются.</p>
@@ -1460,14 +1622,18 @@ Critical account/economy audit events ~&gt; Transactional outbox ~&gt; Audit con
 <p>Конвейер: <code>draft -&gt; schema/domain validation -&gt; preview + batch simulation -&gt; review -&gt; staged publish(version) -&gt; activate(version)</code>. Сервер закрепляет content version за сессией; новая версия не меняет уже идущую сессию. Hot reload означает загрузку новой версии для новых сессий. Обязательны rollback на прошлую версию, diff, автор/время публикации и воспроизводимый экспорт. Это даёт быстрый цикл баланса без неотслеживаемых live-правок.</p>
 <p><strong>Обещает:</strong> resolve stable ID в definition только внутри указанной версии; отчёт валидации и симуляции до публикации. <strong>Требует:</strong> схемы владельцев, formula kernel и telemetry aggregates. <strong>Запрещено:</strong> UI и доменным пакетам иметь собственные копии чисел; telemetry автоматически менять баланс.</p>
 <p><strong>CURRENT — prototype:</strong> definitions и числа распределены по Go, proto и GDScript; отдельного publish pipeline нет. <strong>MIGRATION SEAM:</strong> сначала inventory всех ID/чисел и read-only package loader, затем экспорт текущих значений как <code>dev-v1</code>, после — редактор поверх тех же схем.</p>
-<h3 id="_14">Телеметрия и мониторинг<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<h3 id="_14">Визуальные ассеты и их сборка<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p><strong>TARGET. Владеет:</strong> source/provenance визуального ассета, каноническими skeleton/body/socket contracts, воспроизводимыми преобразованиями, visual metadata, validation reports и опубликованными Godot artifacts. Gameplay content владеет stats и stable gameplay definitions; asset pipeline не становится вторым источником баланса.</p>
+<p><strong>Обещает:</strong> воспроизводимо собрать source указанной версии, проверить scale/axes/skeleton/sockets/clipping/budgets/license и опубликовать только versioned прошедший validation artifact. <strong>Требует:</strong> утверждённые visual contracts и budgets. <strong>Запрещено:</strong> внешнему AI-сервису определять внутренний стандарт; runtime исправлять несовместимый asset; visual metadata скрыто задавать gameplay damage или requirements.</p>
+<p><strong>CURRENT — target, не внедрено:</strong> полный compiler и автоматический armor fitting ещё не доказаны. <strong>MIGRATION SEAM:</strong> один skeleton/body profile, representative armor/weapons и CI validation до массового производства. Техника: <a href="../../technical/asset-pipeline/">конвейер 3D-ассетов</a>, GDD: <a href="../visual-direction-and-camera/">визуальное направление и камера</a>.</p>
+<h3 id="_15">Телеметрия и мониторинг<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <p><strong>TARGET. Владеет:</strong> схемами операционных и аналитических событий, ingestion, метриками/дашбордами, алертами и агрегатами. Домен владеет фактом события и публикует его через <code>EventSink</code>; telemetry не владеет игровой истиной.</p>
 <p><strong>Обещает:</strong> неблокирующую при штатной деградации доставку, versioned events, correlation по session/match/content/build version и контроль cardinality/PII. <strong>Требует:</strong> события на границах команд и результатов. <strong>Запрещено:</strong> геймплею читать аналитическую БД в hot path или падать из-за недоступного мониторинга. Для критичного audit применяется отдельный надёжный outbox/порт.</p>
 <p><strong>CURRENT — prototype:</strong> есть структурированные логи, но нет выделенной event schema/pipeline. <strong>MIGRATION SEAM:</strong> определить минимальные события session/encounter/economy/validation, подключить in-memory/test sink и только затем выбирать backend.</p>
 <h3 id="realm-identity-persistence-ports">Realm, identity и persistence ports<a class="headerlink" href="#realm-identity-persistence-ports" title="Permanent link">&para;</a></h3>
 <p><code>RealmContext</code> обязателен на границе профиля и персонажа: <code>offline</code> использует локальную identity/persistence, будущий <code>online</code> — доверенную удалённую. Репозитории и команды всегда scope’ятся realm + profile/character ID; offline-сохранение нельзя прикрепить к Online-account или импортировать в Online. Свободная передача предметов и ресурсов между участниками активной Offline/private co-op-сессии остаётся внутри этого недоверенного realm. В Online межигровая смена владельца предмета принимается только от marketplace service, а не от session, клиента или общего transfer endpoint. Разрешён только узкий перенос декларативного blueprint через общий <code>BlueprintExchange</code>: он не является сохранением персонажа, не несёт прогресс или силу и в Online проходит повторную авторитетную валидацию. Gameplay/application core не знает, где он запущен и какой драйвер хранения выбран.</p>
 <p>Способ Online-аутентификации, account backend, база данных и политика персональных данных GDD пока не задаёт. Архитектура фиксирует порты <code>IdentityVerifier</code>, <code>ProfileRepository</code>, <code>SessionResumeStore</code>, <code>Transaction/Outbox</code> и <code>Clock</code>; для MVP нужны локальные/file либо memory adapters, а не production-инфраструктура. Семантика reconnect зафиксирована: после проверки identity <code>SessionResumeStore</code> восстанавливает привязку к прежнему party slot и character, не создавая нового участника. Конкретного поставщика и срок хранения resume-state выбирают позднее; придумывать их в отдельных подсистемах запрещено.</p>
-<h2 id="_15">Что можно разрабатывать параллельно<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<h2 id="_16">Что можно разрабатывать параллельно<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
 <p>После фиксации контрактов первой волны независимы:</p>
 <table>
 <thead>
@@ -1540,7 +1706,7 @@ Critical account/economy audit events ~&gt; Transactional outbox ~&gt; Audit con
 <li>Player-hosted transport adapters и локальная persistence MVP.</li>
 <li>Только после MVP — удалённые Online identity/persistence, публичный matchmaking, reconnect и production rollout.</li>
 </ol>
-<h2 id="_16">Интеграционные ворота<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<h2 id="_17">Интеграционные ворота<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
 <p>Изменение не считается интегрируемым, пока не проходит относящиеся к нему ворота:</p>
 <ul>
 <li>schema: lint, breaking-change check и golden packet в Go/Godot;</li>
@@ -1552,10 +1718,10 @@ Critical account/economy audit events ~&gt; Transactional outbox ~&gt; Audit con
 <li>storage: concurrency/idempotency/rollback tests через один repository contract suite для memory и production adapters;</li>
 <li>marketplace: contract tests проверяют границу <code>Godot Market UI -&gt; Economy API</code> и запрещают клиенту присваивать логику рынка; load/soak/failure-тесты проверяют заданный load profile и SLO поиска, <code>BuyIntent</code>, draw, settlement и event propagation; concurrency-тесты исключают oversell и проверяют stale revision, retries, conflicts, reserve failure и backpressure; валютный matcher отдельно проверяет price-time priority, multi-counterparty partial fills, IOC/slippage, idempotency, journal/snapshot recovery, failover владельца пары и изоляцию горячей пары;</li>
 <li>orchestration: state-machine tests для каждого режима; Online intermission отдельно проверяет переход ровно по серверному дедлайну, единогласный fast skip, автоматический голос бота, блокировку fast skip отключённым человеком без блокировки deadline advance, reconnect и идемпотентный повтор команды;</li>
-<li>frontend: reducer tests доказывают, что server event — единственный источник gameplay-state;</li>
+<li>frontend: reducer tests доказывают, что server event — единственный источник gameplay-state; Godot smoke-тест проходит полный переход между основными экранами, возврат при пустой и непустой истории, восстановление клавиатурного фокуса и сохранение пользовательских настроек между запусками;</li>
 <li>observability: сбой telemetry sink не меняет gameplay result.</li>
 </ul>
-<h2 id="_17">Дорожная карта миграции<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<h2 id="_18">Дорожная карта миграции<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Зафиксировать текущий vertical slice golden-тестами: wire packets, build upload, бой, loot, progression и playback.</li>
 <li>Ввести version/content/build/session envelopes и application ports, оставив <code>game.proto</code> и opcode рабочими через adapters.</li>
@@ -1569,7 +1735,7 @@ Critical account/economy audit events ~&gt; Transactional outbox ~&gt; Audit con
 <li>Подключить replay retention, telemetry и content editor к уже стабильным событиям и схемам; backend выбирать по измерениям, а не заранее.</li>
 <li>Ввести единый <code>BlueprintExchange</code> codec/validator для библиотеки, clipboard и файлов; зафиксировать fixtures, миграционные и adversarial contract-тесты до включения Offline → Online импорта.</li>
 </ol>
-<h2 id="_18">Нерешённые архитектурные решения<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<h2 id="_19">Нерешённые архитектурные решения<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
 <ul>
 <li>размеры групп, PvP combat/rating/reward rules;</li>
 <li>транспортный адаптер и формат локального сохранения MVP;</li>

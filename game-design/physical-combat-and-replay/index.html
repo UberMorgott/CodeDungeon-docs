@@ -1,0 +1,1851 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Живая игровая и техническая документация CodeDungeon">
+      
+      
+      
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/game-design/physical-combat-and-replay/">
+      
+      
+        <link rel="prev" href="../combat-and-actions/">
+      
+      
+        <link rel="next" href="../visual-direction-and-camera/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Физический бой и запись - CodeDungeon — документация</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="CodeDungeon — документация" class="md-header__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CodeDungeon — документация
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Физический бой и запись
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить тёмную тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Включить тёмную тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить светлую тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Включить светлую тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CodeDungeon — документация" class="md-nav__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CodeDungeon — документация
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Игровой дизайн
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Игровой дизайн
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектурный скелет
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vision-and-pillars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Видение и опоры
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-loop-and-runs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Основной цикл и забеги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-brain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Мозг персонажа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../combat-and-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бой и фазы действий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Физический бой и запись
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Физический бой и запись
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Статус и границы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обещание игроку
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сквозной pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Владение и минимальные API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выбор исполнения
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Фазы физического действия
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Фазы физического действия">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подготовка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Исполнение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Восстановление
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Физическая истина, урон и recovery
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Физическая истина, урон и recovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Управляемое тело
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Оружие и контакт
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#damage-resolver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Damage Resolver
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prototype-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prototype-семантика характеристик
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hit-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Открытая схема материалов и hit zones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recovery_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recovery из результата
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#battle-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Battle Record
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replay и камера
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Карта статусов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Критерии валидации MVP
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visual-direction-and-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Визуальное направление и камера
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../passive-tree-and-sockets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пассивное дерево и ячейки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Навыки и теги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../items-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Предметы и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../progression-and-idle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Прогрессия и idle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глоссарий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Техническая документация
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Техническая документация
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/tech-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Технологический стек
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Конвейер 3D-ассетов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/item-content-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Контент предметов и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/item-persistence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Хранение предметов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Статус и границы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обещание игроку
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сквозной pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Владение и минимальные API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выбор исполнения
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Фазы физического действия
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Фазы физического действия">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подготовка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Исполнение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Восстановление
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Физическая истина, урон и recovery
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Физическая истина, урон и recovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Управляемое тело
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Оружие и контакт
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#damage-resolver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Damage Resolver
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prototype-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prototype-семантика характеристик
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hit-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Открытая схема материалов и hit zones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recovery_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recovery из результата
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#battle-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Battle Record
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replay и камера
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Карта статусов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Критерии валидации MVP
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/game-design/physical-combat-and-replay.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="_1">Физический бой и запись боя<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Этот документ задаёт целевую границу между тактическим решением персонажа, телесным исполнением действия, физическим результатом контакта и воспроизведением уже рассчитанного боя. Он дополняет, но не заменяет <a href="../combat-and-actions/">канонический контракт фаз действий</a>.</p>
+<h2 id="_2">Статус и границы<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><strong>Подтверждено:</strong> мозг персонажа выбирает намерение, а не конкретную анимацию; действие проходит фазы подготовки, атомарного исполнения и обязательного восстановления; симуляция боя и её представление разделены; replay должен воспроизводить зафиксированный результат, а не заново рассчитывать бой.</p>
+<p><strong>Целевое направление, требующее прототипа:</strong> физически разрешаемое оружие, motor-driven персонаж с ограниченным влиянием active ragdoll, выбор варианта атаки по контексту, восстановление из фактической позы и импульса, локальные последствия контактов, свободная и автоматическая камера replay.</p>
+<p>Документ не утверждает:</p>
+<ul>
+<li>конкретный физический движок, частоту тиков, формулы урона или формат сериализации;</li>
+<li>обязательность motion matching, полного active ragdoll или симуляции быстрее реального времени;</li>
+<li>что AI-генерация ассетов является частью боевого runtime;</li>
+<li>сетевую детерминированность или возможность восстановить запись одним seed;</li>
+<li>готовность перечисленных систем в текущей сборке.</li>
+</ul>
+<p>Временная семантика фаз, правила срыва и отложенного восстановления принадлежат <code>combat-and-actions.md</code>. Формулы характеристик, тегов и модификаторов принадлежат соответствующим системам данных. Здесь описано, как выбранное действие превращается в наблюдаемый физический результат и запись.</p>
+<h2 id="_3">Обещание игроку<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Игрок программирует тактику персонажа: <strong>что сделать и при каких условиях</strong>. Он не обязан программировать положение кисти, траекторию клинка или конкретный вариант шага.</p>
+<p>Целевая фантазия боя:</p>
+<ul>
+<li>один запрос <code>Attack(target)</code> может исполняться по-разному в зависимости от оружия, дистанции, скорости, позы, свободного пространства и состояния цели;</li>
+<li>начавшаяся атака не гарантирует попадание и может закончиться промахом, блоком, отскоком, столкновением с окружением, потерей равновесия или оружия;</li>
+<li>масса, импульс, броня и зона контакта должны быть заметны в результате, а не существовать только как скрытая прибавка к числу урона;</li>
+<li>последствия становятся новым состоянием мира, которое может прочитать Brain при следующей проверке;</li>
+<li>после автономного боя игрок может изучить запись, менять скорость и камеру и при необходимости включить отладочный слой решений.</li>
+</ul>
+<p>Это обещание является целью дизайна. Конкретная выразительность движений и глубина физики должны быть доказаны прототипом и плейтестом.</p>
+<h2 id="pipeline">Сквозной pipeline<a class="headerlink" href="#pipeline" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Brain / алгоритм игрока
+        │  высокоуровневое намерение
+        ▼
+Action System
+        │  подготовка → исполнение → восстановление
+        ▼
+Execution Resolver
+        │  допустимый способ исполнения в текущем контексте
+        ▼
+Motion + Motor
+        │  целевая поза, скорость и усилия
+        ▼
+Physics
+        │  фактическое движение и контакты
+        ├──────────────► Damage Resolver
+        │                 последствия контакта
+        ▼
+Recovery Resolver
+        │  возвращение к управляемому состоянию
+        ▼
+World State + Battle Record
+        │
+        ▼
+Replay / Presentation
+</code></pre></div>
+<p>Главный инвариант:</p>
+<blockquote>
+<p>Анимация и процедурное движение задают намерение; авторитетная симуляция определяет, что фактически произошло.</p>
+</blockquote>
+<h2 id="api">Владение и минимальные API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Подсистема</th>
+<th>Чем владеет</th>
+<th>Минимальный вход</th>
+<th>Минимальный выход</th>
+<th>Не должна решать</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brain</td>
+<td>тактическим выбором и условиями алгоритма</td>
+<td>наблюдаемое состояние мира</td>
+<td>намерение действия и цель</td>
+<td>конкретная анимация, траектория или hit zone</td>
+</tr>
+<tr>
+<td>Action System</td>
+<td>фазой, временным обязательством и правилами прерывания</td>
+<td>намерение, доступность и стоимость</td>
+<td>начало/окончание фазы, запрос исполнения</td>
+<td>физический исход контакта</td>
+</tr>
+<tr>
+<td>Execution Resolver</td>
+<td>выбором допустимого варианта исполнения</td>
+<td>семейство действия, оружие, дистанция, скорость, поза, окружение, ресурсы</td>
+<td>выбранный motion primitive и параметры адаптации</td>
+<td>тактическая полезность самого намерения</td>
+</tr>
+<tr>
+<td>Motion/Motor</td>
+<td>целевым движением тела и управляющими усилиями</td>
+<td>primitive, текущая поза, ограничения</td>
+<td>desired pose/velocity и motor forces</td>
+<td>урон и окончательный результат контакта</td>
+</tr>
+<tr>
+<td>Physics</td>
+<td>фактическими transform, velocity, constraints и контактами</td>
+<td>тела, усилия, collision data</td>
+<td>состояние тел и contact facts</td>
+<td>смысл урона и тактические решения</td>
+</tr>
+<tr>
+<td>Damage Resolver</td>
+<td>интерпретацией контакта</td>
+<td>точка, нормаль, относительная скорость/импульс, оружие, материал, зона, броня</td>
+<td>damage/trauma/armor/condition events</td>
+<td>перемещение физических тел</td>
+</tr>
+<tr>
+<td>Recovery Resolver</td>
+<td>планом возврата из фактического состояния</td>
+<td>поза, импульс, balance, опора, weapon state, желаемое движение</td>
+<td>recovery motion/target и признак завершения</td>
+<td>отмена обязательного восстановления</td>
+</tr>
+<tr>
+<td>Battle Recorder</td>
+<td>авторитетной историей рассчитанного боя</td>
+<td>события и выбранные состояния симуляции</td>
+<td>версионированная запись и индекс времени</td>
+<td>повторный расчёт решений или физики</td>
+</tr>
+<tr>
+<td>Replay/Presentation</td>
+<td>визуальным и звуковым воспроизведением</td>
+<td>Battle Record, ассеты, настройки просмотра</td>
+<td>кадр, звук, камера, оверлей</td>
+<td>изменение результата боя</td>
+</tr>
+</tbody>
+</table>
+<p>Точные структуры запросов и событий ещё не утверждены. Общие идентификаторы, единицы измерения и версии схем должны иметь один источник истины.</p>
+<h2 id="_4">Выбор исполнения<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Brain обращается к семейству действий, например <code>Longsword.Basic</code>, а не к отдельному клипу. Execution Resolver сначала исключает недопустимых кандидатов, затем может оценить оставшихся по контексту:</p>
+<ul>
+<li>совместимость с оружием и текущей фазой;</li>
+<li>допустимая и предпочтительная дистанция;</li>
+<li>скорость и направление движения обеих сторон;</li>
+<li>начальная поза, положение рук и предыдущий motion;</li>
+<li>доступное пространство сбоку и сверху;</li>
+<li>stamina, balance и применимые характеристики;</li>
+<li>commitment, reach и предполагаемая управляемость;</li>
+<li>штраф повторения одного варианта.</li>
+</ul>
+<p>Выбор по scoring является предложением для прототипа, а не утверждённой формулой. До канонизации нужны hard filters, нормализация score, политика tie-break, управляемая вариативность и диагностический trace причин выбора.</p>
+<p>Locomotion и атака по возможности должны композиционно продолжаться, чтобы персонаж не обязан был проходить искусственную последовательность <code>бег → полная остановка → удар → бег</code>. Конкретный способ композиции — слои анимации, motion warping, IK, motion matching или их сочетание — остаётся реализационным выбором после сравнения прототипов.</p>
+<h2 id="_5">Фазы физического действия<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">Подготовка<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>До начала атомарного исполнения система может адаптировать дистанцию, шаг, амплитуду и допустимую траекторию. Подготовка подчиняется правилам срыва из <code>combat-and-actions.md</code>.</p>
+<h3 id="_7">Исполнение<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>Начавшееся исполнение атомарно для Brain: новое тактическое решение не перенаправляет удар и не гарантирует сопровождение увернувшейся цели. При этом физика внутри фазы продолжает разрешать реальные контакты с целью, щитом и окружением. Атомарность gameplay-фазы не означает неуязвимость тела или отсутствие контактов; точная связь статусов и физического отклика требует прототипа и тестов на непротиворечивость.</p>
+<h3 id="_8">Восстановление<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>Восстановление обязательно по каноническому контракту, но его визуальное и моторное исполнение может зависеть от фактического конца атаки: нормального завершения, промаха, отскока, столкновения со стеной, потери опоры или изменившегося состояния оружия. Recovery Resolver не решает, нужно ли восстановление, а только как выполнить уже существующее обязательство.</p>
+<h2 id="recovery">Физическая истина, урон и recovery<a class="headerlink" href="#recovery" title="Permanent link">&para;</a></h2>
+<h3 id="_9">Управляемое тело<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>Целевой подход — motor-driven тело: контроллер стремится к читаемой человеческой позе, а физические воздействия могут отклонять её в разрешённых пределах. Полностью физическая кукла не является целью. Доля влияния motor и physics, набор физических костей и переход в ragdoll должны определяться измерениями устойчивости и читаемости.</p>
+<h3 id="_10">Оружие и контакт<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>Для физически значимого оружия кандидатами на авторитетные параметры являются масса, центр масс, момент инерции, положение лезвия и острия, ориентация рабочих граней, линейная и угловая скорость. Факт контакта должен как минимум позволять получить участников, точку, нормаль, относительное движение/импульс и затронутую зону.</p>
+<p>Ориентация оружия потенциально различает контакт кромкой, плашмя, остриём, гардой или рукоятью. Как именно классифицировать контакт и защищаться от шумных/множественных collision events — открытая задача прототипа.</p>
+<h3 id="damage-resolver">Damage Resolver<a class="headerlink" href="#damage-resolver" title="Permanent link">&para;</a></h3>
+<p>Physics отвечает на вопрос «как столкнулись тела», Damage Resolver — «каковы игровые последствия». Возможные входы:</p>
+<div class="highlight"><pre><span></span><code>contact fact
++ свойства оружия и материала
++ зона тела и покрытие бронёй
++ состояние участников
+→ penetration / cutting / piercing / blunt consequence
+→ локальное повреждение, потеря ресурса, состояние брони или оружия
+</code></pre></div>
+<p>Броня не обязана сводиться к процентному снижению damage: отсутствие пробития всё ещё может сопровождаться импульсом, потерей устойчивости или тупой травмой. Это направление дизайна; формулы, единицы, пороги и баланс пока не подтверждены.</p>
+<p>Локальные зоны могут влиять на управление оружием, locomotion и потерю предмета, но минимальный набор зон и допустимая сложность симуляции должны быть определены MVP. Застревание и выбивание оружия сохраняются как уникальные прототипные механики, а не как обещание релиза.</p>
+<h3 id="prototype-">Prototype-семантика характеристик<a class="headerlink" href="#prototype-" title="Permanent link">&para;</a></h3>
+<p>Физическое исполнение предлагает проверить более причинную модель, чем прямое <code>Strength = +damage</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Характеристика</th>
+<th>Проверяемое влияние, не финальный контракт</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Strength</td>
+<td>предел motor force/torque, ускорение и остановка оружия, grip force</td>
+</tr>
+<tr>
+<td>Dexterity</td>
+<td>точность и допустимая коррекция траектории во время подготовки, контроль recovery</td>
+</tr>
+<tr>
+<td>Agility</td>
+<td>footwork, repositioning и восстановление balance</td>
+</tr>
+<tr>
+<td>Stamina</td>
+<td>доступное усилие, устойчивость и скорость recovery</td>
+</tr>
+</tbody>
+</table>
+<p>Формулы, caps и даже окончательное распределение ролей между характеристиками остаются открытыми. Formula kernel должен владеть числами и trace, а Physics — применять полученные параметры, не вычисляя build самостоятельно.</p>
+<h3 id="hit-zones">Открытая схема материалов и hit zones<a class="headerlink" href="#hit-zones" title="Permanent link">&para;</a></h3>
+<p>Для прототипа Damage Resolver может различать hardness, thickness, coverage и durability брони, а оружие — mass, рабочую ориентацию и тип передаваемого воздействия. Это кандидаты входных данных, не утверждённая material simulation. Аналогично список <code>head/neck/torso/arms/hands/legs/feet</code> является стартовой таксономией теста, а не обязательной production-схемой. Перед канонизацией нужны единицы, source of truth, правила составных colliders, coverage lookup, clamps и доказательство gameplay-ценности каждой зоны.</p>
+<h3 id="recovery_1">Recovery из результата<a class="headerlink" href="#recovery_1" title="Permanent link">&para;</a></h3>
+<p>Входами Recovery Resolver могут быть ориентации плеча/локтя/кисти и оружия, угловая скорость, наклон корпуса, опора ног, balance, weapon state и желаемое движение. Выход обязан вернуть персонажа к состоянию, из которого Action System может завершить фазу восстановления. Recovery не должен телепортировать оружие сквозь препятствие или скрывать значимый отскок.</p>
+<h2 id="battle-record">Battle Record<a class="headerlink" href="#battle-record" title="Permanent link">&para;</a></h2>
+<p>Предварительно рассчитанный бой не равен заранее заскриптованному: сначала выполняется авторитетная симуляция, затем её результат воспроизводится. Replay не должен повторно запускать AI и physics с тем же seed, потому что малые расхождения способны изменить дальнейший бой.</p>
+<p>Battle Record должен быть версионированным артефактом с идентификаторами боя, сущностей и версии правил. Предлагается гибридная запись:</p>
+<ul>
+<li>дискретные gameplay-события: начало/конец фаз, выбор исполнения, контакты, damage, смены состояний, потеря или застревание оружия, ragdoll transitions;</li>
+<li>keyframes/snapshots авторитетного физического состояния, достаточные для seek и коррекции;</li>
+<li>воспроизводимые presentation hints, если визуальный результат обязан совпадать между просмотрами.</li>
+</ul>
+<p>Минимально исследуемые поля snapshot: root transform, важные физические кости, transform и velocity оружия, состояния constraints и ragdoll. Частота <code>50–100 ms</code> из исходной концепции остаётся только стартовой гипотезой; её определят ошибка интерполяции, размер записи и стоимость seek.</p>
+<p>Косметические детали — частицы, secondary cloth, лицо и мелкая анимация — могут пересоздаваться presentation-слоем, если это не меняет смысл события и обеспечивает приемлемую стабильность просмотра.</p>
+<p>До реализации необходимо определить:</p>
+<ul>
+<li>схему и миграции версий;</li>
+<li>keyframe/delta policy и индекс для seek;</li>
+<li>допустимую визуальную ошибку интерполяции;</li>
+<li>размер записи на минуту и срок хранения;</li>
+<li>поведение при отсутствующем ассете или несовместимой версии правил;</li>
+<li>источник авторитетного времени и порядок событий одного тика.</li>
+</ul>
+<h2 id="replay">Replay и камера<a class="headerlink" href="#replay" title="Permanent link">&para;</a></h2>
+<p>Целевые операции replay: пауза, seek, rewind и скорости воспроизведения, включая slow motion. Камера не влияет на рассчитанный бой и может быть свободной, следящей или автоматической.</p>
+<p>Поскольку запись содержит будущие события, cinematic camera может заранее выбирать ракурс для значимых моментов: критического контакта, near miss, parry, disarm, weapon break, падения или смерти. Оценка важности события и автоматические cuts являются отдельной presentation-системой; они не входят в MVP физического боя, пока ручной replay не доказал корректность записи.</p>
+<p>По умолчанию replay показывает чистое зрелище. Переключаемый отладочный оверлей может показывать фазы, выбранный primitive, причины scoring, контакты и события damage. Это продолжает подтверждённое правило интерфейса из <code>combat-and-actions.md</code>.</p>
+<h2 id="_11">Карта статусов<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Положение</th>
+<th>Статус</th>
+<th>Условие следующего решения</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brain выбирает намерение, а не конкретную анимацию</td>
+<td>Подтверждено</td>
+<td>сохранять границу API</td>
+</tr>
+<tr>
+<td>Действие имеет подготовку, атомарное исполнение и восстановление</td>
+<td>Подтверждено</td>
+<td>детали — в <code>combat-and-actions.md</code></td>
+</tr>
+<tr>
+<td>Simulation отделена от Presentation</td>
+<td>Подтверждено</td>
+<td>определить минимальный Battle Record</td>
+</tr>
+<tr>
+<td>Replay воспроизводит запись, а не повторяет physics по seed</td>
+<td>Подтверждено</td>
+<td>утвердить схему и версионирование</td>
+</tr>
+<tr>
+<td>Контекстный Resolver выбирает primitive через filters/scoring</td>
+<td>Прототип</td>
+<td>доказать читаемость, traceability и отсутствие dominant repetition</td>
+</tr>
+<tr>
+<td>Motor-driven тело допускает физическое отклонение</td>
+<td>Прототип</td>
+<td>доказать устойчивость и отсутствие «кукольности»</td>
+</tr>
+<tr>
+<td>Физическое оружие влияет на траекторию и recovery</td>
+<td>Прототип</td>
+<td>доказать стабильность контактов при целевой нагрузке</td>
+</tr>
+<tr>
+<td>Ориентация кромки/острия меняет тип контакта</td>
+<td>Прототип</td>
+<td>определить надёжную классификацию</td>
+</tr>
+<tr>
+<td>Локальный damage меняет функции конечностей</td>
+<td>Прототип</td>
+<td>определить минимальные зоны и gameplay value</td>
+</tr>
+<tr>
+<td>Оружие может застрять или быть выбито через constraints</td>
+<td>Прототип</td>
+<td>проверить fun, fairness и техническую устойчивость</td>
+</tr>
+<tr>
+<td>Headless бой рассчитывается быстрее realtime</td>
+<td>Открытый вопрос</td>
+<td>измерить после минимальной симуляции</td>
+</tr>
+<tr>
+<td>Motion matching обязателен</td>
+<td>Открытый вопрос</td>
+<td>сравнить с более простыми animation/motor решениями</td>
+</tr>
+<tr>
+<td>Частота snapshot и бюджет размера записи</td>
+<td>Открытый вопрос</td>
+<td>измерить ошибку и объём</td>
+</tr>
+<tr>
+<td>Автоматическая cinematic camera входит в первый релиз</td>
+<td>Открытый вопрос</td>
+<td>решать после готовности ручного replay</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mvp">Критерии валидации MVP<a class="headerlink" href="#mvp" title="Permanent link">&para;</a></h2>
+<p>Минимальный вертикальный срез: два гуманоида, одно оружие ближнего боя, простая броня/щит, одна Attack Family, плоская арена с одним препятствием и записываемый короткий бой.</p>
+<p>MVP считается подтверждением направления, только если:</p>
+<ol>
+<li>Один высокоуровневый <code>Attack(target)</code> наблюдаемо выбирает не менее трёх подходящих исполнений для разных дистанций или скоростей без участия Brain в выборе клипа.</li>
+<li>Исполнение даёт как минимум четыре различимых результата: попадание, промах, блок/щит и контакт с окружением; цель не «притягивается» после commit.</li>
+<li>После каждого результата персонаж завершает обязательное восстановление из фактического состояния без телепорта оружия и без необратимой потери управления в типовых случаях.</li>
+<li>Одинаковый сохранённый Battle Record многократно воспроизводит те же gameplay-события и визуально приемлемые траектории без повторного запуска AI/physics.</li>
+<li>Replay поддерживает паузу, seek назад/вперёд, slow motion и свободную камеру; seek возвращает согласованное состояние сущностей и оружия.</li>
+<li>Диагностический trace объясняет выбор primitive и связывает contact → damage consequence → recovery.</li>
+<li>За целевой тестовый бой не возникают пропущенные обязательные события, неконтролируемое дрожание constraints или провалы тела/оружия сквозь арену сверх заранее заданного допуска.</li>
+<li>Измерены, а не предполагаются: CPU-время симуляции, максимальная стабильная численность участников, размер Battle Record на минуту, ошибка интерполяции и время seek.</li>
+<li>Плейтестеры без объяснения различают хотя бы три физических исхода и в большинстве случаев связывают их с видимой причиной; конкретный порог выборки утверждается до теста.</li>
+</ol>
+<p>Застревание оружия, выбивание через разрыв grip constraint, функциональный local damage, motion matching, симуляция быстрее realtime и автоматическая cinematic camera не являются условиями первого MVP. Каждая из этих возможностей получает отдельный эксперимент после прохождения базовых критериев.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.top", "search.highlight", "search.suggest", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/navigation-state.js"></script>
+      
+    
+  </body>
+</html>

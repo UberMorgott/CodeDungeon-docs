@@ -447,17 +447,6 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Старые и справочные материалы
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         Правило обновления
       
     </span>
@@ -466,7 +455,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         Ближайшие открытые вопросы
@@ -612,6 +601,62 @@
     
   
     Бой и фазы действий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="physical-combat-and-replay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Физический бой и запись
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="visual-direction-and-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Визуальное направление и камера
   
 
     
@@ -875,6 +920,90 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technical/asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Конвейер 3D-ассетов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technical/item-content-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Контент предметов и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technical/item-persistence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Хранение предметов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -956,17 +1085,6 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Старые и справочные материалы
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         Правило обновления
       
     </span>
@@ -975,7 +1093,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         Ближайшие открытые вопросы
@@ -1046,6 +1164,14 @@
 <td>Подготовка, исполнение, восстановление, срывы и временная цена действий</td>
 </tr>
 <tr>
+<td><a href="physical-combat-and-replay/">Физический бой и запись</a></td>
+<td>Телесное исполнение намерения, физический результат, Damage/Recovery, Battle Record и replay</td>
+</tr>
+<tr>
+<td><a href="visual-direction-and-camera/">Визуальное направление и камера</a></td>
+<td>3D-основа, изометрическая подача, стилистические кандидаты и камеры replay</td>
+</tr>
+<tr>
 <td><a href="ai-brain/">Мозг персонажа</a></td>
 <td>Настройка ИИ, Memory, развитие bubbles, валидация и выполнение алгоритма</td>
 </tr>
@@ -1079,7 +1205,8 @@
 <li>Для планирования разработки — <a href="architecture/">архитектурный скелет</a>: кто владеет данными и по каким контрактам соединяются части игры.
    Конкретные технологии, этапы их внедрения и причины выбора собраны отдельно в <a href="../technical/tech-stack/">технологическом стеке</a>.</li>
 <li><a href="ai-brain/">Мозг персонажа</a> — главная механика непрямого управления, bubbles, графы и Memory.</li>
-<li><a href="combat-and-actions/">Бой и фазы действий</a> — как алгоритм исполняется во времени и взаимодействует с контролем.</li>
+<li><a href="combat-and-actions/">Бой и фазы действий</a> — как алгоритм исполняется во времени и взаимодействует с контролем; затем <a href="physical-combat-and-replay/">физический бой и запись</a> — как намерение превращается в контакт и replay.</li>
+<li><a href="visual-direction-and-camera/">Визуальное направление и камера</a> — почему симуляция остаётся трёхмерной и как она показывается в бою и replay.</li>
 <li><a href="passive-tree-and-sockets/">Пассивное дерево и ячейки</a>, затем <a href="skills-and-tags/">навыки и теги</a> — устройство билдов и общий системный язык.</li>
 <li><a href="items-and-crafting/">Предметы, экипировка и крафт</a> — добыча, два набора билдов, аффиксы, уникальные предметы и коррупция.</li>
 <li><a href="progression-and-idle/">Прогрессия и idle</a> — долгосрочное развитие; незнакомые термины проверять в <a href="glossary/">глоссарии</a>.</li>
@@ -1098,23 +1225,14 @@
 <p>Гейтинг биомов и боссов утверждён как системный: формального ключа входа нет, а нужное поведение требуется самой сложностью контента. Подробности — в <a href="progression-and-idle/">прогрессии и idle</a>.</p>
 <p>Набор категорий тегов утверждён без урезанного MVP-подмножества: полный набор из семи категорий сразу, при обязательном требовании расширяемости и едином сопоставлении по тегам. Подробности — в <a href="skills-and-tags/">навыках и тегах</a>.</p>
 <p>Дальше продолжать движение от крупных систем к деталям по разделу «Ближайшие открытые вопросы» ниже.</p>
-<h2 id="_5">Старые и справочные материалы<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>Эти файлы содержат полезные идеи, но пока не являются автоматически каноническими для нового набора документов:</p>
-<ul>
-<li><a href="https://github.com/UberMorgott/CodeDungeon/blob/main/docs/GDD.md">Старый монолитный GDD</a></li>
-<li><a href="https://github.com/UberMorgott/CodeDungeon/blob/main/AI_Brain_UX_Progression_Design.md">AI Brain UX &amp; Progression Design</a></li>
-<li><a href="https://github.com/UberMorgott/CodeDungeon/blob/main/docs/ROADMAP.md">Roadmap разработки</a></li>
-<li><a href="https://github.com/UberMorgott/CodeDungeon/blob/main/docs/item-content-crafting-engine.md">Item Content and Crafting Engine</a></li>
-<li><a href="https://github.com/UberMorgott/CodeDungeon/blob/main/docs/item-storage.md">Item Persistence Engine</a></li>
-</ul>
-<h2 id="_6">Правило обновления<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_5">Правило обновления<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Новая мысль попадает в подходящий тематический документ.</li>
 <li>Неутверждённая мысль помечается как предложение или открытый вопрос.</li>
 <li>Стабильный English ID определяется в том тематическом документе, который владеет сущностью: навык и тег — в <a href="skills-and-tags/">навыках и тегах</a>, атрибут — в <a href="passive-tree-and-sockets/">пассивном дереве и ячейках</a>, аффикс — в <a href="items-and-crafting/">предметах и крафте</a> и так далее. Определение ровно одно; дублировать ID в другом документе нельзя, остальные документы только ссылаются на владельца. <a href="glossary/">Глоссарий</a> определяет человеческие понятия и служит указателем: для каждого стабильного ID он называет документ-владелец.</li>
 <li>После утверждения решения его статус меняется на <strong>Подтверждено</strong>, а связанные вопросы и противоречия обновляются.</li>
 </ol>
-<h2 id="_7">Ближайшие открытые вопросы<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_6">Ближайшие открытые вопросы<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Каковы числа генерации карты забега: количество рядов, ширина ряда, частоты типов узлов и вероятность пересечения путей? Ветвящийся граф с общим узлом босса подтверждён, открыты только значения баланса.</li>
 <li>Каковы конкретные пределы числового масштабирования? Принцип ограниченного масштабирования с учётом будущего PvP подтверждён, открыты только значения.</li>
