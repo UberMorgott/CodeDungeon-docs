@@ -5,5 +5,5 @@
  * left; the separate table of contents remains available on the right.
  */
 .md-nav--primary .md-nav--secondary {
-  display: none;
+  display: none !important;
 }
