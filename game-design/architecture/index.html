@@ -1,0 +1,1513 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Живая геймдизайн-документация CodeDungeon">
+      
+      
+      
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/game-design/architecture/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../vision-and-pillars/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Архитектурный скелет - CodeDungeon — документация</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="CodeDungeon — документация" class="md-header__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CodeDungeon — документация
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Архитектурный скелет
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить тёмную тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Включить тёмную тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить светлую тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Включить светлую тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CodeDungeon — документация" class="md-nav__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CodeDungeon — документация
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Игровой дизайн
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Игровой дизайн
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектурный скелет
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектурный скелет
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как читать статусы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Карта зависимостей
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подсистемы и контракты
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Подсистемы и контракты">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Режимы, сессии и матчмейкинг
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Оркестратор забега, миссии и арены
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Генерация подземелья и шаблоны узлов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Бой и действия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-brain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Brain и валидатор
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Канонические теги, формулы и модификаторы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build, навыки и пассивные деревья
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Предметы, инвентарь, крафт и хранение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Долгосрочная прогрессия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replay
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Протокол и транспорт
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#godot-frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Godot frontend и клиентская проекция
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контент, баланс и визуальный редактор
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Телеметрия и мониторинг
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#account-auth-persistence-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Account, auth и persistence ports
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что можно разрабатывать параллельно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Интеграционные ворота
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Дорожная карта миграции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Нерешённые архитектурные решения
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vision-and-pillars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Видение и опоры
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-loop-and-runs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Основной цикл и забеги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-brain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Мозг персонажа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../combat-and-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бой и фазы действий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../passive-tree-and-sockets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пассивное дерево и ячейки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Навыки и теги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../items-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Предметы и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../progression-and-idle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Прогрессия и idle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глоссарий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как читать статусы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Карта зависимостей
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подсистемы и контракты
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Подсистемы и контракты">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Режимы, сессии и матчмейкинг
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Оркестратор забега, миссии и арены
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Генерация подземелья и шаблоны узлов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Бой и действия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-brain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Brain и валидатор
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Канонические теги, формулы и модификаторы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build, навыки и пассивные деревья
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Предметы, инвентарь, крафт и хранение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Долгосрочная прогрессия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replay
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Протокол и транспорт
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#godot-frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Godot frontend и клиентская проекция
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контент, баланс и визуальный редактор
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Телеметрия и мониторинг
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#account-auth-persistence-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Account, auth и persistence ports
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что можно разрабатывать параллельно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Интеграционные ворота
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Дорожная карта миграции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Нерешённые архитектурные решения
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/game-design/architecture.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="_1">Архитектурный скелет<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Этот документ задаёт границы владения и контракты, по которым несколько команд могут параллельно собирать CodeDungeon. Он не заменяет тематический GDD: если здесь и в тематическом документе различается gameplay-правило, источником истины остаётся тематический документ.</p>
+<h2 id="_2">Как читать статусы<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>CURRENT — prototype:</strong> граница уже видна в коде, но может быть временной или неполной.</li>
+<li><strong>TARGET:</strong> обязательная целевая граница.</li>
+<li><strong>MIGRATION SEAM:</strong> совместимый шов, через который прототип заменяется без одновременной переделки всей игры.</li>
+</ul>
+<p>Главный инвариант: сервер авторитетен для всех игровых данных и решений. Godot отправляет намерения со стабильными ID и отображает подтверждённое сервером состояние; он не рассчитывает исход боя, награды, характеристики, доступность контента или прогрессию.</p>
+<h2 id="_3">Карта зависимостей<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>На схеме вызовов <code>A -&gt; B</code> всегда означает: <strong>A вызывает публичный контракт B</strong>. Это направление compile-time/application dependency, а не владение данными.</p>
+<div class="highlight"><pre><span></span><code>Godot UI -&gt; Client state store -&gt; Client transport -&gt; Versioned protocol adapter
+                                                        |
+                                                        v
+                                               Application handlers
+                                                        |
+                                                        v
+                                             Session &amp; Matchmaking
+                                                /              \
+                                               v                v
+                                      Account/Auth port   Run/Mission/Arena orchestrator
+                                                              |
+                 +----------------+---------------------+------------------+
+                 v                v                     v                  v
+       Dungeon generator    Build resolver      Item/Progression     Combat simulation
+                                  |                     |              /    |     \
+                                  v                     v             v     v      v
+                          AI validator/executor   Persistence ports   AI  Formula  Content
+
+Balance editor -&gt; Package validation/simulation -&gt; Package publisher
+Dungeon / Build / Items / Progression / Combat / AI / Formula -&gt; Immutable content package API
+</code></pre></div>
+<p>Последняя стрелка свёрнуто показывает, что runtime-подсистемы читают определения только через API immutable content package. Они не импортируют редактор или publisher; publisher создаёт новую версию пакета, но не меняет уже загруженную.</p>
+<p>Потоки событий и сохранённых данных показаны отдельно: здесь <code>A ~&gt; B</code> означает публикацию, запись или чтение данных, а не compile-time dependency и не вызов владельца обратно из источника.</p>
+<div class="highlight"><pre><span></span><code>Combat simulation ~&gt; Replay writer/store ~&gt; Replay reader
+Session / Run / Combat / Economy / Validation ~&gt; Event sink ~&gt; Telemetry &amp; monitoring
+Critical account/economy audit events ~&gt; Transactional outbox ~&gt; Audit consumers
+</code></pre></div>
+<p>Нижний вызываемый слой не импортирует вызывающий. Подсистемы не читают чужие таблицы, хранилища или внутренние структуры напрямую: запрос проходит через типизированный порт. Транспорт, база данных и UI — адаптеры на краях, а не владельцы доменной логики.</p>
+<h2 id="_4">Подсистемы и контракты<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">Режимы, сессии и матчмейкинг<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p><strong>TARGET. Владеет:</strong> типом режима, составом и жизненным циклом сессии, готовностью участников, результатом матча и правилами подключения. Поддерживаются roguelike-забеги и фиксированные миссии в solo и co-op; PvP — отдельный матч на арене без карты забега и миссий; бесконечная битва — заранее собранная матчмейкингом co-op группа, последовательные комнаты без выбора пути и без входа новых игроков посреди серии. Размеры групп, PvP-правила и награды здесь намеренно не определены.</p>
+<p><strong>Обещает:</strong> создать неизменяемый <code>SessionDescriptor</code> с mode/content-version/participant IDs; выдавать оркестратору только допустимые команды перехода; завершить сессию ровно один раз. <strong>Требует:</strong> идентичности игроков от account-порта, совместимой версии контента и результата серверной симуляции. <strong>Запрещено:</strong> комнате, клиенту или бою самостоятельно добавлять участника, менять режим либо определять награду.</p>
+<p><strong>CURRENT — prototype:</strong> <code>server/internal/room</code> объединяет комнату, готовность, карту, билды, золото, HP, офферы и прогрессию; <code>server/internal/game/handler.go</code> маршрутизирует команды и запускает симуляцию. Это полезный вертикальный срез, но не целевая граница multiplayer.</p>
+<p><strong>MIGRATION SEAM:</strong> ввести интерфейсы <code>Matchmaker</code>, <code>SessionStore</code> и <code>ModeRules</code>, сначала адаптировав к ним существующий <code>room.Manager</code>. GDD: <a href="../core-loop-and-runs/">основной цикл и режимы</a>, <a href="../vision-and-pillars/">видение</a>.</p>
+<h3 id="_6">Оркестратор забега, миссии и арены<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><strong>TARGET. Владеет:</strong> серверной машиной состояний конкретного прохождения, seed, картой и посещёнными узлами roguelike-забега, очередью комнат бесконечного режима, идентификатором миссии/арены, переходами и применением подтверждённых результатов. Это единственное место, которое связывает бой, награду и следующий шаг режима.</p>
+<p><strong>Обещает:</strong> детерминированные команды <code>StartEncounter</code>, <code>ApplyEncounterResult</code>, <code>ChooseNode</code> для solo, <code>CastNodeVote</code> и авторитетное <code>CloseNodeBallot</code> для co-op, <code>ClaimOffer</code>, <code>FinishRun</code>; снимок состояния для клиента; идемпотентность команд по request ID. В co-op оркестратор принимает от каждого подключённого участника один голос только за доступный следующий узел, выбирает большинство, а при ничьей использует серверную случайность только между лидирующими вариантами; вся группа получает один зафиксированный переход. Рисование на карте и метки остаются отдельным координационным контрактом и не могут попасть в подсчёт голосов. Тайм-аут и поведение при отключении либо отсутствии голоса должны быть заданы отдельной версионируемой политикой до реализации, поскольку GDD пока их не определяет. <strong>Требует:</strong> правила режима, content package, сервис боя и доменные порты предметов/прогрессии. <strong>Запрещено:</strong> обработчику сети напрямую начислять золото, двигать карту, менять HP или закрывать голосование на основании клиентского состояния.</p>
+<p><strong>CURRENT — prototype:</strong> эти обязанности распределены между <code>game.Handler</code>, <code>room.Room</code>, <code>dungeon</code> и <code>loot</code>. <strong>MIGRATION SEAM:</strong> существующие opcode сначала вызывают новый application-service, а ответы остаются прежними до миграции протокола. GDD: <a href="../core-loop-and-runs/">основной цикл и забеги</a>, <a href="../progression-and-idle/">прогрессия и idle</a>.</p>
+<h3 id="_7">Генерация подземелья и шаблоны узлов<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><strong>TARGET. Владеет:</strong> алгоритмами генерации, immutable-шаблонами карт и комнат, стабильными типами узлов и проверкой топологии. Генератор создаёт описание карты, но не владеет состоянием конкретного забега. Оркестратор забега единолично владеет сгенерированным экземпляром карты, текущим и посещёнными узлами, доступными переходами и сделанным выбором пути.</p>
+<p><strong>Обещает:</strong> <code>GenerateMap(seed, modeRules, contentVersion) -&gt; MapDefinition</code>; одинаковые входы дают одинаковую карту; результат содержит только валидные stable node/template IDs и проходит topology validation. <strong>Требует:</strong> правила режима и read-only definitions указанной версии content package. <strong>Запрещено:</strong> генератору отмечать узел пройденным, выбирать путь, начислять награду или запускать encounter; оркестратору — создавать типы узлов и обходить генератор прямым чтением его шаблонов.</p>
+<p><strong>CURRENT — prototype:</strong> <code>server/internal/dungeon/generator.go</code> и <code>templates.go</code> предоставляют детерминированные функции генерации и размера комнаты, но <code>server/internal/game/handler.go</code> вызывает их напрямую, а экземпляр карты хранится в <code>room.Room</code>. <strong>MIGRATION SEAM:</strong> обернуть текущий <code>dungeon.Generate</code> портом <code>DungeonGenerator</code>, ввести отдельные <code>MapDefinition</code> и <code>RunMapState</code>, затем переключить handler на оркестратор без изменения legacy-ответа <code>FloorMap</code>. GDD: <a href="../core-loop-and-runs/">карта, типы узлов и необратимый выбор пути</a>, <a href="../progression-and-idle/">системный гейтинг контента</a>.</p>
+<h3 id="_8">Бой и действия<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p><strong>TARGET. Владеет:</strong> временем симуляции, сущностями боя, фазами действий, ресурсами внутри встречи, положением, эффектами, попаданиями и итогом encounter. Внешний код не меняет HP или action state.</p>
+<p><strong>Обещает:</strong> принять валидированный immutable <code>EncounterSpec</code> и вернуть <code>EncounterResult</code> плюс упорядоченный поток replay-событий; одинаковый seed и версии входов дают одинаковый результат. <strong>Требует:</strong> разрешённый сервером build, канонические формулы/модификаторы, AI executor и версию контента. <strong>Запрещено:</strong> UI управлять паузой симуляции или пересчитывать исход; режиму проникать во внутренний tick-loop.</p>
+<p><strong>CURRENT — prototype:</strong> <code>server/internal/game/simulator.go</code> содержит значительную часть боя, а <code>server/internal/combatformula</code> уже выделяет центральный formula engine; клиент проигрывает snapshots. <strong>MIGRATION SEAM:</strong> <code>Simulator</code> зависит только от интерфейсов formula/AI/content, после чего старые локальные расчёты удаляются по contract-тестам. GDD: <a href="../combat-and-actions/">бой и действия</a>.</p>
+<h3 id="ai-brain">AI Brain и валидатор<a class="headerlink" href="#ai-brain" title="Permanent link">&para;</a></h3>
+<p><strong>TARGET. Владеет:</strong> канонической схемой blueprint, каталогом узлов и портов, Memory-бюджетом, компиляцией/валидацией графа, планированием, interrupts и диагностикой решений. Редактор владеет только черновым расположением элементов интерфейса.</p>
+<p><strong>Обещает:</strong> <code>ValidateBlueprint</code>, <code>CompileBlueprint</code>, <code>Decide</code> и стабильные machine-readable ошибки; никогда не исполнять невалидный graph. <strong>Требует:</strong> серверный каталог навыков/тегов, entitlements прогрессии и read-only combat perception. <strong>Запрещено:</strong> клиентскому валидатору быть последней инстанцией или определять gameplay-семантику узла.</p>
+<p><strong>CURRENT — prototype:</strong> реализация сосредоточена в <code>server/internal/ai</code>; Godot содержит редактор, реестры и UI-валидацию. <strong>MIGRATION SEAM:</strong> общий versioned schema/fixtures и cross-client contract-тесты отделяют UX-проверки от авторитетной серверной проверки. GDD: <a href="../ai-brain/">мозг персонажа</a>.</p>
+<h3 id="_9">Канонические теги, формулы и модификаторы<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p><strong>TARGET. Владеет:</strong> стабильными tag ID и их категориями, атрибутами, порядком стадий вычисления, stacking/rounding/caps, conversion и форматом modifier. Это общий math kernel для боя, билдов, предметов, навыков и предпросмотра баланса.</p>
+<p><strong>Обещает:</strong> типизированные <code>Evaluate(context, modifiers)</code> и trace результата; валидацию неизвестных ID и запрещённых комбинаций; одну и ту же реализацию для runtime и balance simulation. <strong>Требует:</strong> только immutable registries из content package. <strong>Запрещено:</strong> произвольным системам вводить string-key формулы или собственный порядок применения эффектов.</p>
+<p><strong>CURRENT — prototype:</strong> <code>server/internal/combatformula</code> — начало целевой границы, но формулы также живут в simulator и legacy <code>loot</code>; часть параметров передаётся через строки и <code>interface{}</code>. <strong>MIGRATION SEAM:</strong> characterisation-тесты фиксируют текущее поведение, адаптер переводит legacy modifier в канонический тип, затем старые ветви удаляются. GDD: <a href="../skills-and-tags/">навыки и теги</a>, <a href="../passive-tree-and-sockets/">пассивное дерево</a>, <a href="../items-and-crafting/">предметы и крафт</a>.</p>
+<h3 id="build">Build, навыки и пассивные деревья<a class="headerlink" href="#build" title="Permanent link">&para;</a></h3>
+<p><strong>TARGET. Владеет:</strong> сохранёнными конфигурациями двух билдов, выбранным пассивным деревом, сокетами, размещением активных навыков и ссылками на blueprint; разрешает итоговый runtime build из ID и версий. Навык как definition и tag ID принадлежат content package, экземпляр выбора — build-подсистеме.</p>
+<p><strong>Обещает:</strong> <code>ValidateBuildIntent</code>, <code>ResolveBuild</code> и immutable <code>ResolvedBuild</code>; ошибки с указанием владельца ограничения. <strong>Требует:</strong> entitlements прогрессии, inventory references, AI validator и content version. <strong>Запрещено:</strong> принимать от Godot готовые <code>CharacterStats</code>, <code>SkillDef</code> или вычисленный итоговый build.</p>
+<p><strong>CURRENT — prototype:</strong> <code>PlayerBuild</code> в <code>shared/proto/game.proto</code> принимает клиентские stats и skill definitions; <code>server/internal/game/build_schema.go</code> и проверки progression уже валидируют часть схемы. <strong>MIGRATION SEAM:</strong> новый запрос содержит только stable IDs, выбранные узлы и revision; серверный resolver работает параллельно legacy upload до переключения. GDD: <a href="../passive-tree-and-sockets/">пассивное дерево и ячейки</a>, <a href="../skills-and-tags/">навыки и теги</a>, <a href="../ai-brain/">мозг персонажа</a>.</p>
+<h3 id="_10">Предметы, инвентарь, крафт и хранение<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p><strong>TARGET. Владеет:</strong> экземплярами предметов, их revision/owner/location, инвентарём и экипировкой, валютами крафта, атомарными рецептами и сохранением. <code>itemization</code> владеет правилами генерации/мутации предмета; repository владеет только надёжной записью, но не правилами.</p>
+<p><strong>Обещает:</strong> ID-based query и атомарные команды equip/craft/move с optimistic revision; результат операции либо целиком сохранён, либо не применён. <strong>Требует:</strong> content registry, formula kernel, account ID и persistence port. <strong>Запрещено:</strong> run, UI или transport напрямую менять аффикс, валюту, слот или storage record. Перенос сильнейшего аффикса принимает только белый предмет-донор.</p>
+<p><strong>CURRENT — prototype:</strong> <code>server/internal/itemization</code>, <code>itemstore</code> и <code>itempersist</code> уже образуют целевой путь; <code>server/internal/loot</code> и <code>RewardItem</code> — дублирующий legacy-срез. <strong>MIGRATION SEAM:</strong> anti-corruption adapter превращает старые награды в новые item instances; после миграции оркестратор выдаёт только item IDs. GDD: <a href="../items-and-crafting/">предметы и крафт</a>.</p>
+<h3 id="_11">Долгосрочная прогрессия<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p><strong>TARGET. Владеет:</strong> валютами и unlock/entitlement игрока, стадиями AI, tier узлов, Memory и прочей метапрогрессией. Изменение проходит серверной транзакцией и audit event.</p>
+<p><strong>Обещает:</strong> snapshot по account ID, проверку entitlement и идемпотентное применение награды/покупки. <strong>Требует:</strong> account port, versioned progression rules и подтверждённый результат оркестратора. <strong>Запрещено:</strong> хранить прогрессию внутри room/session или начислять её из network handler.</p>
+<p><strong>CURRENT — prototype:</strong> <code>server/internal/game/progression.go</code> хранится через структуры комнаты и обслуживается handler. <strong>MIGRATION SEAM:</strong> <code>ProgressionService</code> с repository-портом сначала использует memory adapter, затем внешнее хранилище без изменения callers. GDD: <a href="../progression-and-idle/">прогрессия и idle</a>, <a href="../ai-brain/">мозг персонажа</a>.</p>
+<h3 id="replay">Replay<a class="headerlink" href="#replay" title="Permanent link">&para;</a></h3>
+<p><strong>TARGET. Владеет:</strong> каноническим event stream, metadata (session, seed, schema/content/build versions), индексом и политикой retention. Срок хранения конфигурируемый и пока не имеет фиксированного числа; storage adapter может выбирать compression/chunking, не меняя семантику событий.</p>
+<p><strong>Обещает:</strong> записать завершённый replay, потоково прочитать его и явно сообщить об истечении/несовместимой версии. <strong>Требует:</strong> события боя и решения AI, не UI-снимки. <strong>Запрещено:</strong> telemetry считать replay своим хранилищем или клиенту быть единственной копией результата.</p>
+<p><strong>CURRENT — prototype:</strong> <code>SimulationResult</code> отправляет все snapshots/events, а Godot <code>playback_manager.gd</code> проигрывает их в памяти. <strong>MIGRATION SEAM:</strong> сначала envelope + codec + memory/file adapter, затем измерения размера определят retention и production storage. GDD: <a href="../combat-and-actions/">бой и действия</a>, <a href="../core-loop-and-runs/">основной цикл</a>.</p>
+<h3 id="_12">Протокол и транспорт<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p><strong>CURRENT — prototype:</strong> WebSocket-пакет имеет wire-формат <code>[u16 little-endian opcode][gzip(protojson UTF-8)]</code>; серверная реализация — <code>server/internal/network/packet.go</code>, Godot вручную повторяет opcode и JSON-поля в <code>network_manager.gd</code>. Все области собраны в монолитном <code>shared/proto/game.proto</code>.</p>
+<p><strong>TARGET. Владеет:</strong> transport — соединением, лимитами, framing и доставкой; schema packages — wire-visible сообщениями. Доменные системы не зависят от WebSocket, opcode или protojson. Новые контракты вводятся по bounded context и версии (<code>session.v1</code>, <code>combat.v1</code>, <code>items.v1</code>, <code>progression.v1</code>, <code>telemetry.v1</code>); несовместимое изменение создаёт новую версию, поля не переиспользуются.</p>
+<p><strong>Обещает:</strong> correlation/request ID, типизированные ошибки, лимиты размера и contract fixtures для Go/Godot. <strong>Требует:</strong> только application ports. <strong>Запрещено:</strong> помещать доменную логику в packet handler или молча менять enum/JSON mapping.</p>
+<p><strong>MIGRATION SEAM:</strong> <code>game.proto</code> сохраняется как legacy до переноса каждого сценария. Versioned handler и legacy adapter работают рядом; golden packets и end-to-end contract-тесты обязательны перед отключением opcode. Разбиение — средство независимых релизов, а не требование немедленно переписать весь протокол.</p>
+<h3 id="godot-frontend">Godot frontend и клиентская проекция<a class="headerlink" href="#godot-frontend" title="Permanent link">&para;</a></h3>
+<p><strong>TARGET. Владеет:</strong> визуальным представлением, вводом, локальными настройками/доступностью, черновиком редактора и playback. Единственный client state store (<code>GameManager</code> либо его замена) владеет read-only проекцией подтверждённого серверного состояния; экраны получают selectors/signals и отправляют commands.</p>
+<p><strong>Обещает:</strong> отображать revision сервера, не применять optimistic gameplay mutation и уметь восстановить экран из snapshot. <strong>Требует:</strong> network adapter и versioned DTO mapper. <strong>Запрещено:</strong> <code>floor_map</code>, shop, inventory или combat view напрямую менять gold/map/offers/progression/HP; UI-реестр не является источником gameplay-контента.</p>
+<p><strong>CURRENT — prototype:</strong> autoload <code>game_manager.gd</code> уже похож на центральную проекцию, но экраны и адаптеры частично держат и меняют состояние; <code>network_manager.gd</code> вручную декодирует wire contract. <strong>MIGRATION SEAM:</strong> ввести command façade + reducers, перевести экраны по одному и защитить архитектурными тестами. Временный боевой debug overlay остаётся явно dev-only согласно <a href="../combat-and-actions/">бою и действиям</a>.</p>
+<h3 id="_13">Контент, баланс и визуальный редактор<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p><strong>TARGET. Владеет:</strong> content schema, immutable versioned balance packages и процессом публикации. Редактор создаёт draft, но ни редактор, ни runtime не редактируют активный пакет на месте.</p>
+<p>Конвейер: <code>draft -&gt; schema/domain validation -&gt; preview + batch simulation -&gt; review -&gt; staged publish(version) -&gt; activate(version)</code>. Сервер закрепляет content version за сессией; новая версия не меняет уже идущую сессию. Hot reload означает загрузку новой версии для новых сессий. Обязательны rollback на прошлую версию, diff, автор/время публикации и воспроизводимый экспорт. Это даёт быстрый цикл баланса без неотслеживаемых live-правок.</p>
+<p><strong>Обещает:</strong> resolve stable ID в definition только внутри указанной версии; отчёт валидации и симуляции до публикации. <strong>Требует:</strong> схемы владельцев, formula kernel и telemetry aggregates. <strong>Запрещено:</strong> UI и доменным пакетам иметь собственные копии чисел; telemetry автоматически менять баланс.</p>
+<p><strong>CURRENT — prototype:</strong> definitions и числа распределены по Go, proto и GDScript; отдельного publish pipeline нет. <strong>MIGRATION SEAM:</strong> сначала inventory всех ID/чисел и read-only package loader, затем экспорт текущих значений как <code>dev-v1</code>, после — редактор поверх тех же схем.</p>
+<h3 id="_14">Телеметрия и мониторинг<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p><strong>TARGET. Владеет:</strong> схемами операционных и аналитических событий, ingestion, метриками/дашбордами, алертами и агрегатами. Домен владеет фактом события и публикует его через <code>EventSink</code>; telemetry не владеет игровой истиной.</p>
+<p><strong>Обещает:</strong> неблокирующую при штатной деградации доставку, versioned events, correlation по session/match/content/build version и контроль cardinality/PII. <strong>Требует:</strong> события на границах команд и результатов. <strong>Запрещено:</strong> геймплею читать аналитическую БД в hot path или падать из-за недоступного мониторинга. Для критичного audit применяется отдельный надёжный outbox/порт.</p>
+<p><strong>CURRENT — prototype:</strong> есть структурированные логи, но нет выделенной event schema/pipeline. <strong>MIGRATION SEAM:</strong> определить минимальные события session/encounter/economy/validation, подключить in-memory/test sink и только затем выбирать backend.</p>
+<h3 id="account-auth-persistence-ports">Account, auth и persistence ports<a class="headerlink" href="#account-auth-persistence-ports" title="Permanent link">&para;</a></h3>
+<p>Способ аутентификации, account backend, база данных, reconnect и политика персональных данных GDD пока не задаёт. Архитектура фиксирует не реализацию, а порты: <code>IdentityVerifier</code>, <code>AccountRepository</code>, <code>SessionResumeStore</code>, <code>Transaction/Outbox</code> и <code>Clock</code>. Доменные сервисы принимают стабильный account ID и не знают о токенах или драйвере БД. Выбор backend и reconnect-семантики — явное нерешённое решение до production multiplayer; придумывать их в отдельных подсистемах запрещено.</p>
+<h2 id="_15">Что можно разрабатывать параллельно<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>После фиксации контрактов первой волны независимы:</p>
+<table>
+<thead>
+<tr>
+<th>Поток</th>
+<th>Владеет результатом</th>
+<th>Может работать со stub</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A. Formula/tags/modifiers</td>
+<td>math kernel, trace, registries</td>
+<td>content package</td>
+</tr>
+<tr>
+<td>B. AI/validator</td>
+<td>compile/validate/decide</td>
+<td>combat perception, skill catalog</td>
+</tr>
+<tr>
+<td>C. Itemization/persistence</td>
+<td>item commands и repositories</td>
+<td>account/content ports</td>
+</tr>
+<tr>
+<td>D. Modes/orchestration</td>
+<td>state machines режимов</td>
+<td>combat/item/progression ports</td>
+</tr>
+<tr>
+<td>E. Godot frontend</td>
+<td>store, reducers, screens, playback</td>
+<td>recorded protocol fixtures</td>
+</tr>
+<tr>
+<td>F. Protocol/transport</td>
+<td>versioned schemas, adapters, contract tests</td>
+<td>application handlers</td>
+</tr>
+<tr>
+<td>G. Content tools</td>
+<td>schema, validator, package/publish pipeline</td>
+<td>formula simulation</td>
+</tr>
+<tr>
+<td>H. Observability/replay</td>
+<td>event sinks, codecs, query/read ports</td>
+<td>recorded domain events</td>
+</tr>
+<tr>
+<td>I. Dungeon generation</td>
+<td>algorithms, templates, topology validator</td>
+<td>mode rules, content package</td>
+</tr>
+</tbody>
+</table>
+<p>Обязательный порядок предпосылок:</p>
+<ol>
+<li>Stable IDs, ownership table и version envelopes.</li>
+<li>Formula/modifier contract и content package loader.</li>
+<li>Authoritative build resolver и AI validator.</li>
+<li>Encounter contract и deterministic replay fixtures.</li>
+<li>Mode orchestrators поверх encounter/item/progression ports.</li>
+<li>Multiplayer persistence, reconnect и production rollout.</li>
+</ol>
+<h2 id="_16">Интеграционные ворота<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p>Изменение не считается интегрируемым, пока не проходит относящиеся к нему ворота:</p>
+<ul>
+<li>schema: lint, breaking-change check и golden packet в Go/Godot;</li>
+<li>content: schema/domain validation, stable-ID uniqueness и reproducible package hash;</li>
+<li>formula: table tests и trace для stacking/rounding/conversion;</li>
+<li>AI/build: одинаковые fixtures для editor hints и server rejection, сервер всегда решающий;</li>
+<li>combat: deterministic seed test, invariant tests и replay round-trip;</li>
+<li>dungeon: deterministic seed fixtures, topology invariants и проверка всех stable node/template IDs против content package;</li>
+<li>storage: concurrency/idempotency/rollback tests через один repository contract suite для memory и production adapters;</li>
+<li>orchestration: state-machine tests для каждого режима, disconnect/retry как отдельные сценарии после утверждения semantics;</li>
+<li>frontend: reducer tests доказывают, что server event — единственный источник gameplay-state;</li>
+<li>observability: сбой telemetry sink не меняет gameplay result.</li>
+</ul>
+<h2 id="_17">Дорожная карта миграции<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Зафиксировать текущий vertical slice golden-тестами: wire packets, build upload, бой, loot, progression и playback.</li>
+<li>Ввести version/content/build/session envelopes и application ports, оставив <code>game.proto</code> и opcode рабочими через adapters.</li>
+<li>Сделать central formula/modifier kernel единственным вычислителем; закрыть его legacy adapters вокруг simulator/loot/string и <code>interface{}</code>.</li>
+<li>Перевести upload build с готовых stats/skills на IDs и серверный resolution.</li>
+<li>Перевести legacy loot/rewards на <code>itemization -&gt; itemstore -&gt; itempersist</code>; вынести progression из room.</li>
+<li>Обернуть текущий dungeon generator отдельным портом и разделить immutable <code>MapDefinition</code> от принадлежащего оркестратору <code>RunMapState</code>.</li>
+<li>Выделить orchestrators режимов и Matchmaker/SessionStore; текущий room становится адаптером, затем удаляется как агрегат «всё сразу».</li>
+<li>Перевести Godot-экраны на один store и command façade; запретить прямые gameplay mutations.</li>
+<li>Добавлять versioned bounded-context proto по одному пользовательскому сценарию. Удалять часть <code>game.proto</code> только после contract tests, migrated clients и окна совместимости.</li>
+<li>Подключить replay retention, telemetry и content editor к уже стабильным событиям и схемам; backend выбирать по измерениям, а не заранее.</li>
+</ol>
+<h2 id="_18">Нерешённые архитектурные решения<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<ul>
+<li>размеры групп, PvP combat/rating/reward rules;</li>
+<li>authentication/account/storage backend и reconnect semantics;</li>
+<li>конкретный срок replay retention, codec и storage tier — после измерений;</li>
+<li>deployment topology и гарантии межсервисной доставки;</li>
+<li>числовой баланс, перечисленный в открытых вопросах тематического GDD.</li>
+</ul>
+<p>Эти порты оставлены намеренно. До отдельного решения команда может реализовывать memory/test adapters, но не превращать их поведение в неявное правило игры.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.top", "search.highlight", "search.suggest", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/navigation-state.js"></script>
+      
+    
+  </body>
+</html>
