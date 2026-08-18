@@ -354,6 +354,17 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
+        Маршрутизация по умолчанию
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         Общие правила для всех ролей
       
     </span>
@@ -384,6 +395,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tester" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tester
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#reviewer" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -395,7 +417,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         Справочник по диспатчу
@@ -1055,6 +1077,17 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
+        Маршрутизация по умолчанию
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         Общие правила для всех ролей
       
     </span>
@@ -1085,6 +1118,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tester" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tester
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#reviewer" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1096,7 +1140,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         Справочник по диспатчу
@@ -1133,42 +1177,121 @@
 
 <h1 id="_1">Роли в разработке<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>Роль — не сущность Orca. Роль = текст <code>--spec</code> у задачи оркестрации плюс выбор агента и модели
-при <code>worker-start</code>. Координатор (главная сессия Claude) диспатчит каждую задачу явно, автоматического
-переключения между ролями нет.</p>
-<h2 id="_2">Общие правила для всех ролей<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+при <code>worker-start</code>. Orca не распределяет задачи сама: маршрутизацию выполняет координатор
+(главная сессия Claude) по таблице ниже, без напоминаний со стороны владельца проекта.</p>
+<h2 id="_2">Маршрутизация по умолчанию<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Тип работы</th>
+<th>Агент</th>
+<th><code>--model</code></th>
+<th><code>--effort</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Код: сервер Go, GDScript, протокол, рефакторинги</td>
+<td><code>claude</code></td>
+<td><code>opus</code></td>
+<td><code>high</code></td>
+</tr>
+<tr>
+<td>Код: ультрасложные задачи, тяжёлая архитектура</td>
+<td><code>claude</code></td>
+<td><code>fable</code></td>
+<td><code>xhigh</code></td>
+</tr>
+<tr>
+<td>Нарратив, тексты, описания предметов, лор, названия</td>
+<td><code>codex</code></td>
+<td><code>gpt-5.6-terra</code></td>
+<td><code>medium</code></td>
+</tr>
+<tr>
+<td>Графика, генерация изображений, ассеты</td>
+<td><code>codex</code></td>
+<td><code>gpt-5.6-terra</code></td>
+<td><code>medium</code></td>
+</tr>
+<tr>
+<td>Интерфейс: вёрстка, UX, визуальная проверка экранов</td>
+<td><code>codex</code></td>
+<td><code>gpt-5.6-terra</code></td>
+<td><code>medium</code></td>
+</tr>
+<tr>
+<td>Документация: правки формулировок, дедупликация, стиль</td>
+<td><code>codex</code></td>
+<td><code>gpt-5.6-terra</code></td>
+<td><code>medium</code></td>
+</tr>
+<tr>
+<td>Тесты: прогоны, регрессия, проверка сборки</td>
+<td><code>codex</code></td>
+<td><code>gpt-5.6-luna</code></td>
+<td><code>low</code></td>
+</tr>
+<tr>
+<td>Ревью кода</td>
+<td>противоположный агент</td>
+<td>по типу работы</td>
+<td><code>high</code></td>
+</tr>
+</tbody>
+</table>
+<p>Тяжёлый разбор со стороны GPT — <code>gpt-5.6-sol</code>, усилие до <code>xhigh</code>.</p>
+<p>Допустимые значения <code>--effort</code>: у Claude <code>low|medium|high|xhigh|max</code>, причём <code>xhigh</code> и <code>max</code> доступны
+только для <code>fable</code>, <code>opus</code> и <code>sonnet</code>, а <code>haiku</code> усилий не принимает. У Codex усилие уходит в
+<code>model_reasoning_effort</code> и принимает <code>minimal|low|medium|high|xhigh</code>, у <code>gpt-5.6-luna</code> нет <code>xhigh</code>.</p>
+<p>Окно контекста: у моделей <code>gpt-5.6-*</code> активное окно 272k при потолке 872k; миллион заявлен только у
+<code>gpt-5.4</code>. На стороне Anthropic миллионное окно включается суффиксом <code>[1m]</code> (<code>opus[1m]</code>), но это
+локальный селектор Claude Code — принимает ли его <code>orca --model</code>, не проверено, поэтому в таблице он
+не используется.</p>
+<p>Правило ревью: код Claude смотрит <code>codex</code>, код GPT смотрит <code>claude</code>. Свежий взгляд важнее
+специализации.</p>
+<p>Тестировщиков запускают пачками — пять, десять и больше воркеров одновременно, каждый на своём
+куске. Параллелизм ограничен только тем, чтобы задачи не пересекались по файлам.</p>
+<h2 id="_3">Общие правила для всех ролей<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Работать только в своём объявленном скоупе. Файлы вне скоупа не трогать.</li>
 <li>Одна задача — один дочерний worktree, одна ветка, conventional commits.</li>
 <li>Сначала источник, потом код: читать реальную реализацию, протокол сверять по <code>shared/proto/game.proto</code>.</li>
 <li>Критерий готовности: код собирается, <code>cd server &amp;&amp; go test ./...</code> зелёный, работа закоммичена.</li>
-<li>Отчёт кладётся В ТЕЛО завершающего сообщения <code>worker_done</code>, а не отправляется отдельным <code>send</code> перед завершением:
-  диспатч закрывается раньше, чем доходит отдельное сообщение, и содержимое теряется. Что изменено, какие файлы,
-  вывод тестов. Без сырых дампов.</li>
+<li>Отчёт кладётся В ТЕЛО завершающего сообщения <code>worker_done</code>, а не отправляется отдельным <code>send</code>:
+  диспатч закрывается раньше, чем доходит отдельное сообщение, и содержимое теряется.
+  Что изменено, какие файлы, вывод тестов. Без сырых дампов.</li>
 </ul>
 <h2 id="coder-claude">coder-claude<a class="headerlink" href="#coder-claude" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Агент: <code>claude</code>.</li>
+<li>Агент: <code>claude</code>, модель Opus 5; для ультрасложного — Fable.</li>
 <li>Скоуп: игровая логика и всё сквозное — <code>server/internal/{game,room,ai}</code>, <code>roguelite/scripts/**</code>,
-  редактор блупринтов, просмотрщик реплеев.</li>
+  редактор блупринтов, просмотрщик реплеев, протокол.</li>
 <li>Когда: сложный код, чувствительный к дизайну; рефакторинги через несколько пакетов; хитрая логика симуляции.</li>
 </ul>
 <h2 id="coder-gpt">coder-gpt<a class="headerlink" href="#coder-gpt" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Агент: <code>codex</code>.</li>
-<li>Скоуп: самодостаточные подсистемы с чётким контрактом — <code>server/internal/{dungeon,loot,network}</code>,
-  <code>shared/proto</code> + <code>shared/generate.sh</code>, тесты, вспомогательные скрипты.</li>
-<li>Когда: хорошо описанная изолированная работа, где интерфейс уже зафиксирован.</li>
+<li>Скоуп: нарратив и тексты, описания предметов, графика и ассеты, интерфейс, документация.
+  Из кода — самодостаточные подсистемы с готовым контрактом.</li>
+<li>Когда: работа со словом и картинкой, а также хорошо описанная изолированная задача.</li>
+</ul>
+<h2 id="tester">tester<a class="headerlink" href="#tester" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Агент: <code>codex</code>, лёгкая модель.</li>
+<li>Скоуп: только запуск и проверка. Прогон <code>go test ./...</code>, сборка клиента, проверка сценариев.</li>
+<li>Запускается пачками по числу независимых участков. Отчёт — реальный вывод команд, без пересказа.</li>
 </ul>
 <h2 id="reviewer">reviewer<a class="headerlink" href="#reviewer" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Агент: <code>codex</code> (свежий взгляд на код Claude) или <code>claude</code> (на код GPT).</li>
+<li>Агент: <code>codex</code> на код Claude, <code>claude</code> на код GPT.</li>
 <li>Скоуп: только чтение. Ревью диффа одной ветки.</li>
 <li>Формат вывода: одна строка на находку — <code>path:line: severity: проблема. фикс.</code> Без похвалы и без расширения скоупа.</li>
 <li>Обязан прогнать <code>go test ./...</code> и привести реальный вывод.</li>
 </ul>
-<h2 id="_3">Справочник по диспатчу<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">Справочник по диспатчу<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>orca<span class="w"> </span>orchestration<span class="w"> </span>run-create<span class="w"> </span>--objective<span class="w"> </span><span class="s2">"&lt;веха&gt;"</span><span class="w"> </span>--json
-orca<span class="w"> </span>orchestration<span class="w"> </span>task-create<span class="w"> </span>--task-title<span class="w"> </span><span class="s2">"&lt;кратко&gt;"</span><span class="w"> </span>--spec<span class="w"> </span><span class="s2">"Role: coder-gpt (docs/roles.md). Scope: &lt;пути&gt;. DoD: &lt;проверки&gt;."</span><span class="w"> </span>--json
+orca<span class="w"> </span>orchestration<span class="w"> </span>task-create<span class="w"> </span>--task-title<span class="w"> </span><span class="s2">"&lt;кратко&gt;"</span><span class="w"> </span>--spec<span class="w"> </span><span class="s2">"Role: &lt;роль&gt; (docs/roles.md). Scope: &lt;пути&gt;. DoD: &lt;проверки&gt;."</span><span class="w"> </span>--json
 orca<span class="w"> </span>orchestration<span class="w"> </span>worker-start<span class="w"> </span>--task<span class="w"> </span>&lt;task_id&gt;<span class="w"> </span>--agent<span class="w"> </span>codex<span class="w"> </span>--worktree<span class="w"> </span>new-child<span class="w"> </span>--name<span class="w"> </span>&lt;ветка&gt;<span class="w"> </span><span class="o">[</span>--model<span class="w"> </span>&lt;id&gt;<span class="w"> </span>--effort<span class="w"> </span>medium<span class="o">]</span><span class="w"> </span>--json
 orca<span class="w"> </span>orchestration<span class="w"> </span>check<span class="w"> </span>--json<span class="w">          </span><span class="c1"># почтовый ящик координатора</span>
 orca<span class="w"> </span>orchestration<span class="w"> </span>worker-read<span class="w"> </span>--dispatch<span class="w"> </span>&lt;id&gt;<span class="w"> </span>--json
