@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/item-content-and-crafting/">
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/dev-environment/">
       
       
-        <link rel="prev" href="../asset-pipeline/">
+        <link rel="prev" href="../tech-stack/">
       
       
-        <link rel="next" href="../item-persistence/">
+        <link rel="next" href="../asset-pipeline/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Контент предметов и крафт - CodeDungeon — документация</title>
+        <title>Среда разработки и инструменты - CodeDungeon — документация</title>
       
     
     
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Контент предметов и крафт
+              Среда разработки и инструменты
             
           </span>
         </div>
@@ -838,10 +838,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../dev-environment/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Среда разработки и инструменты
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -857,6 +884,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#godot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Godot и локальная проверка
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Форматирование и CI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcp-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP-серверы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claude-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Навыки Claude Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как воспроизвести у себя
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -894,37 +996,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Контент предметов и крафт
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../item-content-and-crafting/" class="md-nav__link">
         
   
   
@@ -940,59 +1015,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Содержание">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Граница контента
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Граница крафта
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Добавление контента
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1060,32 +1082,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#godot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Godot и локальная проверка
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Форматирование и CI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcp-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP-серверы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claude-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Навыки Claude Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Граница контента
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Граница крафта
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Добавление контента
+        Как воспроизвести у себя
       
     </span>
   </a>
@@ -1109,7 +1153,7 @@
 
 
   
-    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/technical/item-content-and-crafting.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/technical/dev-environment.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1117,36 +1161,141 @@
   
 
 
-<h1 id="_1">Контент предметов и движок крафта<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p><code>server/internal/itemization</code> — единый источник истины для неизменяемого контента предметов и детерминированных правил крафта. Хранилище и UI зависят от стабильных числовых ID; <code>ItemInstance</code> никогда не содержит имён, путей к ресурсам или произвольных map-структур.</p>
-<p>Игровые правила предметов, их ценность и доступные игроку операции определяет <a href="../../game-design/items-and-crafting/">документ о предметах и крафте</a>. Эта страница фиксирует только техническую границу реализации.</p>
-<h2 id="_2">Граница контента<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<ul>
-<li><code>BaseDefinition</code> владеет категорией, слотом экипировки, размером в сетке, требованиями, implicit-модификаторами и сокетами, capabilities, ID пулов аффиксов и числовым <code>VisualID</code>.</li>
-<li><code>AffixDefinition</code> владеет размещением prefix/suffix, domain/group, типизированным модификатором Flat/Increased/More, диапазонами уровней тира, допустимостью по тегам, исключениями, весами и контекстными множителями веса.</li>
-<li><code>CurrencyDefinition</code> сопоставляет стабильный <code>CurrencyID</code> с <code>RecipeID</code>, максимальным размером стака и <code>VisualID</code>. Поле максимального размера стака задаётся для каждой валюты отдельно; сейчас все ресурсы используют значение 20. В забеге валюта и материалы не являются отдельным счётчиком: они занимают ячейки сетки рюкзака стаками, ограниченными этим значением. Чистая модель <code>(currency_id, quantity)</code> без стаков применяется только к валютной вкладке сундука в таверне, где у каждого ресурса своя именованная ячейка со счётчиком.</li>
-<li><code>Registry</code> клонирует определения, содержащие slices, и предоставляет детерминированный lookup. ID выдаются только с добавлением новых значений и после релиза никогда не переназначаются.</li>
-</ul>
-<p><code>RepresentativeContent</code> предоставляет десять тестовых баз — броню, оружие, кольцо и амулет, — восемь аффиксов, три пула и восемь типизированных валют. Fixture обязана также содержать три архетипных материала — лом (тяжёлая броня), ткань (магическая броня) и кожа (броня ловкости); это отдельный от валют вид ресурса, конверсии между материалами нет. Это fixture-контент, а не production-таблица баланса.</p>
-<h2 id="_3">Граница крафта<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p><code>ApplyRecipe</code> компонует небольшие примитивы: добавление и удаление аффикса, переброс значения, аффикса или всех значений, повышение тира, защиту, fracture и corruption. Это чистое вычисление над клоном предмета. Результат содержит типизированную стоимость в валютах и упорядоченный audit trail <code>CraftChange</code>.</p>
-<p>Сервисный слой обязан выполнить одну атомарную транзакцию, которая:</p>
+<h1 id="_1">Среда разработки и инструменты агентов<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Эта страница описывает воспроизводимую среду для разработки CodeDungeon с AI-агентами.
+Контракт репозитория находится в <code>AGENTS.md</code>; правила для Cursor и Copilot направляют к нему
+из <code>.cursor/rules/project.mdc</code> и <code>.github/copilot-instructions.md</code>.</p>
+<h2 id="godot">Godot и локальная проверка<a class="headerlink" href="#godot" title="Permanent link">&para;</a></h2>
+<p>Используется Godot <code>4.7.1.stable.official</code>. Бинарный файл расположен по пути
+<code>C:\Users\&lt;user&gt;\AppData\Local\Programs\Godot\4.7.1\Godot_v4.7.1-stable_win64.exe</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Инструмент</th>
+<th>Назначение</th>
+<th>Пример</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tools/godot.ps1</code></td>
+<td>Ищет Godot через <code>$env:GODOT_BIN</code> или <code>PATH</code> (<code>godot</code>/<code>godot4</code>) и запускает его с <code>--path &lt;project&gt;</code>.</td>
+<td><code>pwsh tools/godot.ps1 -Project roguelite -GodotArguments @("--headless","--quit")</code></td>
+</tr>
+<tr>
+<td><code>tools/check-godot.ps1</code></td>
+<td>Импорт-валидация ресурсов и один headless-кадр для смоук-проверки. Режимы: <code>Import</code>, <code>Smoke</code>, <code>All</code>.</td>
+<td><code>pwsh tools/check-godot.ps1 -Mode All -Project roguelite</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ci">Форматирование и CI<a class="headerlink" href="#ci" title="Permanent link">&para;</a></h2>
+<p><code>requirements-tools.txt</code> фиксирует <code>gdtoolkit==4.5.0</code>, который предоставляет <code>gdformat</code> и
+<code>gdlint</code>. Установка: <code>pip install -r requirements-tools.txt</code>.</p>
+<p>В <code>.github/workflows/godot.yml</code> на push и pull request устанавливается <code>gdtoolkit==4.5.0</code>,
+затем для изменённых <code>.gd</code> запускаются <code>gdformat --check</code> и <code>gdlint</code>; после этого Godot 4.7.1
+выполняет <code>check-godot.ps1 -Mode Import</code>.</p>
+<p>Для VS Code рекомендовано расширение <code>geequlim.godot-tools</code> (<code>.vscode/extensions.json</code>).</p>
+<h2 id="mcp-">MCP-серверы<a class="headerlink" href="#mcp-" title="Permanent link">&para;</a></h2>
+<p><code>tools/godot-mcp.ps1</code> запускает для <code>roguelite/</code> внешний сервер
+<code>@npgamedev/godot-mcp-server@1.0.0</code> через <code>npx</code>. Он заменил удалённый внутренний аддон
+<code>godot_mcp</code>, ранее находившийся в <code>client/addons</code> и <code>roguelite/addons</code> (удалён в коммите
+<code>c422830</code>), и автоматически запускается из <code>.mcp.json</code>.</p>
+<p>Статусы ниже зафиксированы на 19.08.2026.</p>
+<table>
+<thead>
+<tr>
+<th>Сервер</th>
+<th>Назначение</th>
+<th>Запуск</th>
+<th>Статус проверки</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>godot-mcp-toolkit</code> (проектный, <code>.mcp.json</code>)</td>
+<td>Управление сценами, узлами и скриптами Godot из агента.</td>
+<td><code>npx -y @npgamedev/godot-mcp-server@1.0.0</code></td>
+<td>Не проверялся вживую.</td>
+</tr>
+<tr>
+<td><code>sequential-thinking</code> (проектный)</td>
+<td>Пошаговое рассуждение для многошаговых задач.</td>
+<td><code>npx -y @modelcontextprotocol/server-sequential-thinking</code></td>
+<td>ПРОВЕРЕН, отвечает.</td>
+</tr>
+<tr>
+<td><code>serena</code> (глобальный плагин)</td>
+<td>Навигация по коду: поиск символов, ссылок, объявлений.</td>
+<td>не определено</td>
+<td>ТРЕБУЕТ НАСТРОЙКИ: проект <code>roguelite</code> не зарегистрирован; после активации инициализация падает с <code>gdscript: Could not connect to 127.0.0.1:6008</code>. Языковой сервер GDScript поднимает открытый редактор Godot; пока он закрыт, Serena не работает даже по Go. Обход: держать редактор открытым либо отключить gdscript-LS в конфиге Serena.</td>
+</tr>
+<tr>
+<td><code>context7</code> (глобальный плагин)</td>
+<td>Документация внешних библиотек.</td>
+<td>не определено</td>
+<td>ПРОВЕРЕН: отдаёт каталог Godot; доступны ветки 4.7 (109031 сниппет) и 4.6.</td>
+</tr>
+<tr>
+<td><code>playwright</code> (глобальный плагин)</td>
+<td>Автоматизация браузера, проверка UI.</td>
+<td>не определено</td>
+<td>Не проверялся вживую.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="claude-code">Навыки Claude Code<a class="headerlink" href="#claude-code" title="Permanent link">&para;</a></h2>
+<p>Навыки ниже поставляются плагинами; локальных файлов в <code>~/.claude/skills</code> для них нет.</p>
+<table>
+<thead>
+<tr>
+<th>Навык</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>godot</code></td>
+<td>Форматы файлов, CLI, валидация.</td>
+</tr>
+<tr>
+<td><code>godot-best-practices</code></td>
+<td>Сигналы, ресурсы, машины состояний, пулинг.</td>
+</tr>
+<tr>
+<td><code>godot-mcp-toolkit</code></td>
+<td>Работа через MCP.</td>
+</tr>
+<tr>
+<td><code>godot-ui</code></td>
+<td>Control-узлы, темы, адаптивные раскладки.</td>
+</tr>
+<tr>
+<td><code>golang-pro</code></td>
+<td>Конкурентность, gRPC, дженерики.</td>
+</tr>
+<tr>
+<td><code>golang-testing</code></td>
+<td>Table-driven тесты, бенчмарки, фаззинг.</td>
+</tr>
+<tr>
+<td><code>protobuf</code></td>
+<td>Buf CLI, protovalidate.</td>
+</tr>
+<tr>
+<td><code>websocket-engineer</code></td>
+<td>WebSocket-системы.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">Как воспроизвести у себя<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ol>
-<li>проверяет и расходует стаки валют, а также архетипный материал, соответствующий базе предмета;</li>
-<li>проверяет ожидаемую ревизию предмета;</li>
-<li>записывает возвращённый предмет;</li>
-<li>сохраняет idempotency key и change set.</li>
+<li>Установить Godot 4.7.1.</li>
+<li>Выполнить <code>pip install -r requirements-tools.txt</code>.</li>
+<li>Включить MCP-серверы.</li>
+<li>Установить плагины и навыки.</li>
+<li>Свериться с распределением моделей в <a href="../../roles/">ролях</a>.</li>
 </ol>
-<p><code>ApplyRecipe</code> намеренно не изменяет инвентарь игрока и не открывает транзакцию базы данных. Транзакционная граница описана в <a href="../item-persistence/">документе о хранении предметов</a>.</p>
-<p>Флаги lock, fracture и crafted для аффиксов и crafting metadata фиксированной структуры сохраняются кодеком itemstore v3. Декодер остаётся совместимым с кодеками v1 и v2. Миграция схемы выполняется явно через <code>VersionedItem</code>, <code>Migrate</code> и функции перехода на одну версию; миграции контента требуют отдельно проверяемого развёртывания с remap ID.</p>
-<h2 id="_4">Добавление контента<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Выделить новые постоянные числовые ID; ID удалённого контента не переиспользовать.</li>
-<li>Добавить аффиксы, пулы, базы, валюты и рецепты в генерируемые данные контента.</li>
-<li>Создать registry и выполнить все валидаторы определений до публикации версии контента.</li>
-<li>Добавить детерминированные тесты с golden seed для нового поведения крафта и до релиза измерить большие пулы benchmark-тестами.</li>
-</ol>
-<p>Текущий runtime использует slices для небольшого набора выпавших аффиксов и компактные числовые ссылки. Нельзя упаковывать определения вручную по битам или вводить базу данных в горячий путь ролла без измеренного benchmark, который подтверждает необходимость.</p>
 
 
 
