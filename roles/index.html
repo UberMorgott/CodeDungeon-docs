@@ -1141,7 +1141,9 @@
 <li>Одна задача — один дочерний worktree, одна ветка, conventional commits.</li>
 <li>Сначала источник, потом код: читать реальную реализацию, протокол сверять по <code>shared/proto/game.proto</code>.</li>
 <li>Критерий готовности: код собирается, <code>cd server &amp;&amp; go test ./...</code> зелёный, работа закоммичена.</li>
-<li>Отчёт через <code>orca orchestration send</code> / <code>reply</code>: что изменено, какие файлы, вывод тестов. Без сырых дампов.</li>
+<li>Отчёт кладётся В ТЕЛО завершающего сообщения <code>worker_done</code>, а не отправляется отдельным <code>send</code> перед завершением:
+  диспатч закрывается раньше, чем доходит отдельное сообщение, и содержимое теряется. Что изменено, какие файлы,
+  вывод тестов. Без сырых дампов.</li>
 </ul>
 <h2 id="coder-claude">coder-claude<a class="headerlink" href="#coder-claude" title="Permanent link">&para;</a></h2>
 <ul>
