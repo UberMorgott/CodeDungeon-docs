@@ -427,6 +427,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#19082026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Замер моделей для лёгких ролей (19.08.2026)
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1150,6 +1161,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#19082026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Замер моделей для лёгких ролей (19.08.2026)
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1233,6 +1255,12 @@
 <td><code>low</code></td>
 </tr>
 <tr>
+<td>Поиск по коду, карта файлов, точные <code>file:line</code></td>
+<td><code>claude</code></td>
+<td><code>claude-opus-4-6</code></td>
+<td><code>low</code></td>
+</tr>
+<tr>
 <td>Ревью кода</td>
 <td>противоположный агент</td>
 <td>по типу работы</td>
@@ -1299,6 +1327,48 @@ orca<span class="w"> </span>orchestration<span class="w"> </span>worker-release<
 </code></pre></div>
 <p>Зависимости между задачами: <code>task-create --deps '["task_a","task_b"]'</code>.
 Блокирующее решение владельца проекта: <code>orca orchestration gate-create</code>.</p>
+<h2 id="19082026">Замер моделей для лёгких ролей (19.08.2026)<a class="headerlink" href="#19082026" title="Permanent link">&para;</a></h2>
+<p>Три модели прогнали одни и те же четыре задачи: прогон тестов, поиск мест кодирования протокола,
+извлечение правил из документа, генерация однострочного диффа. Оценивались фактическая правота,
+соблюдение формата и цена.</p>
+<table>
+<thead>
+<tr>
+<th>Модель</th>
+<th>Верных задач</th>
+<th>Свежих токенов на запуск</th>
+<th>Итог</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gpt-5.6-luna</code></td>
+<td>4 из 4</td>
+<td>~23 700</td>
+<td>тесты и рутинный поиск</td>
+</tr>
+<tr>
+<td><code>claude-opus-4-6</code></td>
+<td>4 из 4</td>
+<td>~79 000</td>
+<td>точные <code>file:line</code>, когда важна снайперская точность</td>
+</tr>
+<tr>
+<td><code>claude-sonnet-5</code></td>
+<td>2 из 4</td>
+<td>~90 600</td>
+<td>в лёгких ролях не использовать</td>
+</tr>
+</tbody>
+</table>
+<p>Sonnet 5 заявил, что клиент на Godot шлёт данные без gzip и JSON, хотя <code>network_manager.gd:539</code>
+жмёт gzip, а <code>:559</code> парсит JSON; его дифф не прошёл <code>git apply --check</code> из-за выдуманного
+заголовка <code>index</code> и контекста с многоточием. При этом он оказался самым дорогим.</p>
+<p>Токены считаны по сессионным логам провайдеров без учёта чтения кэша: у моделей Claude оно
+составляет 85-90% объёма и стоит примерно десятую часть обычного ввода. Пятая сессия
+<code>claude-opus-4-6</code> не отделяется от замера, поэтому его средняя может быть завышена.</p>
+<p>Требование к тестовым задачам: спека обязана содержать <code>go clean -testcache</code>. Без сброса кэша
+модель отчитывается о прошлом результате и регрессию не ловит.</p>
 
 
 
