@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/game-design/physical-combat-and-replay/">
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/ui-architecture/">
       
       
-        <link rel="prev" href="../combat-and-actions/">
+        <link rel="prev" href="../content-packages/">
       
       
-        <link rel="next" href="../visual-direction-and-camera/">
+        <link rel="next" href="../dev-environment/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Симуляция боя и запись боя - CodeDungeon — документация</title>
+        <title>Интерфейс, экраны и навигация - CodeDungeon — документация</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#симуляция-боя-и-запись-боя" class="md-skip">
+        <a href="#интерфейс-экраны-навигация-и-граница-клиента" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Симуляция боя и запись боя
+              Интерфейс, экраны и навигация
             
           </span>
         </div>
@@ -369,20 +369,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -403,12 +401,516 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
     Игровой дизайн
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектурный скелет
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/vision-and-pillars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Видение и опоры
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/core-loop-and-runs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Основной цикл и забеги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/ai-brain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Мозг персонажа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/brain-vocabulary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Словарь мозга
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/combat-and-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бой и фазы действий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/physical-combat-and-replay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Симуляция боя и запись боя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/visual-direction-and-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Визуальное направление и камера
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/passive-tree-and-sockets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пассивное дерево и ячейки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/enemies-and-encounters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Враги и встречи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/deferred-multiplayer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Отложенный мультиплеер
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/skills-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Навыки и теги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/items-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Предметы и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/progression-and-idle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Прогрессия и idle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глоссарий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Техническая документация
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Техническая документация
   
 
           </label>
@@ -449,14 +951,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture/" class="md-nav__link">
+      <a href="../tech-stack/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Архитектурный скелет
+    Технологический стек
   
 
     
@@ -477,14 +979,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../vision-and-pillars/" class="md-nav__link">
+      <a href="../combat-simulation/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Видение и опоры
+    Спецификация боевой симуляции
   
 
     
@@ -505,14 +1007,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../core-loop-and-runs/" class="md-nav__link">
+      <a href="../process-topology/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Основной цикл и забеги
+    Топология процессов и запуск
   
 
     
@@ -533,70 +1035,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ai-brain/" class="md-nav__link">
+      <a href="../content-packages/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Мозг персонажа
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../brain-vocabulary/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Словарь мозга
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../combat-and-actions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Бой и фазы действий
+    Пакеты контента и баланса
   
 
     
@@ -633,7 +1079,7 @@
   <span class="md-ellipsis">
     
   
-    Симуляция боя и запись боя
+    Интерфейс, экраны и навигация
   
 
     
@@ -651,7 +1097,7 @@
   <span class="md-ellipsis">
     
   
-    Симуляция боя и запись боя
+    Интерфейс, экраны и навигация
   
 
     
@@ -677,10 +1123,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#подтверждено" class="md-nav__link">
+  <a href="#просмотр-боя-и-камера" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Подтверждено
+        Просмотр боя и камера
       
     </span>
   </a>
@@ -688,10 +1134,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#разрешение-боя" class="md-nav__link">
+  <a href="#доступ-к-интерфейсам-в-забеге" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Разрешение боя
+        Доступ к интерфейсам в забеге
       
     </span>
   </a>
@@ -699,10 +1145,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#что-не-симулируется" class="md-nav__link">
+  <a href="#инвентарь-и-крафт" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Что не симулируется
+        Инвентарь и крафт
       
     </span>
   </a>
@@ -710,10 +1156,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#обещание-игроку" class="md-nav__link">
+  <a href="#карта-экранов-mvp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Обещание игроку
+        Карта экранов MVP
       
     </span>
   </a>
@@ -721,10 +1167,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#владение-и-минимальные-api" class="md-nav__link">
+  <a href="#модальные-слои-и-состояния-экранов" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Владение и минимальные API
+        Модальные слои и состояния экранов
       
     </span>
   </a>
@@ -732,10 +1178,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#представление" class="md-nav__link">
+  <a href="#сцены-черновики-которые-не-являются-экранами-mvp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Представление
+        Сцены-черновики, которые не являются экранами MVP
       
     </span>
   </a>
@@ -743,10 +1189,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#replay" class="md-nav__link">
+  <a href="#тест-мозга" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Replay
+        Тест мозга
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#валидация-мозга" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Валидация мозга
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#событие-решения-и-таймлайн" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Событие решения и таймлайн
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#информация-о-встрече-до-боя" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Информация о встрече до боя
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#граница-клиента-и-сервера" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граница клиента и сервера
       
     </span>
   </a>
@@ -780,453 +1270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../visual-direction-and-camera/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Визуальное направление и камера
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../passive-tree-and-sockets/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Пассивное дерево и ячейки
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../enemies-and-encounters/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Враги и встречи
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../deferred-multiplayer/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Отложенный мультиплеер
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../skills-and-tags/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Навыки и теги
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../items-and-crafting/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Предметы и крафт
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../progression-and-idle/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Прогрессия и idle
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../glossary/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Глоссарий
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Техническая документация
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Техническая документация
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../technical/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Обзор
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../technical/tech-stack/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Технологический стек
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../technical/combat-simulation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Спецификация боевой симуляции
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../technical/process-topology/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Топология процессов и запуск
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../technical/content-packages/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Пакеты контента и баланса
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../technical/ui-architecture/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Интерфейс, экраны и навигация
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../technical/dev-environment/" class="md-nav__link">
+      <a href="../dev-environment/" class="md-nav__link">
         
   
   
@@ -1254,7 +1298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../technical/asset-pipeline/" class="md-nav__link">
+      <a href="../asset-pipeline/" class="md-nav__link">
         
   
   
@@ -1282,7 +1326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../technical/item-content-and-crafting/" class="md-nav__link">
+      <a href="../item-content-and-crafting/" class="md-nav__link">
         
   
   
@@ -1310,7 +1354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../technical/item-persistence/" class="md-nav__link">
+      <a href="../item-persistence/" class="md-nav__link">
         
   
   
@@ -1365,10 +1409,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#подтверждено" class="md-nav__link">
+  <a href="#просмотр-боя-и-камера" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Подтверждено
+        Просмотр боя и камера
       
     </span>
   </a>
@@ -1376,10 +1420,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#разрешение-боя" class="md-nav__link">
+  <a href="#доступ-к-интерфейсам-в-забеге" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Разрешение боя
+        Доступ к интерфейсам в забеге
       
     </span>
   </a>
@@ -1387,10 +1431,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#что-не-симулируется" class="md-nav__link">
+  <a href="#инвентарь-и-крафт" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Что не симулируется
+        Инвентарь и крафт
       
     </span>
   </a>
@@ -1398,10 +1442,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#обещание-игроку" class="md-nav__link">
+  <a href="#карта-экранов-mvp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Обещание игроку
+        Карта экранов MVP
       
     </span>
   </a>
@@ -1409,10 +1453,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#владение-и-минимальные-api" class="md-nav__link">
+  <a href="#модальные-слои-и-состояния-экранов" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Владение и минимальные API
+        Модальные слои и состояния экранов
       
     </span>
   </a>
@@ -1420,10 +1464,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#представление" class="md-nav__link">
+  <a href="#сцены-черновики-которые-не-являются-экранами-mvp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Представление
+        Сцены-черновики, которые не являются экранами MVP
       
     </span>
   </a>
@@ -1431,10 +1475,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#replay" class="md-nav__link">
+  <a href="#тест-мозга" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Replay
+        Тест мозга
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#валидация-мозга" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Валидация мозга
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#событие-решения-и-таймлайн" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Событие решения и таймлайн
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#информация-о-встрече-до-боя" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Информация о встрече до боя
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#граница-клиента-и-сервера" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граница клиента и сервера
       
     </span>
   </a>
@@ -1469,7 +1557,7 @@
 
 
   
-    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/game-design/physical-combat-and-replay.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/technical/ui-architecture.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1477,112 +1565,175 @@
   
 
 
-<h1 id="симуляция-боя-и-запись-боя">Симуляция боя и запись боя<a class="headerlink" href="#симуляция-боя-и-запись-боя" title="Permanent link">&para;</a></h1>
-<p>Этот документ заменяет прежнюю спецификацию «физического боя». Полная физическая симуляция боя вырезана из MVP: бой является простой строго детерминированной логической симуляцией. Имя файла сохранено ради стабильности ссылок.</p>
-<p>Документ дополняет, но не заменяет <a href="../combat-and-actions/">канонический контракт фаз действий</a>. Числовые параметры симуляции, поток событий и формат replay принадлежат <a href="../../technical/combat-simulation/">спецификации боевой симуляции</a>.</p>
-<h2 id="подтверждено">Подтверждено<a class="headerlink" href="#подтверждено" title="Permanent link">&para;</a></h2>
+<h1 id="интерфейс-экраны-навигация-и-граница-клиента">Интерфейс: экраны, навигация и граница клиента<a class="headerlink" href="#интерфейс-экраны-навигация-и-граница-клиента" title="Permanent link">&para;</a></h1>
+<p>Документ описывает экраны MVP, правила просмотра боя, инвентарь и крафт, инструменты мозга и границу между Godot и Go. Игровые правила принадлежат тематическим документам GDD; здесь фиксируется их интерфейсная часть.</p>
+<h2 id="просмотр-боя-и-камера">Просмотр боя и камера<a class="headerlink" href="#просмотр-боя-и-камера" title="Permanent link">&para;</a></h2>
+<p><strong>Принято.</strong> Управление первым просмотром зависит от того, разделён ли просмотр с другими игроками.</p>
 <ul>
-<li><strong>Физика вырезана из MVP.</strong> Боевой результат вычисляется логикой, а не симуляцией твёрдых тел, массы, импульса, трения, суставов и геометрии оружия. Причина: крючок игры — авторская настройка ИИ и поведения, а не глубина боя; бюджет инди-команды.</li>
-<li>Бой строго детерминирован: одинаковые входы дают побитово одинаковый результат.</li>
-<li>Мозг персонажа выбирает намерение, а не конкретную анимацию; действие проходит подготовку, атомарное исполнение и обязательное восстановление.</li>
-<li>Симуляция и представление разделены. Go владеет всей игровой истиной, Godot — только представлением; поток односторонний, обратно в Go не идут ни transform, ни контакты, ни состояние анимации, ни результат ragdoll.</li>
-<li>Replay воспроизводит зафиксированную запись, а не пересчитывает бой заново.</li>
+<li><strong>Solo:</strong> бой можно <strong>пропустить целиком</strong> и сразу перейти к результату. Паузы, перемотки и покадрового шага при первом просмотре нет.</li>
+<li><strong>Co-op и PvP:</strong> пропуска нет вообще. Бой досматривается до конца, потому что другие игроки смотрят тот же бой одновременно и пропуск одного сломал бы просмотр остальным. Камера при этом остаётся свободной.</li>
+<li><strong>Любой повторный просмотр любого боя</strong> даёт полный плеер: пауза, покадровый шаг, изменение скорости, перемотка, замедление.</li>
+<li>Правило: <strong>пропуск существует только там, где просмотр не разделён с другими игроками.</strong></li>
+<li><strong>Область действия паузы и покадрового шага, единая для всех документов:</strong> они существуют ровно в двух местах — в просмотре записи (replay) и на экране теста мозга. При первом просмотре боя их нет никогда. Инструменты читаемости из <a href="../../game-design/ai-brain/#инструменты-читаемости--обязательны-в-mvp">мозга персонажа</a> подчиняются этой же границе.</li>
 </ul>
-<h2 id="разрешение-боя">Разрешение боя<a class="headerlink" href="#разрешение-боя" title="Permanent link">&para;</a></h2>
+<p><strong>Принято.</strong> Камера по умолчанию кинематографическая, но игрок в любой момент может взять её под контроль, вращать и приближать — и при первом просмотре, и в записи. Камера принадлежит только представлению и никогда не влияет на симуляцию.</p>
+<h2 id="доступ-к-интерфейсам-в-забеге">Доступ к интерфейсам в забеге<a class="headerlink" href="#доступ-к-интерфейсам-в-забеге" title="Permanent link">&para;</a></h2>
+<p><strong>Принято.</strong> Инвентарь, крафт и редактор ИИ доступны <strong>после каждой комнаты</strong>, а не только в точке отдыха.</p>
+<p>Следствие: точке отдыха нужно другое назначение — лечение, событие, выбор награды, — иначе она вырождается в пустую кнопку «продолжить». Это <a href="../../open-questions/">открытый вопрос</a>.</p>
+<h2 id="инвентарь-и-крафт">Инвентарь и крафт<a class="headerlink" href="#инвентарь-и-крафт" title="Permanent link">&para;</a></h2>
+<p><strong>Принято.</strong> Рюкзак — сетка в духе Path of Exile: предметы занимают разное число ячеек, единого формата <code>1x1</code> нет. Предметный контракт — в <a href="../../game-design/items-and-crafting/">предметах и крафте</a>.</p>
+<p>Верстак MVP несёт <strong>четыре</strong> операции: добавить аффикс, перекатать, повысить редкость, разобрать в материалы.</p>
+<p>Раскладка экрана:</p>
 <ul>
-<li>Атака в момент старта фиксирует цель и тик удара (impact tick).</li>
-<li>На тике удара проверяются дистанция, сектор направления, линия видимости и валидность цели.</li>
-<li>Попадание — логический результат, а не факт контакта тел.</li>
-<li>Урон: <code>max(1, attack_power - armor)</code>, затем детерминированные модификаторы.</li>
-<li>Стаггер — целочисленный счётчик тиков. Он прерывает только действия, явно помеченные прерываемыми, и только когда <code>stagger &gt;= poise</code>.</li>
-<li>Отбрасывание — принудительное перемещение (например, 600 мм за 6 тиков) с сохранённым направлением и целочисленным распределением остатка. Оно учитывает стены и разведение тел, неиспользованная дистанция отбрасывается, урона отбрасывание не наносит.</li>
+<li>слева — экипировка и переключатель билда;</li>
+<li>в центре — сетка рюкзака;</li>
+<li>справа — инспектор предмета;</li>
+<li>снизу/справа — верстак и кошелёк материалов.</li>
 </ul>
-<h2 id="что-не-симулируется">Что не симулируется<a class="headerlink" href="#что-не-симулируется" title="Permanent link">&para;</a></h2>
-<p>Следующее является исключительно представлением и не влияет на исход: твёрдые тела, масса, импульс, трение, момент, гравитация, суставы, геометрия оружия, манифесты контактов, непрерывная детекция столкновений, локальный урон конечностям, опора, равновесие, деформация ландшафта, груды тел, физика полёта снаряда, ragdoll как геймплей.</p>
+<p>21:9 расширяет рюкзак и место истории. Он не должен растягивать ячейки предметов и не должен отрывать инспектор от верстака.</p>
+<p>Взаимодействие:</p>
 <ul>
-<li>Дальнобойные атаки разрешаются логически на тике удара; представление запускает снаряд так, чтобы он прилетел ровно на этот тик.</li>
-<li>Мёртвое тело визуально может улететь куда угодно; в симуляции сущность становится непреграждающим маркером трупа либо удаляется сразу.</li>
+<li>перетаскивание перемещает, меняет местами и надевает; локальный ghost остаётся предварительным до подтверждения от Go;</li>
+<li>правый клик открывает контекстное меню: осмотреть, надеть, отправить на верстак, разобрать, разделить стак;</li>
+<li>Shift-клик выполняет самое безопасное контекстное быстрое перемещение;</li>
+<li>Esc отменяет перетаскивание, Delete запрашивает подтверждение разбора, Enter подтверждает сфокусированный крафт, Ctrl-клик быстро переносит.</li>
 </ul>
-<h2 id="обещание-игроку">Обещание игроку<a class="headerlink" href="#обещание-игроку" title="Permanent link">&para;</a></h2>
-<p>Игрок программирует тактику персонажа: <strong>что сделать и при каких условиях</strong>. Он не программирует положение кисти или траекторию клинка.</p>
-<ul>
-<li>Начавшаяся атака не гарантирует попадание: возможны промах, уворот, блок, критический удар.</li>
-<li>Последствия становятся новым состоянием мира, которое Brain может прочитать при следующей проверке.</li>
-<li>После автономного боя игрок может изучить запись, менять скорость и камеру и включить отладочный слой решений.</li>
-</ul>
-<h2 id="владение-и-минимальные-api">Владение и минимальные API<a class="headerlink" href="#владение-и-минимальные-api" title="Permanent link">&para;</a></h2>
+<p>Интерфейс крафта обязан до подтверждения показывать авторитетную стоимость, шанс и диапазон исхода и никогда не намекать на гарантированный результат, если его не гарантирует Go.</p>
+<h2 id="карта-экранов-mvp">Карта экранов MVP<a class="headerlink" href="#карта-экранов-mvp" title="Permanent link">&para;</a></h2>
+<p><strong>Принято.</strong> MVP состоит из шестнадцати экранов.</p>
 <table>
 <thead>
 <tr>
-<th>Подсистема</th>
-<th>Чем владеет</th>
-<th>Минимальный вход</th>
-<th>Минимальный выход</th>
-<th>Не должна решать</th>
+<th>Экран</th>
+<th>Назначение</th>
+<th>Вход</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Brain</td>
-<td>тактическим выбором и условиями алгоритма</td>
-<td>наблюдаемое состояние мира</td>
-<td>намерение действия и цель</td>
-<td>конкретная анимация или тайминг анимации</td>
+<td>Boot/Connection</td>
+<td>запуск клиента и подключение к локальному Go</td>
+<td>старт приложения</td>
 </tr>
 <tr>
-<td>Action System</td>
-<td>фазой, временным обязательством и правилами прерывания</td>
-<td>намерение, доступность и стоимость</td>
-<td>старт/удар/конец действия в тиках</td>
-<td>исход атаки</td>
+<td>Main Menu</td>
+<td>выбор профиля и переход в игру</td>
+<td>после Boot/Connection</td>
 </tr>
 <tr>
-<td>Combat Resolver</td>
-<td>проверкой на тике удара и результатом атаки</td>
-<td>цель, дистанция, сектор, видимость, характеристики</td>
-<td>результат <code>miss/dodge/block/hit/crit</code>, урон, стаггер</td>
-<td>перемещение и анимация</td>
+<td>Tavern (hub)</td>
+<td>база между забегами</td>
+<td>из Main Menu и с экрана итога забега</td>
 </tr>
 <tr>
-<td>Displacement</td>
-<td>принудительным перемещением</td>
-<td>направление, дистанция, длительность</td>
-<td>новое положение по тикам</td>
-<td>урон</td>
+<td>Inventory+Crafting</td>
+<td>разбор добычи, экипировка, верстак</td>
+<td>из таверны и после каждой комнаты забега</td>
 </tr>
 <tr>
-<td>Battle Recorder</td>
-<td>авторитетной записью боя</td>
-<td>версии, seed, состав, внешние команды</td>
-<td>воспроизводимый replay</td>
-<td>повторный расчёт вне правил той же версии</td>
+<td>AI Editor</td>
+<td>правка графов поведения и прерываний</td>
+<td>из таверны и после каждой комнаты забега</td>
 </tr>
 <tr>
-<td>Presentation (Godot)</td>
-<td>анимацией, звуком, VFX, камерой, ragdoll</td>
-<td>поток событий и состояния тиков</td>
-<td>кадр, звук, камера</td>
-<td>любое изменение исхода</td>
+<td>Progression</td>
+<td>пассивное дерево, активные навыки, Memory</td>
+<td>из таверны и после каждой комнаты забега</td>
+</tr>
+<tr>
+<td>Run Setup</td>
+<td>подготовка забега перед стартом</td>
+<td>из таверны</td>
+</tr>
+<tr>
+<td>Run Map</td>
+<td>выбор маршрута по узлам карты</td>
+<td>после Run Setup и после каждой комнаты</td>
+</tr>
+<tr>
+<td>Combat Viewing</td>
+<td>просмотр боя комнаты</td>
+<td>из боевого узла карты</td>
+</tr>
+<tr>
+<td>Room Resolution</td>
+<td>итог комнаты и обращение с добычей</td>
+<td>после Combat Viewing</td>
+</tr>
+<tr>
+<td>Rest</td>
+<td>сервисный узел карты</td>
+<td>из узла точки отдыха</td>
+</tr>
+<tr>
+<td>Shop</td>
+<td>покупка и продажа у торговца</td>
+<td>из узла лавки</td>
+</tr>
+<tr>
+<td>Run Result</td>
+<td>итог забега после победы или смерти</td>
+<td>после финального узла или смерти</td>
+</tr>
+<tr>
+<td>Replay Library</td>
+<td>список сохранённых записей</td>
+<td>из таверны</td>
+</tr>
+<tr>
+<td>Replay Viewer</td>
+<td>просмотр записи с полным плеером</td>
+<td>из Replay Library и Run Result</td>
+</tr>
+<tr>
+<td>Settings/System Menu</td>
+<td>настройки и системные действия</td>
+<td>из любого экрана</td>
 </tr>
 </tbody>
 </table>
-<h2 id="представление">Представление<a class="headerlink" href="#представление" title="Permanent link">&para;</a></h2>
+<h2 id="модальные-слои-и-состояния-экранов">Модальные слои и состояния экранов<a class="headerlink" href="#модальные-слои-и-состояния-экранов" title="Permanent link">&para;</a></h2>
+<p><strong>Принято.</strong> Приоритет модальных слоёв сверху вниз:</p>
+<ol>
+<li>фатальная ошибка или разрыв соединения;</li>
+<li>подтверждение разрушающего действия;</li>
+<li>результат транзакции;</li>
+<li>настройки и системное меню;</li>
+<li>подсказка или контекстное меню.</li>
+</ol>
+<p>Одновременно допускается только <strong>один блокирующий модальный слой</strong>. Подтверждения не складываются в стопку.</p>
+<p>Escape закрывает верхний закрываемый слой, затем детальный вид графа, затем сам экран.</p>
+<p>Каждый экран с данными обязан иметь четыре состояния:</p>
 <ul>
-<li>Godot буферизует события на 3 тика (~150 мс) и интерполирует между авторитетными состояниями тиков.</li>
-<li>Анимация перемещения смешивается по скорости и направлению; ступни используют косметический IK, корень следует за интерполированными координатами симуляции.</li>
-<li><code>ACTION_STARTED</code> планирует замах, удар и восстановление так, чтобы авторский кадр контакта пришёлся ровно на <code>impact_tick</code>.</li>
-<li>Если длительность анимации расходится с таймингом симуляции, Godot растягивает или подрезает анимацию. <strong>Тайминг симуляции всегда главнее.</strong></li>
-<li>Попадание добавляет визуальный hit-stop 30–60 мс, слои реакции, следы, звук, VFX и тряску камеры. Ничто из этого не останавливает и не изменяет симуляцию.</li>
-<li>Смерть переключает тело в косметический ragdoll после финальной авторитетной позы, на слоях столкновений только для представления.</li>
+<li>скелет загрузки;</li>
+<li>ошибку с возможностью повтора;</li>
+<li>обновление при устаревшей ревизии;</li>
+<li>явное пустое состояние, называющее следующее действие.</li>
 </ul>
-<h2 id="replay">Replay<a class="headerlink" href="#replay" title="Permanent link">&para;</a></h2>
-<p>Запись содержит: версию схемы и симуляции, идентификатор определения встречи, seed забега и встречи, стартовый состав с экипировкой и характеристиками, хеши скомпилированных мозгов либо встроенный bytecode, а также внешние команды. Действия ИИ <strong>воспроизводятся заново из seed</strong>, а не записываются.</p>
-<p>Ожидаемые размеры: бой на 60 секунд (3600 тиков — потолок комнаты) — 1–4 КБ сжатыми, 5–12 КБ со встроенными мозгами; забег из 20 встреч — 20–60 КБ. Replay с несовпадающей версией симуляции отклоняется.</p>
-<p>Целевые операции replay: пауза, seek, перемотка назад и скорости воспроизведения, включая slow motion. Камера не влияет на рассчитанный бой и может быть свободной, следящей или автоматической. По умолчанию replay показывает чистое зрелище; переключаемый отладочный оверлей показывает фазы, решения и события урона согласно правилу интерфейса из <code>combat-and-actions.md</code>.</p>
+<h2 id="сцены-черновики-которые-не-являются-экранами-mvp">Сцены-черновики, которые не являются экранами MVP<a class="headerlink" href="#сцены-черновики-которые-не-являются-экранами-mvp" title="Permanent link">&para;</a></h2>
+<p>Их следует слить с экранами выше либо понизить до компонентов: <code>post_combat_review</code>, <code>character_profile</code>, <code>behavior_rules_panel</code>, <code>ordered_item_list</code>, <code>ai_tutorial_overlay</code>.</p>
+<h2 id="тест-мозга">Тест мозга<a class="headerlink" href="#тест-мозга" title="Permanent link">&para;</a></h2>
+<p><strong>Принято, входит в MVP.</strong> Редактор может прогнать авторитетную симуляцию Go на фиксированных тестовых фикстурах, не начиная забег: манекен, ближняя пачка, дальняя пачка, старт с низким здоровьем и сохранённый seed встречи.</p>
+<p>Экран теста поддерживает паузу, покадровый шаг, перемотку, детерминированный сброс, таймлайн решений и подсветку узла, сработавшего у выбранного бойца.</p>
+<h2 id="валидация-мозга">Валидация мозга<a class="headerlink" href="#валидация-мозга" title="Permanent link">&para;</a></h2>
+<p><strong>Принято.</strong> Локальный черновик может быть неполным, но <strong>сохранение, публикация и экипировка блокируются авторитетными ошибками</strong>. Предупреждения позволяют использовать алгоритм после явного подтверждения игроком.</p>
+<p>Ошибки: неизвестные или небезопасные узлы, циклы, несовпадение типов, превышение бюджета Memory, недоказуемые требования к билду и навыкам.</p>
+<p>Предупреждения: недостижимая и неиспользуемая логика.</p>
+<h2 id="событие-решения-и-таймлайн">Событие решения и таймлайн<a class="headerlink" href="#событие-решения-и-таймлайн" title="Permanent link">&para;</a></h2>
+<p><strong>Принято.</strong> Каждое событие решения несёт: бойца, тик, вид и ID графа, ID посещённых, сработавших и отклонённых узлов, значения портов, действие, результат и коды причин.</p>
+<p>Клик по записи таймлайна открывает нужную вкладку и граф, центрирует сработавший узел, подсвечивает исполненный путь и показывает отклонённых кандидатов более высокого приоритета.</p>
+<p><strong>Принято: только свои бойцы.</strong> Таймлайн решений, события решений и вся остальная отладочная выдача существуют исключительно для бойцов игрока. Мозг врага непрозрачен: интерфейс никогда не показывает его граф, правила, модули, прерывания и события решений, а только внешне наблюдаемое состояние — позицию, здоровье, фазу действия, цель, метки и опасные зоны. Правило и его обоснование — во <a href="../../game-design/enemies-and-encounters/">врагах и встречах</a>.</p>
+<h2 id="информация-о-встрече-до-боя">Информация о встрече до боя<a class="headerlink" href="#информация-о-встрече-до-боя" title="Permanent link">&para;</a></h2>
+<p><strong>Принято.</strong> Перед правкой мозга игрок видит состав врагов, их видимую экипировку, модификатор встречи и заметные действия. Графы врагов не показываются никогда. Классов и типов не существует, поэтому показывается наблюдаемая конфигурация, а не типовые ярлыки.</p>
+<h2 id="граница-клиента-и-сервера">Граница клиента и сервера<a class="headerlink" href="#граница-клиента-и-сервера" title="Permanent link">&para;</a></h2>
+<p><strong>Принято.</strong> Godot держит локально: раскладку, ghost перетаскивания, позиции узлов графа, историю undo, фильтрацию, локализацию, камеру и курсор воспроизведения.</p>
+<p>Go владеет любой фактической мутацией. <strong>Оптимистичных геймплейных мутаций нет:</strong> локальный предпросмотр остаётся визуально предварительным, пока Go не вернёт новую ревизию.</p>
+<p>Валидация выполняется с debounce, неизменяемые каталоги батчатся и кэшируются: round trip на каждый жест при перетаскивании, предпросмотре крафта, валидации графа и подсказках ощущался бы как лаг.</p>
 <h2 id="открытые-вопросы">Открытые вопросы<a class="headerlink" href="#открытые-вопросы" title="Permanent link">&para;</a></h2>
+<p>Открытых вопросов, принадлежащих этому документу, сейчас нет. Связанные вопросы принадлежат другим документам:</p>
 <ul>
-<li>Должны ли старые replay оставаться воспроизводимыми после патчей баланса, или они жёстко привязаны к версии? См. <a href="../../open-questions/">реестр открытых вопросов</a>.</li>
-<li>Автоматическая cinematic camera в первом релизе — решается после готовности ручного replay.</li>
+<li>зачем нужна точка отдыха теперь, когда инвентарь и редактор доступны после каждой комнаты — <a href="../../game-design/core-loop-and-runs/#открытые-вопросы">основной цикл и забеги</a>;</li>
+<li>размеры сетки рюкзака и размеры предметов в MVP, а также валюты и кривая цен операций верстака — <a href="../../game-design/items-and-crafting/#открытые-вопросы">предметы и крафт</a>.</li>
 </ul>
 
 

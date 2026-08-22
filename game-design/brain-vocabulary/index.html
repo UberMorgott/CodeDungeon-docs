@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/game-design/physical-combat-and-replay/">
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/game-design/brain-vocabulary/">
       
       
-        <link rel="prev" href="../combat-and-actions/">
+        <link rel="prev" href="../ai-brain/">
       
       
-        <link rel="next" href="../visual-direction-and-camera/">
+        <link rel="next" href="../combat-and-actions/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Симуляция боя и запись боя - CodeDungeon — документация</title>
+        <title>Словарь мозга - CodeDungeon — документация</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#симуляция-боя-и-запись-боя" class="md-skip">
+        <a href="#словарь-мозга" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Симуляция боя и запись боя
+              Словарь мозга
             
           </span>
         </div>
@@ -558,10 +558,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../brain-vocabulary/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Словарь мозга
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -577,6 +604,142 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#виды-узлов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Виды узлов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#типы-значений" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Типы значений
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#мозг-без-состояния" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мозг без состояния
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#предикаты-условий" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Предикаты условий
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#селекторы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Селекторы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#действия" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Действия
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Действия">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#восстановление-платится-только-после-исполнения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Восстановление платится только после исполнения
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#намеренно-исключено-из-словаря-mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Намеренно исключено из словаря MVP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#выразительность" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выразительность
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#открытые-вопросы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Открытые вопросы
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -614,37 +777,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Симуляция боя и запись боя
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../physical-combat-and-replay/" class="md-nav__link">
         
   
   
@@ -660,114 +796,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Содержание">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#подтверждено" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Подтверждено
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#разрешение-боя" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Разрешение боя
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#что-не-симулируется" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Что не симулируется
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#обещание-игроку" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Обещание игроку
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#владение-и-минимальные-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Владение и минимальные API
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#представление" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Представление
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#replay" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Replay
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#открытые-вопросы" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Открытые вопросы
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1365,10 +1393,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#подтверждено" class="md-nav__link">
+  <a href="#виды-узлов" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Подтверждено
+        Виды узлов
       
     </span>
   </a>
@@ -1376,10 +1404,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#разрешение-боя" class="md-nav__link">
+  <a href="#типы-значений" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Разрешение боя
+        Типы значений
       
     </span>
   </a>
@@ -1387,10 +1415,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#что-не-симулируется" class="md-nav__link">
+  <a href="#мозг-без-состояния" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Что не симулируется
+        Мозг без состояния
       
     </span>
   </a>
@@ -1398,10 +1426,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#обещание-игроку" class="md-nav__link">
+  <a href="#предикаты-условий" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Обещание игроку
+        Предикаты условий
       
     </span>
   </a>
@@ -1409,10 +1437,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#владение-и-минимальные-api" class="md-nav__link">
+  <a href="#селекторы" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Владение и минимальные API
+        Селекторы
       
     </span>
   </a>
@@ -1420,10 +1448,38 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#представление" class="md-nav__link">
+  <a href="#действия" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Представление
+        Действия
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Действия">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#восстановление-платится-только-после-исполнения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Восстановление платится только после исполнения
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#намеренно-исключено-из-словаря-mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Намеренно исключено из словаря MVP
       
     </span>
   </a>
@@ -1431,10 +1487,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#replay" class="md-nav__link">
+  <a href="#выразительность" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Replay
+        Выразительность
       
     </span>
   </a>
@@ -1469,7 +1525,7 @@
 
 
   
-    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/game-design/physical-combat-and-replay.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/game-design/brain-vocabulary.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1477,112 +1533,163 @@
   
 
 
-<h1 id="симуляция-боя-и-запись-боя">Симуляция боя и запись боя<a class="headerlink" href="#симуляция-боя-и-запись-боя" title="Permanent link">&para;</a></h1>
-<p>Этот документ заменяет прежнюю спецификацию «физического боя». Полная физическая симуляция боя вырезана из MVP: бой является простой строго детерминированной логической симуляцией. Имя файла сохранено ради стабильности ссылок.</p>
-<p>Документ дополняет, но не заменяет <a href="../combat-and-actions/">канонический контракт фаз действий</a>. Числовые параметры симуляции, поток событий и формат replay принадлежат <a href="../../technical/combat-simulation/">спецификации боевой симуляции</a>.</p>
-<h2 id="подтверждено">Подтверждено<a class="headerlink" href="#подтверждено" title="Permanent link">&para;</a></h2>
+<h1 id="словарь-мозга">Словарь мозга<a class="headerlink" href="#словарь-мозга" title="Permanent link">&para;</a></h1>
+<p>Документ фиксирует состав словаря Brain для MVP: виды узлов, типы значений, предикаты условий,
+селекторы, действия и намеренно исключённые возможности. Правила исполнения графа принадлежат
+<a href="../ai-brain/">мозгу персонажа</a>, фазы действий — <a href="../combat-and-actions/">бою и фазам действий</a>,
+замороженные параметры симуляции — <a href="../../technical/combat-simulation/">спецификации боевой симуляции</a>.</p>
+<h2 id="виды-узлов">Виды узлов<a class="headerlink" href="#виды-узлов" title="Permanent link">&para;</a></h2>
+<p><strong>Подтверждено.</strong> Существует шесть видов узлов: условие, селектор, действие, параметр/литерал,
+управление потоком, вызов модуля. Один проход графа завершается на первом выбранном действии.</p>
+<p>Каждый размещённый bubble, включая константу и литерал, стоит ровно 1 Memory. Игрок расходует
+бюджет и на числа, и на логику.</p>
+<h2 id="типы-значений">Типы значений<a class="headerlink" href="#типы-значений" title="Permanent link">&para;</a></h2>
+<p><strong>Подтверждено.</strong> Boolean, Integer, Fixed (Q20.12), Distance, Percentage, DurationTicks,
+Direction16, Phase, EntityRef, PointRef, HazardRef, SkillRef, Tag, ResourceTag, EventTag, CompareOp.</p>
 <ul>
-<li><strong>Физика вырезана из MVP.</strong> Боевой результат вычисляется логикой, а не симуляцией твёрдых тел, массы, импульса, трения, суставов и геометрии оружия. Причина: крючок игры — авторская настройка ИИ и поведения, а не глубина боя; бюджет инди-команды.</li>
-<li>Бой строго детерминирован: одинаковые входы дают побитово одинаковый результат.</li>
-<li>Мозг персонажа выбирает намерение, а не конкретную анимацию; действие проходит подготовку, атомарное исполнение и обязательное восстановление.</li>
-<li>Симуляция и представление разделены. Go владеет всей игровой истиной, Godot — только представлением; поток односторонний, обратно в Go не идут ни transform, ни контакты, ни состояние анимации, ни результат ragdoll.</li>
-<li>Replay воспроизводит зафиксированную запись, а не пересчитывает бой заново.</li>
+<li>Дистанции и точки используют фиксированную точку симуляции.</li>
+<li>Проценты — отношения в фиксированной точке.</li>
+<li>Float не существует нигде.</li>
 </ul>
-<h2 id="разрешение-боя">Разрешение боя<a class="headerlink" href="#разрешение-боя" title="Permanent link">&para;</a></h2>
+<h2 id="мозг-без-состояния">Мозг без состояния<a class="headerlink" href="#мозг-без-состояния" title="Permanent link">&para;</a></h2>
+<p><strong>Подтверждено.</strong> Brain не имеет записываемых переменных и счётчиков. Всё состояние берётся из
+наблюдаемого состояния мира, состояния действий, перезарядок, тегов, ресурсов и ограниченных
+временных меток событий.</p>
+<h2 id="предикаты-условий">Предикаты условий<a class="headerlink" href="#предикаты-условий" title="Permanent link">&para;</a></h2>
+<p>Помеченные <strong>[дорого]</strong> требуют поддерживаемых пространственных и обратных target-индексов и
+никогда не должны выполнять неограниченный перебор.</p>
+<p><strong>Состояние себя и цели:</strong> <code>Health</code>, <code>IsTargeting(a,b)</code>, <code>Stagger(e)</code>, <code>Poise(e)</code>, фаза действия
+<code>Phase</code>.</p>
+<p><strong>Пространство:</strong> <code>DistanceBetween(a,b)</code>, <code>DistanceToArenaEdge(e)</code>, <code>InsideRadius(e,point,dist)</code>,
+<code>DirectionFromTo(a,b)</code>.</p>
+<p><strong>Союзники:</strong> <code>AlliesWithin(e,dist,tag?)</code>, <code>AnyAllyHealthBelow(pct,dist?)</code>, <code>AnyAllyTargetedBy(e)</code>,
+<code>AnyAllyInPhase(phase,dist?)</code>. В solo MVP союзников нет, поэтому эти предикаты инертны; они
+остаются в словаре ради co-op.</p>
+<p><strong>Группа врагов [все дорого]:</strong> <code>EnemiesWithin</code>, <code>EnemyDensityAround</code>, <code>IsIsolated</code>,
+<code>EnemiesTargeting</code>.</p>
+<p><strong>Опасные зоны:</strong> <code>InsideHazard(e,tag?)</code>, <code>HazardsWithin</code> <strong>[дорого]</strong>, <code>HazardRemaining(e)</code>,
+<code>PointInsideHazard(point,tag?)</code>.</p>
+<p><strong>Тайминг и фазы:</strong> <code>PhaseRemaining(e)</code>, <code>TimeSinceEvent(e,eventTag)</code> для <code>Damaged</code>, <code>SkillUsed</code>,
+<code>Interrupted</code>, <code>TargetChanged</code>, <code>Every(duration,offset)</code> по тикам симуляции — часов реального
+времени нет.</p>
+<p><strong>Ресурсы:</strong> <code>SkillReady(e,skill)</code>, <code>SkillCooldownRemaining</code>, <code>Resource(e,tag)</code>, <code>Charges(e,skill)</code>.</p>
+<h2 id="селекторы">Селекторы<a class="headerlink" href="#селекторы" title="Permanent link">&para;</a></h2>
+<p><strong>Враги:</strong> <code>NearestEnemy</code>, <code>LowestHealthEnemy</code>, <code>MostIsolatedEnemy</code>, <code>PreparingEnemy</code>,
+<code>RecoveringEnemy</code>, <code>MarkedEnemy</code>, <code>EnemyTargeting(e)</code>.</p>
+<p><strong>Союзники:</strong> <code>NearestAlly</code>, <code>LowestHealthAlly</code>, <code>MostThreatenedAlly</code>, <code>AllyTargetedBy(e)</code>.
+Инертны в solo MVP, нужны для co-op.</p>
+<p><strong>Служебные:</strong> <code>Self</code>, <code>CurrentActionTarget(e)</code>, <code>NearestHazard</code>, <code>SafestPointAround(e,radius)</code>,
+<code>PointBetween(a,b,ratio)</code>.</p>
+<p>Правила:</p>
 <ul>
-<li>Атака в момент старта фиксирует цель и тик удара (impact tick).</li>
-<li>На тике удара проверяются дистанция, сектор направления, линия видимости и валидность цели.</li>
-<li>Попадание — логический результат, а не факт контакта тел.</li>
-<li>Урон: <code>max(1, attack_power - armor)</code>, затем детерминированные модификаторы.</li>
-<li>Стаггер — целочисленный счётчик тиков. Он прерывает только действия, явно помеченные прерываемыми, и только когда <code>stagger &gt;= poise</code>.</li>
-<li>Отбрасывание — принудительное перемещение (например, 600 мм за 6 тиков) с сохранённым направлением и целочисленным распределением остатка. Оно учитывает стены и разведение тел, неиспользованная дистанция отбрасывается, урона отбрасывание не наносит.</li>
+<li>Каждый селектор сущности принимает необязательные <code>MaxDistance</code>, <code>RequiredTags</code>, <code>ExcludedTags</code>;
+  фазовые селекторы дополнительно принимают список подходящих фаз.</li>
+<li>Порядок разрешения ничьих всегда один: основной счёт, затем дистанция от точки отсчёта
+  селектора, затем стабильный ID сущности по возрастанию. Значения фиксированной точки сравниваются
+  точно.</li>
+<li>Селекторы переоцениваются каждый проход: неявного удержания цели нет. Ссылка фиксируется
+  снимком только в момент принятия действия.</li>
+<li>Отсутствие кандидата даёт <code>None</code>: зависимые условия ложны, зависимые действия невалидны,
+  вычисление продолжается.</li>
 </ul>
-<h2 id="что-не-симулируется">Что не симулируется<a class="headerlink" href="#что-не-симулируется" title="Permanent link">&para;</a></h2>
-<p>Следующее является исключительно представлением и не влияет на исход: твёрдые тела, масса, импульс, трение, момент, гравитация, суставы, геометрия оружия, манифесты контактов, непрерывная детекция столкновений, локальный урон конечностям, опора, равновесие, деформация ландшафта, груды тел, физика полёта снаряда, ragdoll как геймплей.</p>
-<ul>
-<li>Дальнобойные атаки разрешаются логически на тике удара; представление запускает снаряд так, чтобы он прилетел ровно на этот тик.</li>
-<li>Мёртвое тело визуально может улететь куда угодно; в симуляции сущность становится непреграждающим маркером трупа либо удаляется сразу.</li>
-</ul>
-<h2 id="обещание-игроку">Обещание игроку<a class="headerlink" href="#обещание-игроку" title="Permanent link">&para;</a></h2>
-<p>Игрок программирует тактику персонажа: <strong>что сделать и при каких условиях</strong>. Он не программирует положение кисти или траекторию клинка.</p>
-<ul>
-<li>Начавшаяся атака не гарантирует попадание: возможны промах, уворот, блок, критический удар.</li>
-<li>Последствия становятся новым состоянием мира, которое Brain может прочитать при следующей проверке.</li>
-<li>После автономного боя игрок может изучить запись, менять скорость и камеру и включить отладочный слой решений.</li>
-</ul>
-<h2 id="владение-и-минимальные-api">Владение и минимальные API<a class="headerlink" href="#владение-и-минимальные-api" title="Permanent link">&para;</a></h2>
+<p><strong>Селектор угрозы вырезан.</strong> Встроенного <code>HighestThreatEnemy</code> и движковой модели угрозы нет. Игрок
+считает нужное ему понятие угрозы внутри графа по наблюдаемым данным: здоровье в процентах или
+абсолютной величине, дистанция, фаза, кто кого выбрал целью. Причина — не заводить вторую модель
+выбора цели, конкурирующую с селекторами.</p>
+<h2 id="действия">Действия<a class="headerlink" href="#действия" title="Permanent link">&para;</a></h2>
+<p>Каждое действие несёт заданные навыком или конфигурацией <code>(prep_ticks, execution_ticks,
+recovery_ticks)</code>. Подготовка прерываема, исполнение атомарно, восстановление отложимо.</p>
+<p><strong>Движение</strong>, обычно <code>(0,1,0)</code> — один тик: <code>Approach(target,stopDistance)</code>,
+<code>Retreat(target,minDistance)</code>, <code>HoldRange(target,min,max)</code>, <code>Orbit(target,radius,direction)</code>,
+<code>Regroup(ally|point,radius)</code>, <code>Interpose(protectedAlly,threat,offset)</code>, <code>MoveTo(point,stopDistance)</code>.</p>
+<p><strong>Навыки:</strong> <code>UseTargetSkill(skill,entity)</code>, <code>UsePointSkill(skill,point)</code>,
+<code>UseDirectionSkill(skill,direction16)</code>, <code>UseSelfSkill(skill)</code>. Эти четыре покрывают атаки, защиту,
+усиления, лечение, метки, прерывания, отбрасывание и опасные зоны. Данные навыка задают допустимую
+команду цели, дальность, геометрию, урон, стаггер, отбрасывание, теги, стоимости и точные
+длительности фаз.</p>
+<p><code>Wait(duration)</code> атомарен по одному тику за раз, чтобы прерывания оставались отзывчивыми.
+<code>StandStill</code> — <code>(0,1,0)</code>.</p>
+<p><strong>Отмена:</strong> <code>CancelPreparation</code> — единственная операция отмены в словаре. Она допустима <strong>только</strong>
+пока боец находится в фазе подготовки действия; в любой другой фазе она невалидна. Она списывает
+долю стоимости действия в ресурсе (0–50% по правилу срыва подготовки) и <strong>не</strong> начисляет
+восстановления. Она ставит блокировку отмены: следующая отмена невозможна, пока не выбрано и не
+начато новое действие. Она порождает событие <code>ActionCancelled</code>, отличное от <code>ActionInterrupted</code>
+(вмешательство извне) и от <code>ActionFailed</code> (например <code>TargetInvalid</code>), поэтому трасса решений
+отличает намеренный финт от внешнего срыва.</p>
+<p>Недоступный или невалидный навык не завершает проход.</p>
+<p><strong>События:</strong> <code>ActionStarted</code>, <code>PhaseChanged</code>, <code>ActionExecuted</code>, <code>ActionResolved</code>,
+<code>ActionCancelled</code>, <code>ActionInterrupted</code>, <code>ActionFailed</code>. Эффекты дополнительно порождают <code>Moved</code>, <code>DamageApplied</code>,
+<code>StaggerApplied</code>, <code>KnockbackApplied</code>, <code>TagAdded</code>/<code>TagRemoved</code>, <code>ResourceChanged</code>,
+<code>HazardCreated</code>/<code>HazardExpired</code>.</p>
+<h3 id="восстановление-платится-только-после-исполнения">Восстановление платится только после исполнения<a class="headerlink" href="#восстановление-платится-только-после-исполнения" title="Permanent link">&para;</a></h3>
+<p><strong>Подтверждено.</strong> Если действие отменено или обесценено во время фазы <strong>подготовки</strong>, штрафа
+восстановления нет вообще, но доля стоимости 0–50% в ресурсе всё равно списывается. Это одно
+правило, а не два конфликтующих: платится ресурс, не платится время уязвимости. Подготовку
+задумано отменять часто. Полная формулировка — в <a href="../combat-and-actions/#срыв-подготовки">бою и фазах действий</a>.</p>
+<p>Если цель стала невалидной до атомарного исполнения, порождается <code>ActionFailed(TargetInvalid)</code>, и
+восстановление в этом случае не списывается.</p>
+<p><strong>Намеренное следствие — финты.</strong> Боец может начать атаку, чтобы вынудить противника на парирование
+или блок, и затем отменить её. Канонический пример: начать атаку, увидеть поднятый блок, отменить и
+применить пинок, который контрит блок. Финт является законной тактикой, выразимой в словаре мозга.
+Финт выражается действием <code>CancelPreparation</code> из раздела выше. Против бесконечных ложных замахов
+действует его блокировка отмены до следующего начатого действия, а событие <code>ActionCancelled</code>
+отличает намеренную отмену графом от <code>ActionInterrupted</code> и от <code>ActionFailed(TargetInvalid)</code>.</p>
+<h2 id="намеренно-исключено-из-словаря-mvp">Намеренно исключено из словаря MVP<a class="headerlink" href="#намеренно-исключено-из-словаря-mvp" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Подсистема</th>
-<th>Чем владеет</th>
-<th>Минимальный вход</th>
-<th>Минимальный выход</th>
-<th>Не должна решать</th>
+<th>Исключено</th>
+<th>Более дешёвая существующая замена</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Brain</td>
-<td>тактическим выбором и условиями алгоритма</td>
-<td>наблюдаемое состояние мира</td>
-<td>намерение действия и цель</td>
-<td>конкретная анимация или тайминг анимации</td>
+<td>Циклы и рекурсия</td>
+<td>переоценка на 60 Гц уже повторяет; циклы модулей отклоняются</td>
 </tr>
 <tr>
-<td>Action System</td>
-<td>фазой, временным обязательством и правилами прерывания</td>
-<td>намерение, доступность и стоимость</td>
-<td>старт/удар/конец действия в тиках</td>
-<td>исход атаки</td>
+<td>Арифметические выражения</td>
+<td>сравнения, проценты, диапазонные полосы и селекторы покрывают боевые решения</td>
 </tr>
 <tr>
-<td>Combat Resolver</td>
-<td>проверкой на тике удара и результатом атаки</td>
-<td>цель, дистанция, сектор, видимость, характеристики</td>
-<td>результат <code>miss/dodge/block/hit/crit</code>, урон, стаггер</td>
-<td>перемещение и анимация</td>
+<td>Записываемые переменные и счётчики</td>
+<td>перезарядки, теги, фазы, ресурсы и таймеры событий дают инспектируемое состояние</td>
 </tr>
 <tr>
-<td>Displacement</td>
-<td>принудительным перемещением</td>
-<td>направление, дистанция, длительность</td>
-<td>новое положение по тикам</td>
-<td>урон</td>
+<td>Очереди и последовательности действий</td>
+<td>одно действие за проход; навык вправе владеть фиксированным многоударным атомарным исполнением</td>
 </tr>
 <tr>
-<td>Battle Recorder</td>
-<td>авторитетной записью боя</td>
-<td>версии, seed, состав, внешние команды</td>
-<td>воспроизводимый replay</td>
-<td>повторный расчёт вне правил той же версии</td>
+<td>Связь между бойцами и blackboard</td>
+<td>отношения выбора цели, метки, усиления и опасные зоны — наблюдаемая координация</td>
 </tr>
 <tr>
-<td>Presentation (Godot)</td>
-<td>анимацией, звуком, VFX, камерой, ragdoll</td>
-<td>поток событий и состояния тиков</td>
-<td>кадр, звук, камера</td>
-<td>любое изменение исхода</td>
+<td>Проверка типа или класса врага</td>
+<td>и так невозможна: классов не существует</td>
+</tr>
+<tr>
+<td>Инспекция и предсказание чужого мозга</td>
+<td>наблюдаемы только текущая фаза, цель, тайминг и публичные эффекты</td>
+</tr>
+<tr>
+<td>Обучение, случайность, адаптация</td>
+<td>сломали бы детерминизм и воспроизводимость</td>
 </tr>
 </tbody>
 </table>
-<h2 id="представление">Представление<a class="headerlink" href="#представление" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Godot буферизует события на 3 тика (~150 мс) и интерполирует между авторитетными состояниями тиков.</li>
-<li>Анимация перемещения смешивается по скорости и направлению; ступни используют косметический IK, корень следует за интерполированными координатами симуляции.</li>
-<li><code>ACTION_STARTED</code> планирует замах, удар и восстановление так, чтобы авторский кадр контакта пришёлся ровно на <code>impact_tick</code>.</li>
-<li>Если длительность анимации расходится с таймингом симуляции, Godot растягивает или подрезает анимацию. <strong>Тайминг симуляции всегда главнее.</strong></li>
-<li>Попадание добавляет визуальный hit-stop 30–60 мс, слои реакции, следы, звук, VFX и тряску камеры. Ничто из этого не останавливает и не изменяет симуляцию.</li>
-<li>Смерть переключает тело в косметический ragdoll после финальной авторитетной позы, на слоях столкновений только для представления.</li>
-</ul>
-<h2 id="replay">Replay<a class="headerlink" href="#replay" title="Permanent link">&para;</a></h2>
-<p>Запись содержит: версию схемы и симуляции, идентификатор определения встречи, seed забега и встречи, стартовый состав с экипировкой и характеристиками, хеши скомпилированных мозгов либо встроенный bytecode, а также внешние команды. Действия ИИ <strong>воспроизводятся заново из seed</strong>, а не записываются.</p>
-<p>Ожидаемые размеры: бой на 60 секунд (3600 тиков — потолок комнаты) — 1–4 КБ сжатыми, 5–12 КБ со встроенными мозгами; забег из 20 встреч — 20–60 КБ. Replay с несовпадающей версией симуляции отклоняется.</p>
-<p>Целевые операции replay: пауза, seek, перемотка назад и скорости воспроизведения, включая slow motion. Камера не влияет на рассчитанный бой и может быть свободной, следящей или автоматической. По умолчанию replay показывает чистое зрелище; переключаемый отладочный оверлей показывает фазы, решения и события урона согласно правилу интерфейса из <code>combat-and-actions.md</code>.</p>
+<h2 id="выразительность">Выразительность<a class="headerlink" href="#выразительность" title="Permanent link">&para;</a></h2>
+<p><strong>Проверено:</strong> словарь выражает кайтящего лучника, телохранителя, перехватывающего атакующего
+слабейшего союзника, и добивающего, наказывающего врагов в фазе восстановления.</p>
+<p><strong>Честно зафиксированный предел:</strong> абсолютная гарантия вида «никогда не подпускать никого ближе
+3 единиц» невыразима никаким словарём выбора действий — отбрасывание, атомарное движение, спавны и
+стены арены всегда способны её нарушить.</p>
 <h2 id="открытые-вопросы">Открытые вопросы<a class="headerlink" href="#открытые-вопросы" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Должны ли старые replay оставаться воспроизводимыми после патчей баланса, или они жёстко привязаны к версии? См. <a href="../../open-questions/">реестр открытых вопросов</a>.</li>
-<li>Автоматическая cinematic camera в первом релизе — решается после готовности ручного replay.</li>
+<li>Каковы стартовое и максимальное значения Memory? Ориентир: грамотный ранний мозг занимает около
+  24 узлов с учётом литералов.</li>
+<li>Какие именно навыки, ресурсы, теги и окна истории событий входят в MVP?</li>
+<li>Допустимы ли <code>SafestPointAround</code> и <code>Interpose</code> как детерминированные пространственные решатели,
+  или MVP должен предоставить только более простое движение?</li>
 </ul>
 
 
