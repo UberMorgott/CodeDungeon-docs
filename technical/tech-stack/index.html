@@ -671,6 +671,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../game-design/audio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Звуковое направление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../game-design/passive-tree-and-sockets/" class="md-nav__link">
         
   
@@ -1599,6 +1627,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../testing-and-ci/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Стратегия тестирования и CI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../item-persistence/" class="md-nav__link">
         
   
@@ -2296,7 +2352,7 @@
 <h3 id="github-actions">GitHub Actions<a class="headerlink" href="#github-actions" title="Permanent link">&para;</a></h3>
 <p><strong>Наблюдается.</strong> Сейчас workflow собирает <code>mkdocs build --strict</code> и публикует сайт; полноценного CI игры в репозитории нет. См. <a href="https://github.com/UberMorgott/CodeDungeon/blob/main/.github/workflows/docs.yml"><code>docs.yml</code></a>.</p>
 <p><strong>Почему.</strong> Репозиторий уже размещён на GitHub, поэтому Actions даёт проверки рядом с PR, минимальную дополнительную эксплуатацию и единый audit trail сборки/публикации.</p>
-<p><strong>Принятое расширение.</strong> Быстрый PR gate: <code>gofmt</code>, <code>go vet</code>, <code>go test</code>, Buf format/lint/breaking/generated check, Godot headless import/script tests, Go ↔ Godot protocol fixtures и <code>mkdocs build --strict</code>. Merge/nightly: <code>go test -race</code>, determinism/replay corpus, Windows/Linux build и smoke run. Нагрузочные market/matchmaking/replay tests запускаются отдельно и публикуют сравнимый baseline.</p>
+<p><strong>Принятое расширение.</strong> Быстрый PR gate: <code>gofmt</code>, <code>go vet</code>, <code>go test</code>, Buf format/lint/breaking/generated check, Godot headless import/script tests, Go ↔ Godot protocol fixtures и <code>mkdocs build --strict</code>. Merge/nightly: <code>go test -race</code>, determinism/replay corpus, Windows/Linux build и smoke run. Нагрузочные market/matchmaking/replay tests запускаются отдельно и публикуют сравнимый baseline. Полная стратегия тестирования, харнесс детерминизма и расписание CI описаны в <a href="../testing-and-ci/">стратегии тестирования и CI</a>.</p>
 <p><strong>Ограничения.</strong> Версии actions/toolchain фиксируются, secrets имеют минимальные права, untrusted PR не получает deploy credentials, artifacts получают checksum/SBOM по мере выхода к distribution. Сборки не объявляются поддерживаемыми, пока нет автоматической матрицы и smoke tests; текущий основной подтверждённый target определяется release plan отдельно.</p>
 <h3 id="mkdocs-material">MkDocs Material<a class="headerlink" href="#mkdocs-material" title="Permanent link">&para;</a></h3>
 <p><strong>Статус.</strong> Уже используется для строгой сборки и публикации этого сайта. <a href="https://www.mkdocs.org/">MkDocs</a> и <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a> превращают Markdown рядом с кодом в searchable документацию.</p>

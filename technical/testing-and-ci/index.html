@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/dev-environment/">
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/testing-and-ci/">
       
       
-        <link rel="prev" href="../ui-architecture/">
+        <link rel="prev" href="../item-content-and-crafting/">
       
       
-        <link rel="next" href="../asset-pipeline/">
+        <link rel="next" href="../item-persistence/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Среда разработки и инструменты - CodeDungeon — документация</title>
+        <title>Стратегия тестирования и CI - CodeDungeon — документация</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#среда-разработки-и-инструменты-агентов" class="md-skip">
+        <a href="#стратегия-тестирования-и-ci" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Среда разработки и инструменты
+              Стратегия тестирования и CI
             
           </span>
         </div>
@@ -1144,37 +1144,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Среда разработки и инструменты
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../dev-environment/" class="md-nav__link">
         
   
   
@@ -1190,81 +1163,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Содержание">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#godot-и-локальная-проверка" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Godot и локальная проверка
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#форматирование-и-ci" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Форматирование и CI
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mcp-серверы" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MCP-серверы
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#навыки-claude-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Навыки Claude Code
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#как-воспроизвести-у-себя" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Как воспроизвести у себя
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1330,10 +1228,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../testing-and-ci/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Стратегия тестирования и CI
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1349,6 +1274,209 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#статус" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Статус
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#принцип-что-тестируется-до-кода-что-после" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Принцип: что тестируется до кода, что после
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#почему-это-важнее-чем-в-обычном-проекте" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Почему это важнее, чем в обычном проекте
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#харнесс-детерминизма" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Харнесс детерминизма
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Харнесс детерминизма">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#корпус-трасс" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Корпус трасс
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обновление-эталонов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обновление эталонов
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#балансовые-тесты" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Балансовые тесты
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#расписание-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Расписание CI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Расписание CI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#на-каждый-коммит" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        На каждый коммит
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ночной-прогон" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ночной прогон
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#первые-три-файла-тестов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Первые три файла тестов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#судьба-существующих-headless-тестов-godot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Судьба существующих headless-тестов Godot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Судьба существующих headless-тестов Godot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#распределение" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Распределение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#триаж" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Триаж
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#расхождение-кода-и-документа" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Расхождение кода и документа
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1416,10 +1544,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#godot-и-локальная-проверка" class="md-nav__link">
+  <a href="#статус" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Godot и локальная проверка
+        Статус
       
     </span>
   </a>
@@ -1427,10 +1555,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#форматирование-и-ci" class="md-nav__link">
+  <a href="#принцип-что-тестируется-до-кода-что-после" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Форматирование и CI
+        Принцип: что тестируется до кода, что после
       
     </span>
   </a>
@@ -1438,10 +1566,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mcp-серверы" class="md-nav__link">
+  <a href="#почему-это-важнее-чем-в-обычном-проекте" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MCP-серверы
+        Почему это важнее, чем в обычном проекте
       
     </span>
   </a>
@@ -1449,10 +1577,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#навыки-claude-code" class="md-nav__link">
+  <a href="#харнесс-детерминизма" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Навыки Claude Code
+        Харнесс детерминизма
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Харнесс детерминизма">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#корпус-трасс" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Корпус трасс
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обновление-эталонов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обновление эталонов
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#балансовые-тесты" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Балансовые тесты
       
     </span>
   </a>
@@ -1460,10 +1627,99 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#как-воспроизвести-у-себя" class="md-nav__link">
+  <a href="#расписание-ci" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Как воспроизвести у себя
+        Расписание CI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Расписание CI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#на-каждый-коммит" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        На каждый коммит
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ночной-прогон" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ночной прогон
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#первые-три-файла-тестов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Первые три файла тестов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#судьба-существующих-headless-тестов-godot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Судьба существующих headless-тестов Godot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Судьба существующих headless-тестов Godot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#распределение" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Распределение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#триаж" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Триаж
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#расхождение-кода-и-документа" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Расхождение кода и документа
       
     </span>
   </a>
@@ -1487,7 +1743,7 @@
 
 
   
-    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/technical/dev-environment.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/technical/testing-and-ci.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1495,141 +1751,106 @@
   
 
 
-<h1 id="среда-разработки-и-инструменты-агентов">Среда разработки и инструменты агентов<a class="headerlink" href="#среда-разработки-и-инструменты-агентов" title="Permanent link">&para;</a></h1>
-<p>Эта страница описывает воспроизводимую среду для разработки CodeDungeon с AI-агентами.
-Контракт репозитория находится в <code>AGENTS.md</code>; правила для Cursor и Copilot направляют к нему
-из <code>.cursor/rules/project.mdc</code> и <code>.github/copilot-instructions.md</code>.</p>
-<h2 id="godot-и-локальная-проверка">Godot и локальная проверка<a class="headerlink" href="#godot-и-локальная-проверка" title="Permanent link">&para;</a></h2>
-<p>Используется Godot <code>4.7.1.stable.official</code>. Бинарный файл расположен по пути
-<code>C:\Users\&lt;user&gt;\AppData\Local\Programs\Godot\4.7.1\Godot_v4.7.1-stable_win64.exe</code>.</p>
+<h1 id="стратегия-тестирования-и-ci">Стратегия тестирования и CI<a class="headerlink" href="#стратегия-тестирования-и-ci" title="Permanent link">&para;</a></h1>
+<p>Контракт тестирования проекта: что тестируется до кода, что после, харнесс детерминизма, балансовые тесты, расписание CI и судьба существующих headless-тестов Godot. Терминология симуляции, фиксированной точки и RNG соответствует <a href="../combat-simulation/">спецификации боевой симуляции</a>. Перечень гейтов CI без дублирования приведён в <a href="../tech-stack/#github-actions">технологическом стеке</a>.</p>
+<h2 id="статус">Статус<a class="headerlink" href="#статус" title="Permanent link">&para;</a></h2>
+<p><strong>Принято.</strong></p>
+<h2 id="принцип-что-тестируется-до-кода-что-после">Принцип: что тестируется до кода, что после<a class="headerlink" href="#принцип-что-тестируется-до-кода-что-после" title="Permanent link">&para;</a></h2>
+<p>Тесты до кода пишутся там, где ответ зафиксирован в спецификации и тест лишь переносит принятое решение в исполняемую форму:</p>
+<ul>
+<li>арифметика Q20.12: округление, насыщение, отрицательные значения, семантика деления;</li>
+<li>PCG32 и вывод четырёх потоков из <code>(run_seed, system_id, encounter_id)</code>;</li>
+<li>планирование тика, порядок команд, столкновения кругов, порядок урона и смертей, выдача идентификаторов сущностей;</li>
+<li>реплей и каноническое кодирование состояния.</li>
+</ul>
+<p>Причина едина: это вечные контракты реплея. Любой дрейф в потреблении сида задним числом меняет все ранее записанные бои.</p>
+<p>Тесты после кода -- там, где правильный ответ находят, а не знают заранее: эвристики выбора цели и пути, генерация энкаунтеров, таблицы лута, формулы прогрессии. Для них фиксируются инварианты, а не конкретная последовательность решений: легальность действий, завершаемость, стабильность разрешения ничьих, ограниченность поведения.</p>
+<p>Без тестов: геттеры, сгенерированный код протокола, логирование, конструкторы-проводка, детали подачи, покрытые тестами Godot.</p>
+<p>Для UI, сцен и анимаций тесты до кода бессмысленны -- там нет заранее известного правильного ответа.</p>
+<h2 id="почему-это-важнее-чем-в-обычном-проекте">Почему это важнее, чем в обычном проекте<a class="headerlink" href="#почему-это-важнее-чем-в-обычном-проекте" title="Permanent link">&para;</a></h2>
+<p>Регресс детерминизма невидим глазом: сломанный бой выглядит как нормальный бой, просто другой. Без теста, сравнивающего хеш состояния по тикам, поломка обнаружится через месяцы, когда перестанут воспроизводиться сохранённые реплеи.</p>
+<h2 id="харнесс-детерминизма">Харнесс детерминизма<a class="headerlink" href="#харнесс-детерминизма" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Хешируется каноническое авторитетное состояние после каждого тика.</li>
+<li>В хеш входят: номер тика, упорядоченные сущности и их идентификаторы, координаты и величины в фиксированной точке, статы и статусы, отложенные команды и события, состояние программы мозга, состояния всех четырёх потоков RNG.</li>
+<li>В хеш <strong>не</strong> входят: логи, байтовая раскладка протокола, показания часов, порядок обхода мап, кеши, любые поля слоя отображения.</li>
+</ul>
+<p><strong>Требование: единая функция сериализации.</strong> Хеш выводится из той же функции сериализации, что и снапшот состояния, а не считается отдельной функцией. Отдельная функция расходится с реальным состоянием при первом же добавленном поле: поле появилось, в хеш его не внесли, тест продолжает зеленеть и молча перестаёт покрывать часть симуляции.</p>
+<p><strong>Требование: статический запрет float.</strong> Статическая проверка запрещает <code>float32</code> и <code>float64</code> в пакетах симуляции, фиксированной точки и RNG. Весь класс багов детерминизма сводится к протёкшему float, и ловить его трассами дорого и поздно -- расхождение всплывает только на другой платформе.</p>
+<h3 id="корпус-трасс">Корпус трасс<a class="headerlink" href="#корпус-трасс" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Путь: <code>server/internal/sim/testdata/traces/v&lt;N&gt;/</code>.</li>
+<li>Хранятся входы сценария, ожидаемые хеши в контрольных точках и терминальная сводка, с читаемым манифестом.</li>
+<li>Контрольные точки каждые 60 тиков плюс терминальная. При расхождении локальный прогон с хешем на каждом тике находит первый разошедшийся тик.</li>
+<li>В манифесте записаны: версия схемы канонического состояния, версия баланса и контента, сид, ревизия симуляции и имя сценария. Схема канонического состояния версионируется отдельно от версии баланса и контента.</li>
+</ul>
+<h3 id="обновление-эталонов">Обновление эталонов<a class="headerlink" href="#обновление-эталонов" title="Permanent link">&para;</a></h3>
+<p>Осознанное изменение баланса, делающее эталоны недействительными, требует явной команды обновления эталонов, инкремента версии баланса и ревью диффа исходов. CI никогда не обновляет эталоны автоматически.</p>
+<h2 id="балансовые-тесты">Балансовые тесты<a class="headerlink" href="#балансовые-тесты" title="Permanent link">&para;</a></h2>
+<p>Симуляция детерминирована, но цель баланса размыта, поэтому балансовый тест проверяет не исход, а широкий проектный коридор на фиксированной матрице сидов: доля прохождений, медианная длина забега, перцентили урона и полученного лута, доминирование отдельных сборок, отсутствие невозможных состояний. Коридоры намеренно широкие и выводятся из GDD. Более тонкие тренды телеметрии печатаются в отчёт, но CI не роняют. Порог меняется только в ревью, где объяснено проектное намерение.</p>
+<h2 id="расписание-ci">Расписание CI<a class="headerlink" href="#расписание-ci" title="Permanent link">&para;</a></h2>
+<h3 id="на-каждый-коммит">На каждый коммит<a class="headerlink" href="#на-каждый-коммит" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Юнит-тесты фиксированной точки, RNG и правил.</li>
+<li>Курируемые детерминированные трассы.</li>
+<li>Property-тесты инвариантов.</li>
+<li>Интеграционные тесты протокола.</li>
+<li><code>go test</code> по всему дереву.</li>
+<li>Малая матрица сидов.</li>
+<li>Headless-тесты Godot.</li>
+<li><code>gofmt</code>.</li>
+</ul>
+<h3 id="ночной-прогон">Ночной прогон<a class="headerlink" href="#ночной-прогон" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Широкие прогоны по многим сидам.</li>
+<li>Долгие сравнения реплеев.</li>
+<li>Фаззинг некорректных полезных нагрузок протокола.</li>
+<li>Детектор гонок (<code>go test -race</code>).</li>
+<li>Бенчмарки аллокаций и производительности.</li>
+<li>Отчёты по трендам телеметрии.</li>
+</ul>
+<h2 id="первые-три-файла-тестов">Первые три файла тестов<a class="headerlink" href="#первые-три-файла-тестов" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Инструмент</th>
-<th>Назначение</th>
-<th>Пример</th>
+<th>Файл</th>
+<th>Покрытие</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>tools/godot.ps1</code></td>
-<td>Ищет Godot через <code>$env:GODOT_BIN</code> или <code>PATH</code> (<code>godot</code>/<code>godot4</code>) и запускает его с <code>--path &lt;project&gt;</code>.</td>
-<td><code>pwsh tools/godot.ps1 -Project roguelite -GodotArguments @("--headless","--quit")</code></td>
+<td><code>internal/fixed/fixed_test.go</code></td>
+<td>Точные преобразования Q20.12, округление, умножение и деление, границы, таблица отрицательных значений</td>
 </tr>
 <tr>
-<td><code>tools/check-godot.ps1</code></td>
-<td>Импорт-валидация ресурсов и один headless-кадр для смоук-проверки. Режимы: <code>Import</code>, <code>Smoke</code>, <code>All</code>.</td>
-<td><code>pwsh tools/check-godot.ps1 -Mode All -Project roguelite</code></td>
+<td><code>internal/rng/pcg32_test.go</code></td>
+<td>Эталонные векторы, сиды четырёх потоков, изоляция потоков, снимок и восстановление, детерминированное число выборок</td>
+</tr>
+<tr>
+<td><code>internal/sim/determinism_test.go</code></td>
+<td>Крошечный сценарий прогоняется дважды, сравниваются последовательность канонических хешей и терминальный исход</td>
 </tr>
 </tbody>
 </table>
-<h2 id="форматирование-и-ci">Форматирование и CI<a class="headerlink" href="#форматирование-и-ci" title="Permanent link">&para;</a></h2>
-<p><code>requirements-tools.txt</code> фиксирует <code>gdtoolkit==4.5.0</code>, который предоставляет <code>gdformat</code> и
-<code>gdlint</code>. Установка: <code>pip install -r requirements-tools.txt</code>.</p>
-<p>В <code>.github/workflows/godot.yml</code> на push и pull request устанавливается <code>gdtoolkit==4.5.0</code>,
-затем для изменённых <code>.gd</code> запускаются <code>gdformat --check</code> и <code>gdlint</code>; после этого Godot 4.7.1
-выполняет <code>check-godot.ps1 -Mode Import</code>.</p>
-<p>Для VS Code рекомендовано расширение <code>geequlim.godot-tools</code> (<code>.vscode/extensions.json</code>).</p>
-<h2 id="mcp-серверы">MCP-серверы<a class="headerlink" href="#mcp-серверы" title="Permanent link">&para;</a></h2>
-<p><code>tools/godot-mcp.ps1</code> запускает для <code>roguelite/</code> внешний сервер
-<code>@npgamedev/godot-mcp-server@1.0.0</code> через <code>npx</code>. Он заменил удалённый внутренний аддон
-<code>godot_mcp</code>, ранее находившийся в <code>client/addons</code> и <code>roguelite/addons</code> (удалён в коммите
-<code>c422830</code>), и автоматически запускается из <code>.mcp.json</code>.</p>
-<p>Статусы ниже зафиксированы на 19.08.2026.</p>
-<table>
-<thead>
-<tr>
-<th>Сервер</th>
-<th>Назначение</th>
-<th>Запуск</th>
-<th>Статус проверки</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>godot-mcp-toolkit</code> (проектный, <code>.mcp.json</code>)</td>
-<td>Управление сценами, узлами и скриптами Godot из агента.</td>
-<td><code>npx -y @npgamedev/godot-mcp-server@1.0.0</code></td>
-<td>Не проверялся вживую.</td>
-</tr>
-<tr>
-<td><code>sequential-thinking</code> (проектный)</td>
-<td>Пошаговое рассуждение для многошаговых задач.</td>
-<td><code>npx -y @modelcontextprotocol/server-sequential-thinking</code></td>
-<td>ПРОВЕРЕН, отвечает.</td>
-</tr>
-<tr>
-<td><code>serena</code> (глобальный плагин)</td>
-<td>Навигация по коду: поиск символов, ссылок, объявлений.</td>
-<td>не определено</td>
-<td>ТРЕБУЕТ НАСТРОЙКИ: проект <code>roguelite</code> не зарегистрирован; после активации инициализация падает с <code>gdscript: Could not connect to 127.0.0.1:6008</code>. Языковой сервер GDScript поднимает открытый редактор Godot; пока он закрыт, Serena не работает даже по Go. Обход: держать редактор открытым либо отключить gdscript-LS в конфиге Serena.</td>
-</tr>
-<tr>
-<td><code>context7</code> (глобальный плагин)</td>
-<td>Документация внешних библиотек.</td>
-<td>не определено</td>
-<td>ПРОВЕРЕН: отдаёт каталог Godot; доступны ветки 4.7 (109031 сниппет) и 4.6.</td>
-</tr>
-<tr>
-<td><code>playwright</code> (глобальный плагин)</td>
-<td>Автоматизация браузера, проверка UI.</td>
-<td>не определено</td>
-<td>Не проверялся вживую.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="навыки-claude-code">Навыки Claude Code<a class="headerlink" href="#навыки-claude-code" title="Permanent link">&para;</a></h2>
-<p>Навыки ниже поставляются плагинами; локальных файлов в <code>~/.claude/skills</code> для них нет.</p>
-<table>
-<thead>
-<tr>
-<th>Навык</th>
-<th>Назначение</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>godot</code></td>
-<td>Форматы файлов, CLI, валидация.</td>
-</tr>
-<tr>
-<td><code>godot-best-practices</code></td>
-<td>Сигналы, ресурсы, машины состояний, пулинг.</td>
-</tr>
-<tr>
-<td><code>godot-mcp-toolkit</code></td>
-<td>Работа через MCP.</td>
-</tr>
-<tr>
-<td><code>godot-ui</code></td>
-<td>Control-узлы, темы, адаптивные раскладки.</td>
-</tr>
-<tr>
-<td><code>golang-pro</code></td>
-<td>Конкурентность, gRPC, дженерики.</td>
-</tr>
-<tr>
-<td><code>golang-testing</code></td>
-<td>Table-driven тесты, бенчмарки, фаззинг.</td>
-</tr>
-<tr>
-<td><code>protobuf</code></td>
-<td>Buf CLI, protovalidate.</td>
-</tr>
-<tr>
-<td><code>websocket-engineer</code></td>
-<td>WebSocket-системы.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="как-воспроизвести-у-себя">Как воспроизвести у себя<a class="headerlink" href="#как-воспроизвести-у-себя" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Установить Godot 4.7.1.</li>
-<li>Выполнить <code>pip install -r requirements-tools.txt</code>.</li>
-<li>Включить MCP-серверы.</li>
-<li>Установить плагины и навыки.</li>
-<li>Свериться с распределением моделей в <a href="../../roles/">ролях</a>.</li>
-</ol>
+<h2 id="судьба-существующих-headless-тестов-godot">Судьба существующих headless-тестов Godot<a class="headerlink" href="#судьба-существующих-headless-тестов-godot" title="Permanent link">&para;</a></h2>
+<p>Состояние на момент записи: 31 файл <code>*_headless_test.gd</code> в <code>roguelite/scripts</code>. Ни один не запускается автоматически: <code>tools/check-godot.ps1</code> выполняет только импорт и односекундный прогон, а <code>.github/workflows/godot.yml</code> вызывает его в режиме Import, то есть линт. Каждый тест запускается вручную командой вида <code>godot --headless --path roguelite --script res://scripts/ui/&lt;имя&gt;.gd</code>. Тридцать один тест, который никто не гоняет, защитой не является.</p>
+<h3 id="распределение">Распределение<a class="headerlink" href="#распределение" title="Permanent link">&para;</a></h3>
+<ul>
+<li>5 про логику симуляции.</li>
+<li>8 про протокол и сериализацию.</li>
+<li>14 про подачу Godot.</li>
+<li>2 про археологию реализации.</li>
+</ul>
+<h3 id="триаж">Триаж<a class="headerlink" href="#триаж" title="Permanent link">&para;</a></h3>
+<p><strong>14 тестов подачи</strong> (навигация, видимость экранов, drag-and-drop, палитра узлов, таймлайн решений, сетка снаряжения, производительность списков, туториал, визуал наземных эффектов) переживают переписывание и остаются тестами Godot. Им нужен единый раннер и джоба в CI -- это делается в начале разработки, не раньше.</p>
+<p><strong>8 тестов протокола</strong> умирают вместе с текущей реализацией, но проверяемые ими контракты переезжают в Go почти дословно: кодек параметров, миграция схем, защита от версии из будущего, классификация подтверждений загрузки, порядок и индексация decision-событий.</p>
+<p><strong>5 тестов логики</strong> возрождаются в Go как табличные тесты против публичного API ядра, с точными значениями Q20.12, номерами тиков, сидами и сериализованными сообщениями, а не переводом внутренностей GDScript.</p>
+<p><strong>Тест калибровки локомоции</strong> грепает исходник <code>character_3d.gd</code> и проверяет зашитые скорости анимаций -- удаляется.</p>
+<p><strong>Тест покрытия локализации</strong> грепает исходники и требует, чтобы каждый ключ <code>tr()</code> присутствовал в <code>translations.csv</code> с русским и английским. Методика честная, тест сохраняется.</p>
+<p><strong>Шесть тестов завязаны на float или стенные часы</strong> и в фиксированную точку не переносятся: калибровка локомоции, визуал наземных эффектов, веса прерываний, адаптер decision-событий, прогрев бэкенда, сетка хаба. Те из них, что относятся к подаче, остаются на стороне Godot, где float допустим.</p>
+<p><strong>Golden-oracle из старой реализации</strong> используется только на сценарном уровне (кто победил, какой скилл выбран), никогда потиково: float и Q20.12 не сойдутся по построению.</p>
+<h2 id="расхождение-кода-и-документа">Расхождение кода и документа<a class="headerlink" href="#расхождение-кода-и-документа" title="Permanent link">&para;</a></h2>
+<p><code>memory_budget_headless_test</code> проверяет стоимость узла по типу: тик 0, ветвление 1, скилл 2 или 3. Документ (<a href="../../game-design/ai-brain/">мозг персонажа</a>) утверждает, что любой размещённый bubble стоит ровно 1 Memory независимо от типа, и лестница Memory от 8 до 64 посчитана именно так. Верен документ. При переносе в Go таблицу стоимостей из старого теста не переносить.</p>
 
 
 
