@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/item-content-and-crafting/">
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/game-design/biomes/">
       
       
-        <link rel="prev" href="../asset-pipeline/">
+        <link rel="prev" href="../passive-tree-and-sockets/">
       
       
-        <link rel="next" href="../item-persistence/">
+        <link rel="next" href="../enemies-and-encounters/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Контент предметов и крафт - CodeDungeon — документация</title>
+        <title>Биомы - CodeDungeon — документация</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#контент-предметов-и-движок-крафта" class="md-skip">
+        <a href="#биомы" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Контент предметов и крафт
+              Биомы
             
           </span>
         </div>
@@ -369,18 +369,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -401,544 +403,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
     Игровой дизайн
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Обзор
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/architecture/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Архитектурный скелет
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/vision-and-pillars/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Видение и опоры
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/core-loop-and-runs/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Основной цикл и забеги
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/ai-brain/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Мозг персонажа
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/brain-vocabulary/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Словарь мозга
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/combat-and-actions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Бой и фазы действий
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/physical-combat-and-replay/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Симуляция боя и запись боя
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/visual-direction-and-camera/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Визуальное направление и камера
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/passive-tree-and-sockets/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Пассивное дерево и ячейки
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/biomes/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Биомы
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/enemies-and-encounters/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Враги и встречи
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/deferred-multiplayer/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Отложенный мультиплеер
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/skills-and-tags/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Навыки и теги
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/items-and-crafting/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Предметы и крафт
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/progression-and-idle/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Прогрессия и idle
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/glossary/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Глоссарий
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Техническая документация
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Техническая документация
   
 
           </label>
@@ -979,14 +449,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../tech-stack/" class="md-nav__link">
+      <a href="../architecture/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Технологический стек
+    Архитектурный скелет
   
 
     
@@ -1007,14 +477,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../combat-simulation/" class="md-nav__link">
+      <a href="../vision-and-pillars/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Спецификация боевой симуляции
+    Видение и опоры
   
 
     
@@ -1035,14 +505,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../process-topology/" class="md-nav__link">
+      <a href="../core-loop-and-runs/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Топология процессов и запуск
+    Основной цикл и забеги
   
 
     
@@ -1063,14 +533,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../content-packages/" class="md-nav__link">
+      <a href="../ai-brain/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Пакеты контента и баланса
+    Мозг персонажа
   
 
     
@@ -1091,14 +561,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ui-architecture/" class="md-nav__link">
+      <a href="../brain-vocabulary/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Интерфейс, экраны и навигация
+    Словарь мозга
   
 
     
@@ -1119,14 +589,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev-environment/" class="md-nav__link">
+      <a href="../combat-and-actions/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Среда разработки и инструменты
+    Бой и фазы действий
   
 
     
@@ -1147,14 +617,70 @@
   
   
     <li class="md-nav__item">
-      <a href="../asset-pipeline/" class="md-nav__link">
+      <a href="../physical-combat-and-replay/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Конвейер 3D-ассетов
+    Симуляция боя и запись боя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visual-direction-and-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Визуальное направление и камера
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../passive-tree-and-sockets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пассивное дерево и ячейки
   
 
     
@@ -1191,7 +717,7 @@
   <span class="md-ellipsis">
     
   
-    Контент предметов и крафт
+    Биомы
   
 
     
@@ -1209,7 +735,7 @@
   <span class="md-ellipsis">
     
   
-    Контент предметов и крафт
+    Биомы
   
 
     
@@ -1235,35 +761,74 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#граница-контента" class="md-nav__link">
+  <a href="#подтверждено" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Граница контента
+        Подтверждено
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Подтверждено">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ледяные-пещеры" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ледяные пещеры
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#граница-крафта" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#2-пустыня-барханов-и-полуразрушенных-зданий" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Граница крафта
+        2. Пустыня барханов и полуразрушенных зданий
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#добавление-контента" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#3-дремучий-лес" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Добавление контента
+        3. Дремучий лес
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-болото" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Болото
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-равнины-и-луга" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Равнины и луга
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1283,7 +848,481 @@
   
   
     <li class="md-nav__item">
-      <a href="../item-persistence/" class="md-nav__link">
+      <a href="../enemies-and-encounters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Враги и встречи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deferred-multiplayer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Отложенный мультиплеер
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Навыки и теги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../items-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Предметы и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../progression-and-idle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Прогрессия и idle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глоссарий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Техническая документация
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Техническая документация
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/tech-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Технологический стек
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/combat-simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Спецификация боевой симуляции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/process-topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Топология процессов и запуск
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/content-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пакеты контента и баланса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/ui-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Интерфейс, экраны и навигация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/dev-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Среда разработки и инструменты
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Конвейер 3D-ассетов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/item-content-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Контент предметов и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/item-persistence/" class="md-nav__link">
         
   
   
@@ -1338,35 +1377,74 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#граница-контента" class="md-nav__link">
+  <a href="#подтверждено" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Граница контента
+        Подтверждено
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Подтверждено">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ледяные-пещеры" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ледяные пещеры
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#граница-крафта" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#2-пустыня-барханов-и-полуразрушенных-зданий" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Граница крафта
+        2. Пустыня барханов и полуразрушенных зданий
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#добавление-контента" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#3-дремучий-лес" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Добавление контента
+        3. Дремучий лес
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-болото" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Болото
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-равнины-и-луга" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Равнины и луга
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1387,7 +1465,7 @@
 
 
   
-    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/technical/item-content-and-crafting.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/game-design/biomes.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1395,36 +1473,45 @@
   
 
 
-<h1 id="контент-предметов-и-движок-крафта">Контент предметов и движок крафта<a class="headerlink" href="#контент-предметов-и-движок-крафта" title="Permanent link">&para;</a></h1>
-<p><code>server/internal/itemization</code> — единый источник истины для неизменяемого контента предметов и детерминированных правил крафта. Хранилище и UI зависят от стабильных числовых ID; <code>ItemInstance</code> никогда не содержит имён, путей к ресурсам или произвольных map-структур.</p>
-<p>Игровые правила предметов, их ценность и доступные игроку операции определяет <a href="../../game-design/items-and-crafting/">документ о предметах и крафте</a>. Эта страница фиксирует только техническую границу реализации.</p>
-<h2 id="граница-контента">Граница контента<a class="headerlink" href="#граница-контента" title="Permanent link">&para;</a></h2>
+<h1 id="биомы">Биомы<a class="headerlink" href="#биомы" title="Permanent link">&para;</a></h1>
+<h2 id="подтверждено">Подтверждено<a class="headerlink" href="#подтверждено" title="Permanent link">&para;</a></h2>
+<p>Биом — шестислойный акт, а не визуальный скин. Он задаёт пулы арен и комнат, архетипы врагов, свой хазард, тему оформления и звука и одно правило биома, которое меняет то, какая логика мозга полезна.</p>
 <ul>
-<li><code>BaseDefinition</code> владеет категорией, слотом экипировки, размером в сетке, требованиями, implicit-модификаторами и сокетами, capabilities, ID пулов аффиксов и числовым <code>VisualID</code>.</li>
-<li><code>AffixDefinition</code> владеет размещением prefix/suffix, domain/group, типизированным модификатором Flat/Increased/More, диапазонами уровней тира, допустимостью по тегам, исключениями, весами и контекстными множителями веса.</li>
-<li><code>CurrencyDefinition</code> сопоставляет стабильный <code>CurrencyID</code> с <code>RecipeID</code>, максимальным размером стака и <code>VisualID</code>. Поле максимального размера стака задаётся для каждой валюты отдельно; сейчас все ресурсы используют значение 20. В забеге валюта и материалы не являются отдельным счётчиком: они занимают ячейки сетки рюкзака стаками, ограниченными этим значением. Чистая модель <code>(currency_id, quantity)</code> без стаков применяется только к валютной вкладке сундука в таверне, где у каждого ресурса своя именованная ячейка со счётчиком.</li>
-<li><code>Registry</code> клонирует определения, содержащие slices, и предоставляет детерминированный lookup. ID выдаются только с добавлением новых значений и после релиза никогда не переназначаются.</li>
+<li>Всего биомов пять. Сид забега выбирает три различных и задаёт их порядок; игрок биомы не выбирает. Агентность игрока — маршрут внутри карты.</li>
+<li>Правило биома обязано выражаться существующим словарём мозга (<a href="../brain-vocabulary/">словарь мозга</a>) и обязано ломать мозг, собранный под другой биом, а не быть множителем характеристик.</li>
+<li>Сеттинг — натуральный мир. Каждое правило биома ключуется на ОТДЕЛЬНОЕ семейство сенсоров; это осознанное ограничение — будущие биомы не должны дублировать сенсорное семейство уже существующего биома.</li>
 </ul>
-<p><code>RepresentativeContent</code> предоставляет десять тестовых баз — броню, оружие, кольцо и амулет, — восемь аффиксов, три пула и восемь типизированных валют. Fixture обязана также содержать три архетипных материала — лом (тяжёлая броня), ткань (магическая броня) и кожа (броня ловкости); это отдельный от валют вид ресурса, конверсии между материалами нет. Это fixture-контент, а не production-таблица баланса.</p>
-<h2 id="граница-крафта">Граница крафта<a class="headerlink" href="#граница-крафта" title="Permanent link">&para;</a></h2>
-<p><code>ApplyRecipe</code> компонует небольшие примитивы: добавление и удаление аффикса, переброс значения, аффикса или всех значений, повышение тира, защиту, fracture и corruption. Это чистое вычисление над клоном предмета. Результат содержит типизированную стоимость в валютах и упорядоченный audit trail <code>CraftChange</code>.</p>
-<p>Сервисный слой обязан выполнить одну атомарную транзакцию, которая:</p>
-<ol>
-<li>проверяет и расходует стаки валют, а также архетипный материал, соответствующий базе предмета;</li>
-<li>проверяет ожидаемую ревизию предмета;</li>
-<li>записывает возвращённый предмет;</li>
-<li>сохраняет idempotency key и change set.</li>
-</ol>
-<p><code>ApplyRecipe</code> намеренно не изменяет инвентарь игрока и не открывает транзакцию базы данных. Транзакционная граница описана в <a href="../item-persistence/">документе о хранении предметов</a>.</p>
-<p>Флаги lock, fracture и crafted для аффиксов и crafting metadata фиксированной структуры сохраняются кодеком itemstore v3. Декодер остаётся совместимым с кодеками v1 и v2. Миграция схемы выполняется явно через <code>VersionedItem</code>, <code>Migrate</code> и функции перехода на одну версию; миграции контента требуют отдельно проверяемого развёртывания с remap ID.</p>
-<h2 id="добавление-контента">Добавление контента<a class="headerlink" href="#добавление-контента" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Выделить новые постоянные числовые ID; ID удалённого контента не переиспользовать.</li>
-<li>Добавить аффиксы, пулы, базы, валюты и рецепты в генерируемые данные контента.</li>
-<li>Создать registry и выполнить все валидаторы определений до публикации версии контента.</li>
-<li>Добавить детерминированные тесты с golden seed для нового поведения крафта и до релиза измерить большие пулы benchmark-тестами.</li>
-</ol>
-<p>Текущий runtime использует slices для небольшого набора выпавших аффиксов и компактные числовые ссылки. Нельзя упаковывать определения вручную по битам или вводить базу данных в горячий путь ролла без измеренного benchmark, который подтверждает необходимость.</p>
+<h3 id="1-ледяные-пещеры">1. Ледяные пещеры<a class="headerlink" href="#1-ледяные-пещеры" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Архетипы:</strong> мерзлотный бурильщик, кристальный страж, ледяной засадник.</li>
+<li><strong>Хазард:</strong> телеграфируемые морозные отдушины, запечатывающие участки арены.</li>
+<li><strong>Правило (сенсор Phase):</strong> пещера чередует фазы затишья и раскола; вход в фазу раскола отменяет все текущие подготовки. Урок игроку: «здесь нужно успевать закончить или отменить подготовку до начала раскола» — мозг обязан смотреть на <code>PhaseRemaining</code>.</li>
+</ul>
+<h3 id="2-пустыня-барханов-и-полуразрушенных-зданий">2. Пустыня барханов и полуразрушенных зданий<a class="headerlink" href="#2-пустыня-барханов-и-полуразрушенных-зданий" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Архетипы:</strong> барханный охотник, лучник руин, песчаниковый страж.</li>
+<li><strong>Хазард:</strong> блуждающие пыльные вихри, сносящие всё, что пересекают.</li>
+<li><strong>Правило (сенсор DistanceBetween):</strong> в глубоком песке обычный <code>Approach</code> не сокращает дистанцию больше пороговой; сблизиться можно только навыком перемещения. Урок: «здесь нужно выбирать, чем сокращать дистанцию, до того как пошёл».</li>
+</ul>
+<h3 id="3-дремучий-лес">3. Дремучий лес<a class="headerlink" href="#3-дремучий-лес" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Архетипы:</strong> охотник крон, шипастый зверь, мшистый ведун.</li>
+<li><strong>Хазард:</strong> хватающие корни, удерживающие помеченную землю.</li>
+<li><strong>Правило (ограничение видимости сенсоров):</strong> враги дальше порога скрыты, и <code>NearestEnemy</code> не возвращает ничего, пока цель не войдёт в явно нарисованное кольцо видимости. Урок: «здесь нельзя тратить скиллы до визуального контакта».</li>
+</ul>
+<h3 id="4-болото">4. Болото<a class="headerlink" href="#4-болото" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Архетипы:</strong> трясинная пиявка, шаман топи, утопший громила.</li>
+<li><strong>Хазард:</strong> дрейфующие споровые облака, прерывающие подготовку.</li>
+<li><strong>Правило (сенсор TimeSinceEvent):</strong> болото восстанавливает врагам здоровье, как только с последнего нанесённого им урона прошло три секунды. Урок: «здесь нужно наносить урон не реже раза в три секунды» — логика «накопил и ударил» перестаёт работать.</li>
+</ul>
+<h3 id="5-равнины-и-луга">5. Равнины и луга<a class="headerlink" href="#5-равнины-и-луга" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Архетипы:</strong> стайный бегун, рогатый таранщик, луговой мистик.</li>
+<li><strong>Хазард:</strong> телеграфируемые прогоны стада через арену.</li>
+<li><strong>Правило (порядок выбора целей и позиционирование):</strong> враги уводят раненых за строй, поэтому погоня за ближайшим постоянно меняет цель и не даёт добить никого. Урок: «здесь нужно держать позицию или бить по площади вместо погони за ближайшим».</li>
+</ul>
+<p>Правило равнин — самое поучительное из пяти: мозг не имеет памяти между проходами и не может «запомнить выбранную цель», поэтому доигрывание требует выбирать цель по устойчивому признаку — самый раненый, стабильный идентификатор — а не по «кто сейчас ближе». Это первое место, где игрок на практике видит разницу между «ближайший» и «тот же самый».</p>
 
 
 
