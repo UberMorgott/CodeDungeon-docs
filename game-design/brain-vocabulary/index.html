@@ -1710,12 +1710,25 @@
 <p><strong>Подтверждено.</strong> Существует шесть видов узлов: условие, селектор, действие, параметр/литерал,
 управление потоком, вызов модуля. Один проход графа завершается на первом выбранном действии.</p>
 <p>Каждый размещённый bubble, включая константу и литерал, стоит ровно 1 Memory. Игрок расходует
-бюджет и на числа, и на логику.</p>
+бюджет и на числа, и на логику. Исключений нет: <strong>вызов модуля</strong> тоже стоит 1 Memory. Содержимое
+модуля при этом оплачивается один раз, при создании, сколько бы точек вызова на него ни ссылалось
+(<a href="../ai-brain/#подтверждено">мозг персонажа</a>).</p>
 <h2 id="типы-значений">Типы значений<a class="headerlink" href="#типы-значений" title="Permanent link">&para;</a></h2>
 <p><strong>Подтверждено.</strong> Boolean, Integer, Fixed (Q16.16), Distance, Percentage, DurationTicks,
-Direction16, Phase, EntityRef, PointRef, HazardRef, SkillRef, Tag, ResourceTag, EventTag, CompareOp.</p>
+Direction16, Phase, EntityRef, PointRef, HazardRef, SkillQuery, Tag, ResourceTag, EventTag, CompareOp.</p>
 <ul>
-<li>Дистанции и точки используют фиксированную точку симуляции.</li>
+<li>
+<p><code>SkillQuery</code> — теговый запрос к навыку (<code>AND</code>/<code>OR</code>/<code>NOT</code> по тегам), единственный способ адресовать
+  навык из мозга. Запрос несёт <strong>упорядоченный список теговых критериев предпочтения</strong>: приоритет
+  кандидатов принадлежит самому запросу, а не порядку в панели активных навыков. Прямых ID навыков
+  запрос не содержит: критерии выражаются только тегами. Литерала «конкретный установленный навык»
+  в словаре нет: тип <code>SkillRef</code> больше не авторится игроком и остаётся лишь дескриптором
+  разрешённого навыка в событии решения и логе
+  (<a href="../skills-and-tags/#вызов-активного-навыка-по-тегам">вызов активного навыка по тегам</a>).</p>
+</li>
+<li>
+<p>Дистанции и точки используют фиксированную точку симуляции.</p>
+</li>
 <li>Проценты — отношения в фиксированной точке.</li>
 <li>Float не существует нигде.</li>
 <li><code>RandomInt(lo, hi)</code> — value-bubble, стоит 1 Memory. <code>lo</code> и <code>hi</code> — целые, включительно; недопустимый диапазон отсекается валидацией редактора. Значение вычисляется детерминированным кроссплатформенным хешем от <code>(run_seed, entityId, nodeId, тик текущего решения)</code> с несмещённым сведением к диапазону. <code>nodeId</code> — устойчивый авторский UUID узла, не зависящий от позиции в графе, копирования и визуальной раскладки. Значение фиксируется на время текущего решения (sample-and-hold): пока сущность не приняла новое решение, тот же узел возвращает то же число, что исключает дребезг ветки при пересчёте мозга каждый тик. Bubble не продвигает ни один поток PCG, поэтому не нарушает правило <a href="../../technical/combat-simulation/#rng">спецификации боевой симуляции</a> о запрете спекулятивного продвижения. Реплей точен при записи <code>run_seed</code>, ревизии мозга, входов и версии симуляции. Движковый RNG и любое изменяемое состояние RNG запрещены. Редактор показывает необязательное предупреждение, если несколько случайных узлов питают одно решение.</li>
@@ -1741,7 +1754,7 @@ Direction16, Phase, EntityRef, PointRef, HazardRef, SkillRef, Tag, ResourceTag, 
 <p><strong>Тайминг и фазы:</strong> <code>PhaseRemaining(e)</code>, <code>TimeSinceEvent(e,eventTag)</code> для <code>Damaged</code>, <code>SkillUsed</code>,
 <code>Interrupted</code>, <code>TargetChanged</code>, <code>Every(duration,offset)</code> по тикам симуляции — часов реального
 времени нет.</p>
-<p><strong>Ресурсы:</strong> <code>SkillReady(e,skill)</code>, <code>SkillCooldownRemaining</code>, <code>Resource(e,tag)</code>, <code>Charges(e,skill)</code>. <code>SkillReady(e, skill)</code> истинен <strong>только</strong> когда перезарядка прошла <strong>и</strong> маны хватает: оба ограничения проверяются вместе, поэтому один предикат отвечает на вопрос «можно ли применить прямо сейчас». <code>SkillCooldownRemaining</code> позволяет мозгу различить, какая из двух причин помешала: ненулевой остаток означает перезарядку, нулевой при ложном <code>SkillReady</code> — нехватку маны. Замысел: перезарядка задаёт темп одного навыка, мана ограничивает комбинацию пяти (<a href="../skills-and-tags/#экономика-навыков">экономика навыков</a>). <code>Resource(e, mana)</code> является каноническим способом наблюдения текущей маны; мана — состояние мира, а не Brain, поэтому отдельный именной сенсор не требуется (<a href="../skills-and-tags/#экономика-навыков">экономика навыков</a>).</p>
+<p><strong>Ресурсы:</strong> <code>SkillReady(e,skillQuery)</code>, <code>SkillCooldownRemaining</code>, <code>Resource(e,tag)</code>, <code>Charges(e,skillQuery)</code>. Навык всюду адресуется теговым запросом, а не именем: предикат отвечает про тот навык, в который запрос разрешается в этот же момент. <code>SkillReady(e, skillQuery)</code> истинен <strong>только</strong> когда перезарядка прошла <strong>и</strong> маны хватает: оба ограничения проверяются вместе, поэтому один предикат отвечает на вопрос «можно ли применить прямо сейчас». <code>SkillCooldownRemaining</code> позволяет мозгу различить, какая из двух причин помешала: ненулевой остаток означает перезарядку, нулевой при ложном <code>SkillReady</code> — нехватку маны. Замысел: перезарядка задаёт темп одного навыка, мана ограничивает комбинацию пяти (<a href="../skills-and-tags/#экономика-навыков">экономика навыков</a>). <code>Resource(e, mana)</code> является каноническим способом наблюдения текущей маны; мана — состояние мира, а не Brain, поэтому отдельный именной сенсор не требуется (<a href="../skills-and-tags/#экономика-навыков">экономика навыков</a>).</p>
 <h2 id="селекторы">Селекторы<a class="headerlink" href="#селекторы" title="Permanent link">&para;</a></h2>
 <p><strong>Враги:</strong> <code>NearestEnemy</code>, <code>LowestHealthEnemy</code>, <code>MostIsolatedEnemy</code>, <code>PreparingEnemy</code>,
 <code>RecoveringEnemy</code>, <code>MarkedEnemy</code>, <code>EnemyTargeting(e)</code>.</p>
@@ -1776,8 +1789,11 @@ recovery_ticks)</code>. Подготовка прерываема, исполн�
 <a href="../../technical/combat-simulation/#генерация-арены">генерация арены</a>). Стоимость в тиках зависит от
 геометрии; мозг этого не наблюдает. Сенсора линии огня в словаре нет — если стена блокирует атаку,
 движок сам перемещает бойца на позицию с чистой линией огня.</p>
-<p><strong>Навыки:</strong> <code>UseTargetSkill(skill,entity)</code>, <code>UsePointSkill(skill,point)</code>,
-<code>UseDirectionSkill(skill,direction16)</code>, <code>UseSelfSkill(skill)</code>. Эти четыре покрывают атаки, защиту,
+<p><strong>Навыки:</strong> <code>UseTargetSkill(skillQuery,entity)</code>, <code>UsePointSkill(skillQuery,point)</code>,
+<code>UseDirectionSkill(skillQuery,direction16)</code>, <code>UseSelfSkill(skillQuery)</code>. Первым аргументом всюду
+стоит теговый запрос — конкретный установленный навык из графа не называется никогда
+(<a href="../skills-and-tags/#вызов-активного-навыка-по-тегам">вызов активного навыка по тегам</a>).
+Эти четыре покрывают атаки, защиту,
 усиления, лечение, метки, прерывания, отбрасывание и опасные зоны. Данные навыка задают допустимую
 команду цели, дальность, геометрию, урон, стаггер, отбрасывание, теги, стоимости и точные
 длительности фаз.</p>
