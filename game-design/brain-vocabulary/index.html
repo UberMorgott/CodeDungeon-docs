@@ -676,6 +676,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#охрана-и-источник-эффекта-наблюдаемы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Охрана и источник эффекта наблюдаемы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#действия" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -722,6 +733,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Необратимые части словаря">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interpose-вырезан-из-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpose вырезан из v1
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1694,6 +1722,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#охрана-и-источник-эффекта-наблюдаемы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Охрана и источник эффекта наблюдаемы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#действия" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1740,6 +1779,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Необратимые части словаря">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interpose-вырезан-из-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpose вырезан из v1
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1846,7 +1902,8 @@ Direction16, Phase, EntityRef, PointRef, HazardRef, SkillQuery, Tag, ResourceTag
 <p><strong>Состояние себя и цели:</strong> <code>Health</code>, <code>IsTargeting(a,b)</code>, <code>Stagger(e)</code>, <code>Poise(e)</code>, фаза действия
 <code>Phase</code>.</p>
 <p><strong>Пространство:</strong> <code>DistanceBetween(a,b)</code>, <code>DistanceToArenaEdge(e)</code>, <code>InsideRadius(e,point,dist)</code>,
-<code>DirectionFromTo(a,b)</code>.</p>
+<code>DirectionFromTo(a,b)</code>, <code>InsideFrontalArc(e,guard)</code> — см.
+<a href="#охрана-и-источник-эффекта-наблюдаемы">охрана и источник эффекта наблюдаемы</a>.</p>
 <p><strong>Союзники:</strong> <code>AlliesWithin(e,dist,tag?)</code>, <code>AnyAllyHealthBelow(pct,dist?)</code>, <code>AnyAllyTargetedBy(e)</code>,
 <code>AnyAllyInPhase(phase,dist?)</code>. В solo MVP союзников нет, поэтому эти предикаты инертны; они
 остаются в словаре ради co-op.</p>
@@ -1863,8 +1920,9 @@ Direction16, Phase, EntityRef, PointRef, HazardRef, SkillQuery, Tag, ResourceTag
 <code>RecoveringEnemy</code>, <code>MarkedEnemy</code>, <code>EnemyTargeting(e)</code>.</p>
 <p><strong>Союзники:</strong> <code>NearestAlly</code>, <code>LowestHealthAlly</code>, <code>MostThreatenedAlly</code>, <code>AllyTargetedBy(e)</code>.
 Инертны в solo MVP, нужны для co-op.</p>
-<p><strong>Служебные:</strong> <code>Self</code>, <code>CurrentActionTarget(e)</code>, <code>NearestHazard</code>, <code>SafestPointAround(e,radius)</code>,
-<code>PointBetween(a,b,ratio)</code>.</p>
+<p><strong>Служебные:</strong> <code>Self</code>, <code>CurrentActionTarget(e)</code>, <code>CurrentGuardTarget(e)</code>, <code>EffectSourceOf(e,tag)</code>,
+<code>NearestHazard</code>, <code>SafestPointAround(e,radius)</code>, <code>PointBetween(a,b,ratio)</code>. Два последних описаны в
+<a href="#охрана-и-источник-эффекта-наблюдаемы">охрана и источник эффекта наблюдаемы</a>.</p>
 <p>Правила:</p>
 <ul>
 <li>Каждый селектор сущности принимает необязательные <code>MaxDistance</code>, <code>RequiredTags</code>, <code>ExcludedTags</code>;
@@ -1881,12 +1939,72 @@ Direction16, Phase, EntityRef, PointRef, HazardRef, SkillQuery, Tag, ResourceTag
 считает нужное ему понятие угрозы внутри графа по наблюдаемым данным: здоровье в процентах или
 абсолютной величине, дистанция, фаза, кто кого выбрал целью. Причина — не заводить вторую модель
 выбора цели, конкурирующую с селекторами.</p>
+<h2 id="охрана-и-источник-эффекта-наблюдаемы">Охрана и источник эффекта наблюдаемы<a class="headerlink" href="#охрана-и-источник-эффекта-наблюдаемы" title="Permanent link">&para;</a></h2>
+<p><strong>Решено.</strong> Три конструкции входят в словарь <strong>с версии 1</strong> и закрывают дефект Оплота и
+Знаменосца (<a href="../enemies-and-encounters/#бестиарий-mvp">бестиарий MVP</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Конструкция</th>
+<th>Вид</th>
+<th>Возвращает</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CurrentGuardTarget(e)</code></td>
+<td>селектор</td>
+<td>сущность, которую <code>e</code> охраняет <strong>прямо сейчас</strong>, либо <code>None</code></td>
+</tr>
+<tr>
+<td><code>InsideFrontalArc(e,guard)</code></td>
+<td>предикат</td>
+<td>булево: находится ли <code>e</code> внутри фронтального сектора <code>guard</code></td>
+</tr>
+<tr>
+<td><code>EffectSourceOf(e,tag)</code></td>
+<td>селектор</td>
+<td>сущность-источник ауры или эффекта с тегом <code>tag</code> на цели <code>e</code>, либо <code>None</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Почему это не чтение типа врага.</strong> Охрана и аура — <strong>наблюдаемые отношения</strong>, меняющиеся по ходу
+боя: охрана переключается на другого союзника, Знаменосец гибнет и аура пропадает, боец выходит из
+радиуса. Это состояние мира той же природы, что <code>IsTargeting(a,b)</code> и <code>AnyAllyTargetedBy(e)</code>, а не
+постоянная метка. Проверка типа или класса врага остаётся запрещённой навсегда
+(<a href="#намеренно-исключено-из-словаря-mvp">намеренно исключено</a>).</p>
+<p><strong>Охрана — отношение между сущностями, никогда не роль и не класс.</strong> <code>CurrentGuardTarget(e)</code> не
+отвечает «является ли <code>e</code> Оплотом»; он отвечает «кого <code>e</code> охраняет в этот тик». Любая сущность
+вправе кого-то охранять и вправе перестать; никакого признака «оплот» в модели нет.</p>
+<p><strong>Фронтальный сектор без поля ориентации.</strong> У сущности нет facing: боевая модель несёт только
+позицию (<a href="../../technical/combat-simulation/">спецификация боевой симуляции</a>). Поэтому сектор
+определяется <strong>геометрией охраны</strong>, а не хранимым углом:</p>
+<ul>
+<li>ось сектора — направление <code>DirectionFromTo(CurrentGuardTarget(guard), guard)</code>, то есть от
+  охраняемого через охраняющего наружу: охраняющий прикрывает подход к подопечному;</li>
+<li>полуширина — <code>sector_angle / 2</code> шагов сетки <code>Direction16</code>
+  (<a href="../../technical/stat-registry/">реестр stat ID</a>); угловой единицы, кроме <code>Direction16</code>, в игре
+  нет;</li>
+<li><code>InsideFrontalArc(e,guard)</code> истинен, когда <code>DirectionFromTo(guard,e)</code> отстоит от оси не более чем
+  на полуширину по кратчайшей дуге по модулю 16;</li>
+<li>если <code>CurrentGuardTarget(guard)</code> есть <code>None</code>, ось не определена и предикат ложен — обычное
+  распространение <code>None</code> из правил <a href="#селекторы">селекторов</a>.</li>
+</ul>
+<p>Поля ориентации не вводится ни здесь, ни где-либо ещё.</p>
+<p><strong>Правило авторинга: пространство тегов эффектов не должно стать заменой роли.</strong> <code>EffectSourceOf</code>
+адресуется тегом, и это тот же реестр тегов, что везде. Тег, который порождает <strong>ровно одна</strong>
+конфигурация, фактически называет эту конфигурацию — то есть протекает как маркер роли и обходит
+запрет на чтение типа врага. Поэтому тег ауры или эффекта обязан описывать <strong>действие эффекта</strong>
+(«ускорение действий», «уязвимость»), а не его носителя, и обязан быть достижим более чем одной
+конфигурацией: тем же аффиксом элиты, другим архетипом, навыком игрока. Валидатор контента
+отмечает тег с единственным источником как дефект авторинга.</p>
 <h2 id="действия">Действия<a class="headerlink" href="#действия" title="Permanent link">&para;</a></h2>
 <p>Каждое действие несёт заданные навыком или конфигурацией <code>(prep_ticks, execution_ticks,
 recovery_ticks)</code>. Подготовка прерываема, исполнение атомарно, восстановление отложимо.</p>
 <p><strong>Движение</strong>, обычно <code>(0,1,0)</code> — один тик: <code>Approach(target,stopDistance)</code>,
 <code>Retreat(target,minDistance)</code>, <code>HoldRange(target,min,max)</code>, <code>Orbit(target,radius,direction)</code>,
-<code>Regroup(ally|point,radius)</code>, <code>Interpose(protectedAlly,threat,offset)</code>, <code>MoveTo(point,stopDistance)</code>.
+<code>Regroup(ally|point,radius)</code>, <code>MoveTo(point,stopDistance)</code>. <code>Interpose</code> в словарь v1 не входит —
+<a href="#interpose-вырезан-из-v1">Interpose вырезан из v1</a>.
 Все команды движения означают «двигаться <strong>по маршруту</strong>», а не «двигаться по прямой»: маршрутизацию
 через зоны и проходы арены выполняет движок по графу порталов (см.
 <a href="../../technical/combat-simulation/#генерация-арены">генерация арены</a>). Стоимость в тиках зависит от
@@ -1987,10 +2105,30 @@ MVP этим не пользуется. Добавить это позже — �
 <li>переоценка селекторов каждый проход;</li>
 <li>отсутствие удержания цели: селектор никогда не хранит свой прошлый результат.</li>
 </ul>
-<p><strong>Открытый вопрос той же природы.</strong> Оплот и Знаменосец опираются на признаки, которых в словаре
-нет — кого охраняют, фронтальный сектор, источник ауры
-(<a href="../enemies-and-encounters/#открытые-вопросы">враги и встречи</a>). Добавление таких признаков —
-ровно дверь в одну сторону из этого раздела, поэтому решение принимается до выпуска v1.</p>
+<p><strong>4. Наблюдаемые отношения охраны и источника эффекта — с первой версии.</strong>
+<code>CurrentGuardTarget(e)</code>, <code>InsideFrontalArc(e,guard)</code> и <code>EffectSourceOf(e,tag)</code> присутствуют в
+словаре начиная с версии 1 (<a href="#охрана-и-источник-эффекта-наблюдаемы">охрана и источник эффекта наблюдаемы</a>).
+Причина ровно та же, что у пункта 1: добавить их позже значило бы открыть дверь в одну сторону
+после выпуска. Оба селектора выходят с полной сигнатурой (<code>MaxDistance</code>, <code>RequiredTags</code>,
+<code>ExcludedTags</code>, фазовый фильтр), а определение фронтального сектора через ось охраны и
+<code>sector_angle</code> заморожено: изменить ось или единицу измерения миграцией нельзя. Контент MVP вправе
+не пользоваться ими нигде, кроме Оплота и Знаменосца.</p>
+<h3 id="interpose-вырезан-из-v1">Interpose вырезан из v1<a class="headerlink" href="#interpose-вырезан-из-v1" title="Permanent link">&para;</a></h3>
+<p><strong>Решено.</strong> <code>Interpose(protectedAlly,threat,offset)</code> в словаре v1 отсутствует. Причины:</p>
+<ul>
+<li>геометрия действия не определена — где именно встаёт боец между союзником и угрозой, не задано;</li>
+<li>в solo-бою прикрывать некого, поэтому проверить действие нечем;</li>
+<li>семантика разрешения заморожена как дверь в одну сторону, и позднее уточнение решателя молча
+  переинтерпретировало бы уже сохранённые программы с этим действием, что запрещает
+  <a href="../ai-brain/#правило-непрегрессии--правило-для-авторов-контента">правило непрегрессии</a>.</li>
+</ul>
+<p>Вернуть <code>Interpose</code> позже можно только <strong>новой</strong> записью словаря под общими правилами
+<a href="#версионирование-словаря">версионирования и миграции</a> — как переопределение вырезанного действия
+никогда.</p>
+<p><strong>Дверь той же природы — уже пройдена.</strong> Признаки, которых требовали Оплот и Знаменосец, добавлены
+до заморозки v1: <code>CurrentGuardTarget</code>, <code>InsideFrontalArc</code>, <code>EffectSourceOf</code>
+(<a href="#охрана-и-источник-эффекта-наблюдаемы">охрана и источник эффекта наблюдаемы</a>). Именно потому, что
+это дверь в одну сторону, решение принято <strong>до</strong> выпуска, а не после.</p>
 <p>Раздел перечисляет двери, открывающиеся только в одну сторону. Поэтому предложение добавить аргумент
 селектору, расширить форму запроса или поправить семантику разрешения — это <strong>новая</strong> конструкция
 словаря с новым именем, а не правка существующей.</p>
@@ -2038,8 +2176,10 @@ MVP этим не пользуется. Добавить это позже — �
 </tbody>
 </table>
 <h2 id="выразительность">Выразительность<a class="headerlink" href="#выразительность" title="Permanent link">&para;</a></h2>
-<p><strong>Проверено:</strong> словарь выражает кайтящего лучника, телохранителя, перехватывающего атакующего
-слабейшего союзника, и добивающего, наказывающего врагов в фазе восстановления.</p>
+<p><strong>Проверено:</strong> словарь выражает кайтящего лучника и добивающего, наказывающего врагов в фазе
+восстановления. Телохранителя, физически заслоняющего союзника, словарь v1 не выражает: действие
+<code>Interpose</code> вырезано (<a href="#interpose-вырезан-из-v1">Interpose вырезан из v1</a>), а в solo-бою союзника и
+нет.</p>
 <p><strong>Честно зафиксированный предел:</strong> абсолютная гарантия вида «никогда не подпускать никого ближе
 3 единиц» невыразима никаким словарём выбора действий — отбрасывание, атомарное движение, спавны и
 стены арены всегда способны её нарушить.</p>
@@ -2049,21 +2189,17 @@ MVP этим не пользуется. Добавить это позже — �
   зафиксирован в <a href="#предикаты-условий">предикатах условий</a> — <code>SkillReady</code>, <code>SkillCooldownRemaining</code>,
   <code>Resource(e,tag)</code>, <code>Charges</code> и <code>TimeSinceEvent(e,eventTag)</code> со своим списком меток событий.
   Отдельным вопросом реестра больше не числится.</li>
-<li>Допустим ли <code>Interpose</code> как детерминированный пространственный решатель, или MVP должен
-  предоставить только более простое движение? <code>SafestPointAround</code> из вопроса выведен: он закреплён
-  наградой шестой обучающей миссии (<a href="../ai-brain/#лестница-обучающих-миссий">лестница обучающих миссий</a>).
-  <strong>Рекомендация, ожидающая подтверждения дизайнера:</strong> вырезать <code>Interpose</code> из v1 — геометрия
-  недоопределена, в solo-встрече проверить нечем (заслонять некого), а поздняя правка решателя молча
-  переосмыслит каждую постоянную программу с ним, что запрещает
-  <a href="#необратимые-части-словаря">замороженная семантика разрешения</a>. Вопрос остаётся открытым; само
-  действие из словаря не убрано.</li>
-<li>Оплот и Знаменосец опираются на признаки, которых нет в словаре мозга: кого именно охраняют,
-  фронтальный сектор, источник ауры. Ссылка на тип врага запрещена, поэтому два архетипа из семи
-  учат уроку, невоспринимаемому мозгом. <strong>Рекомендация (ожидает подтверждения, вопрос остаётся
-  открытым):</strong> либо добавить недостающие признаки — дверь в одну сторону
-  (<a href="#необратимые-части-словаря">необратимые части словаря</a>), решать до выпуска v1, — либо
-  перепроектировать эти два архетипа вокруг существующих признаков
-  (<a href="../enemies-and-encounters/#бестиарий-mvp">враги и встречи</a>).</li>
+<li><del>Допустим ли <code>Interpose</code> как детерминированный пространственный решатель, или MVP должен
+  предоставить только более простое движение?</del> <strong>Закрыт:</strong> <code>Interpose</code> вырезан из v1, действие
+  убрано из списка команд движения — <a href="#interpose-вырезан-из-v1">Interpose вырезан из v1</a>.
+  <code>SafestPointAround</code> из вопроса был выведен ещё раньше: он закреплён наградой шестой обучающей
+  миссии (<a href="../ai-brain/#лестница-обучающих-миссий">лестница обучающих миссий</a>).</li>
+<li><del>Оплот и Знаменосец опираются на признаки, которых нет в словаре мозга: кого именно охраняют,
+  фронтальный сектор, источник ауры.</del> <strong>Закрыт:</strong> признаки добавлены в словарь до заморозки v1 —
+  селекторы <code>CurrentGuardTarget(e)</code> и <code>EffectSourceOf(e,tag)</code> и предикат <code>InsideFrontalArc(e,guard)</code>
+  (<a href="#охрана-и-источник-эффекта-наблюдаемы">охрана и источник эффекта наблюдаемы</a>). Это наблюдаемые
+  отношения, а не чтение типа врага; поля ориентации не введено — сектор строится по оси охраны и
+  <code>sector_angle</code> в шагах <code>Direction16</code>.</li>
 </ul>
 
 
