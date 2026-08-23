@@ -10,11 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/item-persistence/">
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/game-design/balance-principles/">
       
       
-        <link rel="prev" href="../testing-and-ci/">
+        <link rel="prev" href="../items-and-crafting/">
       
+      
+        <link rel="next" href="../progression-and-idle/">
       
       
         
@@ -25,7 +27,7 @@
     
     
       
-        <title>Хранение предметов - CodeDungeon — документация</title>
+        <title>Принципы баланса чисел - CodeDungeon — документация</title>
       
     
     
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#хранение-предметов" class="md-skip">
+        <a href="#принципы-баланса-чисел" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -114,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Хранение предметов
+              Принципы баланса чисел
             
           </span>
         </div>
@@ -367,18 +369,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -399,600 +403,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
     Игровой дизайн
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Обзор
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/architecture/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Архитектурный скелет
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/vision-and-pillars/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Видение и опоры
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/core-loop-and-runs/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Основной цикл и забеги
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/ai-brain/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Мозг персонажа
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/brain-vocabulary/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Словарь мозга
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/combat-and-actions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Бой и фазы действий
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/physical-combat-and-replay/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Симуляция боя и запись боя
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/visual-direction-and-camera/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Визуальное направление и камера
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/audio/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Звуковое направление
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/passive-tree-and-sockets/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Пассивное дерево и ячейки
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/biomes/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Биомы
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/enemies-and-encounters/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Враги и встречи
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/deferred-multiplayer/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Отложенный мультиплеер
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/skills-and-tags/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Навыки и теги
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/items-and-crafting/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Предметы и крафт
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/balance-principles/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Принципы баланса чисел
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/progression-and-idle/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Прогрессия и idle
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../game-design/glossary/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Глоссарий
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Техническая документация
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Техническая документация
   
 
           </label>
@@ -1033,14 +449,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../tech-stack/" class="md-nav__link">
+      <a href="../architecture/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Технологический стек
+    Архитектурный скелет
   
 
     
@@ -1061,14 +477,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../combat-simulation/" class="md-nav__link">
+      <a href="../vision-and-pillars/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Спецификация боевой симуляции
+    Видение и опоры
   
 
     
@@ -1089,14 +505,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../process-topology/" class="md-nav__link">
+      <a href="../core-loop-and-runs/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Топология процессов и запуск
+    Основной цикл и забеги
   
 
     
@@ -1117,14 +533,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../content-packages/" class="md-nav__link">
+      <a href="../ai-brain/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Пакеты контента и баланса
+    Мозг персонажа
   
 
     
@@ -1145,14 +561,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ui-architecture/" class="md-nav__link">
+      <a href="../brain-vocabulary/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Интерфейс, экраны и навигация
+    Словарь мозга
   
 
     
@@ -1173,14 +589,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev-environment/" class="md-nav__link">
+      <a href="../combat-and-actions/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Среда разработки и инструменты
+    Бой и фазы действий
   
 
     
@@ -1201,14 +617,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../asset-pipeline/" class="md-nav__link">
+      <a href="../physical-combat-and-replay/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Конвейер 3D-ассетов
+    Симуляция боя и запись боя
   
 
     
@@ -1229,14 +645,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../item-content-and-crafting/" class="md-nav__link">
+      <a href="../visual-direction-and-camera/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Контент предметов и крафт
+    Визуальное направление и камера
   
 
     
@@ -1257,14 +673,182 @@
   
   
     <li class="md-nav__item">
-      <a href="../testing-and-ci/" class="md-nav__link">
+      <a href="../audio/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Стратегия тестирования и CI
+    Звуковое направление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../passive-tree-and-sockets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пассивное дерево и ячейки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../biomes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Биомы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enemies-and-encounters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Враги и встречи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deferred-multiplayer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Отложенный мультиплеер
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Навыки и теги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../items-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Предметы и крафт
   
 
     
@@ -1301,7 +885,7 @@
   <span class="md-ellipsis">
     
   
-    Хранение предметов
+    Принципы баланса чисел
   
 
     
@@ -1319,7 +903,7 @@
   <span class="md-ellipsis">
     
   
-    Хранение предметов
+    Принципы баланса чисел
   
 
     
@@ -1345,10 +929,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#решение" class="md-nav__link">
+  <a href="#статус" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Решение
+        Статус
       
     </span>
   </a>
@@ -1356,10 +940,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#топология-базы-данных" class="md-nav__link">
+  <a href="#главный-принцип" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Топология базы данных
+        Главный принцип
       
     </span>
   </a>
@@ -1367,10 +951,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#атомарные-операции" class="md-nav__link">
+  <a href="#что-именно-ограничено" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Атомарные операции
+        Что именно ограничено
       
     </span>
   </a>
@@ -1378,10 +962,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#доверие-к-локальным-данным-и-валидация-загрузки" class="md-nav__link">
+  <a href="#время-до-убийства" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Доверие к локальным данным и валидация загрузки
+        Время до убийства
       
     </span>
   </a>
@@ -1389,10 +973,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#кодирование-и-миграции" class="md-nav__link">
+  <a href="#эскалация-в-эндгейме-и-почему-она-не-ломает-коридор" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Кодирование и миграции
+        Эскалация в эндгейме и почему она не ломает коридор
       
     </span>
   </a>
@@ -1400,10 +984,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ёмкость-и-наблюдаемость" class="md-nav__link">
+  <a href="#убывающая-отдача-вместо-жёстких-потолков" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ёмкость и наблюдаемость
+        Убывающая отдача вместо жёстких потолков
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#запрещённые-формы-роста-и-их-замены" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Запрещённые формы роста и их замены
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#точность-и-переполнение" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Точность и переполнение
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-из-этого-проверяет-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что из этого проверяет CI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#открытые-вопросы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Открытые вопросы
       
     </span>
   </a>
@@ -1414,6 +1042,424 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../progression-and-idle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Прогрессия и idle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глоссарий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Техническая документация
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Техническая документация
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/tech-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Технологический стек
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/combat-simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Спецификация боевой симуляции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/process-topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Топология процессов и запуск
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/content-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пакеты контента и баланса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/ui-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Интерфейс, экраны и навигация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/dev-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Среда разработки и инструменты
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Конвейер 3D-ассетов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/item-content-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Контент предметов и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/testing-and-ci/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Стратегия тестирования и CI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/item-persistence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Хранение предметов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1453,10 +1499,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#решение" class="md-nav__link">
+  <a href="#статус" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Решение
+        Статус
       
     </span>
   </a>
@@ -1464,10 +1510,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#топология-базы-данных" class="md-nav__link">
+  <a href="#главный-принцип" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Топология базы данных
+        Главный принцип
       
     </span>
   </a>
@@ -1475,10 +1521,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#атомарные-операции" class="md-nav__link">
+  <a href="#что-именно-ограничено" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Атомарные операции
+        Что именно ограничено
       
     </span>
   </a>
@@ -1486,10 +1532,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#доверие-к-локальным-данным-и-валидация-загрузки" class="md-nav__link">
+  <a href="#время-до-убийства" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Доверие к локальным данным и валидация загрузки
+        Время до убийства
       
     </span>
   </a>
@@ -1497,10 +1543,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#кодирование-и-миграции" class="md-nav__link">
+  <a href="#эскалация-в-эндгейме-и-почему-она-не-ломает-коридор" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Кодирование и миграции
+        Эскалация в эндгейме и почему она не ломает коридор
       
     </span>
   </a>
@@ -1508,10 +1554,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ёмкость-и-наблюдаемость" class="md-nav__link">
+  <a href="#убывающая-отдача-вместо-жёстких-потолков" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ёмкость и наблюдаемость
+        Убывающая отдача вместо жёстких потолков
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#запрещённые-формы-роста-и-их-замены" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Запрещённые формы роста и их замены
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#точность-и-переполнение" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Точность и переполнение
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-из-этого-проверяет-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что из этого проверяет CI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#открытые-вопросы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Открытые вопросы
       
     </span>
   </a>
@@ -1535,7 +1625,7 @@
 
 
   
-    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/technical/item-persistence.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/game-design/balance-principles.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1543,70 +1633,65 @@
   
 
 
-<h1 id="хранение-предметов">Хранение предметов<a class="headerlink" href="#хранение-предметов" title="Permanent link">&para;</a></h1>
-<h2 id="решение">Решение<a class="headerlink" href="#решение" title="Permanent link">&para;</a></h2>
-<p>Определения предметов — база, metadata аффиксов, локализация, диапазоны и теги — являются неизменяемым контентом, адресуемым стабильными <code>uint32</code> ID. Экземпляр предмета хранит только идентичность, владельца и расположение, версию, стак, компактные изменяемые значения, RNG seed и пары ID/значение выпавших аффиксов. Строки и данные определений не повторяются в каждом выпавшем предмете.</p>
-<p><code>server/internal/itemstore</code> — граница адаптера. Игровые правила зависят от <code>Store</code>, а не от драйвера базы данных. <code>Memory</code> служит исполняемой спецификацией и тестовым backend, но не production-базой MMO.</p>
-<p>Контракты неизменяемых определений и чистых операций крафта описаны в <a href="../item-content-and-crafting/">документе о контенте предметов и движке крафта</a>. Игровой дизайн принадлежит <a href="../../game-design/items-and-crafting/">документу о предметах и крафте</a>.</p>
-<h2 id="топология-базы-данных">Топология базы данных<a class="headerlink" href="#топология-базы-данных" title="Permanent link">&para;</a></h2>
+<h1 id="принципы-баланса-чисел">Принципы баланса чисел<a class="headerlink" href="#принципы-баланса-чисел" title="Permanent link">&para;</a></h1>
+<p>Обязательное проектное решение владельца проекта, а не пожелание. Определяет числовые границы, в которых существуют все боевые и прогрессийные системы. Терминология симуляции соответствует <a href="../../technical/combat-simulation/">спецификации боевой симуляции</a>, предметная — <a href="../items-and-crafting/">предметам и крафту</a>, прогрессийная — <a href="../progression-and-idle/">прогрессии и idle</a>.</p>
+<h2 id="статус">Статус<a class="headerlink" href="#статус" title="Permanent link">&para;</a></h2>
+<p><strong>Подтверждено.</strong></p>
+<h2 id="главный-принцип">Главный принцип<a class="headerlink" href="#главный-принцип" title="Permanent link">&para;</a></h2>
+<p>Числа держатся маленькими настолько, чтобы PvP был играбелен. Ситуации «две тысячи здоровья против миллиарда урона» не существует ни на каком этапе.</p>
+<p>Принцип совпадает с технической базой, а не борется с ней: симуляция считает в знаковой фиксированной точке Q20.12 с диапазоном около ±524 288 и точностью 1/4096, и раздутые числа там просто не помещаются.</p>
+<p>Принцип совпадает и с уже принятым дизайном: жёсткий потолок силы предметов (<a href="../progression-and-idle/#поздняя-игра">прогрессия и idle</a>), горизонтальная редкость (<a href="../items-and-crafting/#редкость-роллы-и-пулы-аффиксов">предметы и крафт</a>), рост «вбок» после потолка.</p>
+<h2 id="что-именно-ограничено">Что именно ограничено<a class="headerlink" href="#что-именно-ограничено" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Solo/local/offline:</strong> решено — SQLite в WAL mode, владелец базы — локальный Go-процесс, Godot её никогда не открывает. Доступ идёт только через repository-порты, поэтому онлайновое хранилище позднее заменяет адаптер, а не правила. Следует использовать одну writer transaction, подготовленные batch statements и периодические checkpoints. Драйвер SQLite выбирается только при реализации адаптера: не следует заранее добавлять CGO или крупную зависимость.</li>
-<li><strong>Авторитетные co-op/PvP:</strong> предпочтительная модель — PostgreSQL-compatible SQL. Она предоставляет row locking, транзакционный крафт и передачи, зрелые replication, backup и operational tooling. Партиционирование по account/owner вводится только после подтверждающих измерений. SQLite нельзя использовать как базу на общем сетевом диске.</li>
-<li><strong>Redis:</strong> допустим позднее для краткоживущих caches и locks, но никогда не является источником истины для предметов во владении игроков.</li>
+<li>Рост силы игрока идёт от характеристик, узлов пассивного дерева и снаряжения. Отдельной кривой роста здоровья нет, поэтому потолок задаётся не числом, а бюджетом очков: значения узлов и аффиксов подбираются так, чтобы любая полная законная сборка укладывалась в коридор.</li>
+<li>Коридор формулируется как отношение, а не как абсолют: ни одна постоянная боевая метрика полностью собранного персонажа не превышает свою стартовую больше чем в несколько раз. Исходная рабочая гипотеза — около четырёх крат, и это балансовое значение, а не закон GDD: точная кратность уточняется плейтестом.</li>
+<li>Ориентиры для отсчёта, тоже балансовые: новичок около 100 единиц здоровья и около 12 урона за секундный удар. Они существуют, чтобы у авторов контента была общая точка отсчёта, а не чтобы зафиксировать конкретные числа навсегда.</li>
 </ul>
-<p>Строка базы данных хранит доступные для запросов колонки владельца, расположения и версии, а также компактный версионированный payload для менее часто запрашиваемого состояния экземпляра. Весь предмет нельзя помещать в JSON. Колонки <code>grid_x</code>/<code>grid_y</code> обязательны: рюкзак является сеткой, предметы занимают в ней разное число ячеек, а стаки ресурсов тоже лежат в ячейках сетки и несут <code>stack_count</code>, ограниченный максимальным размером стака своей валюты.</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">item_instance</span><span class="w"> </span><span class="p">(</span>
-<span class="w">  </span><span class="n">item_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
-<span class="w">  </span><span class="n">definition_id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">  </span><span class="n">owner_kind</span><span class="w"> </span><span class="nb">SMALLINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">  </span><span class="n">owner_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">  </span><span class="n">location_kind</span><span class="w"> </span><span class="nb">SMALLINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">  </span><span class="n">container_id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">  </span><span class="n">grid_x</span><span class="w"> </span><span class="nb">SMALLINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">  </span><span class="n">grid_y</span><span class="w"> </span><span class="nb">SMALLINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">  </span><span class="n">slot</span><span class="w"> </span><span class="nb">SMALLINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">  </span><span class="n">stack_count</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">stack_count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
-<span class="w">  </span><span class="k">version</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">  </span><span class="n">payload</span><span class="w"> </span><span class="n">BYTEA</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
-<span class="p">);</span>
-<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">item_owner_location</span>
-<span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">item_instance</span><span class="p">(</span><span class="n">owner_kind</span><span class="p">,</span><span class="w"> </span><span class="n">owner_id</span><span class="p">,</span><span class="w"> </span><span class="n">location_kind</span><span class="p">,</span><span class="w"> </span><span class="n">container_id</span><span class="p">,</span><span class="w"> </span><span class="n">item_id</span><span class="p">);</span>
-<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">item_operation</span><span class="w"> </span><span class="p">(</span>
-<span class="w">  </span><span class="n">owner_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">  </span><span class="n">operation_id</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">  </span><span class="k">result</span><span class="w"> </span><span class="n">BYTEA</span><span class="p">,</span>
-<span class="w">  </span><span class="n">created_at</span><span class="w"> </span><span class="n">TIMESTAMPTZ</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">now</span><span class="p">(),</span>
-<span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">owner_id</span><span class="p">,</span><span class="w"> </span><span class="n">operation_id</span><span class="p">)</span>
-<span class="p">);</span>
-</code></pre></div>
-<p>SQLite использует эквивалентные колонки <code>INTEGER</code> и <code>BLOB</code>. Ключи <code>item_operation</code> делают повторные сетевые запросы идемпотентными; production-адаптеры обязаны хранить или архивировать их как минимум в течение максимального окна повторов.</p>
-<h2 id="атомарные-операции">Атомарные операции<a class="headerlink" href="#атомарные-операции" title="Permanent link">&para;</a></h2>
-<p>Передача, экипировка, salvage и craft выполняются внутри <code>Store.Transact</code>. Чтение и запись используют <code>version</code> как optimistic concurrency token. Передача меняет владельца и расположение в одной транзакции. Крафт расходует материалы и изменяет или создаёт результат в той же транзакции, поэтому отключение не может дублировать предметы. Разделение и слияние стака также выполняется одной транзакцией: проверить совпадение definition и stackable state, уменьшить или удалить источник, затем увеличить или создать назначение.</p>
-<p>In-memory реализация сериализует транзакции ради корректности. SQL-адаптер должен использовать <code>SELECT ... FOR UPDATE</code> в стабильном порядке item ID для предотвращения deadlock и <code>UPDATE ... WHERE item_id=? AND version=?</code> для обнаружения устаревших клиентов.</p>
-<p>Будущий Online-рынок — application service над этой границей, а не второй источник истины предметов. Он владеет состоянием лота и выбором покупателя; <code>itemstore</code> владеет идентичностью и владельцем предмета, wallet — доступными и зарезервированными средствами. Settlement должен атомарно и идемпотентно проверить лот и ревизию предмета, передать владение предметом и платёж, закрыть лот, применить блокировку повторного выставления и освободить проигравшие резервы. Catalog projections обновляются транзакционным или outbox-событием с допустимой задержкой, но каждое намерение покупки повторно проверяется по авторитетному состоянию, чтобы устаревшая projection не могла продать предмет дважды. Жизненный цикл лота определяет <a href="../../game-design/items-and-crafting/">опубликованный GDD</a>.</p>
-<h2 id="доверие-к-локальным-данным-и-валидация-загрузки">Доверие к локальным данным и валидация загрузки<a class="headerlink" href="#доверие-к-локальным-данным-и-валидация-загрузки" title="Permanent link">&para;</a></h2>
-<p><strong>Решено.</strong> Offline-сохранения и контент не защищаются: игрок может править их свободно. Online-персонажи и рынок — отдельный мир с серверной истиной и без импорта из offline.</p>
-<p>Валидация загрузки при этом обязательна всегда:</p>
+<h2 id="время-до-убийства">Время до убийства<a class="headerlink" href="#время-до-убийства" title="Permanent link">&para;</a></h2>
 <ul>
-<li>схема и версия, обязательные поля, типы, диапазоны;</li>
-<li>существование enum и ID, уникальность, ссылки;</li>
-<li>лимиты размеров массивов и map, конечность числовых значений, лимиты рекурсии и размера;</li>
-<li>межполевые инварианты.</li>
+<li>Практическая форма принципа: длительность честного боя держится в узком коридоре на всём протяжении игры. Ориентир — около десяти секунд на равного противника, допустимый разброс примерно от восьми до двенадцати.</li>
+<li>Коридор держится тем, что здоровье и устойчивый урон растут по одной кривой. Поздняя сила покупает не скорость убийства, а надёжность и тактические возможности.</li>
+<li>Замеряется устойчивый урон с учётом точности, темпа атак, ожидания критов, митигации, уклонения и доступного лечения, а не число из подсказки предмета.</li>
 </ul>
-<p>Порядок: разобрать во временное состояние, полностью провалидировать и только затем зафиксировать. Частичная мутация живого состояния запрещена. Неизвестные будущие версии отклоняются; известные старые версии мигрируются транзакционно с сохранением backup. Отказ происходит закрыто и с понятной диагностикой: локальная редактируемость никогда не оправдывает падения, зависания или молчаливого «починить само».</p>
-<p><strong>Открытый вопрос:</strong> какое поведение восстановления применяется к невалидному локальному сохранению — отказ, восстановление из backup, карантин полей или новый профиль. См. <a href="../../open-questions/">реестр открытых вопросов</a>.</p>
-<h2 id="кодирование-и-миграции">Кодирование и миграции<a class="headerlink" href="#кодирование-и-миграции" title="Permanent link">&para;</a></h2>
-<p>Payload начинается с версии кодека и использует unsigned varints вместе с zig-zag encoding знаковых значений роллов. Естественные boolean-состояния разделяют поле флагов <code>uint16</code>. Остальные данные остаются явными: ручная межполевая упаковка по битам намеренно исключена, потому что осложняет миграции и отладку, а overhead строки и индекса базы обычно превышает экономию нескольких байтов.</p>
-<p>Definition ID никогда не переиспользуются. Ревизии контента либо сохраняют обратную совместимость, либо мигрируют записи возобновляемыми batch-операциями. Поддержка декодером предыдущей версии сохраняется во время rolling deployment; backfill записывает новую версию и проверяет количество записей и checksums, после чего старое декодирование удаляется отдельным поздним релизом.</p>
-<h2 id="ёмкость-и-наблюдаемость">Ёмкость и наблюдаемость<a class="headerlink" href="#ёмкость-и-наблюдаемость" title="Permanent link">&para;</a></h2>
-<p>Страницы инвентаря загружаются по индексированному ключу owner/location, а не выборкой всех предметов мира. Batch get сохраняет запрошенный порядок ID среди найденных записей; list pagination использует монотонный <code>item_id</code>, а не offsets. Неизменяемые определения кешируются глобально, небольшие активные инвентари — на сессию.</p>
-<p>Следует измерять transaction latency, conflict rate, payload bytes/item, rows read, idempotency hits и причины ошибок craft/transfer.</p>
-<p>Команды измерения:</p>
-<div class="highlight"><pre><span></span><code>go test ./internal/itemstore
-go test -run '^$' -bench BenchmarkCodec -benchmem ./internal/itemstore
-go test -run '^$' -bench BenchmarkEncodeMillion -benchtime=1x -benchmem ./internal/itemstore
-</code></pre></div>
-<p>Benchmark миллиона предметов намеренно запускается только явно, поскольку создаёт крупную синтетическую fixture. Результаты зависят от машины и записываются в release/performance notes, а не фиксируются как обещания производительности.</p>
+<h2 id="эскалация-в-эндгейме-и-почему-она-не-ломает-коридор">Эскалация в эндгейме и почему она не ломает коридор<a class="headerlink" href="#эскалация-в-эндгейме-и-почему-она-не-ломает-коридор" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Отдельный враг в эндгейме по характеристикам слабее игрока, а не сильнее. Давление создаётся их числом и качеством их мозгов (<a href="../enemies-and-encounters/#масштабирование-сложности">враги и встречи</a>).</li>
+<li>Поэтому каждый отдельный размен остаётся читаемым и укладывается в коридор, а бой удлиняется за счёт количества противников в пределах уже записанного потолка присутствия на арене.</li>
+<li>Более умный вражеский мозг усложняет задачу по программированию, не трогая числа вообще. Это основной и самый дешёвый рычаг сложности.</li>
+</ul>
+<h2 id="убывающая-отдача-вместо-жёстких-потолков">Убывающая отдача вместо жёстких потолков<a class="headerlink" href="#убывающая-отдача-вместо-жёстких-потолков" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Все процентные характеристики работают через убывающую отдачу вида <code>эффект = сырое значение / (сырое значение + константа насыщения)</code>. Средние значения набираются легко, каждая следующая единица вложения даёт меньше предыдущей.</li>
+<li>Асимптота строго ниже ста процентов и недостижима. Обрывов, за которыми характеристика превращается в мусор, нет: вложение всегда что-то даёт, просто всё меньше.</li>
+<li>Для снижения получаемого урона это требование обязательное: сто процентов недостижимы ни при каком вложении, неуязвимости от характеристик не существует.</li>
+<li>Константа насыщения своя у каждой характеристики и является балансовым значением.</li>
+</ul>
+<h2 id="запрещённые-формы-роста-и-их-замены">Запрещённые формы роста и их замены<a class="headerlink" href="#запрещённые-формы-роста-и-их-замены" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Неограниченное перемножение модификаторов.</strong> Замена: одно аддитивное ведро «увеличение» с ограничением, и только затем отдельные именованные множители, каждый ограниченный.</li>
+<li><strong>Экспоненциальный или накапливающийся рост за уровень.</strong> Замена: авторская кусочно-линейная кривая, заканчивающаяся на границе коридора.</li>
+<li><strong>Урон, лечение и щиты в процентах от максимума здоровья.</strong> Замена: плоские значения, привязанные к диапазону уровней.</li>
+<li><strong>Плоское снижение урона, способное обнулить удар.</strong> Замена: убывающая отдача, описанная выше.</li>
+<li><strong>Неограниченные скорость атаки, сокращение перезарядки, дополнительные снаряды, цепные удары, призывы и накопление периодического урона.</strong> Замена: общий бюджет урона, который все эти эффекты делят между собой.</li>
+<li><strong>Неограниченная повышенная уязвимость, пробитие сопротивлений, добивание по доле здоровья и рекурсивные срабатывания эффектов от эффектов.</strong> Замена: ограниченная уязвимость и срабатывания только одного поколения.</li>
+<li><strong>Крит</strong> не добавляет силу поверх бюджета урона, а перераспределяет его: вложение в крит уменьшает что-то другое.</li>
+<li><strong>Лечение</strong> ограничено и по одной активации, и суммарно за бой, стоит времени действия или ограниченного заряда и обязательно входит в замер времени до убийства.</li>
+<li><strong>Временная неуязвимость</strong> допустима только как действие, во время которого нельзя атаковать и лечиться, и только на короткое время.</li>
+</ul>
+<h2 id="точность-и-переполнение">Точность и переполнение<a class="headerlink" href="#точность-и-переполнение" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Промежуточные вычисления урона выполняются в 64-битном целом, сдвиг на двенадцать бит с усечением к нулю выполняется в конце.</li>
+<li>Насыщение при переполнении остаётся только как ловушка ошибок и никогда не является ожидаемым поведением: срабатывание насыщения — это баг.</li>
+<li>При числах указанного порядка запас до предела Q20.12 составляет порядка тысяч крат, поэтому переполнение возможно только как следствие запрещённой формы роста.</li>
+</ul>
+<h2 id="что-из-этого-проверяет-ci">Что из этого проверяет CI<a class="headerlink" href="#что-из-этого-проверяет-ci" title="Permanent link">&para;</a></h2>
+<p>Перечень проверок приведён в <a href="../../technical/testing-and-ci/#балансовые-тесты-коридора-чисел">стратегии тестирования и CI</a>. Здесь записаны намерения, там — конкретные гейты.</p>
+<h2 id="открытые-вопросы">Открытые вопросы<a class="headerlink" href="#открытые-вопросы" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Каковы точные константы насыщения для каждой характеристики?</li>
+<li>Каково точное устройство бюджета урона и правила его разделения между эффектами?</li>
+<li>Каковы точные ограничения на число множителей и их предельные значения?</li>
+</ul>
 
 
 
