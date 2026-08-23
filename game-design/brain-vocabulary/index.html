@@ -864,6 +864,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../accessibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Доступность
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../passive-tree-and-sockets/" class="md-nav__link">
         
   
@@ -1234,6 +1262,34 @@
     
   
     Спецификация боевой симуляции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/stat-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Единый конвейер расчёта
   
 
     
@@ -1656,7 +1712,7 @@
 <p>Каждый размещённый bubble, включая константу и литерал, стоит ровно 1 Memory. Игрок расходует
 бюджет и на числа, и на логику.</p>
 <h2 id="типы-значений">Типы значений<a class="headerlink" href="#типы-значений" title="Permanent link">&para;</a></h2>
-<p><strong>Подтверждено.</strong> Boolean, Integer, Fixed (Q20.12), Distance, Percentage, DurationTicks,
+<p><strong>Подтверждено.</strong> Boolean, Integer, Fixed (Q16.16), Distance, Percentage, DurationTicks,
 Direction16, Phase, EntityRef, PointRef, HazardRef, SkillRef, Tag, ResourceTag, EventTag, CompareOp.</p>
 <ul>
 <li>Дистанции и точки используют фиксированную точку симуляции.</li>
@@ -1685,7 +1741,7 @@ Direction16, Phase, EntityRef, PointRef, HazardRef, SkillRef, Tag, ResourceTag, 
 <p><strong>Тайминг и фазы:</strong> <code>PhaseRemaining(e)</code>, <code>TimeSinceEvent(e,eventTag)</code> для <code>Damaged</code>, <code>SkillUsed</code>,
 <code>Interrupted</code>, <code>TargetChanged</code>, <code>Every(duration,offset)</code> по тикам симуляции — часов реального
 времени нет.</p>
-<p><strong>Ресурсы:</strong> <code>SkillReady(e,skill)</code>, <code>SkillCooldownRemaining</code>, <code>Resource(e,tag)</code>, <code>Charges(e,skill)</code>.</p>
+<p><strong>Ресурсы:</strong> <code>SkillReady(e,skill)</code>, <code>SkillCooldownRemaining</code>, <code>Resource(e,tag)</code>, <code>Charges(e,skill)</code>. <code>SkillReady(e, skill)</code> истинен <strong>только</strong> когда перезарядка прошла <strong>и</strong> маны хватает: оба ограничения проверяются вместе, поэтому один предикат отвечает на вопрос «можно ли применить прямо сейчас». <code>SkillCooldownRemaining</code> позволяет мозгу различить, какая из двух причин помешала: ненулевой остаток означает перезарядку, нулевой при ложном <code>SkillReady</code> — нехватку маны. Замысел: перезарядка задаёт темп одного навыка, мана ограничивает комбинацию пяти (<a href="../skills-and-tags/#экономика-навыков">экономика навыков</a>). <code>Resource(e, mana)</code> является каноническим способом наблюдения текущей маны; мана — состояние мира, а не Brain, поэтому отдельный именной сенсор не требуется (<a href="../skills-and-tags/#экономика-навыков">экономика навыков</a>).</p>
 <h2 id="селекторы">Селекторы<a class="headerlink" href="#селекторы" title="Permanent link">&para;</a></h2>
 <p><strong>Враги:</strong> <code>NearestEnemy</code>, <code>LowestHealthEnemy</code>, <code>MostIsolatedEnemy</code>, <code>PreparingEnemy</code>,
 <code>RecoveringEnemy</code>, <code>MarkedEnemy</code>, <code>EnemyTargeting(e)</code>.</p>
@@ -1714,7 +1770,12 @@ Direction16, Phase, EntityRef, PointRef, HazardRef, SkillRef, Tag, ResourceTag, 
 recovery_ticks)</code>. Подготовка прерываема, исполнение атомарно, восстановление отложимо.</p>
 <p><strong>Движение</strong>, обычно <code>(0,1,0)</code> — один тик: <code>Approach(target,stopDistance)</code>,
 <code>Retreat(target,minDistance)</code>, <code>HoldRange(target,min,max)</code>, <code>Orbit(target,radius,direction)</code>,
-<code>Regroup(ally|point,radius)</code>, <code>Interpose(protectedAlly,threat,offset)</code>, <code>MoveTo(point,stopDistance)</code>.</p>
+<code>Regroup(ally|point,radius)</code>, <code>Interpose(protectedAlly,threat,offset)</code>, <code>MoveTo(point,stopDistance)</code>.
+Все команды движения означают «двигаться <strong>по маршруту</strong>», а не «двигаться по прямой»: маршрутизацию
+через зоны и проходы арены выполняет движок по графу порталов (см.
+<a href="../../technical/combat-simulation/#генерация-арены">генерация арены</a>). Стоимость в тиках зависит от
+геометрии; мозг этого не наблюдает. Сенсора линии огня в словаре нет — если стена блокирует атаку,
+движок сам перемещает бойца на позицию с чистой линией огня.</p>
 <p><strong>Навыки:</strong> <code>UseTargetSkill(skill,entity)</code>, <code>UsePointSkill(skill,point)</code>,
 <code>UseDirectionSkill(skill,direction16)</code>, <code>UseSelfSkill(skill)</code>. Эти четыре покрывают атаки, защиту,
 усиления, лечение, метки, прерывания, отбрасывание и опасные зоны. Данные навыка задают допустимую
@@ -1799,8 +1860,9 @@ recovery_ticks)</code>. Подготовка прерываема, исполн�
 <h2 id="открытые-вопросы">Открытые вопросы<a class="headerlink" href="#открытые-вопросы" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Какие именно навыки, ресурсы, теги и окна истории событий входят в MVP?</li>
-<li>Допустимы ли <code>SafestPointAround</code> и <code>Interpose</code> как детерминированные пространственные решатели,
-  или MVP должен предоставить только более простое движение?</li>
+<li>Допустим ли <code>Interpose</code> как детерминированный пространственный решатель, или MVP должен
+  предоставить только более простое движение? <code>SafestPointAround</code> из вопроса выведен: он закреплён
+  наградой шестой обучающей миссии (<a href="../ai-brain/#лестница-обучающих-миссий">лестница обучающих миссий</a>).</li>
 </ul>
 
 

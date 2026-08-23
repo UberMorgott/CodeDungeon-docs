@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/content-packages/">
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/stat-pipeline/">
       
       
-        <link rel="prev" href="../process-topology/">
+        <link rel="prev" href="../combat-simulation/">
       
       
-        <link rel="next" href="../ui-architecture/">
+        <link rel="next" href="../process-topology/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Пакеты контента и баланса - CodeDungeon — документация</title>
+        <title>Единый конвейер расчёта - CodeDungeon — документация</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#пакеты-контента-и-баланса" class="md-skip">
+        <a href="#единый-конвейер-расчёта" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Пакеты контента и баланса
+              Единый конвейер расчёта
             
           </span>
         </div>
@@ -1116,10 +1116,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../stat-pipeline/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Единый конвейер расчёта
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1135,6 +1162,203 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#статус" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Статус
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#восемь-стадий" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Восемь стадий
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Восемь стадий">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-контекст" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Контекст
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-отбор" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Отбор
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-накопление" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3–5. Накопление
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-смягчение" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Смягчение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-ограничения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Ограничения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-фиксация" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Фиксация
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#три-формулы--это-один-шаг-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Три формулы — это один шаг 6
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#теги-и-модификаторы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Теги и модификаторы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Теги и модификаторы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#источники-тегов-контекста" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Источники тегов контекста
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#детерминизм" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Детерминизм
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#цена-решения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Цена решения
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#граница-против-переусложнения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граница против переусложнения
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#открытые-вопросы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Открытые вопросы
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1172,37 +1396,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Пакеты контента и баланса
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../content-packages/" class="md-nav__link">
         
   
   
@@ -1218,103 +1415,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Содержание">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#решение" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Решение
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#раскладка" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Раскладка
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#manifestjson" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        manifest.json
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#загрузчик" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Загрузчик
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#публикация" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Публикация
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#модификаторы-и-граница-никакого-dsl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Модификаторы и граница «никакого DSL»
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#открытые-вопросы" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Открытые вопросы
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1522,10 +1622,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#решение" class="md-nav__link">
+  <a href="#статус" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Решение
+        Статус
       
     </span>
   </a>
@@ -1533,10 +1633,93 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#раскладка" class="md-nav__link">
+  <a href="#восемь-стадий" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Раскладка
+        Восемь стадий
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Восемь стадий">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-контекст" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Контекст
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-отбор" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Отбор
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-накопление" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3–5. Накопление
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-смягчение" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Смягчение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-ограничения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Ограничения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-фиксация" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Фиксация
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#три-формулы--это-один-шаг-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Три формулы — это один шаг 6
       
     </span>
   </a>
@@ -1544,10 +1727,38 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#manifestjson" class="md-nav__link">
+  <a href="#теги-и-модификаторы" class="md-nav__link">
     <span class="md-ellipsis">
       
-        manifest.json
+        Теги и модификаторы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Теги и модификаторы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#источники-тегов-контекста" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Источники тегов контекста
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#детерминизм" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Детерминизм
       
     </span>
   </a>
@@ -1555,10 +1766,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#загрузчик" class="md-nav__link">
+  <a href="#цена-решения" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Загрузчик
+        Цена решения
       
     </span>
   </a>
@@ -1566,21 +1777,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#публикация" class="md-nav__link">
+  <a href="#граница-против-переусложнения" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Публикация
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#модификаторы-и-граница-никакого-dsl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Модификаторы и граница «никакого DSL»
+        Граница против переусложнения
       
     </span>
   </a>
@@ -1615,7 +1815,7 @@
 
 
   
-    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/technical/content-packages.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/technical/stat-pipeline.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1623,35 +1823,227 @@
   
 
 
-<h1 id="пакеты-контента-и-баланса">Пакеты контента и баланса<a class="headerlink" href="#пакеты-контента-и-баланса" title="Permanent link">&para;</a></h1>
-<h2 id="решение">Решение<a class="headerlink" href="#решение" title="Permanent link">&para;</a></h2>
-<p><strong>Принято.</strong> Контент и баланс авторятся строгим JSON прямо в репозитории, разделённым по bounded context, и проверяются JSON Schema плюс доменной валидацией на Go. Protobuf остаётся только форматом провода и никогда не является форматом авторинга.</p>
-<p>Числа баланса лежат рядом со своими структурными определениями в каноническом JSON. Отдельного источника истины в CSV или таблицах нет.</p>
-<h2 id="раскладка">Раскладка<a class="headerlink" href="#раскладка" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>content/schema/v1/*.schema.json
-content/packages/dev-v1/manifest.json
-content/packages/dev-v1/{items,skills,enemies,recipes,passives,dungeons,progression}/*.json
-content/fixtures/{valid,invalid}/
-content/published/&lt;version&gt;/        # неизменяемые экспорты
+<h1 id="единый-конвейер-расчёта">Единый конвейер расчёта<a class="headerlink" href="#единый-конвейер-расчёта" title="Permanent link">&para;</a></h1>
+<p>Технический контракт <strong>единственной формулы игры</strong>. Урон, смягчение, характеристики, длительности, стоимости — всё считается одним и тем же конвейером. Игровой смысл тегов принадлежит <a href="../../game-design/skills-and-tags/">навыкам и тегам</a>, числовые границы — <a href="../../game-design/balance-principles/">принципам баланса чисел</a>, тиковый порядок и фиксированная точка — <a href="../combat-simulation/">спецификации боевой симуляции</a>.</p>
+<h2 id="статус">Статус<a class="headerlink" href="#статус" title="Permanent link">&para;</a></h2>
+<p><strong>Принято.</strong> Обязательное решение владельца проекта.</p>
+<ul>
+<li>В игре <strong>одна</strong> формула расчёта. Отдельных формул для урона, смягчения, лечения, скоростей и стоимостей не существует.</li>
+<li>Дублирующих кусков арифметики в коде нет: любое вычисляемое число проходит через один и тот же вычислитель.</li>
+<li>Формула динамическая: переменные входят в неё и покидают её <strong>по тегам</strong>, а реестр тегов общий для всей игры.</li>
+<li>Различия между типами урона живут в <strong>данных</strong>, а не в ветвлениях кода.</li>
+</ul>
+<h2 id="восемь-стадий">Восемь стадий<a class="headerlink" href="#восемь-стадий" title="Permanent link">&para;</a></h2>
+<p><strong>Нормативно и заморожено.</strong> Один расчёт исполняет стадии строго в этом порядке. Изменение порядка меняет результат и требует новой версии правил симуляции наравне с <a href="../combat-simulation/#канонический-порядок-тика">каноническим порядком тика</a>.</p>
+<table>
+<thead>
+<tr>
+<th>№</th>
+<th>Стадия</th>
+<th>Что делает</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Контекст</td>
+<td>применяет конверсии, затем раскрывает теги до неподвижной точки и выдаёт effective tags</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Отбор</td>
+<td>выбирает модификаторы, чей теговый запрос AND / OR / NOT совпал с effective tags контекста</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Плоские значения</td>
+<td><code>A = base + Σflat</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Суммируемые проценты</td>
+<td><code>A = qmul(A, ONE + Σadd_pct)</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Множители</td>
+<td><code>A = qmul(A, множитель)</code> по одному, в каноническом порядке</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Смягчение</td>
+<td><code>A = max(floor, trunc0((A - flat_mitigation) · K / (rating + K)))</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Ограничения</td>
+<td>общие min/max и типизированные post-эффекты — через тот же механизм модификаторов</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Фиксация</td>
+<td>пишет результат и трассу стадий в состояние и в потиковый хеш</td>
+</tr>
+</tbody>
+</table>
+<p>Обозначения: <code>A</code> — накапливаемое значение; <code>ONE</code> — единица единственного формата фиксированной точки Q16.16, то есть <code>65536</code>; <code>qmul(a, b) = trunc0(a · b / ONE)</code> в int64; <code>trunc0</code> — усечение к нулю.</p>
+<h3 id="1-контекст">1. Контекст<a class="headerlink" href="#1-контекст" title="Permanent link">&para;</a></h3>
+<p>Порядок внутри стадии совпадает с уже утверждённым: сначала конверсии, затем добавление тегов до стабилизации набора (<a href="../../game-design/skills-and-tags/#tag-addition-sources">источники добавления тегов</a>). Раскрытие монотонно и каждый источник срабатывает не более раза, поэтому неподвижная точка достигается за конечное число шагов и отдельный лимит глубины не нужен.</p>
+<h3 id="2-отбор">2. Отбор<a class="headerlink" href="#2-отбор" title="Permanent link">&para;</a></h3>
+<p>Модификатор применим тогда и только тогда, когда его теговый запрос истинен на effective tags контекста. Списков навыков, имён сущностей и исключений «кроме вот этого скилла» в отборе нет.</p>
+<h3 id="35-накопление">3–5. Накопление<a class="headerlink" href="#35-накопление" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Стадия 3 складывает плоские слагаемые <strong>без промежуточных сдвигов</strong>: сумма набирается целиком, и лишь потом идёт в следующую стадию.</li>
+<li>Стадия 4 применяет одно аддитивное ведро «увеличение» — ровно та замена неограниченного перемножения, которая требуется <a href="../../game-design/balance-principles/#запрещённые-формы-роста-и-их-замены">принципами баланса</a>.</li>
+<li>Стадия 5 применяет каждый именованный множитель <strong>по одному</strong>, а не перемножает их предварительно: предварительное перемножение даёт другой результат усечения.</li>
+</ul>
+<h3 id="6-смягчение">6. Смягчение<a class="headerlink" href="#6-смягчение" title="Permanent link">&para;</a></h3>
+<p><code>A = max(floor, trunc0((A - flat_mitigation) · K / (rating + K)))</code></p>
+<p>Это и есть та убывающая отдача, которая записана в <a href="../../game-design/balance-principles/#убывающая-отдача-вместо-жёстких-потолков">принципах баланса чисел</a>: множитель <code>K/(rating + K)</code> строго меньше единицы и строго больше нуля, поэтому стопроцентного снижения не существует ни при каком вложении.</p>
+<h3 id="7-ограничения">7. Ограничения<a class="headerlink" href="#7-ограничения" title="Permanent link">&para;</a></h3>
+<p>Общие <code>min</code> / <code>max</code> и типизированные post-эффекты выражены <strong>теми же операциями модификаторов</strong>, что и стадии 3–5, и отбираются тем же теговым запросом. Отдельного механизма кэпов нет.</p>
+<h3 id="8-фиксация">8. Фиксация<a class="headerlink" href="#8-фиксация" title="Permanent link">&para;</a></h3>
+<p>Результат и трасса стадий записываются в состояние и участвуют в потиковом хеше (<a href="../testing-and-ci/#харнесс-детерминизма">харнесс детерминизма</a>).</p>
+<h2 id="три-формулы--это-один-шаг-6">Три формулы — это один шаг 6<a class="headerlink" href="#три-формулы--это-один-шаг-6" title="Permanent link">&para;</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Несущая мысль</p>
+<p>Три формулы митигации, записанные в GDD, <strong>не являются тремя формулами</strong>. Это три набора параметров одной стадии 6. Ветвления по типу урона в коде нет и не будет.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Профиль</th>
+<th><code>flat_mitigation</code></th>
+<th><code>rating</code></th>
+<th>Во что сводится стадия 6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Физический (колющий, дробящий, рубящий)</td>
+<td>броня подтипа</td>
+<td><code>0</code></td>
+<td><code>K/(0 + K) = 1</code>, остаётся только вычитание: <code>max(1, A - armor_подтипа)</code></td>
+</tr>
+<tr>
+<td>Стихийный (огонь, холод, молния)</td>
+<td><code>0</code></td>
+<td>сопротивление стихии</td>
+<td>вычитать нечего, остаётся процент: <code>max(1, A · K/(resist + K))</code></td>
+</tr>
+<tr>
+<td>Яд</td>
+<td><code>0</code></td>
+<td>сопротивление яду</td>
+<td>тот же процент, применяемый к урону тика: <code>max(1, A_tick · K/(poison_resist + K))</code></td>
+</tr>
+</tbody>
+</table>
+<p>Семь значений митигации (<a href="../../game-design/skills-and-tags/#реестр-типов-урона">реестр типов урона</a>) — это семь профилей, каждый из которых ссылается на свой stat ID. Добавление восьмого типа урона — добавление строки данных, а не ветки в коде.</p>
+<h2 id="теги-и-модификаторы">Теги и модификаторы<a class="headerlink" href="#теги-и-модификаторы" title="Permanent link">&para;</a></h2>
+<p>Модификатор — это данные из четырёх частей: стабильный ID, операция, целевая характеристика и теговый запрос.</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Смысл</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>стабильный ID; участвует в каноническом порядке и в трассе</td>
+</tr>
+<tr>
+<td><code>op</code></td>
+<td><code>add_flat</code> (стадия 3), <code>add_pct</code> (стадия 4), <code>mul</code> (стадия 5), <code>min</code> / <code>max</code> (стадия 7)</td>
+</tr>
+<tr>
+<td><code>stat</code></td>
+<td>stat ID, к которому применяется операция</td>
+</tr>
+<tr>
+<td><code>all</code> / <code>any</code> / <code>not</code></td>
+<td>теговый запрос AND / OR / NOT</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td>значение в фиксированной точке Q16.16 (<code>ONE = 65536</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>Примеры строк данных:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"modifier:item:barbed_tip"</span><span class="p">,</span><span class="nt">"all"</span><span class="p">:[</span><span class="s2">"physical_damage"</span><span class="p">,</span><span class="s2">"projectile"</span><span class="p">],</span><span class="nt">"op"</span><span class="p">:</span><span class="s2">"add_flat"</span><span class="p">,</span><span class="nt">"stat"</span><span class="p">:</span><span class="s2">"damage"</span><span class="p">,</span><span class="nt">"q"</span><span class="p">:</span><span class="mi">65536</span><span class="p">}</span>
+<span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"modifier:passive:burning_area"</span><span class="p">,</span><span class="nt">"all"</span><span class="p">:[</span><span class="s2">"fire_damage"</span><span class="p">,</span><span class="s2">"area"</span><span class="p">],</span><span class="nt">"not"</span><span class="p">:[</span><span class="s2">"projectile"</span><span class="p">],</span><span class="nt">"op"</span><span class="p">:</span><span class="s2">"add_pct"</span><span class="p">,</span><span class="nt">"stat"</span><span class="p">:</span><span class="s2">"damage"</span><span class="p">,</span><span class="nt">"q"</span><span class="p">:</span><span class="mi">16384</span><span class="p">}</span>
 </code></pre></div>
-<h2 id="manifestjson">manifest.json<a class="headerlink" href="#manifestjson" title="Permanent link">&para;</a></h2>
-<p>Содержит: версию схемы, версию контента, совместимый билд игры и версию протокола, инвентарь файлов, версии зависимостей и канонический хеш пакета. Метаданные публикации остаются вне хешируемой полезной нагрузки.</p>
-<h2 id="загрузчик">Загрузчик<a class="headerlink" href="#загрузчик" title="Permanent link">&para;</a></h2>
-<p><code>LoadPackage(version) -&gt; ContentSnapshot</code> возвращает неизменяемый снимок. Загрузка отклоняется при: неизвестных полях, дублирующихся ID, отсутствующих ссылках, значениях вне диапазона, циклах зависимостей, несовместимых версиях, несовпадении хеша.</p>
-<p>Загрузка — всё или ничего. Runtime закрепляет одну версию на весь забег.</p>
-<h2 id="публикация">Публикация<a class="headerlink" href="#публикация" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>канонизация (детерминированная) -&gt; валидация -&gt; пакетная симуляция -&gt; хеш -&gt; атомарная установка -&gt; отдельная активация
-</code></pre></div>
-<p>Откат переводит указатель активной версии и никогда не редактирует пакет.</p>
-<h2 id="модификаторы-и-граница-никакого-dsl">Модификаторы и граница «никакого DSL»<a class="headerlink" href="#модификаторы-и-граница-никакого-dsl" title="Permanent link">&para;</a></h2>
-<p><strong>Принято.</strong> Формулы исполняет Go, контент несёт только параметры. Произвольных выражений, скриптов и DSL в пакетах контента нет.</p>
-<p>Модификатор авторится как строка данных из стабильного ID, операции, целевого stat ID, тегового запроса AND / OR / NOT и значения в фиксированной точке. Схема операций и порядок их применения принадлежат <a href="../stat-pipeline/">единому конвейеру расчёта</a> и здесь не дублируются; JSON Schema и доменная валидация обязаны отклонить неизвестную операцию, неизвестный stat ID и невалидный знаменатель смягчения ещё на загрузке.</p>
+<p>Ни одна из этих строк не называет навык. Первая усилит любой источник, который в момент расчёта несёт <code>physical_damage</code> и <code>projectile</code>, — включая порождённые сущности, унаследовавшие оба тега.</p>
+<p><strong>Реестр модификаторов плоский.</strong> Категории тегов существуют только для UI и редактора; применимость всегда решается по effective tags (<a href="../../game-design/skills-and-tags/#категории-тегов">категории тегов</a>).</p>
+<h3 id="источники-тегов-контекста">Источники тегов контекста<a class="headerlink" href="#источники-тегов-контекста" title="Permanent link">&para;</a></h3>
+<p>Контекст расчёта объединяет теги источника, активного навыка, способа доставки и дистанции, типа урона и стихии, ресурса или эффекта и цели. Все они берутся из <strong>одного</strong> реестра тегов и ложатся на уже утверждённые категории:</p>
+<table>
+<thead>
+<tr>
+<th>Ось контекста</th>
+<th>Категория из <a href="../../game-design/skills-and-tags/#категории-тегов">навыков и тегов</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>активный навык</td>
+<td>тип сущности: активный или пассивный навык</td>
+</tr>
+<tr>
+<td>тип урона и стихия</td>
+<td>урон и стихия</td>
+</tr>
+<tr>
+<td>способ доставки и дистанция</td>
+<td>способ применения и дистанция; форма доставки</td>
+</tr>
+<tr>
+<td>ресурс или эффект</td>
+<td>ресурс; эффект</td>
+</tr>
+<tr>
+<td>цель</td>
+<td>цель</td>
+</tr>
+<tr>
+<td>источник расчёта (боец, враг, призванное существо)</td>
+<td><strong>не покрыта</strong> — см. <a href="#открытые-вопросы">открытые вопросы</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="детерминизм">Детерминизм<a class="headerlink" href="#детерминизм" title="Permanent link">&para;</a></h2>
+<p><strong>Нормативно.</strong></p>
+<ul>
+<li><strong>Канонический порядок агрегации:</strong> <code>(stage, stat_id, source_id, modifier_id)</code>, сравнение по стабильным ID <strong>побайтово</strong>. Порядок входных данных игнорируется полностью: порядок обхода Go-мапы, порядок файлов контента и порядок надевания предметов на результат не влияют.</li>
+<li>Суммы <code>add_flat</code> и <code>add_pct</code> набираются в <strong>int64</strong>; множители применяются затем <strong>по одному</strong> в том же каноническом порядке.</li>
+<li><strong>Усечение к нулю выполняется после каждой стадии умножения и деления</strong>, а не один раз в конце. Единственное финальное округление даёт другой результат и приближает переполнение int64.</li>
+<li><code>K &gt; 0</code> и <code>rating &gt;= 0</code>; знаменатель <code>rating + K</code> валидируется. Невалидный контент падает <strong>до</strong> арифметики, как ошибка контента, и никогда не чинится в runtime подстановкой значения.</li>
+<li>Умножение и деление int64 — <strong>проверяемые</strong>: переполнение является багом и обязано быть замечено, а не насыщено молча (<a href="../combat-simulation/#контракт-фиксированной-точки">контракт фиксированной точки</a>).</li>
+<li>Результат расчёта и трасса стадий входят в потиковый хеш состояния.</li>
+</ul>
+<h2 id="цена-решения">Цена решения<a class="headerlink" href="#цена-решения" title="Permanent link">&para;</a></h2>
+<p>Записано честно: единая формула переносит стоимость с кода на объяснимость и на данные.</p>
+<ul>
+<li><strong>Отладка на стороне игрока.</strong> Тултип обязан раскладывать число на слагаемые: база, плоские прибавки, сумма процентов, каждый множитель отдельно, смягчение, итог. Без этого игрок видит одно число и не может связать его с надетым предметом.</li>
+<li><strong>Отладка на стороне разработчика.</strong> Детерминированная трасса записывает ID <strong>каждого</strong> сработавшего модификатора. Трасса — тот же артефакт, что участвует в хеше, а не отдельный лог.</li>
+<li><strong>Производительность при 60 Гц и до шести бойцов.</strong> Разрешённый план расчёта кешируется по паре «набор effective tags + ревизия сборки». Реестр модификаторов <strong>никогда не сканируется на каждый удар</strong>: сканирование происходит при смене сборки или набора тегов, дальше работает готовый план.</li>
+</ul>
+<h2 id="граница-против-переусложнения">Граница против переусложнения<a class="headerlink" href="#граница-против-переусложнения" title="Permanent link">&para;</a></h2>
+<p><strong>Нормативно.</strong> Один вычислитель, одна схема операций, профили в данных.</p>
+<ul>
+<li><strong>DSL нет.</strong> Произвольных формул в контенте нет. Данные несут только параметры: <code>op</code>, <code>stat</code>, теговый запрос и значение.</li>
+<li>Формулы исполняет <strong>Go</strong>; контент их не описывает. Это закрывает ранее открытый вопрос о том, являются ли геймплейные формулы выражениями в данных (<a href="../content-packages/">пакеты контента и баланса</a>).</li>
+<li>Новая механика — это новый тег и новые строки модификаторов, а не новая формула. Если механику нельзя выразить восемью стадиями, обсуждается <strong>изменение стадий</strong>, а не локальное исключение: исключение — это второй кусок арифметики, ровно то, что запрещено.</li>
+</ul>
 <h2 id="открытые-вопросы">Открытые вопросы<a class="headerlink" href="#открытые-вопросы" title="Permanent link">&para;</a></h2>
 <ul>
-<li><del>Являются ли геймплейные формулы выражениями в данных, зарегистрированными Go-функциями или ограниченной комбинацией?</del> <strong>Закрыт:</strong> формулу исполняет Go, данные несут только параметры — <a href="../stat-pipeline/">единый конвейер расчёта</a>.</li>
-<li>Каковы политика пространства имён стабильных ID, переименования и устаревания?</li>
+<li>Каков полный список stat ID и какие из них имеют профиль смягчения?</li>
+<li>Каковы константы <code>K</code> для семи значений митигации и для остальных характеристик убывающей отдачи?</li>
+<li>Какая категория тегов описывает источник расчёта — бойца, врага и призванное существо? Категория «тип сущности» сейчас перечисляет только активный и пассивный навык, хотя общий контракт обязывает эти сущности нести тег типа.</li>
 </ul>
-<p>Вопрос политики ID ведётся в <a href="../../open-questions/">реестре открытых вопросов</a>.</p>
 
 
 

@@ -1029,6 +1029,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../accessibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Доступность
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../passive-tree-and-sockets/" class="md-nav__link">
         
   
@@ -1399,6 +1427,34 @@
     
   
     Спецификация боевой симуляции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/stat-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Единый конвейер расчёта
   
 
     
@@ -2052,11 +2108,11 @@ Critical account/economy audit events ~&gt; Transactional outbox ~&gt; Audit con
 <p>Любой импорт является недоверенным: применяются лимиты размера/глубины/числа элементов, schema/type/ID/edge validation, общий graph/build validator и проверки entitlement/content compatibility. Числовые лимиты и точный codec откладываются до реализации. Blueprint переносит только layout/config алгоритма, поэтому Offline → Online разрешён, но Online core повторяет все проверки авторитетно; предметы, валюты, XP, passive points, Memory, entitlements и power через эту границу не проходят.</p>
 <p><strong>CURRENT — prototype:</strong> реализация сосредоточена в <code>server/internal/ai</code>; Godot содержит редактор, реестры и UI-валидацию. <strong>MIGRATION SEAM:</strong> общий versioned schema/fixtures и cross-client contract-тесты отделяют UX-проверки от авторитетной серверной проверки. GDD: <a href="../ai-brain/">мозг персонажа</a>.</p>
 <h3 id="канонические-теги-формулы-и-модификаторы">Канонические теги, формулы и модификаторы<a class="headerlink" href="#канонические-теги-формулы-и-модификаторы" title="Permanent link">&para;</a></h3>
-<p><strong>TARGET. Владеет:</strong> стабильными tag ID и их категориями, атрибутами, порядком стадий вычисления, stacking/rounding/caps, conversion и форматом modifier. Это общий math kernel для боя, билдов, предметов, навыков и предпросмотра баланса. Порядок операций, округление и caps детерминированы и одинаковы для PvE/PvP; различия задаёт versioned <code>ModeRules</code>, а не отдельные формулы по вызывающим системам. Финальные числовые значения PvP-баланса отложены.</p>
+<p><strong>TARGET. Владеет:</strong> стабильными tag ID и их категориями, атрибутами, порядком стадий вычисления, stacking/rounding/caps, conversion и форматом modifier. Это общий math kernel для боя, билдов, предметов, навыков и предпросмотра баланса. Нормативный контракт — <strong>восемь стадий <a href="../../technical/stat-pipeline/">единого конвейера расчёта</a></strong>; отдельных формул урона и митигации нет, три профиля смягчения являются параметрами стадии 6. Порядок операций, округление и caps детерминированы и одинаковы для PvE/PvP; различия задаёт versioned <code>ModeRules</code>, а не отдельные формулы по вызывающим системам. Финальные числовые значения PvP-баланса отложены.</p>
 <p><strong>Обещает:</strong> типизированные <code>Evaluate(context, modifiers)</code> и trace результата; валидацию неизвестных ID и запрещённых комбинаций; одну и ту же реализацию для runtime и balance simulation. <strong>Требует:</strong> только immutable registries из content package. <strong>Запрещено:</strong> произвольным системам вводить string-key формулы или собственный порядок применения эффектов.</p>
 <p><strong>CURRENT — prototype:</strong> <code>server/internal/combatformula</code> — начало целевой границы, но формулы также живут в simulator и legacy <code>loot</code>; часть параметров передаётся через строки и <code>interface{}</code>. <strong>MIGRATION SEAM:</strong> characterisation-тесты фиксируют текущее поведение, адаптер переводит legacy modifier в канонический тип, затем старые ветви удаляются. GDD: <a href="../skills-and-tags/">навыки и теги</a>, <a href="../passive-tree-and-sockets/">пассивное дерево</a>, <a href="../items-and-crafting/">предметы и крафт</a>.</p>
 <h3 id="build-навыки-и-пассивные-деревья">Build, навыки и пассивные деревья<a class="headerlink" href="#build-навыки-и-пассивные-деревья" title="Permanent link">&para;</a></h3>
-<p><strong>TARGET. Владеет:</strong> сохранёнными конфигурациями двух билдов, выбранным пассивным деревом, сокетами, размещением активных навыков и ссылками на blueprint; разрешает итоговый runtime build из ID и версий. Навык как definition и tag ID принадлежат content package, экземпляр выбора — build-подсистеме.</p>
+<p><strong>TARGET. Владеет:</strong> сохранёнными конфигурациями двух билдов, обоими пассивными деревьями и признаком активного, пятью узлами-гнёздами в каждом дереве, размещением одной автоатаки и пяти активных навыков и ссылками на blueprint; разрешает итоговый runtime build из ID и версий. Навык как definition и tag ID принадлежат content package, экземпляр выбора — build-подсистеме.</p>
 <p><strong>Обещает:</strong> <code>ValidateBuildIntent</code>, <code>ResolveBuild</code> и immutable <code>ResolvedBuild</code>; ошибки с указанием владельца ограничения. <strong>Требует:</strong> entitlements прогрессии, inventory references, AI validator и content version. <strong>Запрещено:</strong> принимать от Godot готовые <code>CharacterStats</code>, <code>SkillDef</code> или вычисленный итоговый build.</p>
 <p><strong>CURRENT — prototype:</strong> <code>PlayerBuild</code> в <code>shared/proto/game.proto</code> принимает клиентские stats и skill definitions; <code>server/internal/game/build_schema.go</code> и проверки progression уже валидируют часть схемы. <strong>MIGRATION SEAM:</strong> новый запрос содержит только stable IDs, выбранные узлы и revision; серверный resolver работает параллельно legacy upload до переключения. GDD: <a href="../passive-tree-and-sockets/">пассивное дерево и ячейки</a>, <a href="../skills-and-tags/">навыки и теги</a>, <a href="../ai-brain/">мозг персонажа</a>.</p>
 <h3 id="предметы-инвентарь-крафт-и-хранение">Предметы, инвентарь, крафт и хранение<a class="headerlink" href="#предметы-инвентарь-крафт-и-хранение" title="Permanent link">&para;</a></h3>
@@ -2070,7 +2126,7 @@ Critical account/economy audit events ~&gt; Transactional outbox ~&gt; Audit con
 <p><strong>CURRENT — prototype:</strong> <code>server/internal/itemization</code>, <code>itemstore</code> и <code>itempersist</code> уже образуют целевой путь; <code>server/internal/loot</code> и <code>RewardItem</code> — дублирующий legacy-срез. <strong>MIGRATION SEAM:</strong> anti-corruption adapter превращает старые награды в новые item instances; после миграции оркестратор выдаёт только item IDs. GDD: <a href="../items-and-crafting/">предметы и крафт</a>.</p>
 <h3 id="долгосрочная-прогрессия">Долгосрочная прогрессия<a class="headerlink" href="#долгосрочная-прогрессия" title="Permanent link">&para;</a></h3>
 <p><strong>TARGET. Владеет:</strong> неторговыми ресурсами открытия и unlock/entitlement игрока, стадиями AI, tier узлов, Memory и прочей метапрогрессией. Изменение проходит серверной транзакцией и audit event. Торговые валютные балансы и резервы принадлежат Economy wallet/ledger, а не прогрессии.</p>
-<p>При создании будущего Online-персонажа эта подсистема атомарно назначает полный учебный Brain-entitlement: все bubbles, все их mission-derived ступени и улучшения и весь выдаваемый обучением максимум Memory. Выдача эквивалентна завершённой программе обучения программированию и не читает offline-профиль. При этом силовая прогрессия начинается с нуля внутри Online-realm: экипировка, опыт и уровни персонажа, очки и распределение пассивного дерева, доступ к второму билду и его развитие зарабатываются независимо. Ни один из этих источников силы не импортируется из Offline; стартовые числа и точный milestone второго билда остаются versioned balance data.</p>
+<p>При создании будущего Online-персонажа эта подсистема атомарно назначает полный учебный Brain-entitlement: все bubbles, все их ступени и улучшения и весь максимум Memory, выдаваемый <strong>семью обучающими миссиями и семью испытаниями</strong> (14 выдач по +4, потолок 64 — <a href="../ai-brain/#лестница-обучающих-миссий">лестница Memory</a>). Других источников максимума Memory не существует. Выдача эквивалентна завершённой программе обучения программированию и не читает offline-профиль. При этом силовая прогрессия начинается с нуля внутри Online-realm: экипировка, опыт и уровни персонажа, очки и распределение пассивного дерева, доступ к второму билду и его развитие зарабатываются независимо. Ни один из этих источников силы не импортируется из Offline; стартовые числа и точный milestone второго билда остаются versioned balance data.</p>
 <p>Повторный запуск обучающей миссии в Online разрешён, но применение её уже назначенной Brain/Memory-награды идемпотентно и не создаёт дубликат.</p>
 <p><strong>Обещает:</strong> snapshot по character/profile ID, проверку entitlement и идемпотентное применение награды/покупки. <strong>Требует:</strong> identity/profile port, versioned progression rules и подтверждённый результат оркестратора. <strong>Запрещено:</strong> хранить прогрессию внутри room/session, начислять её из network handler или смешивать offline- и Online-realm.</p>
 <p><strong>CURRENT — prototype:</strong> <code>server/internal/game/progression.go</code> хранится через структуры комнаты и обслуживается handler. <strong>MIGRATION SEAM:</strong> <code>ProgressionService</code> с repository-портом сначала использует memory adapter, затем внешнее хранилище без изменения callers. GDD: <a href="../progression-and-idle/">прогрессия и idle</a>, <a href="../ai-brain/">мозг персонажа</a>.</p>
