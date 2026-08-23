@@ -1,0 +1,2319 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Живая игровая и техническая документация CodeDungeon">
+      
+      
+      
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/stat-registry/">
+      
+      
+        <link rel="prev" href="../stat-pipeline/">
+      
+      
+        <link rel="next" href="../process-topology/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Реестр stat ID - CodeDungeon — документация</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#реестр-stat-id" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="CodeDungeon — документация" class="md-header__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CodeDungeon — документация
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Реестр stat ID
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить тёмную тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Включить тёмную тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить светлую тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Включить светлую тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CodeDungeon — документация" class="md-nav__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CodeDungeon — документация
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Роли в разработке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../open-questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реестр открытых вопросов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../undocumented-areas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Незадокументированные области
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Игровой дизайн
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Игровой дизайн
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектурный скелет
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/vision-and-pillars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Видение и опоры
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/core-loop-and-runs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Основной цикл и забеги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/ai-brain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Мозг персонажа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/brain-vocabulary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Словарь мозга
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/combat-and-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бой и фазы действий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/physical-combat-and-replay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Симуляция боя и запись боя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/visual-direction-and-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Визуальное направление и камера
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/audio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Звуковое направление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/accessibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Доступность
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/passive-tree-and-sockets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пассивное дерево и ячейки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/biomes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Биомы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/enemies-and-encounters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Враги и встречи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/deferred-multiplayer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Отложенный мультиплеер
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/skills-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Навыки и теги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/items-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Предметы и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/balance-principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Принципы баланса чисел
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/progression-and-idle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Прогрессия и idle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глоссарий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Техническая документация
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Техническая документация
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tech-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Технологический стек
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../combat-simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Спецификация боевой симуляции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stat-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Единый конвейер расчёта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реестр stat ID
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реестр stat ID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#статус" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Статус
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-читать-таблицу" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как читать таблицу
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ключи" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ключи
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#уточнения-к-отдельным-ключам" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Уточнения к отдельным ключам
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#чего-в-реестре-нет" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Чего в реестре нет
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process-topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Топология процессов и запуск
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пакеты контента и баланса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Интерфейс, экраны и навигация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Среда разработки и инструменты
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Конвейер 3D-ассетов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../item-content-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Контент предметов и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-and-ci/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Стратегия тестирования и CI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mvp-definition-of-done/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definition of Done для MVP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../item-persistence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Хранение предметов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#статус" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Статус
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-читать-таблицу" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как читать таблицу
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ключи" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ключи
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#уточнения-к-отдельным-ключам" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Уточнения к отдельным ключам
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#чего-в-реестре-нет" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Чего в реестре нет
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/technical/stat-registry.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="реестр-stat-id">Реестр stat ID<a class="headerlink" href="#реестр-stat-id" title="Permanent link">&para;</a></h1>
+<p>Полный перечень ключей характеристик MVP. Форма адресации принадлежит <a href="../stat-pipeline/#идентичность-характеристики">идентичности характеристики</a>, стадии — <a href="../stat-pipeline/#девять-стадий">девяти стадиям конвейера</a>, числовые границы — <a href="../../game-design/balance-principles/">принципам баланса чисел</a>.</p>
+<p>Реестр фиксирует <strong>идентичность и форму</strong>, а не числа. Единица, область значений, стадия применения и измерение векторизации — часть контракта ключа; конкретные величины принадлежат балансу и плейтесту и в реестре не появляются. Реестр <strong>append-only</strong>: удалённый ключ становится надгробием, никогда не переиспользуется и никогда не переосмысляется. Векторизованный ключ считается <strong>один раз</strong>: его полосы — не отдельные ключи, и семи <code>mitigation</code> или шести <code>status_duration</code> в реестре нет.</p>
+<h2 id="статус">Статус<a class="headerlink" href="#статус" title="Permanent link">&para;</a></h2>
+<p><strong>Принято.</strong> Закрывает открытый вопрос о полном перечне stat ID.</p>
+<ul>
+<li>Ключей 61: 58 <code>[MVP]</code> и 3 <code>[headroom]</code>.</li>
+<li><code>[headroom]</code> означает: форма ключа заморожена, но ни один источник MVP его не выдаёт. Такой ключ существует, чтобы поздняя механика не потребовала нового ID с той же семантикой.</li>
+<li>Изменение единицы, области, знака, стадии или смысла существующего ключа запрещено и требует нового ID (<a href="../stat-pipeline/#сериализация-и-совместимость">сериализация и совместимость</a>).</li>
+</ul>
+<h2 id="как-читать-таблицу">Как читать таблицу<a class="headerlink" href="#как-читать-таблицу" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Колонка</th>
+<th>Смысл</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Единица</td>
+<td><code>плоское значение</code> — Q16.16; <code>доля</code> — Q16.16, где <code>ONE = 65536</code>; <code>промилле</code> — целое <code>0…1000</code>; <code>тики</code> — целое при 60 Гц; <code>целое</code> — счётчик без дробной части</td>
+</tr>
+<tr>
+<td>Стадия</td>
+<td>момент, когда <strong>итог</strong> характеристики влияет на расчёт; модификаторы ключа собираются штатными стадиями 3–5 и ограничиваются стадией 7 в любом случае</td>
+</tr>
+<tr>
+<td>Векторизация</td>
+<td>измерение <code>StatRef</code>, в котором ключ раскрывается в полосы: <code>damage_type</code>, <code>status</code>, <code>crit_channel</code> или <code>нет</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ключи">Ключи<a class="headerlink" href="#ключи" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Ключ</th>
+<th>Категория</th>
+<th>Единица</th>
+<th>Область</th>
+<th>Стадия</th>
+<th>Векторизация</th>
+<th>Смысл</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>health</code></td>
+<td>Ресурсы</td>
+<td>плоское значение</td>
+<td><code>[0,max_health]</code></td>
+<td>9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Текущее здоровье сущности, читаемое Brain и изменяемое уроном либо лечением.</td>
+</tr>
+<tr>
+<td><code>max_health</code></td>
+<td>Ресурсы</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>7, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Верхняя граница здоровья, питаемая силой, экипировкой и силовой веткой дерева.</td>
+</tr>
+<tr>
+<td><code>mana</code></td>
+<td>Ресурсы</td>
+<td>плоское значение</td>
+<td><code>[0,max_mana]</code></td>
+<td>9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Текущая мана, общая для пяти навыков и наблюдаемая предикатом <code>Resource</code>.</td>
+</tr>
+<tr>
+<td><code>max_mana</code></td>
+<td>Ресурсы</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>7, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Верхняя граница маны, питаемая интеллектом, предметами и пассивами.</td>
+</tr>
+<tr>
+<td><code>energy_shield</code></td>
+<td>Ресурсы</td>
+<td>плоское значение</td>
+<td><code>[0,max_energy_shield]</code></td>
+<td>9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Текущий энергетический щит; стадия 8 читает его как ёмкость поглощения, но сама характеристика проходит стадию 8 тождественно.</td>
+</tr>
+<tr>
+<td><code>max_energy_shield</code></td>
+<td>Ресурсы</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>7, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Ёмкость энергетического щита от интеллекта и тематических аффиксов брони.</td>
+</tr>
+<tr>
+<td><code>damage</code></td>
+<td>Урон</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>3</td>
+<td>damage_type</td>
+<td><code>[MVP]</code> Урон удара, тика яда, области или порождённого эффекта в каждой полосе типа.</td>
+</tr>
+<tr>
+<td><code>penetration</code></td>
+<td>Урон</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>6</td>
+<td>damage_type</td>
+<td><code>[headroom]</code> Величина игнорирования соответствующей полосы митигации. Пробитие обязано быть <strong>ограниченным</strong>: неограниченное пробитие сопротивлений — запрещённая форма роста (<a href="../../game-design/balance-principles/#запрещённые-формы-роста-и-их-замены">запрещённые формы роста</a>). Ни один источник MVP пробития не выдаёт.</td>
+</tr>
+<tr>
+<td><code>stagger_damage</code></td>
+<td>Урон</td>
+<td>тики</td>
+<td><code>&gt;=0</code></td>
+<td>7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Вклад попадания в счётчик стаггера, считаемый после смягчения и до щита.</td>
+</tr>
+<tr>
+<td><code>mitigation</code></td>
+<td>Митигация</td>
+<td>плоское значение либо рейтинг — по профилю</td>
+<td><code>&gt;=0</code></td>
+<td>6</td>
+<td>damage_type</td>
+<td><code>[MVP]</code> Семь полос брони или сопротивления, интерпретируемых профилем типа урона.</td>
+</tr>
+<tr>
+<td><code>damage_floor</code></td>
+<td>Митигация</td>
+<td>плоское значение</td>
+<td><code>&gt;0</code></td>
+<td>6</td>
+<td>damage_type</td>
+<td><code>[MVP]</code> Нижний предел <code>max(floor, …)</code> внутри самой формулы стадии 6, не позволяющий смягчению довести положительный урон до нуля.</td>
+</tr>
+<tr>
+<td><code>block_damage_reduction</code></td>
+<td>Митигация</td>
+<td>доля</td>
+<td><code>[0,1)</code></td>
+<td>5</td>
+<td>нет</td>
+<td><code>[MVP]</code> Доля урона, снимаемая успешным блоком без превращения блока в постоянную неуязвимость.</td>
+</tr>
+<tr>
+<td><code>damage_absorb_chance</code></td>
+<td>Митигация</td>
+<td>промилле</td>
+<td><code>[0,1000)</code></td>
+<td>6</td>
+<td>нет</td>
+<td><code>[MVP]</code> Шанс активировать силовой броневой аффикс поглощения фиксированного урона.</td>
+</tr>
+<tr>
+<td><code>damage_absorb_amount</code></td>
+<td>Митигация</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>6</td>
+<td>нет</td>
+<td><code>[MVP]</code> Фиксированная величина, поглощаемая при срабатывании соответствующего броневого аффикса.</td>
+</tr>
+<tr>
+<td><code>poise_capacity</code></td>
+<td>Митигация</td>
+<td>тики</td>
+<td><code>&gt;=0</code></td>
+<td>7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Порог накопленного стаггера, до которого прерываемое действие сохраняет устойчивость.</td>
+</tr>
+<tr>
+<td><code>accuracy</code></td>
+<td>Точность и крит</td>
+<td>промилле</td>
+<td><code>[0,1000)</code></td>
+<td>6, 7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Итоговая точность атаки для проверки промаха до уклонения, блока и крита.</td>
+</tr>
+<tr>
+<td><code>dodge_chance</code></td>
+<td>Точность и крит</td>
+<td>промилле</td>
+<td><code>[0,1000)</code></td>
+<td>6, 7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Насыщающийся шанс цели превратить прошедшую проверку точности атаку в уворот.</td>
+</tr>
+<tr>
+<td><code>block_chance</code></td>
+<td>Точность и крит</td>
+<td>промилле</td>
+<td><code>[0,1000)</code></td>
+<td>6, 7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Насыщающийся шанс доступного блока после промаха и уворота.</td>
+</tr>
+<tr>
+<td><code>crit_chance</code></td>
+<td>Точность и крит</td>
+<td>промилле</td>
+<td><code>[0,1000)</code></td>
+<td>6, 7</td>
+<td>crit_channel</td>
+<td><code>[MVP]</code> Глобальный либо поканальный шанс единственного крит-броска удара; по типу урона не различается.</td>
+</tr>
+<tr>
+<td><code>crit_multiplier</code></td>
+<td>Точность и крит</td>
+<td>доля</td>
+<td><code>&gt;=1</code></td>
+<td>5</td>
+<td>damage_type + crit_channel</td>
+<td><code>[MVP]</code> Множитель критического результата, векторизованный и по полосе урона, и по каналу крита.</td>
+</tr>
+<tr>
+<td><code>action_duration_multiplier</code></td>
+<td>Темп действий</td>
+<td>доля</td>
+<td><code>(0,+∞)</code></td>
+<td>5</td>
+<td>нет</td>
+<td><code>[MVP]</code> Общий именованный множитель фаз действия для быстрых атак, аур поддержки и вражеского темпа.</td>
+</tr>
+<tr>
+<td><code>cooldown_duration_multiplier</code></td>
+<td>Темп действий</td>
+<td>доля</td>
+<td><code>(0,+∞)</code></td>
+<td>5</td>
+<td>нет</td>
+<td><code>[MVP]</code> Именованный множитель перезарядки, в том числе для умеренной эскалации врагов по актам.</td>
+</tr>
+<tr>
+<td><code>preparation_duration</code></td>
+<td>Темп действий</td>
+<td>тики</td>
+<td><code>&gt;=0</code></td>
+<td>3–5, 7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Длительность прерываемой подготовки навыка, манёвра или смены билда.</td>
+</tr>
+<tr>
+<td><code>execution_duration</code></td>
+<td>Темп действий</td>
+<td>тики</td>
+<td><code>&gt;=0</code></td>
+<td>3–5, 7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Длительность атомарного исполнения, внутри которого контроль откладывается.</td>
+</tr>
+<tr>
+<td><code>recovery_duration</code></td>
+<td>Темп действий</td>
+<td>тики</td>
+<td><code>&gt;=0</code></td>
+<td>3–5, 7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Длительность обязательного восстановления после состоявшегося исполнения.</td>
+</tr>
+<tr>
+<td><code>cooldown_duration</code></td>
+<td>Темп действий</td>
+<td>тики</td>
+<td><code>&gt;=0</code></td>
+<td>3–5, 7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Перезарядка конкретного навыка, продолжающаяся независимо от активного оружейного набора.</td>
+</tr>
+<tr>
+<td><code>effect_tick_interval</code></td>
+<td>Темп действий</td>
+<td>тики</td>
+<td><code>&gt;0</code></td>
+<td>7, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Интервал между тиками яда, лечения со временем или постоянной опасной области.</td>
+</tr>
+<tr>
+<td><code>move_speed</code></td>
+<td>Движение</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>6, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Базовая скорость логического перемещения, насыщающимся образом питаемая ловкостью.</td>
+</tr>
+<tr>
+<td><code>phase_move_speed_multiplier</code></td>
+<td>Движение</td>
+<td>доля</td>
+<td><code>[0,1]</code></td>
+<td>5</td>
+<td>нет</td>
+<td><code>[MVP]</code> Штраф движения во время подготовки, исполнения, восстановления или конкретного манёвра.</td>
+</tr>
+<tr>
+<td><code>action_range</code></td>
+<td>Движение</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Максимальная дистанция логического разрешения атаки, навыка или манёвра.</td>
+</tr>
+<tr>
+<td><code>area_radius</code></td>
+<td>Движение</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Радиус области навыка, ауры, контроля или опасной зоны.</td>
+</tr>
+<tr>
+<td><code>sector_angle</code></td>
+<td>Движение</td>
+<td>шаги <code>Direction16</code> (целое)</td>
+<td><code>[0,16]</code></td>
+<td>7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Угловой сектор направленной атаки, блока или фронтальной защиты, считаемый в шагах единственной угловой сетки игры.</td>
+</tr>
+<tr>
+<td><code>movement_distance</code></td>
+<td>Движение</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Дистанция рывка, прыжка или кувырка, включая implicit ловкостной брони.</td>
+</tr>
+<tr>
+<td><code>knockback_distance</code></td>
+<td>Движение</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>7, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Дистанция принудительного перемещения, остаток которой заменяется новым импульсом.</td>
+</tr>
+<tr>
+<td><code>body_radius</code></td>
+<td>Движение</td>
+<td>плоское значение (мировые единицы)</td>
+<td><code>&gt;0</code></td>
+<td>7, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Радиус окружности тела, которым сущность участвует в разведении тел, проверке ширины прохода и валидации точки появления (<a href="../combat-simulation/#столкновения-и-разведение-тел">столкновения и разведение тел</a>).</td>
+</tr>
+<tr>
+<td><code>heal_amount</code></td>
+<td>Восстановление</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>7, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Плоское лечение от навыка, лечебного билда, флакона или периодического эффекта.</td>
+</tr>
+<tr>
+<td><code>mana_restore_amount</code></td>
+<td>Восстановление</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>7, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Плоское восстановление маны мановым флаконом или применимым навыком.</td>
+</tr>
+<tr>
+<td><code>health_regen_per_tick</code></td>
+<td>Восстановление</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Плоское потиковое восстановление здоровья, используемое правилом болотного биома и эффектами.</td>
+</tr>
+<tr>
+<td><code>mana_regen_per_tick</code></td>
+<td>Восстановление</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Плоское естественное или эффектное восстановление маны за тик; цель благословения «Источник».</td>
+</tr>
+<tr>
+<td><code>shield_regen_per_tick</code></td>
+<td>Восстановление</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>7, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Плоское восстановление энергетического щита после истечения задержки перезарядки.</td>
+</tr>
+<tr>
+<td><code>shield_recharge_delay_ticks</code></td>
+<td>Восстановление</td>
+<td>тики</td>
+<td><code>&gt;=0</code></td>
+<td>7, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Задержка восстановления щита, заново запускаемая любым положительным уроном после смягчения.</td>
+</tr>
+<tr>
+<td><code>health_regen_delay_ticks</code></td>
+<td>Восстановление</td>
+<td>тики</td>
+<td><code>&gt;=0</code></td>
+<td>7, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Ожидание без полученного урона перед запуском отложенной регенерации, нужной болотному правилу.</td>
+</tr>
+<tr>
+<td><code>status_duration</code></td>
+<td>Статусы и контроль</td>
+<td>тики</td>
+<td><code>&gt;=0</code></td>
+<td>3–5, 7</td>
+<td>status</td>
+<td><code>[MVP]</code> Длительность оглушения, отбрасывания, заморозки, страха, очарования или яда.</td>
+</tr>
+<tr>
+<td><code>effect_duration</code></td>
+<td>Статусы и контроль</td>
+<td>тики</td>
+<td><code>&gt;=0</code></td>
+<td>3–5, 7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Длительность не являющегося статусом усиления, ослабления, ауры, зоны или snapshot-эффекта.</td>
+</tr>
+<tr>
+<td><code>stagger</code></td>
+<td>Статусы и контроль</td>
+<td>тики</td>
+<td><code>&gt;=0</code></td>
+<td>7, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Текущее накопление стаггера, сравниваемое с <code>poise_capacity</code> для прерываемых действий.</td>
+</tr>
+<tr>
+<td><code>control_dr_reset_ticks</code></td>
+<td>Статусы и контроль</td>
+<td>тики</td>
+<td><code>&gt;0</code></td>
+<td>7</td>
+<td>status</td>
+<td><code>[MVP]</code> Окно, по истечении которого цепочка убывающей отдачи контроля сбрасывается в «первое наложение» (<a href="../../game-design/combat-and-actions/#единые-правила-эффектов-контроля">единые правила эффектов контроля</a>).</td>
+</tr>
+<tr>
+<td><code>mana_cost</code></td>
+<td>Экономика навыков</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>7, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Полная мана-стоимость активного навыка до обычного списания или расчёта цены срыва.</td>
+</tr>
+<tr>
+<td><code>interrupted_mana_cost_ratio</code></td>
+<td>Экономика навыков</td>
+<td>доля</td>
+<td><code>[0,1]</code></td>
+<td>7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Доля полной стоимости, списываемая при срыве или намеренной отмене подготовки.</td>
+</tr>
+<tr>
+<td><code>max_charges</code></td>
+<td>Экономика навыков</td>
+<td>целое</td>
+<td><code>&gt;=0</code></td>
+<td>7, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Ёмкость зарядов навыка или флакона, читаемая предикатом <code>Charges</code>; цель благословения «Алхимик».</td>
+</tr>
+<tr>
+<td><code>charge_cost</code></td>
+<td>Экономика навыков</td>
+<td>целое</td>
+<td><code>&gt;=0</code></td>
+<td>7, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Число зарядов, атомарно расходуемое одной активацией навыка или флакона.</td>
+</tr>
+<tr>
+<td><code>str</code></td>
+<td>Атрибуты</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>3, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Сила персонажа, питающая здоровье и poise и проверяемая силовыми требованиями.</td>
+</tr>
+<tr>
+<td><code>dex</code></td>
+<td>Атрибуты</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>3, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Ловкость персонажа, питающая скорость движения и глобальный шанс крита.</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td>Атрибуты</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>3, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Интеллект персонажа, питающий ману и энергетический щит.</td>
+</tr>
+<tr>
+<td><code>required_str</code></td>
+<td>Требования</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Жёсткое требование силы для предмета или навыка без самообеспечения проверяемым предметом.</td>
+</tr>
+<tr>
+<td><code>required_dex</code></td>
+<td>Требования</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Жёсткое требование ловкости для предмета или навыка.</td>
+</tr>
+<tr>
+<td><code>required_int</code></td>
+<td>Требования</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Жёсткое требование интеллекта для предмета или навыка.</td>
+</tr>
+<tr>
+<td><code>healing_per_battle_limit</code></td>
+<td>Бюджеты</td>
+<td>плоское значение</td>
+<td><code>&gt;=0</code></td>
+<td>7, 9</td>
+<td>нет</td>
+<td><code>[MVP]</code> Верхний накопительный бюджет лечения сущности за один бой.</td>
+</tr>
+<tr>
+<td><code>projectile_count</code></td>
+<td>Счётчики</td>
+<td>целое</td>
+<td><code>&gt;=0</code></td>
+<td>7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Ограниченное число снарядов одной активации внутри общего бюджета урона.</td>
+</tr>
+<tr>
+<td><code>chain_hit_count</code></td>
+<td>Счётчики</td>
+<td>целое</td>
+<td><code>&gt;=0</code></td>
+<td>7</td>
+<td>нет</td>
+<td><code>[MVP]</code> Ограниченное число последовательных целей цепного действия без рекурсивных поколений.</td>
+</tr>
+<tr>
+<td><code>summon_limit</code></td>
+<td>Счётчики</td>
+<td>целое</td>
+<td><code>&gt;=0</code></td>
+<td>7, 9</td>
+<td>нет</td>
+<td><code>[headroom]</code> Максимум одновременно принадлежащих источнику призванных сущностей.</td>
+</tr>
+<tr>
+<td><code>persistent_area_limit</code></td>
+<td>Счётчики</td>
+<td>целое</td>
+<td><code>&gt;=0</code></td>
+<td>7, 9</td>
+<td>нет</td>
+<td><code>[headroom]</code> Максимум одновременно поддерживаемых источником постоянных областей или опасных зон.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="уточнения-к-отдельным-ключам">Уточнения к отдельным ключам<a class="headerlink" href="#уточнения-к-отдельным-ключам" title="Permanent link">&para;</a></h2>
+<p><strong><code>mitigation</code> — единица параметризована профилем.</strong> Физический профиль читает значение как <strong>плоскую броню</strong> подтипа, стихийный и ядовитый — как <strong>рейтинг</strong> в знаменателе <code>K/(rating + K)</code> (<a href="../stat-pipeline/#три-формулы--это-один-шаг-6">три формулы — это один шаг 6</a>). Единица различается по профилю полосы, а не по решению модификатора: внутри одной полосы она неизменна, поэтому запрет на смену единицы под существующим ID не нарушается. Один ключ с двумя единицами в одной полосе был бы нарушением — такого случая нет.</p>
+<p><strong><code>sector_angle</code> считается в <code>Direction16</code>.</strong> Угловой единицы, кроме <code>Direction16</code>, в игре нет: направление нормализуется по модулю 16 в диапазон <code>[0,16)</code> (<a href="../combat-simulation/">модель мира</a>). Сектор выражен целым числом шагов этой же сетки; <code>16</code> — полный оборот. Градусов и долей оборота в Q16.16 реестр не вводит.</p>
+<p><strong>Стадия 8 читает щит, но не является его стадией.</strong> <code>energy_shield</code>, <code>max_energy_shield</code>, <code>shield_regen_per_tick</code> и <code>shield_recharge_delay_ticks</code> — не доставляемый урон, поэтому стадия 8 для них <strong>тождественна</strong> (<a href="../stat-pipeline/#8-маршрутизация-щита">условие применимости</a>). Маршрутизация их читает как входные данные распределения; их собственные значения фиксируются стадией 9, а ограничиваются стадией 7.</p>
+<p><strong><code>damage_floor</code> принадлежит стадии 6.</strong> Это <code>floor</code> внутри <code>max(floor, trunc0(…))</code>, то есть часть самой формулы смягчения, а не общее ограничение стадии 7. Категория — Митигация.</p>
+<p><strong>Дальность кувырка — это <code>movement_distance</code>.</strong> Implicit <code>+0,5 м к дальности кувырка</code> (<a href="../../game-design/items-and-crafting/">предметы и крафт</a>) выражается модификатором <code>add_flat</code> на <code>movement_distance</code> с теговым запросом манёвра. Отдельного ключа под кувырок нет: различие манёвров живёт в тегах, а не в имени характеристики — иначе рывок, прыжок и кувырок породили бы три ключа с одной семантикой.</p>
+<p><strong>Благословения точки отдыха новых ключей не требуют</strong> (<a href="../../game-design/core-loop-and-runs/">основной цикл и забеги</a>): «Источник» — <code>mana_regen_per_tick</code>, «Ускорение» — <code>cooldown_duration_multiplier</code>, «Алхимик» — <code>max_charges</code>, «Закалка» — обычный модификатор на <code>mitigation</code> со ссылкой <code>damage_types { mode: all }</code>, вносящий вклад по одному разу в каждую из семи полос.</p>
+<h2 id="чего-в-реестре-нет">Чего в реестре нет<a class="headerlink" href="#чего-в-реестре-нет" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Отдельных <code>fire_damage</code>, <code>stun_duration</code> и подобных: это дублирование полос <code>StatRef</code>.</li>
+<li><code>increased_damage</code>, <code>more_damage</code> и аналогов: <code>add_pct</code> и <code>mul</code> — <strong>операции</strong>, а не характеристики.</li>
+<li><code>vulnerability</code> и <code>damage_taken</code>: уязвимость выражается ограниченным модификатором <code>damage</code> по тегам цели.</li>
+<li>Отдельных <code>*_cap</code> для шанса, фазы и статуса: обычные пределы задаются <code>min</code> / <code>max</code> по исходному ключу на стадии 7.</li>
+<li><code>healing_per_activation_limit</code>: это <code>max</code> стадии 7 по <code>heal_amount</code>, а не собственный ключ.</li>
+<li><code>line_width</code>: форм доставки три — удар, снаряд, область; линейной формы не существует.</li>
+<li><code>trigger_generation_limit</code>: срабатывания только одного поколения — <strong>правило</strong>, а не настраиваемое число.</li>
+<li><code>projectile_speed</code>, массы и физического импульса: полёт снаряда не симулируется — дальнобойная атака разрешается логически на тике удара, а представление лишь подгоняет пролёт к этому тику (<a href="../../game-design/physical-combat-and-replay/">симуляция боя и запись боя</a>).</li>
+<li>Stamina: ресурс удалён из дизайна.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.top", "search.highlight", "search.suggest", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/navigation-state.js"></script>
+      
+    
+  </body>
+</html>
