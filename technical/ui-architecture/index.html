@@ -699,6 +699,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../game-design/telegraph-and-animation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Телеграф и анимация замаха
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../game-design/audio/" class="md-nav__link">
         
   
@@ -1363,6 +1391,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#постоянная-панель-вкладок" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постоянная панель вкладок
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#модальные-слои-и-состояния-экранов" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1761,6 +1800,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#постоянная-панель-вкладок" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постоянная панель вкладок
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#модальные-слои-и-состояния-экранов" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2028,6 +2078,21 @@
 </tr>
 </tbody>
 </table>
+<h2 id="постоянная-панель-вкладок">Постоянная панель вкладок<a class="headerlink" href="#постоянная-панель-вкладок" title="Permanent link">&para;</a></h2>
+<p><strong>Принято.</strong> Вне боя навигация — постоянная <strong>панель вкладок</strong>: <strong>Мозг</strong>, <strong>Инвентарь</strong>,
+<strong>Прогрессия</strong>, <strong>Забег</strong>, <strong>Кузня</strong>. Комнаты, по которой ходит персонаж, нет: переход между
+занятиями стоит одно нажатие и одинаково работает в Кузне и в забеге
+(<a href="#доступ-к-интерфейсам-в-забеге">доступ к интерфейсам в забеге</a>).</p>
+<ul>
+<li>Панель — не экран, а слой над текущим экраном; собственных данных не держит.</li>
+<li>Вкладка <strong>Кузня недоступна во время забега</strong>: Кузня — место между забегами. Недоступная вкладка
+  остаётся видимой, получает фокус, объявляется диктором как «недоступно» и несёт причину текстом
+  («вернуться можно после завершения забега»). Она не скрывается и не гаснет одним цветом
+  (<a href="../../game-design/accessibility/#никогда-только-цветом">никогда только цветом</a>).</li>
+<li>Вкладка <strong>Забег</strong> вне забега ведёт в подготовку забега, в забеге — на карту маршрута.</li>
+<li>Панель скрыта только там, где экран владеет всем кадром: <code>Boot/Connection</code>, <code>Main Menu</code>,
+  <code>Combat Viewing</code>, <code>Replay Viewer</code>.</li>
+</ul>
 <h2 id="модальные-слои-и-состояния-экранов">Модальные слои и состояния экранов<a class="headerlink" href="#модальные-слои-и-состояния-экранов" title="Permanent link">&para;</a></h2>
 <p><strong>Принято.</strong> Приоритет модальных слоёв сверху вниз:</p>
 <ol>
