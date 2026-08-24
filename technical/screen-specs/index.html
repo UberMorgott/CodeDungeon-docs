@@ -1,0 +1,5429 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Живая игровая и техническая документация CodeDungeon">
+      
+      
+      
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/screen-specs/">
+      
+      
+        <link rel="prev" href="../ui-architecture/">
+      
+      
+        <link rel="next" href="../dev-environment/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Спецификации экранов - CodeDungeon — документация</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#спецификации-экранов" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="CodeDungeon — документация" class="md-header__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CodeDungeon — документация
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Спецификации экранов
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить тёмную тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Включить тёмную тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить светлую тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Включить светлую тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CodeDungeon — документация" class="md-nav__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CodeDungeon — документация
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Роли в разработке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../open-questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реестр открытых вопросов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../undocumented-areas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Незадокументированные области
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Игровой дизайн
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Игровой дизайн
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектурный скелет
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/vision-and-pillars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Видение и опоры
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/narrative-and-setting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Нарратив и сеттинг
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/core-loop-and-runs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Основной цикл и забеги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/ai-brain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Мозг персонажа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/brain-vocabulary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Словарь мозга
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/combat-and-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бой и фазы действий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/physical-combat-and-replay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Симуляция боя и запись боя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/visual-direction-and-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Визуальное направление и камера
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/audio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Звуковое направление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/accessibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Доступность
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/passive-tree-and-sockets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пассивное дерево и ячейки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/biomes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Биомы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/enemies-and-encounters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Враги и встречи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/deferred-multiplayer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Отложенный мультиплеер
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/skills-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Навыки и теги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/items-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Предметы и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/balance-principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Принципы баланса чисел
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/progression-and-idle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Прогрессия и idle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глоссарий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Техническая документация
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Техническая документация
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tech-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Технологический стек
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../combat-simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Спецификация боевой симуляции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stat-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Единый конвейер расчёта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stat-registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реестр stat ID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process-topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Топология процессов и запуск
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пакеты контента и баланса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Интерфейс, экраны и навигация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Спецификации экранов
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Спецификации экранов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#навигация-постоянная-панель-вкладок" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Навигация: постоянная панель вкладок
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#шаблон-спецификации-экрана" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаблон спецификации экрана
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#правила-действующие-на-каждом-экране" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Правила, действующие на каждом экране
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#экран-редактор-мозга-ai-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Экран: Редактор мозга (AI Editor)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Экран: Редактор мозга (AI Editor)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#назначение-и-вопрос-игрока" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Назначение и вопрос игрока
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#условия-входа" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условия входа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#пути-выхода" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пути выхода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#данные-и-команды" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Данные и команды
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#иерархия-информации" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Иерархия информации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#раскладка-169-и-219" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Раскладка 16:9 и 21:9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#управление-клавиатура-и-порядок-фокуса" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Управление, клавиатура и порядок фокуса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#основной-цикл-взаимодействия" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основной цикл взаимодействия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выделение-наведение-перетаскивание-модальные-окна" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выделение, наведение, перетаскивание, модальные окна
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#состояния" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Состояния
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обратная-связь-анимация-и-звук" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обратная связь: анимация и звук
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#арт-бриф-и-требуемые-ассеты" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Арт-бриф и требуемые ассеты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#доступность" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Доступность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сохраняемое-состояние-и-возврат" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сохраняемое состояние и возврат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сценарии-приёмки-и-нерешённое" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сценарии приёмки и нерешённое
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#экран-просмотр-боя-combat-viewing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Экран: Просмотр боя (Combat Viewing)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Экран: Просмотр боя (Combat Viewing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#назначение-и-вопрос-игрока_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Назначение и вопрос игрока
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#условия-входа_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условия входа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#пути-выхода_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пути выхода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#данные-и-команды_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Данные и команды
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#иерархия-информации_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Иерархия информации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#раскладка-169-и-219_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Раскладка 16:9 и 21:9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#управление-клавиатура-и-порядок-фокуса_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Управление, клавиатура и порядок фокуса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#основной-цикл-взаимодействия_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основной цикл взаимодействия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выделение-наведение-перетаскивание-модальные-окна_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выделение, наведение, перетаскивание, модальные окна
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#состояния_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Состояния
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обратная-связь-анимация-и-звук_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обратная связь: анимация и звук
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#арт-бриф-и-требуемые-ассеты_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Арт-бриф и требуемые ассеты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#доступность_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Доступность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сохраняемое-состояние-и-возврат_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сохраняемое состояние и возврат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сценарии-приёмки-и-нерешённое_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сценарии приёмки и нерешённое
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#экран-дорожная-кузня" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Экран: Дорожная кузня
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Экран: Дорожная кузня">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#назначение-и-вопрос-игрока_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Назначение и вопрос игрока
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#условия-входа_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условия входа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#пути-выхода_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пути выхода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#данные-и-команды_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Данные и команды
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#иерархия-информации_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Иерархия информации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#раскладка-169-и-219_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Раскладка 16:9 и 21:9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#управление-клавиатура-и-порядок-фокуса_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Управление, клавиатура и порядок фокуса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#основной-цикл-взаимодействия_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основной цикл взаимодействия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выделение-наведение-перетаскивание-модальные-окна_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выделение, наведение, перетаскивание, модальные окна
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#состояния_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Состояния
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обратная-связь-анимация-и-звук_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обратная связь: анимация и звук
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#арт-бриф-и-требуемые-ассеты_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Арт-бриф и требуемые ассеты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#доступность_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Доступность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сохраняемое-состояние-и-возврат_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сохраняемое состояние и возврат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сценарии-приёмки-и-нерешённое_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сценарии приёмки и нерешённое
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#экран-инвентарь-и-крафт-inventorycrafting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Экран: Инвентарь и крафт (Inventory+Crafting)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Экран: Инвентарь и крафт (Inventory+Crafting)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#назначение-и-вопрос-игрока_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Назначение и вопрос игрока
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#условия-входа_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условия входа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#пути-выхода_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пути выхода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#данные-и-команды_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Данные и команды
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#иерархия-информации_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Иерархия информации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#раскладка-169-и-219_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Раскладка 16:9 и 21:9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#управление-клавиатура-и-порядок-фокуса_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Управление, клавиатура и порядок фокуса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#основной-цикл-взаимодействия_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основной цикл взаимодействия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выделение-наведение-перетаскивание-модальные-окна_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выделение, наведение, перетаскивание, модальные окна
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#состояния_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Состояния
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обратная-связь-анимация-и-звук_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обратная связь: анимация и звук
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#арт-бриф-и-требуемые-ассеты_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Арт-бриф и требуемые ассеты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#доступность_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Доступность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сохраняемое-состояние-и-возврат_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сохраняемое состояние и возврат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сценарии-приёмки-и-нерешённое_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сценарии приёмки и нерешённое
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#экран-прогрессия-progression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Экран: Прогрессия (Progression)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Экран: Прогрессия (Progression)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#назначение-и-вопрос-игрока_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Назначение и вопрос игрока
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#условия-входа_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условия входа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#пути-выхода_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пути выхода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#данные-и-команды_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Данные и команды
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#иерархия-информации_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Иерархия информации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#раскладка-169-и-219_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Раскладка 16:9 и 21:9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#управление-клавиатура-и-порядок-фокуса_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Управление, клавиатура и порядок фокуса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#основной-цикл-взаимодействия_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основной цикл взаимодействия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выделение-наведение-перетаскивание-модальные-окна_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выделение, наведение, перетаскивание, модальные окна
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#состояния_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Состояния
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обратная-связь-анимация-и-звук_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обратная связь: анимация и звук
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#арт-бриф-и-требуемые-ассеты_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Арт-бриф и требуемые ассеты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#доступность_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Доступность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сохраняемое-состояние-и-возврат_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сохраняемое состояние и возврат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сценарии-приёмки-и-нерешённое_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сценарии приёмки и нерешённое
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#экран-забег--подготовка-run-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Экран: Забег — подготовка (Run Setup)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Экран: Забег — подготовка (Run Setup)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#назначение-и-вопрос-игрока_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Назначение и вопрос игрока
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#условия-входа_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условия входа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#пути-выхода_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пути выхода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#данные-и-команды_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Данные и команды
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#иерархия-информации_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Иерархия информации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#раскладка-169-и-219_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Раскладка 16:9 и 21:9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#управление-клавиатура-и-порядок-фокуса_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Управление, клавиатура и порядок фокуса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#основной-цикл-взаимодействия_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основной цикл взаимодействия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выделение-наведение-перетаскивание-модальные-окна_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выделение, наведение, перетаскивание, модальные окна
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#состояния_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Состояния
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обратная-связь-анимация-и-звук_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обратная связь: анимация и звук
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#арт-бриф-и-требуемые-ассеты_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Арт-бриф и требуемые ассеты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#доступность_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Доступность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сохраняемое-состояние-и-возврат_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сохраняемое состояние и возврат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сценарии-приёмки-и-нерешённое_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сценарии приёмки и нерешённое
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#экран-забег--карта-run-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Экран: Забег — карта (Run Map)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Экран: Забег — карта (Run Map)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#назначение-и-вопрос-игрока_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Назначение и вопрос игрока
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#условия-входа_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условия входа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#пути-выхода_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пути выхода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#данные-и-команды_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Данные и команды
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#иерархия-информации_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Иерархия информации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#раскладка-169-и-219_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Раскладка 16:9 и 21:9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#управление-клавиатура-и-порядок-фокуса_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Управление, клавиатура и порядок фокуса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#основной-цикл-взаимодействия_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основной цикл взаимодействия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выделение-наведение-перетаскивание-модальные-окна_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выделение, наведение, перетаскивание, модальные окна
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#состояния_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Состояния
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обратная-связь-анимация-и-звук_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обратная связь: анимация и звук
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#арт-бриф-и-требуемые-ассеты_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Арт-бриф и требуемые ассеты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#доступность_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Доступность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сохраняемое-состояние-и-возврат_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сохраняемое состояние и возврат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сценарии-приёмки-и-нерешённое_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сценарии приёмки и нерешённое
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Среда разработки и инструменты
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Конвейер 3D-ассетов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../item-content-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Контент предметов и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-and-ci/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Стратегия тестирования и CI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mvp-definition-of-done/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definition of Done для MVP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../item-persistence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Хранение предметов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#навигация-постоянная-панель-вкладок" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Навигация: постоянная панель вкладок
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#шаблон-спецификации-экрана" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаблон спецификации экрана
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#правила-действующие-на-каждом-экране" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Правила, действующие на каждом экране
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#экран-редактор-мозга-ai-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Экран: Редактор мозга (AI Editor)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Экран: Редактор мозга (AI Editor)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#назначение-и-вопрос-игрока" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Назначение и вопрос игрока
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#условия-входа" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условия входа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#пути-выхода" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пути выхода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#данные-и-команды" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Данные и команды
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#иерархия-информации" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Иерархия информации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#раскладка-169-и-219" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Раскладка 16:9 и 21:9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#управление-клавиатура-и-порядок-фокуса" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Управление, клавиатура и порядок фокуса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#основной-цикл-взаимодействия" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основной цикл взаимодействия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выделение-наведение-перетаскивание-модальные-окна" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выделение, наведение, перетаскивание, модальные окна
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#состояния" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Состояния
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обратная-связь-анимация-и-звук" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обратная связь: анимация и звук
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#арт-бриф-и-требуемые-ассеты" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Арт-бриф и требуемые ассеты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#доступность" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Доступность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сохраняемое-состояние-и-возврат" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сохраняемое состояние и возврат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сценарии-приёмки-и-нерешённое" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сценарии приёмки и нерешённое
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#экран-просмотр-боя-combat-viewing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Экран: Просмотр боя (Combat Viewing)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Экран: Просмотр боя (Combat Viewing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#назначение-и-вопрос-игрока_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Назначение и вопрос игрока
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#условия-входа_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условия входа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#пути-выхода_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пути выхода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#данные-и-команды_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Данные и команды
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#иерархия-информации_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Иерархия информации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#раскладка-169-и-219_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Раскладка 16:9 и 21:9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#управление-клавиатура-и-порядок-фокуса_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Управление, клавиатура и порядок фокуса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#основной-цикл-взаимодействия_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основной цикл взаимодействия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выделение-наведение-перетаскивание-модальные-окна_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выделение, наведение, перетаскивание, модальные окна
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#состояния_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Состояния
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обратная-связь-анимация-и-звук_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обратная связь: анимация и звук
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#арт-бриф-и-требуемые-ассеты_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Арт-бриф и требуемые ассеты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#доступность_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Доступность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сохраняемое-состояние-и-возврат_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сохраняемое состояние и возврат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сценарии-приёмки-и-нерешённое_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сценарии приёмки и нерешённое
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#экран-дорожная-кузня" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Экран: Дорожная кузня
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Экран: Дорожная кузня">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#назначение-и-вопрос-игрока_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Назначение и вопрос игрока
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#условия-входа_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условия входа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#пути-выхода_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пути выхода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#данные-и-команды_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Данные и команды
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#иерархия-информации_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Иерархия информации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#раскладка-169-и-219_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Раскладка 16:9 и 21:9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#управление-клавиатура-и-порядок-фокуса_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Управление, клавиатура и порядок фокуса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#основной-цикл-взаимодействия_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основной цикл взаимодействия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выделение-наведение-перетаскивание-модальные-окна_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выделение, наведение, перетаскивание, модальные окна
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#состояния_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Состояния
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обратная-связь-анимация-и-звук_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обратная связь: анимация и звук
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#арт-бриф-и-требуемые-ассеты_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Арт-бриф и требуемые ассеты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#доступность_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Доступность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сохраняемое-состояние-и-возврат_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сохраняемое состояние и возврат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сценарии-приёмки-и-нерешённое_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сценарии приёмки и нерешённое
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#экран-инвентарь-и-крафт-inventorycrafting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Экран: Инвентарь и крафт (Inventory+Crafting)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Экран: Инвентарь и крафт (Inventory+Crafting)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#назначение-и-вопрос-игрока_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Назначение и вопрос игрока
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#условия-входа_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условия входа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#пути-выхода_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пути выхода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#данные-и-команды_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Данные и команды
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#иерархия-информации_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Иерархия информации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#раскладка-169-и-219_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Раскладка 16:9 и 21:9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#управление-клавиатура-и-порядок-фокуса_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Управление, клавиатура и порядок фокуса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#основной-цикл-взаимодействия_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основной цикл взаимодействия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выделение-наведение-перетаскивание-модальные-окна_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выделение, наведение, перетаскивание, модальные окна
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#состояния_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Состояния
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обратная-связь-анимация-и-звук_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обратная связь: анимация и звук
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#арт-бриф-и-требуемые-ассеты_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Арт-бриф и требуемые ассеты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#доступность_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Доступность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сохраняемое-состояние-и-возврат_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сохраняемое состояние и возврат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сценарии-приёмки-и-нерешённое_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сценарии приёмки и нерешённое
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#экран-прогрессия-progression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Экран: Прогрессия (Progression)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Экран: Прогрессия (Progression)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#назначение-и-вопрос-игрока_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Назначение и вопрос игрока
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#условия-входа_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условия входа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#пути-выхода_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пути выхода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#данные-и-команды_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Данные и команды
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#иерархия-информации_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Иерархия информации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#раскладка-169-и-219_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Раскладка 16:9 и 21:9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#управление-клавиатура-и-порядок-фокуса_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Управление, клавиатура и порядок фокуса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#основной-цикл-взаимодействия_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основной цикл взаимодействия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выделение-наведение-перетаскивание-модальные-окна_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выделение, наведение, перетаскивание, модальные окна
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#состояния_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Состояния
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обратная-связь-анимация-и-звук_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обратная связь: анимация и звук
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#арт-бриф-и-требуемые-ассеты_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Арт-бриф и требуемые ассеты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#доступность_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Доступность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сохраняемое-состояние-и-возврат_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сохраняемое состояние и возврат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сценарии-приёмки-и-нерешённое_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сценарии приёмки и нерешённое
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#экран-забег--подготовка-run-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Экран: Забег — подготовка (Run Setup)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Экран: Забег — подготовка (Run Setup)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#назначение-и-вопрос-игрока_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Назначение и вопрос игрока
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#условия-входа_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условия входа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#пути-выхода_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пути выхода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#данные-и-команды_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Данные и команды
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#иерархия-информации_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Иерархия информации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#раскладка-169-и-219_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Раскладка 16:9 и 21:9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#управление-клавиатура-и-порядок-фокуса_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Управление, клавиатура и порядок фокуса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#основной-цикл-взаимодействия_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основной цикл взаимодействия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выделение-наведение-перетаскивание-модальные-окна_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выделение, наведение, перетаскивание, модальные окна
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#состояния_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Состояния
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обратная-связь-анимация-и-звук_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обратная связь: анимация и звук
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#арт-бриф-и-требуемые-ассеты_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Арт-бриф и требуемые ассеты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#доступность_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Доступность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сохраняемое-состояние-и-возврат_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сохраняемое состояние и возврат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сценарии-приёмки-и-нерешённое_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сценарии приёмки и нерешённое
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#экран-забег--карта-run-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Экран: Забег — карта (Run Map)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Экран: Забег — карта (Run Map)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#назначение-и-вопрос-игрока_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Назначение и вопрос игрока
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#условия-входа_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Условия входа
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#пути-выхода_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пути выхода
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#данные-и-команды_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Данные и команды
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#иерархия-информации_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Иерархия информации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#раскладка-169-и-219_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Раскладка 16:9 и 21:9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#управление-клавиатура-и-порядок-фокуса_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Управление, клавиатура и порядок фокуса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#основной-цикл-взаимодействия_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основной цикл взаимодействия
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#выделение-наведение-перетаскивание-модальные-окна_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Выделение, наведение, перетаскивание, модальные окна
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#состояния_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Состояния
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обратная-связь-анимация-и-звук_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обратная связь: анимация и звук
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#арт-бриф-и-требуемые-ассеты_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Арт-бриф и требуемые ассеты
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#доступность_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Доступность
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сохраняемое-состояние-и-возврат_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сохраняемое состояние и возврат
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#сценарии-приёмки-и-нерешённое_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сценарии приёмки и нерешённое
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/technical/screen-specs.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="спецификации-экранов">Спецификации экранов<a class="headerlink" href="#спецификации-экранов" title="Permanent link">&para;</a></h1>
+<p>Документ разбирает каждый экран <a href="../ui-architecture/#карта-экранов-mvp">карты экранов MVP</a> до
+уровня, с которого экран можно собрать. Правила игры и общие правила интерфейса ему не
+принадлежат: они живут в тематических документах, а здесь на них ссылаются.</p>
+<p>Экраны добавляются партиями. Готовы: <strong>Редактор мозга</strong>, <strong>Просмотр боя</strong>, <strong>Дорожная кузня</strong>,
+<strong>Инвентарь и крафт</strong>, <strong>Прогрессия</strong>, <strong>Забег: подготовка</strong>, <strong>Забег: карта</strong>.
+<code>Boot/Connection</code> и <code>Main Menu</code> остаются заглушками намеренно — у них нет ни данных, ни
+состояний, ради которых пишется полный шаблон.</p>
+<h2 id="навигация-постоянная-панель-вкладок">Навигация: постоянная панель вкладок<a class="headerlink" href="#навигация-постоянная-панель-вкладок" title="Permanent link">&para;</a></h2>
+<p><strong>Принято.</strong> Вне боя навигация — постоянная <strong>панель вкладок</strong>: <strong>Мозг</strong>, <strong>Инвентарь</strong>,
+<strong>Прогрессия</strong>, <strong>Забег</strong>, <strong>Кузня</strong>. Комнаты, по которой ходит персонаж, нет: переход между
+занятиями стоит одно нажатие и одинаково работает в Кузне и в забеге
+(<a href="../ui-architecture/#доступ-к-интерфейсам-в-забеге">доступ к интерфейсам в забеге</a>).</p>
+<ul>
+<li>Панель — не экран, а слой над текущим экраном; собственных данных не держит.</li>
+<li>Вкладка <strong>Кузня недоступна во время забега</strong>: Кузня — место между забегами. Недоступная
+  вкладка остаётся видимой, получает фокус, объявляется диктором как «недоступно» и несёт причину
+  текстом («вернуться можно после завершения забега»). Она не скрывается и не гаснет одним цветом
+  (<a href="../../game-design/accessibility/#никогда-только-цветом">никогда только цветом</a>).</li>
+<li>Вкладка <strong>Забег</strong> вне забега ведёт в подготовку забега, в забеге — на карту маршрута.</li>
+<li>Панель скрыта только там, где экран владеет всем кадром: <code>Boot/Connection</code>, <code>Main Menu</code>,
+  <code>Combat Viewing</code>, <code>Replay Viewer</code>.</li>
+</ul>
+<h2 id="шаблон-спецификации-экрана">Шаблон спецификации экрана<a class="headerlink" href="#шаблон-спецификации-экрана" title="Permanent link">&para;</a></h2>
+<p>Каждый экран ниже описан <strong>пятнадцатью</strong> разделами в одном и том же порядке. Раздел не
+пропускается: если решения нет, оно уходит в «нерешённое» и в
+<a href="../../open-questions/">реестр открытых вопросов</a>.</p>
+<ol>
+<li><strong>Назначение и вопрос игрока</strong> — зачем экран существует и на какой один вопрос отвечает.</li>
+<li><strong>Условия входа</strong> — откуда и при каких условиях сюда попадают.</li>
+<li><strong>Пути выхода</strong> — все выходы, включая Escape и отмену.</li>
+<li><strong>Данные и команды</strong> — что экран читает из <code>StateBridge</code> и какие команды шлёт в Go
+   (<a href="../ui-architecture/#граница-клиента-и-сервера">граница клиента и сервера</a>).</li>
+<li><strong>Иерархия информации</strong> — что читается первым, вторым, третьим.</li>
+<li><strong>Раскладка 16:9 и 21:9</strong> — зоны кадра и что именно даёт лишняя ширина.</li>
+<li><strong>Управление, клавиатура и порядок фокуса</strong> — жесты, горячие клавиши, граф фокуса.</li>
+<li><strong>Основной цикл взаимодействия</strong> — цикл, ради которого экран открывают.</li>
+<li><strong>Выделение, наведение, перетаскивание, модальные окна</strong> — состояния указателя и модалки.</li>
+<li><strong>Состояния</strong> — загрузка, пусто, устаревшая ревизия, ошибка, успех, недоступно.</li>
+<li><strong>Обратная связь: анимация и звук</strong>.</li>
+<li><strong>Арт-бриф и требуемые ассеты</strong>.</li>
+<li><strong>Доступность</strong> — что именно на этом экране проверяется.</li>
+<li><strong>Сохраняемое состояние и возврат</strong> — что экран помнит между визитами.</li>
+<li><strong>Сценарии приёмки и нерешённое</strong> — наблюдаемые проверки и незакрытые решения.</li>
+</ol>
+<h2 id="правила-действующие-на-каждом-экране">Правила, действующие на каждом экране<a class="headerlink" href="#правила-действующие-на-каждом-экране" title="Permanent link">&para;</a></h2>
+<p>Эти пять правил не повторяются в разделах экранов — там на них ссылаются.</p>
+<ul>
+<li><strong>Доступность не трогает симуляцию.</strong> Опции меняют только подачу
+  (<a href="../../game-design/accessibility/#главный-запрет-доступность-не-трогает-симуляцию">«Главный запрет»</a>).
+  Опции «замедлить бой» не существует ни на одном экране.</li>
+<li><strong>Полный доступ с клавиатуры и экранный диктор</strong> на каждом экране, без ловушек фокуса;
+  модальный слой возвращает фокус туда, откуда его забрал
+  (<a href="../../game-design/accessibility/#полный-доступ-с-клавиатуры">клавиатура</a>,
+  <a href="../../game-design/accessibility/#поддержка-экранного-диктора">диктор</a>).</li>
+<li><strong>Никогда только цветом</strong>; проверка — скриншот в оттенках серого
+  (<a href="../../game-design/accessibility/#никогда-только-цветом">правило</a>).</li>
+<li><strong>Четыре обязательных состояния</strong> экрана с данными: скелет загрузки, ошибка с повтором,
+  обновление при устаревшей ревизии, явное пустое состояние с названным следующим действием
+  (<a href="../ui-architecture/#модальные-слои-и-состояния-экранов">состояния экранов</a>).</li>
+<li><strong>Модальные слои</strong>: приоритет из пяти уровней, одновременно только <strong>один блокирующий</strong> слой,
+  Escape закрывает верхний закрываемый
+  (<a href="../ui-architecture/#модальные-слои-и-состояния-экранов">модальные слои</a>).</li>
+</ul>
+<hr />
+<h2 id="экран-редактор-мозга-ai-editor">Экран: Редактор мозга (AI Editor)<a class="headerlink" href="#экран-редактор-мозга-ai-editor" title="Permanent link">&para;</a></h2>
+<p>Главный глагол игры. Модель взаимодействия здесь <strong>не переизобретается</strong>: три масштаба,
+упорядоченные списки приоритетов и пространственная навигация уже приняты в
+<a href="../../game-design/ai-brain/#подтверждённая-архитектура-интерфейса-brain">архитектуре интерфейса Brain</a>
+и <a href="../../game-design/ai-brain/#размещение-узлов-и-проводка">размещении узлов и проводке</a>.</p>
+<h3 id="назначение-и-вопрос-игрока">Назначение и вопрос игрока<a class="headerlink" href="#назначение-и-вопрос-игрока" title="Permanent link">&para;</a></h3>
+<p>«Почему мой боец сделал не то — и какую одну ветку мне изменить?» Экран отвечает на него правкой
+программы и проверкой правки без начала забега.</p>
+<h3 id="условия-входа">Условия входа<a class="headerlink" href="#условия-входа" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Из вкладки <strong>Мозг</strong> — из Кузни и <strong>после каждой комнаты</strong> забега
+  (<a href="../ui-architecture/#доступ-к-интерфейсам-в-забеге">доступ к интерфейсам</a>).</li>
+<li>Из клика по записи таймлайна решений — с открытием нужной вкладки, графа и центрированием
+  сработавшего узла (<a href="../ui-architecture/#событие-решения-и-таймлайн">событие решения</a>).</li>
+<li>Из провала клетки в «Проверить всё изученное» — на повторе первого расхождения
+  (<a href="../ui-architecture/#представление-проверки-всё-изученное">представление проверки</a>).</li>
+<li>Во время боя вход закрыт: редактор — отдельный экран, а не оверлей
+  (<a href="../../game-design/core-loop-and-runs/#последовательность-экранов">последовательность экранов</a>).</li>
+</ul>
+<h3 id="пути-выхода">Пути выхода<a class="headerlink" href="#пути-выхода" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Панель вкладок — в любую доступную вкладку.</li>
+<li>Escape по лестнице: верхний закрываемый слой → настройки bubble → граф модуля → обзор мозга →
+  экран. Порядок задан <a href="../ui-architecture/#модальные-слои-и-состояния-экранов">общим правилом Escape</a>.</li>
+<li>Выход с непринятым черновиком — модалка подтверждения: «применить», «отбросить», «остаться».
+  Черновик локален, сохранённая истина — только принятая Go ревизия
+  (<a href="../ui-architecture/#граница-клиента-и-сервера">граница клиента и сервера</a>).</li>
+<li>Экипировка мозга с авторитетными ошибками заблокирована; с предупреждениями — после явного
+  подтверждения (<a href="../ui-architecture/#валидация-мозга">валидация мозга</a>).</li>
+</ul>
+<h3 id="данные-и-команды">Данные и команды<a class="headerlink" href="#данные-и-команды" title="Permanent link">&para;</a></h3>
+<p>Читает: текущую ревизию мозга и её хеш, бюджет и расход Memory, каталог доступных bubbles и их
+цену, результат валидации (ошибки и предупреждения), последнюю трассу решений с пометкой
+использованных и неиспользованных путей, состав предстоящей встречи
+(<a href="../ui-architecture/#информация-о-встрече-до-боя">информация о встрече</a>), результаты теста мозга и
+сводку «Проверить всё изученное».</p>
+<p>Шлёт: валидацию черновика (с debounce), сохранение ревизии, публикацию, экипировку мозга, запуск
+теста на фикстуре, запуск регрессионного прогона, детерминированный сброс теста.</p>
+<p>Держит локально и в Go <strong>не</strong> отправляет: раскладку, позиции узлов, ghost-провода, историю undo,
+фильтры, состояние трёх масштабов (<a href="../ui-architecture/#дерево-сцен-godot">дерево сцен</a>).
+Оптимистичных мутаций нет: до ответа Go правка выглядит предварительной.</p>
+<h3 id="иерархия-информации">Иерархия информации<a class="headerlink" href="#иерархия-информации" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Что сейчас правится</strong> — строка навигации трёх масштабов и рабочая область.</li>
+<li><strong>Можно ли этим играть</strong> — счётчик Memory и итог валидации; оба всегда на экране.</li>
+<li><strong>Почему я здесь</strong> — панель причины: последняя трасса решений или провалившаяся клетка проверки.</li>
+<li><strong>Чем править</strong> — палитра bubbles и списки графов и прерываний с поиском.</li>
+<li><strong>Проверка</strong> — «Тест мозга» и «Проверить всё изученное»
+   (<a href="../ui-architecture/#тест-мозга">тест мозга</a>).</li>
+</ol>
+<h3 id="раскладка-169-и-219">Раскладка 16:9 и 21:9<a class="headerlink" href="#раскладка-169-и-219" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Слева — палитра bubbles и списки графов и прерываний (прерывания визуально отделены).</li>
+<li>Центр — <code>GraphWorkspace</code>: обзор мозга, граф модуля или настройки bubble по текущему масштабу.</li>
+<li>Справа — инспектор выделенного (параметры, порты, валидность) и панель причины.</li>
+<li>Сверху — строка навигации по масштабам; снизу — Memory, итог валидации, команды проверки.</li>
+</ul>
+<p>21:9 расширяет <strong>рабочую область и панель причины</strong>. Он не растягивает узлы, не увеличивает
+кегль и не отрывает инспектор от рабочей области. Ни один элемент не исчезает ни на одном
+соотношении и ни на одном шаге масштаба интерфейса
+(<a href="../../game-design/accessibility/#масштабирование-интерфейса">масштабирование</a>).</p>
+<h3 id="управление-клавиатура-и-порядок-фокуса">Управление, клавиатура и порядок фокуса<a class="headerlink" href="#управление-клавиатура-и-порядок-фокуса" title="Permanent link">&para;</a></h3>
+<p>Приняты и не переоткрываются (<a href="../../game-design/ai-brain/#размещение-узлов-и-проводка">размещение узлов и проводка</a>):</p>
+<ul>
+<li>основной жест — <strong>клик по типу, затем клик по месту</strong>; drag-and-drop — только ускоритель;</li>
+<li><code>GraphWorkspace</code> — <strong>одна остановка</strong> внешнего графа фокуса: Tab входит и выходит, по графу не
+  ходит; линейный обход узлов и портов отвергнут;</li>
+<li>внутри — стрелки двигают фокус <strong>пространственно</strong>, Enter входит в узел и к портам, <code>Esc</code>
+  возвращает уровень, <code>Ctrl</code>+стрелки двигают сам узел;</li>
+<li>команда «совместимые цели» даёт список и <strong>прямой переход</strong> к порту — основной способ достать
+  далёкую цель.</li>
+</ul>
+<p>Внешний порядок фокуса: панель вкладок → строка навигации масштабов → списки и палитра →
+<code>GraphWorkspace</code> → инспектор → команды проверки. Порядок обхода совпадает с визуальным.
+Конкретные раскладки по умолчанию — уровень прототипа
+(<a href="../../game-design/accessibility/#статус-и-границы">статус и границы</a>), переназначение полное.</p>
+<h3 id="основной-цикл-взаимодействия">Основной цикл взаимодействия<a class="headerlink" href="#основной-цикл-взаимодействия" title="Permanent link">&para;</a></h3>
+<p>Заметить неудачное решение → открыть его причину из таймлайна → изменить одну ветку → прогнать
+тест на фикстуре → прогнать «Проверить всё изученное» → применить ревизию. Цикл описан как учебный
+в <a href="../../game-design/ai-brain/#объяснимость-и-разбор-решений">объяснимости</a>; экран обязан
+проходиться по нему без выхода в другие вкладки.</p>
+<h3 id="выделение-наведение-перетаскивание-модальные-окна">Выделение, наведение, перетаскивание, модальные окна<a class="headerlink" href="#выделение-наведение-перетаскивание-модальные-окна" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Выделение</strong> — один узел, связь или элемент списка; выделение подсвечивает путь через граф.</li>
+<li><strong>Наведение</strong> повторяет то, что выделение даёт клавиатурой, и ничего сверх этого: наведение
+  никогда не единственный носитель сведений.</li>
+<li><strong>Перетаскивание</strong> — ускоритель размещения и проводки; ghost остаётся визуально предварительным,
+  <code>Esc</code> отменяет, <code>Delete</code> удаляет выделенную связь.</li>
+<li><strong>Отказ порта</strong> — красный ghost плюс <strong>текстовая причина</strong>, немедленно произносимая диктором;
+  молчаливого отказа нет.</li>
+<li><strong>Модалки</strong>: подтверждение выхода с черновиком, подтверждение экипировки при предупреждениях,
+  ошибка сохранения. Одновременно одна; приоритет и восстановление фокуса — общие.</li>
+</ul>
+<h3 id="состояния">Состояния<a class="headerlink" href="#состояния" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Загрузка</strong> — скелет рабочей области и списков; палитра неактивна, счётчик Memory без числа.</li>
+<li><strong>Пусто</strong> — мозг без единого правила: экран называет следующее действие («добавить первое
+  правило»), а не показывает пустое полотно.</li>
+<li><strong>Устаревшая ревизия</strong> — Go принял более новую ревизию (другой экран, восстановление после
+  обрыва): экран показывает баннер «ревизия устарела» и предлагает перечитать; молчаливой
+  перезаписи чужой ревизии нет.</li>
+<li><strong>Ошибка</strong> — авторитетная ошибка валидации блокирует сохранение, публикацию и экипировку и
+  показывается списком с переходом к виновному узлу (<a href="../ui-architecture/#валидация-мозга">валидация</a>);
+  ошибка транспорта показывается с повтором.</li>
+<li><strong>Успех</strong> — новая ревизия принята: хеш мозга обновлён, счётчик Memory зафиксирован, панель
+  причины помечена как относящаяся к прежней ревизии.</li>
+<li><strong>Недоступно</strong> — экипировка заблокирована ошибками; кнопка остаётся видимой, фокусируемой и
+  несёт причину текстом.</li>
+</ul>
+<h3 id="обратная-связь-анимация-и-звук">Обратная связь: анимация и звук<a class="headerlink" href="#обратная-связь-анимация-и-звук" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Установка узла, завершение связи, отказ порта, принятие ревизии, провал валидации — каждое со
+  своим коротким сигналом; отказ и провал различаются на слух, а не только цветом.</li>
+<li>Анимации — переход между тремя масштабами и центрирование узла при переходе из таймлайна.
+  Переход обязан сохранять контекст: игрок должен видеть, откуда и куда его перенесло.</li>
+<li>Звук редактора — интерфейсный слой; к <a href="../../game-design/audio/#привязка-к-событиям-симуляции">событиям симуляции</a>
+  он не относится и в запись боя не попадает.</li>
+</ul>
+<h3 id="арт-бриф-и-требуемые-ассеты">Арт-бриф и требуемые ассеты<a class="headerlink" href="#арт-бриф-и-требуемые-ассеты" title="Permanent link">&para;</a></h3>
+<p>Стиль — low-poly без контурной обводки (<a href="../../game-design/visual-direction-and-camera/#визуальный-язык">визуальный язык</a>);
+интерфейс держится того же приглушённого набора.</p>
+<ul>
+<li><strong>Формы узлов — шесть</strong>, по одной на категорию (условие, селектор, действие, параметр/литерал,
+  управление потоком, вызов модуля): форма различает категорию, иконка — конкретный узел
+  (<a href="../../game-design/accessibility/#никогда-только-цветом">дублирование</a>).</li>
+<li>Иконка на каждый bubble словаря.</li>
+<li>Состояния узла: обычный, выделенный, сработавший в последней трассе, отключённый, невалидный —
+  каждое различимо в оттенках серого.</li>
+<li>Провод: ортогональная разводка с автоматическими изгибами, состояния «обычный», «ghost»,
+  «отказ», «часть подсвеченного пути».</li>
+<li>Иконки семи значений митигации и реестра типов урона — там, где показаны числа.</li>
+<li>Значки прерывания (рефлекс) и вызова модуля, визуально отделяющие их от основного потока.</li>
+</ul>
+<h3 id="доступность">Доступность<a class="headerlink" href="#доступность" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Граф озвучивается <strong>как упорядоченный список охраняемых правил</strong>, а не как диаграмма: позиция,
+  категория, имя, стабильный ID, значение, типизированные входы с источниками, потребители выхода,
+  валидность; координаты и геометрия проводов не объявляются
+  (<a href="../../game-design/accessibility/#озвучивание-графа-мозга">озвучивание графа мозга</a>).</li>
+<li>Постоянная строка позиции и команда «где я» со счётчиками ссылок.</li>
+<li>Приёмка MVP — незрячий автор проходит задачи редактора целиком.</li>
+<li>Термины интерфейса описывают мышление персонажа, а не runtime («поведение», «проверка»,
+  «рефлекс», «причина»).</li>
+</ul>
+<h3 id="сохраняемое-состояние-и-возврат">Сохраняемое состояние и возврат<a class="headerlink" href="#сохраняемое-состояние-и-возврат" title="Permanent link">&para;</a></h3>
+<p>Между визитами экран помнит <strong>локально</strong>: текущий масштаб и путь навигации, позиции узлов и
+раскладку, историю undo в пределах сессии экрана, фильтры и поиск в списках, свёрнутые ветви.
+Не помнит и не имеет права подставлять: содержимое ревизии — истина приходит от Go.
+Возврат из таймлайна и из проверки восстанавливает <strong>ту точку графа, из которой пришли</strong>.</p>
+<h3 id="сценарии-приёмки-и-нерешённое">Сценарии приёмки и нерешённое<a class="headerlink" href="#сценарии-приёмки-и-нерешённое" title="Permanent link">&para;</a></h3>
+<p><strong>Приёмка.</strong></p>
+<ol>
+<li>Клик по записи таймлайна открывает нужную вкладку и граф, центрирует сработавший узел и
+   показывает отклонённых кандидатов более высокого приоритета.</li>
+<li>Правка одной ветки, тест на фикстуре «ближняя пачка» и применение ревизии выполняются
+   <strong>только с клавиатуры</strong>, без ловушек фокуса.</li>
+<li>Попытка соединить несовместимые порты даёт текстовую причину, произнесённую диктором.</li>
+<li>Мозг с авторитетной ошибкой невозможно сохранить, опубликовать и экипировать.</li>
+<li>Скриншот экрана в оттенках серого сохраняет различимость шести категорий узлов и всех
+   состояний узла.</li>
+<li>На самом крупном шаге масштаба интерфейса ни один элемент не исчез и ни одна строка не срезана.</li>
+</ol>
+<p><strong>Нерешённое.</strong></p>
+<ul>
+<li>Где живут <strong>библиотека мозгов и выбор персонажа</strong> — во вкладке «Мозг», во вкладке «Прогрессия»
+  или отдельной станцией Кузни. Библиотека мозгов и несколько персонажей приняты
+  (<a href="../../game-design/ai-brain/#подтверждено">профиль и библиотека мозгов</a>), место переключателя —
+  нет. Зарегистрировано в <a href="../../open-questions/">реестре</a>.</li>
+</ul>
+<hr />
+<h2 id="экран-просмотр-боя-combat-viewing">Экран: Просмотр боя (Combat Viewing)<a class="headerlink" href="#экран-просмотр-боя-combat-viewing" title="Permanent link">&para;</a></h2>
+<p>Экран владеет всем кадром: панель вкладок скрыта, редактор и инвентарь отсюда не открываются.</p>
+<h3 id="назначение-и-вопрос-игрока_1">Назначение и вопрос игрока<a class="headerlink" href="#назначение-и-вопрос-игрока_1" title="Permanent link">&para;</a></h3>
+<p>«Работает ли моя программа против <strong>этой</strong> встречи?» Экран показывает исполнение уже написанной
+программы и не даёт в него вмешаться.</p>
+<h3 id="условия-входа_1">Условия входа<a class="headerlink" href="#условия-входа_1" title="Permanent link">&para;</a></h3>
+<p>Из боевого узла карты забега (<a href="../ui-architecture/#карта-экранов-mvp">карта экранов</a>). Встреча уже
+зафиксирована чекпоинтом узла вместе с сидом, поэтому повторный вход после аварийного обрыва даёт
+<strong>ту же</strong> стычку (<a href="../../game-design/core-loop-and-runs/#чекпоинт-узла-и-восстановление-после-обрыва">чекпоинт узла</a>).</p>
+<h3 id="пути-выхода_1">Пути выхода<a class="headerlink" href="#пути-выхода_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Бой досмотрен до конца → <code>Room Resolution</code>.</li>
+<li><strong>Пропуск боя целиком</strong> → сразу результат. Только solo. В co-op и PvP пропуска нет вообще
+  (<a href="../ui-architecture/#просмотр-боя-и-камера">просмотр боя и камера</a>).</li>
+<li>Escape открывает системное меню поверх боя. Симуляция от этого не останавливается: намеренной
+  приостановки боя не существует, бой либо смотрится, либо пропускается целиком.</li>
+<li>Промежуточного «свернуть бой и вернуться за результатом позже» нет.</li>
+</ul>
+<h3 id="данные-и-команды_1">Данные и команды<a class="headerlink" href="#данные-и-команды_1" title="Permanent link">&para;</a></h3>
+<p>Читает: неизменяемый интерполированный кадр из <code>StateBridge</code> — единственной границы с Go, с
+буфером в 3 тика (<a href="../../game-design/physical-combat-and-replay/#представление">представление</a>).</p>
+<p>Шлёт: <strong>только</strong> пропуск боя, и только там, где он разрешён. Больше ни одной команды: камера,
+выбор бойца и настройки подачи — представление, в Go они не уходят.</p>
+<p>Клиент не считает ни одного боевого правила (<a href="../ui-architecture/#дерево-сцен-godot">дерево сцен</a>).</p>
+<h3 id="иерархия-информации_1">Иерархия информации<a class="headerlink" href="#иерархия-информации_1" title="Permanent link">&para;</a></h3>
+<p>Три слоя, ровно в этом порядке чтения.</p>
+<ol>
+<li><strong>Читаемый мир</strong> — главный слой и почти весь кадр: бойцы, их фазы действий, телеграфы,
+   опасные зоны, снаряды, смерти.</li>
+<li><strong>Сдержанный HUD состояния</strong> — то, чего мир не выражает достаточно точно: здоровье и щит бойца,
+   заряды прерываний и флаконов, готовность навыков, состав врагов. Он <strong>сдержан по замыслу</strong>:
+   кадр принадлежит бою.</li>
+<li><strong>Управление подачей</strong> — свободная камера всегда, пропуск боя там, где он разрешён. Слой
+   ничего не сообщает о бое и уходит с глаз при бездействии.</li>
+</ol>
+<p>Отладочный слой сюда не входит: инструменты читаемости живут в редакторе и переключаемом оверлее
+записи, во время обычного боя оверлей не показывается
+(<a href="../../game-design/ai-brain/#инструменты-читаемости--обязательны-в-mvp">инструменты читаемости</a>).
+Мозг врага непрозрачен: показывается только внешне наблюдаемое состояние
+(<a href="../ui-architecture/#событие-решения-и-таймлайн">только свои бойцы</a>).</p>
+<h3 id="раскладка-169-и-219_1">Раскладка 16:9 и 21:9<a class="headerlink" href="#раскладка-169-и-219_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Мир — весь кадр; интерфейс лежит по краям и центр не занимает.</li>
+<li>Верхний левый угол — боец: здоровье, щит, заряды, готовность навыков.</li>
+<li>Верхний правый — состав врагов строкой, без графов и без ярлыков типов
+  (<a href="../ui-architecture/#информация-о-встрече-до-боя">информация о встрече</a>).</li>
+<li>Нижний правый — управление подачей.</li>
+</ul>
+<p>21:9 <strong>не расширяет HUD</strong>: лишняя ширина уходит миру и запасу камеры. Элементы HUD прижаты к
+краям, а не растянуты по ширине, иначе на 21:9 взгляд ходит через весь кадр за двумя числами.</p>
+<h3 id="управление-клавиатура-и-порядок-фокуса_1">Управление, клавиатура и порядок фокуса<a class="headerlink" href="#управление-клавиатура-и-порядок-фокуса_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Камера полностью управляема с клавиатуры: вращение, приближение, сброс к штатному кадру,
+  переключение слежения за бойцом. Камера принадлежит представлению и на симуляцию не влияет
+  (<a href="../ui-architecture/#просмотр-боя-и-камера">камера</a>).</li>
+<li><strong>Пауза, покадровый шаг, перемотка, изменение скорости и замедление на этом экране отсутствуют.</strong>
+  Они существуют ровно в двух местах — просмотр записи и экран теста мозга.</li>
+<li>Порядок фокуса: пропуск (если разрешён) → камера → системное меню. Фокус не уходит в мир.</li>
+<li>Пропуск требует подтверждения намерения (удержание или подтверждение в модалке) — пропуск
+  необратим в пределах узла.</li>
+</ul>
+<h3 id="основной-цикл-взаимодействия_1">Основной цикл взаимодействия<a class="headerlink" href="#основной-цикл-взаимодействия_1" title="Permanent link">&para;</a></h3>
+<p>Смотреть → замечать, где программа выбрала не то → запоминать момент → после боя открыть причину
+в редакторе. Диагностика в реальном времени не входит в цикл этого экрана намеренно: думать
+предлагается <strong>до</strong> боя и <strong>после</strong> него.</p>
+<h3 id="выделение-наведение-перетаскивание-модальные-окна_1">Выделение, наведение, перетаскивание, модальные окна<a class="headerlink" href="#выделение-наведение-перетаскивание-модальные-окна_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Выделение бойца</strong> переключает слежение камеры и адресацию HUD. Больше выделение ничего не
+  делает: панели намерения при первом просмотре нет.</li>
+<li><strong>Наведение</strong> на врага показывает только внешне наблюдаемое: здоровье, фазу действия, цель,
+  метки, видимую экипировку.</li>
+<li><strong>Перетаскивания на экране нет.</strong></li>
+<li><strong>Модалки</strong> — системное меню, подтверждение пропуска, фатальная ошибка или разрыв соединения.
+  Одновременно одна; приоритет общий. Модалка не останавливает бой и не даёт скрытой паузы.</li>
+</ul>
+<h3 id="состояния_1">Состояния<a class="headerlink" href="#состояния_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Загрузка</strong> — кадр арены собирается до первого тика; счётчика тиков и HUD ещё нет.</li>
+<li><strong>Пусто</strong> — состояния нет по построению: бой без участников не начинается.</li>
+<li><strong>Устаревшая ревизия</strong> — мозг был изменён после старта узла: экран <strong>не</strong> подменяет ревизию на
+  ходу, бой доигрывается на той, с которой начат, и это сказано текстом на итоге комнаты.</li>
+<li><strong>Ошибка</strong> — обрыв связи с Go: фатальный слой с честной диагностикой; забег восстанавливается
+  <strong>с начала узла</strong>, а не с середины боя.</li>
+<li><strong>Успех</strong> — бой завершён, переход на <code>Room Resolution</code>.</li>
+<li><strong>Недоступно</strong> — пропуск в co-op и PvP: элемент <strong>отсутствует</strong>, а не показан выключенным.
+  Показывать выключенную кнопку пропуска там, где пропуска нет по правилу, значит обещать
+  несуществующее.</li>
+</ul>
+<h3 id="обратная-связь-анимация-и-звук_1">Обратная связь: анимация и звук<a class="headerlink" href="#обратная-связь-анимация-и-звук_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Звук привязан к авторитетным событиям тика, а не к кадрам анимации; телеграф намерения стоит на
+  тике предупреждения (<a href="../../game-design/audio/#геймплейные-сигналы">геймплейные сигналы</a>).</li>
+<li>Косметика (шаги, ткань, свист, обломки) не имеет права намекать на урон, блок или смену
+  состояния.</li>
+<li>Звук идёт по буферизованному клоку подачи: тик <em>T</em> звучит, когда воспроизведение дошло до <em>T</em>
+  (<a href="../../game-design/audio/#время-replay-и-перемотка">время и replay</a>).</li>
+<li>Анимация интерфейса минимальна: движение по краям кадра во время боя крадёт внимание у мира.</li>
+</ul>
+<h3 id="арт-бриф-и-требуемые-ассеты_1">Арт-бриф и требуемые ассеты<a class="headerlink" href="#арт-бриф-и-требуемые-ассеты_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Штатный кадр — изометрический вид сверху; персонажи не перекрывают друг друга и важные сигналы
+  без способа восстановить видимость (<a href="../../game-design/visual-direction-and-camera/#основная-игровая-камера">основная игровая камера</a>).</li>
+<li>Телеграфы: подготовка, ложная и настоящая подготовка, восстановление, опасная зона (постоянная и
+  истекающая) — каждый читается <strong>формой и силуэтом</strong>, не только цветом.</li>
+<li>Иконки статусных эффектов плюс отдельная форма рамки для положительного и отрицательного.</li>
+<li>Иконки типов урона рядом с числами и иконки семи значений митигации.</li>
+<li>Арена собирается из 3–5 связанных выпуклых зон с проходами; одной круглой комнатой она не бывает
+  (<a href="../combat-simulation/#генерация-арены">генерация арены</a>).</li>
+<li>Ассеты оптимизируются под штатный ракурс: возможность приблизить запись не требует качества
+  кинематографического close-up.</li>
+</ul>
+<h3 id="доступность_1">Доступность<a class="headerlink" href="#доступность_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Опции «замедлить бой», «увеличить окно реакции» и «упростить противника» <strong>не существует</strong> —
+  это прямое следствие «Главного запрета», а не решение этого экрана.</li>
+<li>Каждое число, переданное цветом или полоской, имеет текстовое значение.</li>
+<li>Диктор объявляет смены состояния бойца игрока: смерть, срыв действия, наложение и спад статуса.</li>
+<li>Управление камерой целиком доступно с клавиатуры и полностью переназначаемо.</li>
+<li>Снижение сенсорной нагрузки — только подача: тряска, вспышки и плотность эффектов
+  (<a href="../../game-design/accessibility/#снижение-сенсорной-нагрузки">снижение сенсорной нагрузки</a>).</li>
+</ul>
+<h3 id="сохраняемое-состояние-и-возврат_1">Сохраняемое состояние и возврат<a class="headerlink" href="#сохраняемое-состояние-и-возврат_1" title="Permanent link">&para;</a></h3>
+<p>Экран не помнит между визитами ничего, кроме <strong>настроек подачи</strong>: режим камеры, её приближение и
+включённость слоя HUD. Позиция воспроизведения не сохраняется: боя, к которому можно вернуться,
+не существует — есть запись, и у неё свой экран.</p>
+<h3 id="сценарии-приёмки-и-нерешённое_1">Сценарии приёмки и нерешённое<a class="headerlink" href="#сценарии-приёмки-и-нерешённое_1" title="Permanent link">&para;</a></h3>
+<p><strong>Приёмка.</strong></p>
+<ol>
+<li>На экране нет ни одного элемента управления паузой, шагом, скоростью и перемоткой — ни в solo,
+   ни в co-op/PvP.</li>
+<li>В solo пропуск боя ведёт прямо к результату комнаты; в co-op/PvP элемента пропуска нет.</li>
+<li>Камера вращается, приближается и сбрасывается с клавиатуры; исход боя от камеры не зависит —
+   проверяется побитовым совпадением записи при разных движениях камеры.</li>
+<li>Ни одна настройка доступности не попадает во входы симуляции: запись боя, снятая с двумя
+   разными наборами настроек, побитово совпадает.</li>
+<li>Интерфейс врага не раскрывает графа, правил, модулей, прерываний и событий решений.</li>
+<li>Скриншот в оттенках серого сохраняет различимость телеграфов и опасных зон.</li>
+</ol>
+<p><strong>Нерешённое.</strong></p>
+<ul>
+<li><strong>Точный состав сдержанного HUD</strong> первого просмотра: какие именно значения показаны постоянно, а
+  какие — по выделению бойца. Слои и их порядок закрыты выше, набор полей — нет. Зарегистрировано
+  в <a href="../../open-questions/">реестре</a>.</li>
+</ul>
+<hr />
+<h2 id="экран-дорожная-кузня">Экран: Дорожная кузня<a class="headerlink" href="#экран-дорожная-кузня" title="Permanent link">&para;</a></h2>
+<p>База между забегами и <strong>единственное место, недоступное во время забега</strong>.</p>
+<h3 id="назначение-и-вопрос-игрока_2">Назначение и вопрос игрока<a class="headerlink" href="#назначение-и-вопрос-игрока_2" title="Permanent link">&para;</a></h3>
+<p>«Чем я займусь до следующего забега?» Экран не занимается ничем сам: он показывает состояние
+профиля и раздаёт входы в занятия.</p>
+<h3 id="условия-входа_2">Условия входа<a class="headerlink" href="#условия-входа_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Из <code>Main Menu</code> после выбора профиля.</li>
+<li>С экрана итога забега — после победы или смерти
+  (<a href="../../game-design/core-loop-and-runs/#последовательность-экранов">последовательность экранов</a>).</li>
+<li>Из вкладки <strong>Кузня</strong> — только вне забега.</li>
+</ul>
+<h3 id="пути-выхода_2">Пути выхода<a class="headerlink" href="#пути-выхода_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Станции и вкладки: <strong>Инвентарь и верстак</strong>, <strong>Мозг</strong>, <strong>Прогрессия</strong>, <strong>Забег</strong> (подготовка),
+  <strong>Библиотека записей</strong>, <strong>Миссии</strong>.</li>
+<li>Escape — системное меню; из него выход в <code>Main Menu</code> и из игры.</li>
+<li>Старт забега уводит в подготовку забега, и с этого момента вкладка «Кузня» становится
+  недоступной до конца забега.</li>
+</ul>
+<h3 id="данные-и-команды_2">Данные и команды<a class="headerlink" href="#данные-и-команды_2" title="Permanent link">&para;</a></h3>
+<p>Читает: профиль и его персонажей, выбранного персонажа и выбранный мозг, сводку постоянного
+прогресса (открытые bubbles, ёмкость Memory, ряды рюкзака, пройденные миссии и испытания),
+содержимое сундука и кошелька материалов, список сохранённых записей, итог последнего забега.</p>
+<p>Шлёт: выбор персонажа, выбор мозга, старт подготовки забега. Собственных мутаций у Кузни нет —
+всё остальное делают экраны, в которые она ведёт.</p>
+<h3 id="иерархия-информации_2">Иерархия информации<a class="headerlink" href="#иерархия-информации_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Итог последнего забега</strong> — что убило, какие правила срабатывали, какие навыки не работали
+   (<a href="../../game-design/core-loop-and-runs/#требования-к-обратной-связи">требования к обратной связи</a>).</li>
+<li><strong>Кто пойдёт в забег</strong> — персонаж, мозг, активный билд.</li>
+<li><strong>Что открыто</strong> — Memory, bubbles, миссии и испытания; ровно то, что переносится между забегами.</li>
+<li><strong>Куда пойти</strong> — станции.</li>
+<li><strong>Что накоплено</strong> — сундук и материалы, сводкой; сами предметы живут в своём экране.</li>
+</ol>
+<p>Первым читается итог, а не список станций: он и есть ответ на вопрос «чему учиться дальше».</p>
+<h3 id="раскладка-169-и-219_2">Раскладка 16:9 и 21:9<a class="headerlink" href="#раскладка-169-и-219_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Слева — персонаж, мозг и активный билд.</li>
+<li>Центр — итог последнего забега и сводка прогресса.</li>
+<li>Справа — станции списком, каждая с одной строкой состояния («в сундуке нет места», «доступна
+  новая миссия»).</li>
+<li>Снизу — крупная команда «Начать забег».</li>
+</ul>
+<p>21:9 расширяет <strong>центр</strong>: итог и сводку прогресса. Станции не растягиваются в ряд иконок по всей
+ширине — список остаётся списком.</p>
+<h3 id="управление-клавиатура-и-порядок-фокуса_2">Управление, клавиатура и порядок фокуса<a class="headerlink" href="#управление-клавиатура-и-порядок-фокуса_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Панель вкладок видима; вкладка «Кузня» здесь активна.</li>
+<li>Порядок фокуса: панель вкладок → персонаж и мозг → итог забега → станции → «Начать забег».</li>
+<li>Каждая станция достижима стрелками и открывается Enter; горячая клавиша на станцию не заменяет
+  обход, а дополняет его.</li>
+</ul>
+<h3 id="основной-цикл-взаимодействия_2">Основной цикл взаимодействия<a class="headerlink" href="#основной-цикл-взаимодействия_2" title="Permanent link">&para;</a></h3>
+<p>Прочитать итог → сделать один вывод → пойти в станцию, которая его закрывает (мозг, снаряжение,
+прогрессия) → вернуться → начать забег. Кузня — перекрёсток, и задерживать на себе она не должна.</p>
+<h3 id="выделение-наведение-перетаскивание-модальные-окна_2">Выделение, наведение, перетаскивание, модальные окна<a class="headerlink" href="#выделение-наведение-перетаскивание-модальные-окна_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Выделение</strong> — станция или строка сводки.</li>
+<li><strong>Наведение</strong> на станцию раскрывает ту же строку состояния, которую видно с клавиатуры.</li>
+<li><strong>Перетаскивания нет.</strong></li>
+<li><strong>Модалки</strong>: смена персонажа при несохранённом черновике мозга, подтверждение старта забега,
+  системное меню. Одновременно одна.</li>
+</ul>
+<h3 id="состояния_2">Состояния<a class="headerlink" href="#состояния_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Загрузка</strong> — скелет сводки и списка станций; «Начать забег» неактивен, пока профиль не прочитан.</li>
+<li><strong>Пусто</strong> — новый профиль: итога забега ещё нет, центр занимает названное следующее действие —
+  первая обучающая миссия, а не пустая рамка.</li>
+<li><strong>Устаревшая ревизия</strong> — сводка прогресса устарела относительно принятого Go состояния: баннер с
+  перечитыванием, без молчаливой подстановки чисел.</li>
+<li><strong>Ошибка</strong> — невалидное сохранение профиля <strong>не загружается</strong>: Кузня показывает три исхода на
+  выбор — диагностика, восстановление из провалидированного backup, явный новый профиль
+  (<a href="../item-persistence/#поведение-при-невалидном-сохранении">поведение при невалидном сохранении</a>).
+  Частичной починки нет.</li>
+<li><strong>Успех</strong> — забег стартовал; экран уступает место подготовке забега.</li>
+<li><strong>Недоступно</strong> — во время забега вкладка «Кузня» видима, фокусируема, объявляется как
+  недоступная и несёт причину текстом. Скрывать её нельзя: исчезнувшая вкладка читается как
+  поломка, а не как правило.</li>
+</ul>
+<h3 id="обратная-связь-анимация-и-звук_2">Обратная связь: анимация и звук<a class="headerlink" href="#обратная-связь-анимация-и-звук_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Возвращение с победой и возвращение со смертью звучат по-разному: это единственное место, где
+  игра подводит итог.</li>
+<li>Открытие новой станции или новой миссии получает собственный сигнал и <strong>остаётся видимым</strong>
+  маркером до посещения; звук не единственный носитель события.</li>
+<li>Музыка Кузни — спокойный слой, отличный от боевого; она не тянет на себя внимание от итога.</li>
+<li>Анимации интерфейса короткие: Кузня — перекрёсток, а не сцена.</li>
+</ul>
+<h3 id="арт-бриф-и-требуемые-ассеты_2">Арт-бриф и требуемые ассеты<a class="headerlink" href="#арт-бриф-и-требуемые-ассеты_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Одна статичная низкополигональная сцена интерьера в общем стиле
+  (<a href="../../game-design/visual-direction-and-camera/#визуальный-язык">визуальный язык</a>); ходить по ней
+  нельзя — навигация идёт вкладками и списком станций.</li>
+<li>Иконка на каждую станцию плюс её маркер «есть новое».</li>
+<li>Значки состояния сводки: закрыто, доступно, пройдено — с различением формой.</li>
+<li>Портрет или силуэт выбранного персонажа и метка выбранного мозга.</li>
+<li>Освещение и палитра — приглушённые, контраст уходит на итог забега и команду старта.</li>
+</ul>
+<h3 id="доступность_2">Доступность<a class="headerlink" href="#доступность_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Диктор читает Кузню как <strong>список станций с состояниями</strong>, а не как изображение комнаты; сцена
+  интерьера — фон и в дерево фокуса не входит.</li>
+<li>Недоступная вкладка объявляется вместе с причиной; отключённое состояние не передаётся одним
+  цветом.</li>
+<li>Маркер «есть новое» дублируется формой и текстом.</li>
+<li>Сводка прогресса целиком доступна текстом: ни одно число не живёт только в полоске.</li>
+</ul>
+<h3 id="сохраняемое-состояние-и-возврат_2">Сохраняемое состояние и возврат<a class="headerlink" href="#сохраняемое-состояние-и-возврат_2" title="Permanent link">&para;</a></h3>
+<p>Помнит между визитами: выбранного персонажа и мозг, свёрнутость блоков сводки, прокрутку списка
+станций, отметку «итог последнего забега прочитан». Возврат из любой станции ставит фокус на ту
+станцию, из которой вышли, а не в начало списка.</p>
+<h3 id="сценарии-приёмки-и-нерешённое_2">Сценарии приёмки и нерешённое<a class="headerlink" href="#сценарии-приёмки-и-нерешённое_2" title="Permanent link">&para;</a></h3>
+<p><strong>Приёмка.</strong></p>
+<ol>
+<li>Во время забега вкладка «Кузня» получает фокус, объявляется недоступной и называет причину;
+   переход по ней не происходит.</li>
+<li>Возврат из забега открывает Кузню с итогом забега в центре, отвечающим на три вопроса
+   обратной связи.</li>
+<li>Все станции достижимы и открываются с клавиатуры; возврат восстанавливает фокус.</li>
+<li>Новый профиль показывает явное пустое состояние с названным следующим действием.</li>
+<li>Невалидное сохранение приводит к выбору из трёх исходов, а не к молчаливой починке.</li>
+<li>Скриншот в оттенках серого сохраняет различимость состояний станций и маркеров «есть новое».</li>
+</ol>
+<p><strong>Нерешённое.</strong></p>
+<ul>
+<li>Является ли <strong>«тренировка в комнате смерти»</strong> (<a href="../../game-design/core-loop-and-runs/#предлагаемый-цикл">предлагаемый цикл</a>)
+  тем же самым, что <a href="../ui-architecture/#тест-мозга">тест мозга</a>, или отдельным местом: в карте
+  экранов MVP такого экрана нет. Зарегистрировано в <a href="../../open-questions/">реестре</a>.</li>
+<li>Где живёт <strong>сундук</strong>: вкладкой экрана инвентаря или отдельной станцией Кузни. Сундук, его
+  вкладки и валютная вкладка приняты (<a href="../../game-design/items-and-crafting/#место-в-цикле-забега">место в цикле забега</a>),
+  место — нет. Зарегистрировано в <a href="../../open-questions/">реестре</a>.</li>
+<li>Точный состав <strong>сводки прогресса</strong>: какие счётчики попадают в Кузню, а какие остаются во
+  вкладке «Прогрессия». Зарегистрировано в <a href="../../open-questions/">реестре</a>.</li>
+</ul>
+<hr />
+<h2 id="экран-инвентарь-и-крафт-inventorycrafting">Экран: Инвентарь и крафт (Inventory+Crafting)<a class="headerlink" href="#экран-инвентарь-и-крафт-inventorycrafting" title="Permanent link">&para;</a></h2>
+<p>Раскладка, набор жестов и состав верстака <strong>не переоткрываются</strong>: они приняты в
+<a href="../ui-architecture/#инвентарь-и-крафт">инвентаре и крафте</a>, предметный контракт — в
+<a href="../../game-design/items-and-crafting/">предметах и крафте</a>.</p>
+<h3 id="назначение-и-вопрос-игрока_3">Назначение и вопрос игрока<a class="headerlink" href="#назначение-и-вопрос-игрока_3" title="Permanent link">&para;</a></h3>
+<p>«Что из принесённого надеть, что оставить и во что превратить остальное?» Экран отвечает на него
+одним местом: кукла, сетка рюкзака и верстак стоят рядом, потому что решение «оставить или
+разобрать» принимается сразу (<a href="../../game-design/items-and-crafting/#место-в-цикле-забега">место в цикле забега</a>).</p>
+<h3 id="условия-входа_3">Условия входа<a class="headerlink" href="#условия-входа_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Из вкладки <strong>Инвентарь</strong> — из Кузни и <strong>после каждой комнаты</strong> забега
+  (<a href="../ui-architecture/#доступ-к-интерфейсам-в-забеге">доступ к интерфейсам</a>).</li>
+<li>С экрана итога комнаты при переполнении: управление инвентарём добровольно всегда и обязательно
+  только тогда, когда добыча не помещается (<a href="../../game-design/core-loop-and-runs/#подтверждено">основной цикл</a>).</li>
+<li>Во время боя вход закрыт: экипировать найденное в бою нельзя, наблюдение и камера — всё, что
+  доступно.</li>
+</ul>
+<h3 id="пути-выхода_3">Пути выхода<a class="headerlink" href="#пути-выхода_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Панель вкладок — в любую доступную вкладку.</li>
+<li>Escape по лестнице: верхний закрываемый слой → перетаскивание (отменяется) → детальный вид
+  верстака → экран (<a href="../ui-architecture/#модальные-слои-и-состояния-экранов">общее правило Escape</a>).</li>
+<li>Выход в забеге при непустой <strong>буферной сумке</strong> — модалка с прямым текстом: оставленное теряется
+  навсегда при выходе из комнаты, вернуться нельзя
+  (<a href="../../game-design/items-and-crafting/#место-в-цикле-забега">место в цикле забега</a>).</li>
+<li>Незавершённой операции крафта не существует: пока подтверждение не отправлено, ничего не
+  израсходовано, и подтверждать при выходе нечего.</li>
+</ul>
+<h3 id="данные-и-команды_3">Данные и команды<a class="headerlink" href="#данные-и-команды_3" title="Permanent link">&para;</a></h3>
+<p>Читает: сетку рюкзака и размеры предметов в ячейках, куклу с типизированными ячейками и двумя
+наборами оружия, число слотов флаконов из implicit надетого пояса
+(<a href="../../game-design/items-and-crafting/#экипировка">экипировка</a>), заряды флаконов
+(<a href="../../game-design/items-and-crafting/#заряды-флаконов">заряды флаконов</a>), содержимое буферной
+сумки, кошелёк сфер и трёх материалов, вкладки сундука вне забега, авторитетную стоимость, шанс и
+диапазон исхода выбранной операции верстака.</p>
+<p>Шлёт: перемещение и надевание, «забрать всё» из буферной сумки, разбор предмета, четыре операции
+верстака MVP — добавить аффикс, перекатать, повысить редкость, разобрать в материалы
+(<a href="../../game-design/items-and-crafting/#обычные-и-направленные-операции">обычные и направленные операции</a>),
+покупку вкладки сундука, смену набора оружия вне боя.</p>
+<p>Держит локально и в Go <strong>не</strong> отправляет: ghost перетаскивания, прокрутку, фильтры и поиск,
+выделение, свёрнутость кошелька (<a href="../ui-architecture/#дерево-сцен-godot">дерево сцен</a>).
+Оптимистичных мутаций нет: ghost остаётся визуально предварительным до подтверждения от Go
+(<a href="../ui-architecture/#граница-клиента-и-сервера">граница клиента и сервера</a>).</p>
+<h3 id="иерархия-информации_3">Иерархия информации<a class="headerlink" href="#иерархия-информации_3" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Что сейчас теряется</strong> — буферная сумка и её остаток; это единственное, что необратимо.</li>
+<li><strong>Чем боец воюет</strong> — кукла, активный набор оружия и слоты флаконов.</li>
+<li><strong>Что принесено</strong> — сетка рюкзака.</li>
+<li><strong>Что это такое</strong> — инспектор выделенного предмета.</li>
+<li><strong>Во что это превратить</strong> — верстак и кошелёк.</li>
+</ol>
+<p>Первым читается буферная сумка, а не рюкзак: у неё одной есть срок.</p>
+<h3 id="раскладка-169-и-219_3">Раскладка 16:9 и 21:9<a class="headerlink" href="#раскладка-169-и-219_3" title="Permanent link">&para;</a></h3>
+<p>Зоны приняты в <a href="../ui-architecture/#инвентарь-и-крафт">интерфейсе</a> и здесь только раскрыты: слева —
+экипировка и переключатель билда, центр — сетка рюкзака, справа — инспектор, снизу-справа — верстак
+и кошелёк материалов. Буферная сумка в забеге стоит отдельной полосой над сеткой рюкзака: она
+временная и не должна выглядеть частью постоянного хранилища.</p>
+<p>21:9 расширяет рюкзак и место истории предмета. Он <strong>не растягивает ячейки</strong> и не отрывает инспектор
+от верстака: сравнение исхода операции со свойствами предмета обязано оставаться одним взглядом. Ни
+один элемент не исчезает ни на одном шаге масштаба интерфейса
+(<a href="../../game-design/accessibility/#масштабирование-интерфейса">масштабирование</a>).</p>
+<h3 id="управление-клавиатура-и-порядок-фокуса_3">Управление, клавиатура и порядок фокуса<a class="headerlink" href="#управление-клавиатура-и-порядок-фокуса_3" title="Permanent link">&para;</a></h3>
+<p>Жесты приняты и не переоткрываются (<a href="../ui-architecture/#инвентарь-и-крафт">инвентарь и крафт</a>):
+перетаскивание перемещает, меняет местами и надевает; правый клик — контекстное меню (осмотреть,
+надеть, отправить на верстак, разобрать, разделить стак); Shift-клик — самое безопасное быстрое
+перемещение; <code>Esc</code> отменяет перетаскивание, <code>Delete</code> запрашивает подтверждение разбора, <code>Enter</code>
+подтверждает сфокусированный крафт, <code>Ctrl</code>-клик быстро переносит.</p>
+<ul>
+<li><strong>Сетка рюкзака — одна остановка</strong> внешнего графа фокуса: Tab входит и выходит, по ячейкам не
+  ходит. Внутри стрелки двигают выделение <strong>пространственно</strong> по занятым предметом ячейкам, <code>Enter</code>
+  берёт и кладёт предмет — перетаскивание с клавиатуры выражается двумя нажатиями, а не удержанием.</li>
+<li>Внешний порядок фокуса: панель вкладок → буферная сумка → кукла и переключатель билда → сетка
+  рюкзака → инспектор → верстак → кошелёк. Порядок обхода совпадает с визуальным.</li>
+<li>Раскладки по умолчанию — уровень прототипа
+  (<a href="../../game-design/accessibility/#статус-и-границы">статус и границы</a>), переназначение полное.</li>
+</ul>
+<h3 id="основной-цикл-взаимодействия_3">Основной цикл взаимодействия<a class="headerlink" href="#основной-цикл-взаимодействия_3" title="Permanent link">&para;</a></h3>
+<p>Забрать всё → увидеть, что не поместилось → осмотреть спорный предмет → надеть, разобрать или
+отправить на верстак → прочитать авторитетную цену и диапазон исхода → подтвердить → вернуться к
+остатку буферной сумки. Цикл обязан проходиться без выхода в другие вкладки.</p>
+<h3 id="выделение-наведение-перетаскивание-модальные-окна_3">Выделение, наведение, перетаскивание, модальные окна<a class="headerlink" href="#выделение-наведение-перетаскивание-модальные-окна_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Выделение</strong> — один предмет; инспектор всегда адресован выделенному, а не наведённому.</li>
+<li><strong>Наведение</strong> повторяет то, что выделение даёт клавиатурой, и ничего сверх этого.</li>
+<li><strong>Перетаскивание</strong> — основной жест перемещения; ghost показывает занимаемые ячейки и допустимость
+  места, отказ несёт <strong>текстовую причину</strong> (ячейка занята, ячейка не того типа), немедленно
+  произносимую диктором. Молчаливого возврата предмета в исходную ячейку нет.</li>
+<li><strong>Модалки</strong>: подтверждение разбора, подтверждение операции верстака с ценой и диапазоном исхода,
+  подтверждение покупки вкладки сундука, предупреждение об остатке буферной сумки, ошибка операции.
+  Одновременно одна; приоритет и восстановление фокуса — общие.</li>
+<li>Интерфейс крафта <strong>никогда не намекает на гарантированный результат</strong>, если его не гарантирует Go
+  (<a href="../ui-architecture/#инвентарь-и-крафт">инвентарь и крафт</a>); коррупция показывает четыре категории
+  исхода и допустимый пул, но не результат
+  (<a href="../../game-design/items-and-crafting/#уникальные-предметы-и-коррупция">уникальные предметы и коррупция</a>).</li>
+</ul>
+<h3 id="состояния_3">Состояния<a class="headerlink" href="#состояния_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Загрузка</strong> — скелет сетки, куклы и кошелька; верстак неактивен, цены без чисел.</li>
+<li><strong>Пусто</strong> — пустой рюкзак вне забега: экран называет следующее действие («начать забег»), а не
+  показывает пустую сетку.</li>
+<li><strong>Устаревшая ревизия</strong> — Go принял более новое состояние инвентаря (итог комнаты, другой экран):
+  баннер «состояние устарело» с перечитыванием; молчаливой подстановки предметов нет.</li>
+<li><strong>Ошибка</strong> — операция отклонена Go (не хватает материалов, предмет не подходит слоту, редкость
+  запрещает операцию): причина текстом рядом с операцией, расход не произошёл; ошибка транспорта —
+  с повтором. Невалидное сохранение профиля сюда не доходит: оно разбирается в Кузне
+  (<a href="../item-persistence/#поведение-при-невалидном-сохранении">поведение при невалидном сохранении</a>).</li>
+<li><strong>Успех</strong> — исход операции показан явно: что стало с предметом и сколько материалов пришло или
+  ушло. Результат случайной операции не скрывается за анимацией.</li>
+<li><strong>Недоступно</strong> — в забеге недоступно всё, что принадлежит Кузне: сундук и покупка вкладок.
+  Элемент остаётся видимым, фокусируемым и несёт причину текстом
+  (<a href="../../game-design/accessibility/#никогда-только-цветом">никогда только цветом</a>).</li>
+</ul>
+<h3 id="обратная-связь-анимация-и-звук_3">Обратная связь: анимация и звук<a class="headerlink" href="#обратная-связь-анимация-и-звук_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Раздельные короткие сигналы: предмет лёг в ячейку, предмет надет, отказ размещения, разбор,
+  операция верстака удалась, операция отклонена. Отказ и провал операции различаются на слух.</li>
+<li>Разбор и повышение редкости звучат по-разному: одно — расход предмета, другое — его улучшение.</li>
+<li>Анимация не задерживает чтение исхода: результат операции появляется текстом сразу, эффект
+  накладывается поверх уже показанного результата.</li>
+<li>Звук экрана — интерфейсный слой, к <a href="../../game-design/audio/#привязка-к-событиям-симуляции">событиям симуляции</a>
+  он не относится и в запись боя не попадает.</li>
+</ul>
+<h3 id="арт-бриф-и-требуемые-ассеты_3">Арт-бриф и требуемые ассеты<a class="headerlink" href="#арт-бриф-и-требуемые-ассеты_3" title="Permanent link">&para;</a></h3>
+<p>Стиль — low-poly без контурной обводки (<a href="../../game-design/visual-direction-and-camera/#визуальный-язык">визуальный язык</a>).</p>
+<ul>
+<li>Иконка на каждую базу предмета; иконки читаются в размере одной ячейки сетки.</li>
+<li>Рамки редкости, различимые <strong>формой рамки</strong>, а не только цветом; отдельная отметка <code>corrupted</code>.</li>
+<li>Иконки трёх материалов (лом, ткань, кожа) и сфер крафта.</li>
+<li>Иконки восьми утилитарных флаконов, флаконов жизни и маны
+  (<a href="../../game-design/items-and-crafting/#восемь-утилитарных-флаконов">восемь утилитарных флаконов</a>).</li>
+<li>Силуэты типизированных ячеек куклы, включая два набора оружия и слоты пояса.</li>
+<li>Состояния ячейки сетки: свободна, занята, допустимая цель ghost, недопустимая цель ghost.</li>
+<li>Иконки четырёх операций верстака и значок необратимой операции.</li>
+</ul>
+<h3 id="доступность_3">Доступность<a class="headerlink" href="#доступность_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Сетка озвучивается как <strong>список предметов с координатами и размером</strong>, а не как картинка: имя,
+  редкость, база, размер в ячейках, положение, надет или нет.</li>
+<li>Каждое число операции — цена, шанс, диапазон исхода — доступно текстом; полоска и цвет
+  единственным носителем не бывают.</li>
+<li>Отказ размещения произносится с причиной сразу, а не остаётся визуальным откатом.</li>
+<li>Необратимые операции (разбор, коррупция) объявляются как необратимые до подтверждения.</li>
+</ul>
+<h3 id="сохраняемое-состояние-и-возврат_3">Сохраняемое состояние и возврат<a class="headerlink" href="#сохраняемое-состояние-и-возврат_3" title="Permanent link">&para;</a></h3>
+<p>Помнит <strong>локально</strong>: прокрутку и фильтры, выделенный предмет, свёрнутость кошелька, последнюю
+открытую операцию верстака, выбранную вкладку сундука. Не помнит и не подставляет содержимое
+рюкзака и куклы — истина приходит от Go. Возврат из другой вкладки ставит фокус на тот предмет, с
+которого ушли.</p>
+<h3 id="сценарии-приёмки-и-нерешённое_3">Сценарии приёмки и нерешённое<a class="headerlink" href="#сценарии-приёмки-и-нерешённое_3" title="Permanent link">&para;</a></h3>
+<p><strong>Приёмка.</strong></p>
+<ol>
+<li>«Забрать всё» переносит в рюкзак столько, сколько влезает, и остаток остаётся видимым в буферной
+   сумке; выход из комнаты предупреждает о безвозвратной потере.</li>
+<li>Разбор предмета доступен и из буферной сумки, и из рюкзака, в забеге вне боя.</li>
+<li>Любая операция верстака до подтверждения показывает цену, шанс и диапазон исхода; отменённая
+   операция ничего не расходует.</li>
+<li>Перемещение предмета, надевание и подтверждение крафта выполняются <strong>только с клавиатуры</strong>, без
+   ловушек фокуса.</li>
+<li>Отказ размещения даёт текстовую причину, произнесённую диктором.</li>
+<li>Скриншот в оттенках серого сохраняет различимость редкостей, состояний ячейки и ghost.</li>
+</ol>
+<p><strong>Нерешённое.</strong></p>
+<ul>
+<li>Где живёт <strong>сундук</strong> — вкладкой этого экрана или отдельной станцией Кузни. Уже зарегистрировано
+  в <a href="../../open-questions/">реестре</a>.</li>
+<li>Показывает ли <strong>буферную сумку</strong> этот экран или только итог комнаты. Сама буферная сумка и правило
+  потери приняты (<a href="../../game-design/items-and-crafting/#место-в-цикле-забега">место в цикле забега</a>),
+  экран-владелец — нет. Зарегистрировано в <a href="../../open-questions/">реестре</a>.</li>
+<li>Входит ли в MVP <strong>пакетный крафт</strong> с условием остановки и бюджетом материалов: он назван целью
+  интерфейса (<a href="../../game-design/items-and-crafting/#ценность-добычи">ценность добычи</a>), а состав
+  верстака MVP ограничен четырьмя операциями. Зарегистрировано в <a href="../../open-questions/">реестре</a>.</li>
+</ul>
+<hr />
+<h2 id="экран-прогрессия-progression">Экран: Прогрессия (Progression)<a class="headerlink" href="#экран-прогрессия-progression" title="Permanent link">&para;</a></h2>
+<p>Пассивное дерево, гнёзда активных навыков и Memory. Правила дерева, цены и респека приняты в
+<a href="../../game-design/passive-tree-and-sockets/#подтверждено">пассивном дереве и ячейках</a> и здесь
+<strong>не переоткрываются</strong>.</p>
+<h3 id="назначение-и-вопрос-игрока_4">Назначение и вопрос игрока<a class="headerlink" href="#назначение-и-вопрос-игрока_4" title="Permanent link">&para;</a></h3>
+<p>«Куда положить очки, чтобы билд отвечал на то, что меня убивает?» Экран правит числовую часть бойца;
+его поведение живёт в редакторе мозга и от дерева не зависит
+(<a href="../../game-design/passive-tree-and-sockets/#подтверждено">пассивное дерево на bubbles не влияет</a>).</p>
+<h3 id="условия-входа_4">Условия входа<a class="headerlink" href="#условия-входа_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Из вкладки <strong>Прогрессия</strong> — из Кузни и <strong>после каждой комнаты</strong> забега
+  (<a href="../ui-architecture/#доступ-к-интерфейсам-в-забеге">доступ к интерфейсам</a>).</li>
+<li>Поузловая перестройка доступна <strong>в промежутках между боями и в Кузне</strong>; во время боя она
+  невозможна (<a href="../../game-design/passive-tree-and-sockets/#подтверждено">сброс развития</a>). Отдельного
+  запрета экрану не нужно: во время боя панель вкладок скрыта.</li>
+<li>После патча, изменившего значения узлов или топологию, экран открывается в состоянии полного
+  бесплатного сброса (см. «Состояния»).</li>
+</ul>
+<h3 id="пути-выхода_4">Пути выхода<a class="headerlink" href="#пути-выхода_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Панель вкладок — в любую доступную вкладку.</li>
+<li>Escape по лестнице: верхний закрываемый слой → локальная паутина навыка → основное дерево → экран
+  (<a href="../ui-architecture/#модальные-слои-и-состояния-экранов">общее правило Escape</a>).</li>
+<li>Черновика распределения нет: очки списываются операцией, а не накапливаются в предварительной
+  раскладке, поэтому подтверждать при выходе нечего. Единственное исключение — открытая модалка
+  подтверждения снятия узла.</li>
+</ul>
+<h3 id="данные-и-команды_4">Данные и команды<a class="headerlink" href="#данные-и-команды_4" title="Permanent link">&para;</a></h3>
+<p>Читает: граф дерева активного билда и оплаченные узлы, свободные и потраченные очки навыков, пять
+гнёзд и вставленные камни, локальные паутины, желаемую раскладку камня и её неоплаченные узлы,
+уровень персонажа и его вклад в очки, значения <code>str</code>, <code>dex</code>, <code>int</code> и их производные, ёмкость и
+расход Memory выбранного мозга, авторитетную цену снятия узла в игровой валюте, требования атрибутов
+надетых предметов.</p>
+<p>Шлёт: вложить очко в узел, снять узел за валюту, вставить камень в гнездо, извлечь камень, принять
+полный бесплатный сброс после патча.</p>
+<p>Держит локально: положение и приближение полотна, свёрнутые ветви, поиск по узлам, выделение,
+предпросмотр пути к узлу. Оптимистичных мутаций нет: до ответа Go узел выглядит предварительным
+(<a href="../ui-architecture/#граница-клиента-и-сервера">граница клиента и сервера</a>).</p>
+<p>Переключателя билда экран не несёт: он живёт в инвентаре
+(<a href="../ui-architecture/#инвентарь-и-крафт">инвентарь и крафт</a>); дерево показывает билд активного набора
+оружия.</p>
+<h3 id="иерархия-информации_4">Иерархия информации<a class="headerlink" href="#иерархия-информации_4" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Сколько у меня очков</strong> — свободные очки; без них экран не работает.</li>
+<li><strong>Что я уже собрал</strong> — оплаченные узлы и путь к ним на полотне.</li>
+<li><strong>Что даёт узел под курсором</strong> — инспектор узла и полная цена пути до него.</li>
+<li><strong>Чем я стреляю</strong> — пять гнёзд, вставленные камни и их локальные паутины.</li>
+<li><strong>Что ограничивает мозг</strong> — ёмкость и расход Memory выбранного мозга.</li>
+</ol>
+<p>Memory стоит последней <strong>на этом экране</strong> и первой — в редакторе мозга: здесь она справочная
+величина, потому что дерево её не даёт
+(<a href="../../game-design/passive-tree-and-sockets/#подтверждено">пассивные деревья не дают Memory</a>).</p>
+<h3 id="раскладка-169-и-219_4">Раскладка 16:9 и 21:9<a class="headerlink" href="#раскладка-169-и-219_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Центр — полотно дерева с точкой старта и тремя направлениями (<code>str</code>, <code>dex</code>, <code>int</code>).</li>
+<li>Слева — свободные и потраченные очки, значения трёх атрибутов и их производные, ёмкость Memory.</li>
+<li>Справа — инспектор выделенного узла: эффект, цена пути, для гнезда — вставленный камень и его
+  паутина.</li>
+<li>Снизу — команды «снять узел» с ценой и «полный сброс», поиск по узлам.</li>
+</ul>
+<p>21:9 расширяет <strong>полотно</strong>: дерево — единственный элемент, которому ширина действительно нужна.
+Инспектор не растягивается и от полотна не отрывается. Ни один элемент не исчезает ни на одном шаге
+масштаба интерфейса (<a href="../../game-design/accessibility/#масштабирование-интерфейса">масштабирование</a>).</p>
+<h3 id="управление-клавиатура-и-порядок-фокуса_4">Управление, клавиатура и порядок фокуса<a class="headerlink" href="#управление-клавиатура-и-порядок-фокуса_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Полотно дерева — одна остановка</strong> внешнего графа фокуса: Tab входит и выходит, по узлам не
+  ходит; линейный обход сотен узлов бесполезен.</li>
+<li>Внутри стрелки двигают фокус <strong>пространственно</strong> по рёбрам дерева, <code>Enter</code> вкладывает очко в
+  сфокусированный узел, <code>Enter</code> на гнезде входит в его локальную паутину, <code>Esc</code> возвращает уровень.</li>
+<li>Поиск по узлам даёт список и <strong>прямой переход</strong> к узлу — основной способ достать далёкую ветку.</li>
+<li>Внешний порядок фокуса: панель вкладок → очки и атрибуты → полотно → инспектор → команды сброса.</li>
+<li>Снятие узла всегда требует подтверждения: оно тратит валюту.</li>
+</ul>
+<h3 id="основной-цикл-взаимодействия_4">Основной цикл взаимодействия<a class="headerlink" href="#основной-цикл-взаимодействия_4" title="Permanent link">&para;</a></h3>
+<p>Прочитать итог забега или причину смерти → найти узел или ветку, которая её закрывает → посмотреть
+цену пути → вложить очки → при промахе снять узел поузлово и переложить. Цикл задуман дешёвым:
+эксперимент с билдом — ядро игры, и цена перестройки задана доступной, а не барьерной
+(<a href="../../game-design/passive-tree-and-sockets/#закрытый-риск-дизайна">закрытый риск дизайна</a>).</p>
+<h3 id="выделение-наведение-перетаскивание-модальные-окна_4">Выделение, наведение, перетаскивание, модальные окна<a class="headerlink" href="#выделение-наведение-перетаскивание-модальные-окна_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Выделение</strong> — узел, гнездо или камень; выделение узла подсвечивает <strong>весь путь</strong> к нему от
+  оплаченной части и показывает полную цену пути, а не цену одного узла.</li>
+<li><strong>Наведение</strong> повторяет то же, что даёт выделение с клавиатуры, и ничего сверх.</li>
+<li><strong>Перетаскивания нет</strong>: камень вставляется командой из инспектора гнезда, не перетаскиванием.</li>
+<li><strong>Модалки</strong>: подтверждение снятия узла с ценой, подтверждение извлечения камня с числом
+  возвращаемых очков, объявление полного бесплатного сброса после патча, ошибка операции.
+  Одновременно одна; приоритет и восстановление фокуса — общие.</li>
+</ul>
+<h3 id="состояния_4">Состояния<a class="headerlink" href="#состояния_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Загрузка</strong> — скелет полотна и панели очков; вложение и снятие неактивны.</li>
+<li><strong>Пусто</strong> — ни одного вложенного очка: экран называет следующее действие («выбрать направление»),
+  подсвечивая три исходящих из старта ветки, а не показывая пустой граф.</li>
+<li><strong>Устаревшая ревизия</strong> — Go принял более новое состояние дерева: баннер с перечитыванием;
+  молчаливой перезаписи чужой раскладки нет.</li>
+<li><strong>Патч сбросил дерево</strong> — отдельное состояние, а не разновидность ошибки: после патча значений или
+  топологии все очки возвращены нераспределёнными и дерево сброшено целиком
+  (<a href="../../game-design/passive-tree-and-sockets/#подтверждено">полный бесплатный сброс</a>). Экран
+  объявляет это прямо, до первого действия игрока, и называет число возвращённых очков. Если сброс
+  оставил предметы ненадеваемыми по требованиям атрибутов, экран говорит и об этом.</li>
+<li><strong>Ошибка</strong> — операция отклонена (не хватает очков или валюты): причина текстом у команды, расход
+  не произошёл; ошибка транспорта — с повтором.</li>
+<li><strong>Успех</strong> — узел оплачен: счётчик очков обновлён, узел перешёл в оплаченное состояние, производные
+  характеристики пересчитаны на глазах.</li>
+<li><strong>Недоступно</strong> — узел вне достижимого пути: он остаётся видимым, фокусируемым и несёт причину
+  текстом («нет оплаченного пути»). Неоплаченные запомненные узлы камня показываются как
+  запомненные, но не действующие
+  (<a href="../../game-design/passive-tree-and-sockets/#подтверждено">желаемая раскладка</a>) — различие
+  передаётся не одним цветом.</li>
+</ul>
+<h3 id="обратная-связь-анимация-и-звук_4">Обратная связь: анимация и звук<a class="headerlink" href="#обратная-связь-анимация-и-звук_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Раздельные сигналы: очко вложено, узел снят, камень вставлен, камень извлечён, операция отклонена.</li>
+<li>Извлечение камня звучит как возврат ресурса, а не как потеря: очки паутины возвращаются целиком.</li>
+<li>Автоматическая оплата запомненной раскладки при повторной вставке камня идёт <strong>от гнезда наружу</strong>
+  и показывается этим же порядком, чтобы игрок видел, где очки кончились.</li>
+<li>Анимации короткие: полотно дерева и так плотное, движение по нему крадёт читаемость.</li>
+</ul>
+<h3 id="арт-бриф-и-требуемые-ассеты_4">Арт-бриф и требуемые ассеты<a class="headerlink" href="#арт-бриф-и-требуемые-ассеты_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Полотно дерева в общем приглушённом стиле
+  (<a href="../../game-design/visual-direction-and-camera/#визуальный-язык">визуальный язык</a>); три
+  направления различимы <strong>формой узлов и рисунком ветви</strong>, а не только цветом ветки.</li>
+<li>Состояния узла: недоступен, доступен, оплачен, запомнен-но-не-оплачен, снимаемый — каждое
+  различимо в оттенках серого.</li>
+<li>Отдельная форма для <strong>узла-гнезда</strong> и отдельная — для <strong>узла-якоря</strong>: якорь действует только на
+  навык своего гнезда, и это обязано читаться геометрией, а не подписью.</li>
+<li>Иконка на каждый камень активного навыка; метка занятого и свободного гнезда.</li>
+<li>Значки трёх атрибутов и иконки производных характеристик.</li>
+</ul>
+<h3 id="доступность_4">Доступность<a class="headerlink" href="#доступность_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Дерево озвучивается как <strong>список узлов пути</strong>: направление, имя узла, эффект, состояние оплаты,
+  расстояние в узлах от оплаченной части, полная цена пути. Координаты полотна не объявляются — это
+  та же модель, что принята для графа мозга
+  (<a href="../../game-design/accessibility/#озвучивание-графа-мозга">озвучивание графа мозга</a>).</li>
+<li>Постоянная строка позиции и команда «где я» с числом свободных очков.</li>
+<li>Разница между <strong>запомненным</strong> и <strong>оплаченным</strong> узлом передаётся текстом всегда: красный цвет
+  запомненного неоплаченного узла — дублирование, а не носитель смысла.</li>
+<li>Цена снятия узла и полного сброса объявляется до подтверждения.</li>
+</ul>
+<h3 id="сохраняемое-состояние-и-возврат_4">Сохраняемое состояние и возврат<a class="headerlink" href="#сохраняемое-состояние-и-возврат_4" title="Permanent link">&para;</a></h3>
+<p>Помнит <strong>локально</strong>: положение и приближение полотна, выделенный узел, свёрнутые ветви, строку
+поиска, последнюю открытую локальную паутину. Не помнит и не подставляет раскладку — истина приходит
+от Go. Возврат из другой вкладки восстанавливает <strong>ту точку дерева, из которой ушли</strong>.</p>
+<h3 id="сценарии-приёмки-и-нерешённое_4">Сценарии приёмки и нерешённое<a class="headerlink" href="#сценарии-приёмки-и-нерешённое_4" title="Permanent link">&para;</a></h3>
+<p><strong>Приёмка.</strong></p>
+<ol>
+<li>Вложение очка, снятие узла и извлечение камня выполняются <strong>только с клавиатуры</strong>, без ловушек
+   фокуса.</li>
+<li>Извлечение камня возвращает <strong>все</strong> очки, фактически вложенные в его локальную паутину, и число
+   названо до подтверждения.</li>
+<li>Повторная вставка камня восстанавливает запомненную раскладку, оплачивает её от гнезда наружу и
+   помечает неоплаченные узлы как неоплаченные — текстом, а не только цветом.</li>
+<li>Патч значений или топологии открывает экран в состоянии полного сброса с названным числом
+   возвращённых очков.</li>
+<li>Выделение далёкого узла показывает полную цену пути, а не цену одного узла.</li>
+<li>Скриншот в оттенках серого сохраняет различимость трёх направлений, гнёзд, якорей и всех
+   состояний узла.</li>
+</ol>
+<p><strong>Нерешённое.</strong></p>
+<ul>
+<li>Показывает ли этот экран <strong>лестницу выдач Memory</strong> — семь обучающих миссий и семь испытаний
+  (<a href="../../game-design/ai-brain/#лестница-обучающих-миссий">лестница миссий</a>,
+  <a href="../../game-design/ai-brain/#лестница-испытаний">лестница испытаний</a>), — или она принадлежит станции
+  «Миссии» в Кузне. Карта экранов относит к «Прогрессии» Memory
+  (<a href="../ui-architecture/#карта-экранов-mvp">карта экранов MVP</a>), но не говорит, ёмкость это или вся
+  лестница. Зарегистрировано в <a href="../../open-questions/">реестре</a>.</li>
+<li>Показывает ли экран <strong>оба дерева</strong> сразу или только дерево активного набора оружия. Раздельность
+  бюджетов и переключение вместе с оружием приняты
+  (<a href="../../game-design/passive-tree-and-sockets/#подтверждено">два билда</a>), подача — нет.
+  Зарегистрировано в <a href="../../open-questions/">реестре</a>.</li>
+</ul>
+<hr />
+<h2 id="экран-забег--подготовка-run-setup">Экран: Забег — подготовка (Run Setup)<a class="headerlink" href="#экран-забег--подготовка-run-setup" title="Permanent link">&para;</a></h2>
+<p>Последняя точка перед необратимым: со стартом забега вкладка <strong>Кузня</strong> становится недоступной до
+его конца.</p>
+<h3 id="назначение-и-вопрос-игрока_5">Назначение и вопрос игрока<a class="headerlink" href="#назначение-и-вопрос-игрока_5" title="Permanent link">&para;</a></h3>
+<p>«Готов ли я идти этим бойцом и этим мозгом?» Экран ничего не настраивает сам: настройка живёт в
+инвентаре, прогрессии и редакторе мозга. Он сводит их итог в одно место и отвечает за необратимый
+переход.</p>
+<h3 id="условия-входа_5">Условия входа<a class="headerlink" href="#условия-входа_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Из вкладки <strong>Забег</strong> вне забега и с команды «Начать забег» в Кузне
+  (<a href="../ui-architecture/#карта-экранов-mvp">карта экранов MVP</a>).</li>
+<li>Вне забега вкладка «Забег» ведёт сюда; в забеге — на карту маршрута.</li>
+</ul>
+<h3 id="пути-выхода_5">Пути выхода<a class="headerlink" href="#пути-выхода_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Назад в Кузню</strong> — свободно и без потерь: забег ещё не начат, ничего не сгенерировано.</li>
+<li>Панель вкладок — в инвентарь, прогрессию и редактор мозга; возврат сюда сохраняет состояние экрана.</li>
+<li><strong>Старт забега</strong> — единственный необратимый выход, с подтверждением: после него Кузня закрыта
+  (<a href="#навигация-постоянная-панель-вкладок">навигация</a>), а мир сгенерирован сидом.</li>
+<li>Escape — системное меню.</li>
+</ul>
+<h3 id="данные-и-команды_5">Данные и команды<a class="headerlink" href="#данные-и-команды_5" title="Permanent link">&para;</a></h3>
+<p>Читает: выбранного персонажа и выбранный мозг из библиотеки профиля
+(<a href="../../game-design/ai-brain/#профиль-персонажи-и-библиотека-мозгов">профиль и библиотека мозгов</a>),
+итог валидации мозга и его хеш (<a href="../ui-architecture/#валидация-мозга">валидация мозга</a>), активный
+билд и его пять слотов активных навыков
+(<a href="../../game-design/skills-and-tags/#слоты-активных-навыков">слоты активных навыков</a>), занятые слоты
+пояса и заряды флаконов, свободное место в рюкзаке, свободные нераспределённые очки навыков.</p>
+<p>Шлёт: <strong>старт забега</strong>. Больше ничего: выбор персонажа и мозга принадлежит Кузне
+(<a href="#экран-дорожная-кузня">экран Кузни</a>), правка билда — другим вкладкам.</p>
+<p>Тройку биомов и её порядок экран не выбирает и выбрать не может: биомы задаёт сид забега, агентность
+игрока — маршрут внутри карты (<a href="../../game-design/biomes/#подтверждено">биомы</a>). Правило генерации
+тоже не обсуждается на этом экране: три различных биома из семи, хотя бы один человеческий
+(<a href="../../game-design/biomes/#человеческие-биомы">человеческие биомы</a>).</p>
+<h3 id="иерархия-информации_5">Иерархия информации<a class="headerlink" href="#иерархия-информации_5" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Что станет недоступно</strong> — Кузня и всё, что живёт только в ней; предупреждение стоит первым,
+   потому что это единственное необратимое следствие кнопки.</li>
+<li><strong>Кто идёт</strong> — персонаж, мозг и его хеш, итог валидации.</li>
+<li><strong>Чем идёт</strong> — активный билд, пять навыков, слоты флаконов и их заряды.</li>
+<li><strong>Что забыто</strong> — нераспределённые очки навыков, пустые слоты флаконов, пустые слоты навыков,
+   предупреждения валидации мозга. Экран называет их прямо, но ни одно из них не блокирует старт.</li>
+<li><strong>Старт</strong>.</li>
+</ol>
+<p>Мозг — накапливаемый артефакт и переносится между забегами целиком
+(<a href="../../game-design/ai-brain/#мозг-как-накапливаемый-артефакт">мозг как накапливаемый артефакт</a>),
+поэтому «выбрать мозг под забег» здесь не спрашивается: спрашивается только, тот ли выбран.</p>
+<h3 id="раскладка-169-и-219_5">Раскладка 16:9 и 21:9<a class="headerlink" href="#раскладка-169-и-219_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Слева — персонаж, мозг, хеш и итог валидации.</li>
+<li>Центр — сводка билда: пять навыков, кукла кратко, пояс и заряды флаконов.</li>
+<li>Справа — список «что забыто» строками, каждая с переходом в нужную вкладку.</li>
+<li>Снизу — крупная команда «Начать забег» с текстом последствия.</li>
+</ul>
+<p>21:9 расширяет <strong>центр</strong>: сводку билда. Список «что забыто» остаётся списком и в ряд иконок не
+разворачивается.</p>
+<h3 id="управление-клавиатура-и-порядок-фокуса_5">Управление, клавиатура и порядок фокуса<a class="headerlink" href="#управление-клавиатура-и-порядок-фокуса_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Порядок фокуса: панель вкладок → персонаж и мозг → сводка билда → список «что забыто» → «Начать
+  забег».</li>
+<li>Каждая строка списка «что забыто» открывается <code>Enter</code> и ведёт <strong>прямо в место правки</strong> — во
+  вкладку и в тот её элемент, о котором строка говорит.</li>
+<li>Старт требует подтверждения намерения: переход необратим.</li>
+</ul>
+<h3 id="основной-цикл-взаимодействия_5">Основной цикл взаимодействия<a class="headerlink" href="#основной-цикл-взаимодействия_5" title="Permanent link">&para;</a></h3>
+<p>Прочитать список «что забыто» → закрыть одну строку в её вкладке → вернуться → стартовать. Экран
+задуман коротким: если игрок задерживается на нём дольше, чем на одном взгляде, значит, вкладки не
+довели свою работу.</p>
+<h3 id="выделение-наведение-перетаскивание-модальные-окна_5">Выделение, наведение, перетаскивание, модальные окна<a class="headerlink" href="#выделение-наведение-перетаскивание-модальные-окна_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Выделение</strong> — строка сводки или строка «что забыто».</li>
+<li><strong>Наведение</strong> раскрывает ту же строку, что видно с клавиатуры.</li>
+<li><strong>Перетаскивания нет.</strong></li>
+<li><strong>Модалки</strong>: подтверждение старта с названным последствием (Кузня закроется), подтверждение
+  старта при предупреждениях валидации мозга, системное меню. Одновременно одна.</li>
+</ul>
+<h3 id="состояния_5">Состояния<a class="headerlink" href="#состояния_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Загрузка</strong> — скелет сводки; «Начать забег» неактивен, пока профиль и мозг не прочитаны.</li>
+<li><strong>Пусто</strong> — новый профиль без пройденной первой обучающей миссии: экран называет следующее
+  действие вместо старта.</li>
+<li><strong>Устаревшая ревизия</strong> — мозг или билд изменились в другой вкладке: сводка перечитывается; старт
+  всегда уходит с той ревизией, которая показана, а не с той, которая была прочитана раньше.</li>
+<li><strong>Ошибка</strong> — старт отклонён Go: причина текстом у команды, забег не начат, состояние экрана цело.</li>
+<li><strong>Успех</strong> — забег начат: экран уступает место карте маршрута.</li>
+<li><strong>Недоступно</strong> — старт заблокирован <strong>авторитетной ошибкой валидации мозга</strong>: мозг с ошибкой
+  нельзя экипировать (<a href="../ui-architecture/#валидация-мозга">валидация мозга</a>), поэтому кнопка
+  остаётся видимой, фокусируемой и несёт причину текстом со списком ошибок и переходом к виновному
+  узлу. Предупреждения старт не блокируют — только требуют подтверждения.</li>
+</ul>
+<h3 id="обратная-связь-анимация-и-звук_5">Обратная связь: анимация и звук<a class="headerlink" href="#обратная-связь-анимация-и-звук_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Старт забега имеет собственный сигнал, отличный от любого перехода между вкладками: это единственный
+  необратимый переход экрана.</li>
+<li>Появление и исчезновение строк «что забыто» звучит нейтрально: это не ошибка, а напоминание.</li>
+<li>Анимация перехода в забег короткая и не скрывает генерацию мира: карта показывается сразу, как
+  только она есть.</li>
+</ul>
+<h3 id="арт-бриф-и-требуемые-ассеты_5">Арт-бриф и требуемые ассеты<a class="headerlink" href="#арт-бриф-и-требуемые-ассеты_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Портрет или силуэт персонажа и метка выбранного мозга — те же ассеты, что в Кузне.</li>
+<li>Значки итога валидации: чисто, предупреждения, ошибки — различимые формой.</li>
+<li>Компактная кукла: иконки надетого без полноразмерных ячеек сетки.</li>
+<li>Иконки пяти слотов активных навыков и слотов флаконов с числом зарядов.</li>
+<li>Крупная команда старта, единственный акцент контраста на экране.</li>
+</ul>
+<h3 id="доступность_5">Доступность<a class="headerlink" href="#доступность_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Экран читается как <strong>линейный список</strong>: боец, мозг, билд, забытое, старт. Ни одна строка не живёт
+  только в иконке.</li>
+<li>Список «что забыто» произносится целиком, с числом строк, до фокуса на кнопке старта.</li>
+<li>Последствие старта («Кузня станет недоступна до конца забега») произносится в подтверждении
+  словами, а не подразумевается.</li>
+<li>Заряды флаконов и число свободных очков доступны текстом.</li>
+</ul>
+<h3 id="сохраняемое-состояние-и-возврат_5">Сохраняемое состояние и возврат<a class="headerlink" href="#сохраняемое-состояние-и-возврат_5" title="Permanent link">&para;</a></h3>
+<p>Помнит <strong>локально</strong>: прокрутку и свёрнутость сводки, отметку «список забытого прочитан». Ничего из
+состава забега не помнит: персонаж, мозг и билд принадлежат профилю. Возврат из вкладки ставит фокус
+на ту строку, из которой ушли.</p>
+<h3 id="сценарии-приёмки-и-нерешённое_5">Сценарии приёмки и нерешённое<a class="headerlink" href="#сценарии-приёмки-и-нерешённое_5" title="Permanent link">&para;</a></h3>
+<p><strong>Приёмка.</strong></p>
+<ol>
+<li>Мозг с авторитетной ошибкой валидации не даёт стартовать; кнопка видима, фокусируема и называет
+   причину.</li>
+<li>Подтверждение старта словами называет последствие: Кузня станет недоступна до конца забега.</li>
+<li>Каждая строка «что забыто» открывает нужную вкладку и нужный элемент в ней.</li>
+<li>Возврат в Кузню до старта ничего не расходует и ничего не генерирует.</li>
+<li>Экран не предлагает ни одного выбора, влияющего на биомы: их задаёт сид.</li>
+<li>Весь экран проходится с клавиатуры, без ловушек фокуса.</li>
+</ol>
+<p><strong>Нерешённое.</strong></p>
+<ul>
+<li>Владеет ли этот экран <strong>выбором персонажа и мозга</strong> или только показывает выбор, сделанный в
+  Кузне. Кузня уже названа местом выбора (<a href="#экран-дорожная-кузня">экран Кузни</a>), но отдельная
+  строка реестра о месте переключателя открыта. Зарегистрировано в <a href="../../open-questions/">реестре</a>.</li>
+<li>Показывает ли подготовка <strong>тройку биомов и её порядок</strong> до необратимого старта. Видимость всей
+  топологии и порядка биомов принята для карты забега
+  (<a href="../../game-design/core-loop-and-runs/#топология-карты-и-квоты">топология карты и квоты</a>); момент
+  первого показа — нет. Зарегистрировано в <a href="../../open-questions/">реестре</a>.</li>
+</ul>
+<hr />
+<h2 id="экран-забег--карта-run-map">Экран: Забег — карта (Run Map)<a class="headerlink" href="#экран-забег--карта-run-map" title="Permanent link">&para;</a></h2>
+<p>Главное стратегическое решение игрока вне редактора мозга
+(<a href="../../game-design/core-loop-and-runs/#подтверждено">основной цикл</a>).</p>
+<h3 id="назначение-и-вопрос-игрока_6">Назначение и вопрос игрока<a class="headerlink" href="#назначение-и-вопрос-игрока_6" title="Permanent link">&para;</a></h3>
+<p>«Куда идти дальше при том состоянии, в котором я сейчас?» Экран торгует риск против ресурса:
+здоровье и заряды флаконов переносятся между комнатами и сами не восстанавливаются.</p>
+<h3 id="условия-входа_6">Условия входа<a class="headerlink" href="#условия-входа_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>После подготовки забега и <strong>после каждой комнаты</strong>
+  (<a href="../ui-architecture/#карта-экранов-mvp">карта экранов MVP</a>).</li>
+<li>Из вкладки <strong>Забег</strong> в любой момент забега (<a href="#навигация-постоянная-панель-вкладок">навигация</a>).</li>
+<li>После восстановления с чекпоинта: забег продолжается с <strong>начала текущего узла</strong>, и карта
+  открывается в том же положении, в каком была на входе в узел
+  (<a href="../../game-design/core-loop-and-runs/#чекпоинт-узла-и-восстановление-после-обрыва">чекпоинт узла</a>).</li>
+</ul>
+<h3 id="пути-выхода_6">Пути выхода<a class="headerlink" href="#пути-выхода_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Вход в выбранный узел — в его экран: бой, отдых, сокровище, лавка, элита или босс
+  (<a href="../../game-design/core-loop-and-runs/#последовательность-экранов">последовательность экранов</a>).</li>
+<li>Панель вкладок — в мозг, инвентарь и прогрессию; вкладка <strong>Кузня недоступна</strong> до конца забега.</li>
+<li>Escape — системное меню.</li>
+<li><strong>Возврата назад по маршруту нет:</strong> пройденный путь необратим, вернуться или перепрыгнуть в
+  соседнюю ветку нельзя (<a href="../../game-design/core-loop-and-runs/#подтверждено">основной цикл</a>).</li>
+</ul>
+<h3 id="данные-и-команды_6">Данные и команды<a class="headerlink" href="#данные-и-команды_6" title="Permanent link">&para;</a></h3>
+<p>Читает: топологию карты целиком — три акта по шесть слоёв плюс узел босса, 21 узел на любом
+маршруте, по 4 узла в слое, рёбра только между соседними слоями
+(<a href="../../game-design/core-loop-and-runs/#топология-карты-и-квоты">топология карты и квоты</a>); типы всех
+узлов и порядок биомов; текущий узел и множество достижимых по ребру следующих; состояние бойца —
+здоровье, щит, заряды флаконов, золото, свободное место в рюкзаке; состав предстоящей встречи, когда
+он раскрыт (<a href="../ui-architecture/#информация-о-встрече-до-боя">информация о встрече</a>).</p>
+<p>Шлёт: <strong>выбор следующего узла</strong>. Больше ничего: карта сгенерирована сидом и валидна по построению,
+клиент её не досоздаёт (<a href="../combat-simulation/#генератор-карты-забега">генератор карты забега</a>).</p>
+<p>Держит локально: положение и приближение полотна карты, выделение, свёрнутость панели состояния.</p>
+<p>Скрытое остаётся скрытым: конкретные энкаунтеры, лут и раскладка хазардов не читаются заранее — это
+несущая механика, а не ограничение подачи
+(<a href="../../game-design/core-loop-and-runs/#топология-карты-и-квоты">топология карты и квоты</a>).</p>
+<h3 id="иерархия-информации_6">Иерархия информации<a class="headerlink" href="#иерархия-информации_6" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Где я и куда могу шагнуть</strong> — текущий узел и достижимые по ребру соседи.</li>
+<li><strong>В каком я состоянии</strong> — здоровье, заряды флаконов, место в рюкзаке; без них выбор маршрута
+   бессмыслен.</li>
+<li><strong>Что впереди в этом биоме</strong> — типы узлов слоёв до босса акта и точка отдыха на маршруте.</li>
+<li><strong>Весь забег</strong> — три акта, порядок биомов, три узла босса.</li>
+<li><strong>Куда пойти чинить билд</strong> — вкладки; карта сама ничего не чинит.</li>
+</ol>
+<p>Первым читается не вся карта, а развилка: полная топология видна всегда, но решение принимается
+на один шаг.</p>
+<h3 id="раскладка-169-и-219_6">Раскладка 16:9 и 21:9<a class="headerlink" href="#раскладка-169-и-219_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Центр — полотно карты; текущий слой и следующий занимают его середину.</li>
+<li>Сверху — три акта и порядок биомов полосой: где забег начался, где идёт, где боссы.</li>
+<li>Слева или снизу — состояние бойца: здоровье, щит, заряды флаконов, золото, место в рюкзаке.</li>
+<li>Справа — карточка выделенного узла: тип, биом, и то, что о нём разрешено знать заранее.</li>
+</ul>
+<p>21:9 расширяет <strong>полотно карты</strong>, показывая больше слоёв вперёд, и не растягивает панель состояния.
+Ни один элемент не исчезает ни на одном шаге масштаба интерфейса
+(<a href="../../game-design/accessibility/#масштабирование-интерфейса">масштабирование</a>).</p>
+<h3 id="управление-клавиатура-и-порядок-фокуса_6">Управление, клавиатура и порядок фокуса<a class="headerlink" href="#управление-клавиатура-и-порядок-фокуса_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Полотно карты — одна остановка</strong> внешнего графа фокуса. Внутри стрелки двигают выделение по
+  <strong>рёбрам</strong>, а не по экранной геометрии: соседний узел — это узел, с которым есть ребро.</li>
+<li><code>Enter</code> на достижимом узле — вход, с подтверждением. <code>Esc</code> снимает выделение и возвращает фокус на
+  текущий узел.</li>
+<li>Команда «показать весь забег» переключает масштаб полотна между развилкой и целым актом;
+  положение текущего узла при этом не теряется.</li>
+<li>Внешний порядок фокуса: панель вкладок → состояние бойца → полотно карты → карточка узла.</li>
+</ul>
+<h3 id="основной-цикл-взаимодействия_6">Основной цикл взаимодействия<a class="headerlink" href="#основной-цикл-взаимодействия_6" title="Permanent link">&para;</a></h3>
+<p>Прочитать своё состояние → посмотреть, какие узлы достижимы → взвесить риск против ресурса → при
+необходимости уйти во вкладку и поправить мозг или билд → вернуться → войти в узел. Возврат во
+вкладки — часть цикла, а не отвлечение: мозг и инвентарь доступны после каждой комнаты
+(<a href="../ui-architecture/#доступ-к-интерфейсам-в-забеге">доступ к интерфейсам</a>).</p>
+<h3 id="выделение-наведение-перетаскивание-модальные-окна_6">Выделение, наведение, перетаскивание, модальные окна<a class="headerlink" href="#выделение-наведение-перетаскивание-модальные-окна_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Выделение</strong> — узел; выделение подсвечивает <strong>рёбра из него вперёд</strong>, чтобы видеть, куда этот шаг
+  ведёт дальше.</li>
+<li><strong>Наведение</strong> повторяет то же, что даёт выделение с клавиатуры.</li>
+<li><strong>Перетаскивания нет</strong>; карта только панорамируется и приближается.</li>
+<li><strong>Модалки</strong>: подтверждение входа в узел, предупреждение о непустой буферной сумке при уходе из
+  комнаты, системное меню, фатальная ошибка. Одновременно одна.</li>
+<li>Подтверждение входа называет необратимость: соседние ветви после шага недостижимы.</li>
+</ul>
+<h3 id="состояния_6">Состояния<a class="headerlink" href="#состояния_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Загрузка</strong> — скелет полотна и панели состояния; узлы неактивны, пока карта не прочитана.</li>
+<li><strong>Пусто</strong> — состояния нет по построению: карта забега без узлов не существует, генератор валиден
+  по построению (<a href="../combat-simulation/#генератор-карты-забега">генератор карты забега</a>).</li>
+<li><strong>Устаревшая ревизия</strong> — состояние забега в Go новее показанного (возврат из узла, восстановление
+  с чекпоинта): баннер с перечитыванием; молчаливого перескока указателя текущего узла нет.</li>
+<li><strong>Восстановление с чекпоинта</strong> — отдельное состояние, а не ошибка: после непроизвольного обрыва
+  карта открывается на <strong>начале того же узла</strong>, и экран говорит прямо, что стычка будет <strong>той же</strong> —
+  сид узла и сгенерированная встреча входят в чекпоинт
+  (<a href="../../game-design/core-loop-and-runs/#чекпоинт-узла-и-восстановление-после-обрыва">чекпоинт узла</a>).
+  Штрафа нет, и экран это называет: смерти не было.</li>
+<li><strong>Ошибка</strong> — обрыв связи с Go: фатальный слой с честной диагностикой и указанием, что забег
+  восстановится с начала текущего узла.</li>
+<li><strong>Недоступно</strong> — вкладка <strong>Кузня</strong> видима, фокусируема, объявляется недоступной и несёт причину
+  текстом («вернуться можно после завершения забега»); недостижимые узлы карты остаются видимыми и
+  читаемыми, но входа не дают и называют причину («нет ребра из текущего узла»).</li>
+</ul>
+<h3 id="обратная-связь-анимация-и-звук_6">Обратная связь: анимация и звук<a class="headerlink" href="#обратная-связь-анимация-и-звук_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Вход в узел, отказ входа и переход на следующий слой имеют раздельные короткие сигналы; отказ
+  различим на слух.</li>
+<li>Переход между актами и появление узла босса отмечаются отдельно: это единственные ориентиры длины
+  забега.</li>
+<li>Анимация продвижения по карте обязана сохранять контекст: игрок должен видеть, из какого узла в
+  какой он перешёл, а не обнаружить себя в новом месте.</li>
+<li>Музыка карты — спокойный слой между боями; она не заимствует боевые сигналы.</li>
+</ul>
+<h3 id="арт-бриф-и-требуемые-ассеты_6">Арт-бриф и требуемые ассеты<a class="headerlink" href="#арт-бриф-и-требуемые-ассеты_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Иконка на каждый тип узла: бой, элита, точка отдыха, сокровище, лавка, босс — различимые <strong>формой</strong>
+  (<a href="../../game-design/accessibility/#никогда-только-цветом">никогда только цветом</a>).</li>
+<li>Состояния узла: пройден, текущий, достижим, недостижим, выделен — различимы в оттенках серого.</li>
+<li>Оформление полотна на биом: семь наборов, включая два человеческих
+  (<a href="../../game-design/biomes/#человеческие-биомы">человеческие биомы</a>); подача биома — фон и рамка,
+  не подмена иконок узлов.</li>
+<li>Рисунок рёбер с состояниями «обычное», «доступное из текущего», «пройденное».</li>
+<li>Метка узла босса акта, отличная от метки элиты.</li>
+<li>Компактные индикаторы здоровья, щита и зарядов флаконов.</li>
+</ul>
+<h3 id="доступность_6">Доступность<a class="headerlink" href="#доступность_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Карта озвучивается как <strong>список достижимых узлов</strong>: тип, биом, номер слоя, номер акта, состояние.
+  Экранные координаты и геометрия рёбер не объявляются — та же модель, что для графа мозга
+  (<a href="../../game-design/accessibility/#озвучивание-графа-мозга">озвучивание графа мозга</a>).</li>
+<li>Постоянная строка позиции: акт, биом, слой, номер узла в слое; команда «где я» повторяет её со
+  счётчиком оставшихся до босса слоёв.</li>
+<li>Тип узла никогда не передаётся одним цветом: форма плюс подпись.</li>
+<li>Состояние бойца целиком доступно текстом: ни здоровье, ни заряды не живут только в полоске.</li>
+</ul>
+<h3 id="сохраняемое-состояние-и-возврат_6">Сохраняемое состояние и возврат<a class="headerlink" href="#сохраняемое-состояние-и-возврат_6" title="Permanent link">&para;</a></h3>
+<p>Помнит <strong>локально</strong>: приближение и положение полотна, режим «развилка / весь акт», свёрнутость
+панели состояния. Не помнит и не подставляет положение в забеге — текущий узел приходит от Go.
+Возврат из любой вкладки ставит фокус на текущий узел, а не в начало карты.</p>
+<h3 id="сценарии-приёмки-и-нерешённое_6">Сценарии приёмки и нерешённое<a class="headerlink" href="#сценарии-приёмки-и-нерешённое_6" title="Permanent link">&para;</a></h3>
+<p><strong>Приёмка.</strong></p>
+<ol>
+<li>Вход возможен только в узел, соединённый ребром с текущим; недостижимый узел объявляется с
+   причиной и входа не даёт.</li>
+<li>Вся топология, типы всех узлов и порядок биомов видны с начала забега; конкретные энкаунтеры,
+   лут и хазарды — нет.</li>
+<li>Аварийное завершение процесса и повторный запуск возвращают карту на начало того же узла, и
+   повторное прохождение даёт <strong>ту же</strong> стычку.</li>
+<li>Вкладка «Кузня» получает фокус, объявляется недоступной и называет причину; переход по ней не
+   происходит.</li>
+<li>Ни одного элемента приостановки забега на экране нет: намеренной паузы не существует.</li>
+<li>Скриншот в оттенках серого сохраняет различимость типов узлов и их состояний.</li>
+</ol>
+<p><strong>Нерешённое.</strong></p>
+<ul>
+<li>Что происходит при <strong>намеренном выходе в главное меню посреди забега</strong>: чекпоинт узла описывает
+  только непроизвольный обрыв и прямо говорит, что восстановление выходом из игры не вызывается
+  (<a href="../../game-design/core-loop-and-runs/#чекпоинт-узла-и-восстановление-после-обрыва">чекпоинт узла</a>),
+  а намеренная приостановка запрещена. Забег при этом либо теряется, либо продолжается — ни один
+  документ не выбирает. Зарегистрировано в <a href="../../open-questions/">реестре</a>.</li>
+<li>Показывает ли карта <strong>историю пройденного маршрута</strong> внутри текущего забега — какие узлы уже
+  пройдены и с каким исходом. Необратимость маршрута принята
+  (<a href="../../game-design/core-loop-and-runs/#подтверждено">основной цикл</a>), подача пройденной части —
+  нет. Зарегистрировано в <a href="../../open-questions/">реестре</a>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.top", "search.highlight", "search.suggest", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/navigation-state.js"></script>
+      
+    
+  </body>
+</html>

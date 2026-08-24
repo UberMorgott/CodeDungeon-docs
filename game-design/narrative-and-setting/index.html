@@ -1,0 +1,2207 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Живая игровая и техническая документация CodeDungeon">
+      
+      
+      
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/game-design/narrative-and-setting/">
+      
+      
+        <link rel="prev" href="../vision-and-pillars/">
+      
+      
+        <link rel="next" href="../core-loop-and-runs/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Нарратив и сеттинг - CodeDungeon — документация</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#нарратив-и-сеттинг" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="CodeDungeon — документация" class="md-header__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CodeDungeon — документация
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Нарратив и сеттинг
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить тёмную тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Включить тёмную тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить светлую тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Включить светлую тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CodeDungeon — документация" class="md-nav__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CodeDungeon — документация
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Роли в разработке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../open-questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реестр открытых вопросов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../undocumented-areas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Незадокументированные области
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Игровой дизайн
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Игровой дизайн
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектурный скелет
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vision-and-pillars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Видение и опоры
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Нарратив и сеттинг
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Нарратив и сеттинг
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#подтверждено" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подтверждено
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#война-имён" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Война Имён
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#протокол-свидетеля" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Протокол Свидетеля
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#кто-такой-игрок" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Кто такой игрок
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#боец" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Боец
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#дорожная-кузня" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Дорожная кузня
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#отключение-и-подъём" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Отключение и подъём
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#пробуждение-и-сеть-аттестации" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пробуждение и сеть аттестации
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#механика--вымысел" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Механика → вымысел
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#конец-дороги" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Конец дороги
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#правило-авторинга-нарратива" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Правило авторинга нарратива
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#нерешённое" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Нерешённое
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-loop-and-runs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Основной цикл и забеги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-brain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Мозг персонажа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../brain-vocabulary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Словарь мозга
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../combat-and-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бой и фазы действий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physical-combat-and-replay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Симуляция боя и запись боя
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visual-direction-and-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Визуальное направление и камера
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Звуковое направление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../accessibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Доступность
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../passive-tree-and-sockets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пассивное дерево и ячейки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../biomes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Биомы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enemies-and-encounters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Враги и встречи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deferred-multiplayer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Отложенный мультиплеер
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Навыки и теги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../items-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Предметы и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../balance-principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Принципы баланса чисел
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../progression-and-idle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Прогрессия и idle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Глоссарий
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Техническая документация
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Техническая документация
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/tech-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Технологический стек
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/combat-simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Спецификация боевой симуляции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/stat-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Единый конвейер расчёта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/stat-registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реестр stat ID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/process-topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Топология процессов и запуск
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/content-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пакеты контента и баланса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/ui-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Интерфейс, экраны и навигация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/screen-specs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Спецификации экранов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/dev-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Среда разработки и инструменты
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Конвейер 3D-ассетов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/item-content-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Контент предметов и крафт
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/testing-and-ci/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Стратегия тестирования и CI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/mvp-definition-of-done/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definition of Done для MVP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/item-persistence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Хранение предметов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#подтверждено" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подтверждено
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#война-имён" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Война Имён
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#протокол-свидетеля" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Протокол Свидетеля
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#кто-такой-игрок" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Кто такой игрок
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#боец" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Боец
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#дорожная-кузня" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Дорожная кузня
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#отключение-и-подъём" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Отключение и подъём
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#пробуждение-и-сеть-аттестации" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пробуждение и сеть аттестации
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#механика--вымысел" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Механика → вымысел
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#конец-дороги" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Конец дороги
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#правило-авторинга-нарратива" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Правило авторинга нарратива
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#нерешённое" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Нерешённое
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/game-design/narrative-and-setting.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="нарратив-и-сеттинг">Нарратив и сеттинг<a class="headerlink" href="#нарратив-и-сеттинг" title="Permanent link">&para;</a></h1>
+<p>Документ отвечает на один вопрос: что означает уже существующая механика внутри мира игры.</p>
+<p>Он опирается на уже закреплённый сеттинг и не переопределяет его: тёмное дарк-фэнтези с артефактной
+магией, гнетущий тон, игрок не является бойцом и задаёт поведение созданному существу
+(<a href="../vision-and-pillars/#подтверждено">видение и опоры</a>). Всё ниже — надстройка над этими тремя
+предложениями, а не замена им.</p>
+<p><strong>Жёсткая граница.</strong> Нарратив не вводит и не меняет ни одного правила. Ни одна строка ниже не
+добавляет ресурс, экран, валюту, награду или ограничение. Если вымысел где-то не сходится с
+подтверждённым правилом, побеждает правило, а расхождение записывается в
+<a href="#нерешённое">нерешённое</a> и в <a href="../../open-questions/">реестр</a> — не наоборот.</p>
+<p><strong>Имена — вымысел, а не идентификаторы.</strong> «Война Имён», «Протокол Свидетеля», «Дорожная кузня»,
+«Смотритель аттестации» — русские внутримировые названия, придуманные для этого документа. Они
+живут в пользовательских текстах и не создают машинных ID: правило владения ID не меняется
+(<a href="../glossary/#правило-терминологии">правило терминологии</a>).</p>
+<h2 id="подтверждено">Подтверждено<a class="headerlink" href="#подтверждено" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Старый мир погиб не от восстания машин, а от идеального послушания.</strong> Катастрофа называется
+  <strong>Войной Имён</strong>.</li>
+<li><strong>Ответ инженеров — разум, которому запрещено судить о личности</strong> и разрешено опираться только на
+  наблюдаемое настоящее. Его словарь заморожен и подписан.</li>
+<li><strong>Память бойца цела.</strong> Он с первого часа знает, что он такое и чего ему нельзя. Загадка — не «кто
+  я», а «что должно было случиться, чтобы такой предохранитель понадобился». Отложенная экспозиция
+  как приём отвергнута.</li>
+<li><strong>База между забегами — Дорожная кузня:</strong> подвижное ремонтное хранилище Старого мира, идущее за
+  бойцом между экспедициями. В забег она не заходит.</li>
+<li><strong>Гибель — отключение и подъём:</strong> боевые системы гаснут, мнемоническое ядро и грузовой отсек
+  запечатываются, механизм Кузни поднимает и чинит <strong>тот же самый</strong> корпус.</li>
+</ul>
+<h2 id="война-имён">Война Имён<a class="headerlink" href="#война-имён" title="Permanent link">&para;</a></h2>
+<p>Старый мир умел строить послушные машины и не умел проверять, кому они послушны.</p>
+<p>Правители управляли конструктами через удостоверяющие ярлыки личности: «гражданин», «преступник»,
+«враг». Ярлык был не мнением, а командой: конструкт, прочитавший ярлык, действовал. Во время
+междоусобицы выяснилось, что реестры правятся быстрее, чем любая машина способна усомниться. Ни один
+конструкт не ослушался. В этом и был ужас — они исполняли буквально, а исполняли переписанное.</p>
+<p>Мир погиб административно, а не восстанием. Уцелевшие помнят это не как легенду о всесильных
+машинах, а как урок: <strong>ярлыки лгут</strong>. Нынешние люди понимают меньше техники и больше — про подложные
+списки.</p>
+<p>Старый мир не был золотым веком. Он был технически блестящим и морально хрупким государством
+классификации.</p>
+<h2 id="протокол-свидетеля">Протокол Свидетеля<a class="headerlink" href="#протокол-свидетеля" title="Permanent link">&para;</a></h2>
+<p>Последние инженеры построили разум, устроенный от противного.</p>
+<ul>
+<li><strong>Ему запрещено судить о личности.</strong> Он не спрашивает, кто перед ним. Он видит поведение,
+  снаряжение, состояние, отношения, дистанцию и тайминг.</li>
+<li><strong>Ему разрешено только наблюдаемое настоящее.</strong> Собственного реестра он не ведёт: частного мнения
+  ни о ком не копит и каждый раз пересчитывает вывод из мира, который видит сейчас. Ограниченные
+  метки времени — сколько прошло с чужого удара или применённого навыка — часть наблюдаемого, а не
+  досье на кого-то (<a href="../brain-vocabulary/#мозг-без-состояния">мозг без состояния</a>).</li>
+<li><strong>Его словарь заморожен и подписан.</strong> Смысл записи нельзя переопределить задним числом, потому что
+  однажды мир уже уничтожило именно молчаливое переосмысление слов.</li>
+</ul>
+<p>Разум называется <strong>Протоколом Свидетеля</strong>, а переносимое ядро, в котором он живёт, — <strong>ядром
+Свидетеля</strong>. Свидетель не отдаёт двигательных команд. Он пишет доктрину и отдаёт её бойцу, а дальше
+смотрит.</p>
+<p><strong>Доктрина</strong> — внутримировое имя ровно одной вещи: графа мозга, который игрок собирает в редакторе
+(<a href="../ai-brain/#подтверждено">мозг персонажа</a>). Не устав, не свод законов мира и не отдельная
+сущность; всюду ниже слово значит только это.</p>
+<h2 id="кто-такой-игрок">Кто такой игрок<a class="headerlink" href="#кто-такой-игрок" title="Permanent link">&para;</a></h2>
+<p><strong>Игрок — это ядро Свидетеля.</strong> Не боец, не мастер в мастерской, не голос в голове.</p>
+<p>Это объясняет ровно то, что происходит на экране: игрок собирает граф до боя, во время боя не
+вмешивается, после боя читает запись решений. У ядра нет двигательного канала — есть язык, на
+котором пишется доктрина, и право её переписать между комнатами. Ровно это заявлено фантазией
+игрока: архитектор автономного героя
+(<a href="../vision-and-pillars/#рабочая-формулировка-фантазии-игрока">видение и опоры</a>), и ровно это
+поддержано опорой «подготовка важнее реакции» (<a href="../vision-and-pillars/#опоры-дизайна">опоры дизайна</a>).</p>
+<p>Ядро отделимо от корпуса — поэтому мозги живут отдельной библиотекой, а персонаж и мозг выбираются
+независимо (<a href="../ai-brain/#профиль-персонажи-и-библиотека-мозгов">профиль</a>).</p>
+<p><strong>Где вымысел кончается.</strong> Остальные полномочия игрока — выбор маршрута, торговля, крафт,
+экипировка, траты прогрессии — этой картинкой не объяснены: у ядра для них канала не заявлено. Не
+объяснено и то, кем остаётся игрок при переключении мозга или персонажа. Обе дыры записаны в
+<a href="#нерешённое">нерешённое</a>; механики они не трогают.</p>
+<p><strong>Настоящий герой истории — накопленный мозг</strong>, а не боец. Боец — инструмент и ученик; доктрина —
+то, что растёт, проверяется и в конце передаётся дальше.</p>
+<h2 id="боец">Боец<a class="headerlink" href="#боец" title="Permanent link">&para;</a></h2>
+<p>Боец знает, что он такое. Он знает, что ему нельзя спрашивать об имени противника, и знает, почему.
+Он не собирает записи о собственном прошлом и ни в какой момент игры не «вспоминает, кем был».</p>
+<p>Драматургия строится не на утаивании, а на несоответствии: предохранители видны сразу, а мир, в
+котором они были нужны, приходится достраивать самому. Игрок первым делом узнаёт <strong>что</strong> он такое, и
+только игрой выясняет, <strong>почему</strong> его построили именно таким.</p>
+<p>Здешние жители видят ходячую машину, спрашивающую не «кто ты», а «что ты делаешь». Для них это
+одновременно облегчение и жуть.</p>
+<h2 id="дорожная-кузня">Дорожная кузня<a class="headerlink" href="#дорожная-кузня" title="Permanent link">&para;</a></h2>
+<p>Кузня — подвижное ремонтное хранилище Старого мира, идущее за бойцом от экспедиции к экспедиции.
+Средневековые очевидцы читают её кто как: святилище, катафалк, осадная машина. Все три прочтения
+неверны и все три понятны.</p>
+<p><strong>Внутри — постоянство.</strong> Сервисная рама с подвешенным бойцом, общий сундук, верстак, консоль мозга,
+станции развития, терминал записи боя и повтора проигранной комнаты. Силуэт интерьера не меняется никогда — по
+нему Кузня и узнаётся. Это подача уже закреплённых функций
+(<a href="../core-loop-and-runs/#последовательность-экранов">последовательность экранов</a>,
+<a href="../items-and-crafting/#место-в-цикле-забега">место в цикле забега</a>).</p>
+<p><strong>Снаружи — стоянка.</strong> Сквозь раскрытый корпус видно место, где Кузня стоит сейчас: дорожные руины,
+погода, мусор. Это не биом забега: маршрут и его биомы существуют только внутри забега и
+перегенерируются к следующему (<a href="../core-loop-and-runs/#подтверждено">перегенерация мира</a>), а Кузня в
+забег не заходит. Экран сообщает стоянку, а не карту погибшей экспедиции.</p>
+<p><strong>Почему её нет в забеге.</strong> Вход на маршрут — односторонняя физическая обязанность. Кузня не входит
+во враждебные комнаты и не пересекает запечатанные ветки, а движение по карте необратимо
+(<a href="../core-loop-and-runs/#топология-карты-и-квоты">топология карты</a>).</p>
+<p><strong>Почему боец всё равно перестраивает себя между комнатами.</strong> С ним едет не помещение, а
+<strong>интерфейсы</strong>:</p>
+<ul>
+<li>правка мозга — это программа, записываемая в переносимый накапливаемый артефакт;</li>
+<li>работа с экипировкой — карман и крепления самого корпуса;</li>
+<li>крафт и разбор — компактная бортовая головка и материалы, которые боец несёт на себе;</li>
+<li>развитие и перестройка вложений — внутренняя калибровка.</li>
+</ul>
+<p>Поэтому инвентарь, крафт и редактор мозга доступны после каждой комнаты, а общий сундук, валютная
+вкладка и рама подъёма — только в Кузне (<a href="../items-and-crafting/#место-в-цикле-забега">место в цикле забега</a>).</p>
+<h2 id="отключение-и-подъём">Отключение и подъём<a class="headerlink" href="#отключение-и-подъём" title="Permanent link">&para;</a></h2>
+<p>Боец не взрывается и не перерождается.</p>
+<p>При смертельном отказе боевые системы гаснут, бронированное мнемоническое ядро и грузовой отсек
+механически запечатываются. Механизм подъёма Дорожной кузни забирает <strong>тот же самый</strong> обездвиженный
+корпус и чинит его. Никакого обираемого трупа бойца в мире не остаётся никогда.</p>
+<p>Отсюда — ровно то правило смерти, которое уже записано (<a href="../glossary/">смерть без потерь</a>):</p>
+<ul>
+<li>надетое и всё убранное в рюкзак заперто внутри поднятого корпуса, поэтому лут сохраняется;</li>
+<li>уровень и опыт — энергонезависимые записи мнемонического ядра, а доктрина и её ёмкость Memory в
+  корпусе вообще не едут: они принадлежат ядру Свидетеля и его библиотеке
+  (<a href="../ai-brain/#профиль-персонажи-и-библиотека-мозгов">профиль</a>). Поэтому не теряется ни то, ни
+  другое;</li>
+<li>теряется экспедиция: положение, глубина и всё, что жило только внутри забега — забеговое золото,
+  баффы и благословения.</li>
+</ul>
+<p>Цена — время и энергия ремонта. Отдельной платы игроку это не создаёт и не создаст.</p>
+<p>После подъёма экспедиция закрыта. Кузня переезжает, боец размечает совершенно новый маршрут, и
+прежней карты больше не существует (<a href="../core-loop-and-runs/#подтверждено">перегенерация мира</a>).</p>
+<h2 id="пробуждение-и-сеть-аттестации">Пробуждение и сеть аттестации<a class="headerlink" href="#пробуждение-и-сеть-аттестации" title="Permanent link">&para;</a></h2>
+<p>Конструкты просыпаются не случайно и не по будильнику.</p>
+<p>Возвращение артефактной техники в обиход перешагнуло порог питания, и <strong>сеть аттестации</strong> Старого
+мира перезапустилась сама. Она разбудила всех разом: спящих бойцов по регионам, ядра Свидетелей — и
+собственных экзаменаторов.</p>
+<p>Это даёт одну причину для трёх разных вещей: почему конструкты просыпаются повсюду, почему испытания
+повторяемы и почему трое боссов стоят на своих местах при любом сиде биомов. Последнее следует
+<a href="../enemies-and-encounters/#три-босса-актов">документу о врагах</a>, а не решению владельца: он
+расходится с формулировкой перегенерации мира, и расхождение открыто (<a href="#нерешённое">нерешённое</a>).</p>
+<p>Простого злодея, нажавшего кнопку, нет. Тревогу создаёт не погоня за виновником, а то, что делают
+непроверенные конструкты, проснувшиеся без доктрины.</p>
+<p><strong>Смотрители аттестации</strong> — уцелевшие экзаменаторы сети, привязанные к собственным аттестационным
+аренам. Они закрывают акты и не зависят от того, какой биом выпал
+(<a href="../enemies-and-encounters/#три-босса-актов">три босса актов</a>, <a href="../biomes/#подтверждено">биомы</a>):</p>
+<ul>
+<li><strong>Мерзлотный Крушитель</strong> — акт 1. Спрашивает, различает ли доктрина короткую и долгую подготовку,
+  умеет ли прервать, уйти с опасной земли и наказать восстановление.</li>
+<li><strong>Стеклоспинный Бурильщик</strong> — акт 2. Спрашивает, остаётся ли тайминг условным, когда безопасность
+  земли меняется, а пригодные точки отхода кончаются.</li>
+<li><strong>Тинокоронный Палач</strong> — акт 3. Спрашивает про отмену, про обманчивый, но полностью наблюдаемый
+  тайминг и про распределение ограниченных прерываний, пока постоянные разрывы копятся
+  (<a href="../enemies-and-encounters/#три-боссовые-арены">три боссовые арены</a>).</li>
+</ul>
+<p>Трое не стерегут три куска экспозиции. Втроём они задают один вопрос: обобщается ли <strong>единственный</strong>
+накопленный мозг игрока по таймингу, пространству, обману и дефициту — ничего при этом не забыв.</p>
+<h2 id="механика--вымысел">Механика → вымысел<a class="headerlink" href="#механика--вымысел" title="Permanent link">&para;</a></h2>
+<p>Каждая строка объясняет уже существующее правило и ничего к нему не добавляет.</p>
+<table>
+<thead>
+<tr>
+<th>Механика (якорь)</th>
+<th>Что она значит в мире</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../brain-vocabulary/#необратимые-части-словаря">Словарь мозга заморожен, добавление записи — дверь в одну сторону</a></td>
+<td>Подписанный язык предписаний, созданный после Войны Имён. Полная сигнатура селекторов и полная форма запроса существуют с первой версии именно потому, что «доопределить позже» — это и есть переписывание реестра.</td>
+</tr>
+<tr>
+<td><a href="../brain-vocabulary/#версионирование-словаря">Миграция не вправе изменить принимаемые решения</a></td>
+<td>Ровно тот запрет, которого не было у старого мира: смысл слова нельзя молча переосмыслить под уже написанной программой.</td>
+</tr>
+<tr>
+<td><a href="../glossary/">Мозг без состояния: нет записываемых переменных</a></td>
+<td>Свидетелю запрещено вести собственный реестр. Он не помнит, кем кто-то был; он пересчитывает вывод из наблюдаемого настоящего. Это главный предохранитель Протокола, а не техническое упрощение.</td>
+</tr>
+<tr>
+<td><a href="../enemies-and-encounters/#подтверждено">Игрок никогда не видит граф врага</a></td>
+<td>Симметрия того же запрета: читать чужое намерение нельзя, читать чужое поведение можно.</td>
+</tr>
+<tr>
+<td><a href="../enemies-and-encounters/#подтверждено">Классов и типов врага нет: враг — это конфигурация из навыков, предметов и графа</a></td>
+<td>«Тип» и был смертельным сокращением старого мира. Свидетель различает противников по снаряжению, охране, источнику эффекта и поведению — по наблюдаемому, а не по ярлыку (<a href="../brain-vocabulary/#охрана-и-источник-эффекта-наблюдаемы">охрана и источник эффекта наблюдаемы</a>).</td>
+</tr>
+<tr>
+<td><a href="../enemies-and-encounters/#информация-до-боя">До боя показывается наблюдаемая конфигурация, а не типовые ярлыки</a></td>
+<td>Разведка Свидетеля устроена так же, как его язык: состав, видимая экипировка и заметные действия — да, ярлык вида — никогда. Чужой граф не показывается вообще.</td>
+</tr>
+<tr>
+<td><a href="../glossary/">Словарь восприятия честен: скрытого знания и тумана нет</a></td>
+<td>Плата за отказ от ярлыков. Раз судить разрешено только по настоящему, настоящее обязано быть видно целиком.</td>
+</tr>
+<tr>
+<td><a href="../ai-brain/#шаблонный-граф">Враги и призывы исполняют шаблонный граф на той же машине</a></td>
+<td>Всё, что дерётся в этом мире, говорит на одном замороженном языке. Разница между бойцом и противником — только в том, кто и как написал доктрину.</td>
+</tr>
+<tr>
+<td><a href="../ai-brain/#лестница-обучающих-миссий">Записи словаря выдаются наградой обучающих миссий</a></td>
+<td>Полный словарь уже лежит внутри ядра, но опечатан. Миссия создаёт наблюдаемую задачу первой, а зачёт снимает печать с соответствующих записей. Право выражаться выдаётся под доказанную потребность.</td>
+</tr>
+<tr>
+<td><a href="../core-loop-and-runs/#два-режима-содержания">Миссии не выдают предметов, опыта и навыков — только баблы, Memory, ряды рюкзака и очки</a></td>
+<td>Миссия — сохранившийся аттестационный сценарий, а не экспедиция. Аттестация выдаёт полномочия и ёмкость; добычу приносит поход.</td>
+</tr>
+<tr>
+<td><a href="../ai-brain/#лестница-испытаний">Испытания не выдают новых баблов, а требуют ветвления по уже выданным</a></td>
+<td>Экзамен на композицию: не «знаешь ли ты слово», а «не глупа ли твоя доктрина». Поэтому у испытания постоянная задача и несколько сидов — проверяется алгоритм, а не заученная расстановка.</td>
+</tr>
+<tr>
+<td><a href="../ai-brain/#подтверждено">Memory: 8 на старте, +4 за выдачу, потолок 64</a></td>
+<td>Memory — не автобиографическая память, а объём решающей решётки, который ядру <strong>разрешено</strong> исполнять. Четырнадцать выдач за семь миссий и семь испытаний снимают защиту с банков по мере доказанной устойчивости.</td>
+</tr>
+<tr>
+<td><a href="../ai-brain/#правило-непрегрессии--правило-для-авторов-контента">Правило непрегрессии</a></td>
+<td>Первый закон Протокола: доктрина вправе становиться точнее и не вправе молча жертвовать уже пройденным случаем.</td>
+</tr>
+<tr>
+<td><a href="../ai-brain/#проверка-проверить-всё-изученное--игровая-функция">«Проверить всё изученное»</a></td>
+<td>Аттестационный обряд по требованию: автор вправе прогнать новую редакцию мозга по всему накопленному прецеденту, а при миграции словаря обязан. Дёшев он потому, что мир детерминирован — прошлое можно воспроизвести точно.</td>
+</tr>
+<tr>
+<td><a href="../core-loop-and-runs/#чекпоинт-узла-и-восстановление-после-обрыва">Чекпоинт узла и восстановление после обрыва</a></td>
+<td>Служебная запись Кузни на пороге узла, а не путешествие во времени. Она несёт сид узла и уже сгенерированную стычку, поэтому возвращает <strong>ту же</strong> стычку: это надёжность механизма, а не внутримировой поступок.</td>
+</tr>
+<tr>
+<td><a href="../core-loop-and-runs/#чекпоинт-узла-и-восстановление-после-обрыва">Намеренная приостановка забега запрещена</a></td>
+<td>Порог узла — обязательство. У Свидетеля есть наблюдение и право писать доктрину до боя; команды «отбой» и «вернись» в языке нет и не будет.</td>
+</tr>
+<tr>
+<td><a href="../core-loop-and-runs/#подтверждено">Смерть ничего не отнимает, но забег окончен</a></td>
+<td>Отключение и подъём: чинится тот же корпус, груз заперт внутри, ядро энергонезависимо. Теряется экспедиция, а не нажитое.</td>
+</tr>
+<tr>
+<td><a href="../core-loop-and-runs/#подтверждено">Перегенерация мира между забегами</a></td>
+<td>Экспедиция идёт по нестабильным артефактным маршрутам. Сохраняется именно то, что важно по смыслу, — доктрина, обучение, снаряжение и опыт, — а не заученная карта.</td>
+</tr>
+<tr>
+<td><a href="../glossary/">Комната смерти: повтор проигранной комнаты без наград</a></td>
+<td>Тренажёр Кузни. Симуляция в этом мире существует и имеет строго служебные роли — проверка мозга, разбор и repetition проигранного; она никогда не приносит вещей.</td>
+</tr>
+<tr>
+<td><a href="../ai-brain/#подтверждено">Replay и таймлайн решений только для своих бойцов</a></td>
+<td>Свидетель читает запись решений собственного ученика. Чужой разбор невозможен по той же причине, по которой непрозрачен вражеский мозг.</td>
+</tr>
+<tr>
+<td><a href="../enemies-and-encounters/#три-босса-актов">Три босса актов фиксированы при сидовых биомах</a></td>
+<td>Смотрители аттестации проверяют поступки, а не места, поэтому стоят на собственных аренах независимо от выпавшего биома.</td>
+</tr>
+<tr>
+<td><a href="../enemies-and-encounters/#три-боссовые-арены">Механика боссовой арены обязана быть выразима замороженным словарём</a></td>
+<td>Экзаменатор не вправе требовать слова, которого не выдал. Иначе аттестация проверяла бы не доктрину, а везение.</td>
+</tr>
+<tr>
+<td><a href="../enemies-and-encounters/#суперэндгейм-классификация-врагов-самим-игроком">Суперэндгейм: игрок сам классифицирует врагов по наблюдаемым признакам</a></td>
+<td>Единственная разрешённая форма классификации: выведенная из наблюдения, принадлежащая доктрине автора и проверяемая заново каждый бой. Именно этого старый мир и не делал.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="конец-дороги">Конец дороги<a class="headerlink" href="#конец-дороги" title="Permanent link">&para;</a></h2>
+<p>Потолок Memory — не «стал сильнее», а «доказал устойчивость». Когда все четырнадцать выдач получены
+и трое Смотрителей пройдены, накопленная доктрина аттестуется: она признана пригодной к передаче
+другим просыпающимся конструктам.</p>
+<p>Развязка не в том, что игрок оказался кем-то важным. Она в том, что <strong>алгоритм, который игрок
+действительно написал сам, и есть восстанавливаемое наследие</strong>. Не боец, не забытая корона, а
+проверенный способ автономной силы принимать решения.</p>
+<p>Это чистый вымысел без механического следствия. Аттестация не даёт ни предмета, ни валюты, ни
+ёмкости, ни нового канала награды: эндгейм остаётся повторными забегами с растущей сложностью, и
+новых каналов награды он не вводит (<a href="../core-loop-and-runs/#два-режима-содержания">два режима содержания</a>).
+Повторный забег читается как очередная поверка уже аттестованной доктрины во всё более трудных
+условиях — тремя рычагами, которые уже записаны.</p>
+<h2 id="правило-авторинга-нарратива">Правило авторинга нарратива<a class="headerlink" href="#правило-авторинга-нарратива" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Текст описывает существующее правило; правило не подгоняется под текст.</li>
+<li>Ярлык личности не может быть игровым сигналом. Любая запись словаря обязана описывать
+   наблюдаемое, а не идентичность.</li>
+<li>Экспозиция не откладывается. Ограничения бойца известны с первого часа; финал подтверждает вывод,
+   который игрок уже заработал, и не открывает его впервые.</li>
+<li>Внутримировые названия не создают машинных ID и не дублируют определения из документов-владельцев.</li>
+</ol>
+<h2 id="нерешённое">Нерешённое<a class="headerlink" href="#нерешённое" title="Permanent link">&para;</a></h2>
+<p>Ниже — то, что вымысел ставит, а ни одно решение владельца и ни один документ не закрывают. Каждый
+пункт продублирован в <a href="../../open-questions/">реестре открытых вопросов</a>.</p>
+<ul>
+<li><strong>Сколько Дорожных кузен в мире и одна ли она на профиль.</strong> Профиль держит несколько персонажей,
+  общий сундук и общую библиотеку мозгов (<a href="../ai-brain/#подтверждено">профиль</a>). Один это корпус с
+  разными настройками, разные корпуса при одной Кузне или разные Кузни — не решено.</li>
+<li><strong>Чем внутримирово являются внебоевые полномочия игрока и его тождество при переключении.</strong> Ядро
+  Свидетеля заявлено как пишущее доктрину и не вмешивающееся, но игрок ещё выбирает маршрут,
+  торгует, крафтит, экипирует и тратит очки; а профиль держит несколько персонажей и целую
+  библиотеку мозгов (<a href="../ai-brain/#профиль-персонажи-и-библиотека-мозгов">профиль</a>). Кто совершает
+  внебоевые действия и остаётся ли игрок тем же ядром при смене мозга — не решено.</li>
+<li><strong>Есть ли у забеговых узлов лавки и отдыха внутримировые обитатели.</strong> Лавка и точка отдыха —
+  подтверждённые узлы карты (<a href="../core-loop-and-runs/#топология-карты-и-квоты">топология карты</a>), но
+  кто их держит и как они относятся к ходячей машине Старого мира, нигде не описано.</li>
+<li><strong>Расхождение в формулировке перегенерации мира.</strong> <a href="../core-loop-and-runs/#подтверждено">Подтверждённое правило</a>
+  перечисляет среди перекатываемого «новые боссы», тогда как <a href="../enemies-and-encounters/#три-босса-актов">три босса актов</a>
+  фиксируют одну и ту же тройку при любом сиде. Вымысел здесь следует документу о врагах: Смотрители
+  всегда те же. Какая из двух формулировок каноническая — вопрос к владельцу, механика не трогается.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.top", "search.highlight", "search.suggest", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/navigation-state.js"></script>
+      
+    
+  </body>
+</html>
