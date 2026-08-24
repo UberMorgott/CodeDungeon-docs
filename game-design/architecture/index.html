@@ -768,17 +768,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#дорожная-карта-миграции" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Дорожная карта миграции
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#нерешённые-архитектурные-решения" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2041,17 +2030,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#дорожная-карта-миграции" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Дорожная карта миграции
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#нерешённые-архитектурные-решения" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2306,20 +2284,6 @@ Critical account/economy audit events ~&gt; Transactional outbox ~&gt; Audit con
 <li>frontend: reducer tests доказывают, что server event — единственный источник gameplay-state; Godot smoke-тест проходит полный переход между основными экранами, возврат при пустой и непустой истории, восстановление клавиатурного фокуса и сохранение пользовательских настроек между запусками;</li>
 <li>observability: сбой telemetry sink не меняет gameplay result.</li>
 </ul>
-<h2 id="дорожная-карта-миграции">Дорожная карта миграции<a class="headerlink" href="#дорожная-карта-миграции" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Зафиксировать текущий vertical slice golden-тестами: wire packets, build upload, бой, loot, progression и playback.</li>
-<li>Ввести version/content/build/session envelopes и application ports, оставив <code>game.proto</code> и opcode рабочими через adapters.</li>
-<li>Сделать central formula/modifier kernel единственным вычислителем; закрыть его legacy adapters вокруг simulator/loot/string и <code>interface{}</code>.</li>
-<li>Перевести upload build с готовых stats/skills на IDs и серверный resolution.</li>
-<li>Перевести legacy loot/rewards на <code>itemization -&gt; itemstore -&gt; itempersist</code>; вынести progression из room.</li>
-<li>Обернуть текущий dungeon generator отдельным портом и разделить immutable <code>MapDefinition</code> от принадлежащего оркестратору <code>RunMapState</code>.</li>
-<li>Выделить orchestrators режимов и <code>PartyAssembler</code>/<code>SessionStore</code>; текущий room становится адаптером, затем удаляется как агрегат «всё сразу». <code>Matchmaker</code> добавляется позднее как Online-адаптер того же входного контракта.</li>
-<li>Перевести Godot-экраны на один store и command façade; запретить прямые gameplay mutations.</li>
-<li>Добавлять versioned bounded-context proto по одному пользовательскому сценарию. Удалять часть <code>game.proto</code> только после contract tests, migrated clients и окна совместимости.</li>
-<li>Подключить replay retention, telemetry и content editor к уже стабильным событиям и схемам; backend выбирать по измерениям, а не заранее.</li>
-<li>Ввести единый <code>BlueprintExchange</code> codec/validator для библиотеки, clipboard и файлов; зафиксировать fixtures, миграционные и adversarial contract-тесты до включения Offline → Online импорта.</li>
-</ol>
 <h2 id="нерешённые-архитектурные-решения">Нерешённые архитектурные решения<a class="headerlink" href="#нерешённые-архитектурные-решения" title="Permanent link">&para;</a></h2>
 <ul>
 <li>размеры групп, PvP combat/rating/reward rules;</li>
