@@ -1,0 +1,2709 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Живая игровая и техническая документация CodeDungeon">
+      
+      
+      
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/game-design/brain-reference/">
+      
+      
+        <link rel="prev" href="../glossary/">
+      
+      
+        <link rel="next" href="../deferred-design/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Какие блоки доступны в редакторе Мозга? - CodeDungeon — документация</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#какие-блоки-доступны-в-редакторе-мозга" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="CodeDungeon — документация" class="md-header__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CodeDungeon — документация
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Какие блоки доступны в редакторе Мозга?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить тёмную тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Включить тёмную тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить светлую тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Включить светлую тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CodeDungeon — документация" class="md-nav__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CodeDungeon — документация
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как читать документацию
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Игровой дизайн
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Игровой дизайн
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что это за игра?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен основной цикл игры?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../run-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен забег?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../programming-the-hero/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как игрок программирует героя?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../combat-and-replay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как проходит бой и как игрок его разбирает?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../progression-and-builds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как растёт персонаж и из чего собирается билд?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроены навыки, теги и модификаторы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../items-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как работают предметы, добыча и крафт?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enemies-and-encounters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    С кем сражается герой?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../biomes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Чем отличаются биомы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../narrative-and-setting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что за мир и почему игрок в нём именно программист?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visual-language/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как игра выглядит и как читается на экране?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audio-direction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как звучит игра?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../accessibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как игра остаётся доступной?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что означает термин?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Какие блоки доступны в редакторе Мозга?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Какие блоки доступны в редакторе Мозга?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#как-найти-нужный-раздел" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как найти нужный раздел?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-правила-общи-для-всех-блоков" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие правила общи для всех блоков?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-типы-значений-соединяют-блоки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие типы значений соединяют блоки?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-условия-читает-мозг" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие условия читает Мозг?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Какие условия читает Мозг?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#какие-условия-описывают-сущность-и-пространство" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие условия описывают сущность и пространство?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-условия-описывают-союзников-и-врагов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие условия описывают союзников и врагов?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-условия-описывают-зоны-время-и-ресурсы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие условия описывают зоны, время и ресурсы?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-селекторы-выбирают-сущности-и-точки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие селекторы выбирают сущности и точки?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Какие селекторы выбирают сущности и точки?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#какие-селекторы-выбирают-врага" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие селекторы выбирают врага?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-селекторы-выбирают-союзника" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие селекторы выбирают союзника?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-селекторы-выбирают-служебную-ссылку" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие селекторы выбирают служебную ссылку?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#как-селектор-разрешает-результат" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как селектор разрешает результат?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-действия-может-выбрать-мозг" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие действия может выбрать Мозг?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Какие действия может выбрать Мозг?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#какие-действия-управляют-движением" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие действия управляют движением?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-действия-применяют-навыки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие действия применяют навыки?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-действия-меняют-состояние-исполнения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие действия меняют состояние исполнения?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-события-сопровождают-действие" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие события сопровождают действие?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-блоки-управляют-логикой-и-потоком" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие блоки управляют логикой и потоком?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#каких-конструкций-в-словаре-нет" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Каких конструкций в словаре нет?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-идентификаторы-переживают-локализацию" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как идентификаторы переживают локализацию?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-сохраняется-совместимость-версий" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как сохраняется совместимость версий?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-мозг-импортируется-и-экспортируется" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как Мозг импортируется и экспортируется?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-редактор-обрабатывает-ошибки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как редактор обрабатывает ошибки?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-читать-дальше" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что читать дальше?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deferred-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что сознательно отложено за пределы MVP?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Техническая документация
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Техническая документация
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Техническая документация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектурный скелет
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/tech-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Технологический стек
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/process-topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Топология процессов и запуск
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/production-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    План производства и разделение ролей
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/dev-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Среда разработки и инструменты агентов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/content-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пакеты контента и баланса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/combat-simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Спецификация боевой симуляции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/stat-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Единый конвейер расчёта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/stat-registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реестр stat ID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/item-content-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Контент предметов и движок крафта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/item-persistence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Хранение предметов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/ui-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Интерфейс: экраны, навигация и граница клиента
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/screen-specs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Спецификации экранов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Конвейер 3D-ассетов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/testing-and-ci/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Стратегия тестирования и CI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/mvp-definition-of-done/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definition of Done для MVP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../open-questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реестр открытых вопросов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Роли в разработке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../undocumented-areas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Незадокументированные области
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#как-найти-нужный-раздел" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как найти нужный раздел?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-правила-общи-для-всех-блоков" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие правила общи для всех блоков?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-типы-значений-соединяют-блоки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие типы значений соединяют блоки?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-условия-читает-мозг" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие условия читает Мозг?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Какие условия читает Мозг?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#какие-условия-описывают-сущность-и-пространство" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие условия описывают сущность и пространство?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-условия-описывают-союзников-и-врагов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие условия описывают союзников и врагов?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-условия-описывают-зоны-время-и-ресурсы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие условия описывают зоны, время и ресурсы?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-селекторы-выбирают-сущности-и-точки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие селекторы выбирают сущности и точки?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Какие селекторы выбирают сущности и точки?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#какие-селекторы-выбирают-врага" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие селекторы выбирают врага?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-селекторы-выбирают-союзника" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие селекторы выбирают союзника?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-селекторы-выбирают-служебную-ссылку" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие селекторы выбирают служебную ссылку?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#как-селектор-разрешает-результат" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как селектор разрешает результат?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-действия-может-выбрать-мозг" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие действия может выбрать Мозг?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Какие действия может выбрать Мозг?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#какие-действия-управляют-движением" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие действия управляют движением?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-действия-применяют-навыки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие действия применяют навыки?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-действия-меняют-состояние-исполнения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие действия меняют состояние исполнения?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-события-сопровождают-действие" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие события сопровождают действие?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-блоки-управляют-логикой-и-потоком" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие блоки управляют логикой и потоком?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#каких-конструкций-в-словаре-нет" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Каких конструкций в словаре нет?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-идентификаторы-переживают-локализацию" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как идентификаторы переживают локализацию?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-сохраняется-совместимость-версий" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как сохраняется совместимость версий?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-мозг-импортируется-и-экспортируется" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как Мозг импортируется и экспортируется?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-редактор-обрабатывает-ошибки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как редактор обрабатывает ошибки?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-читать-дальше" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что читать дальше?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/game-design/brain-reference.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="какие-блоки-доступны-в-редакторе-мозга">Какие блоки доступны в редакторе Мозга?<a class="headerlink" href="#какие-блоки-доступны-в-редакторе-мозга" title="Permanent link">&para;</a></h1>
+<p>Эта глава перечисляет полный словарь Мозга, его стабильные идентификаторы, правила совместимости, формат обмена и поведение при ошибках.</p>
+<h2 id="как-найти-нужный-раздел">Как найти нужный раздел?<a class="headerlink" href="#как-найти-нужный-раздел" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#какие-правила-общи-для-всех-блоков">Какие правила общи для всех блоков?</a></li>
+<li><a href="#какие-типы-значений-соединяют-блоки">Какие типы значений соединяют блоки?</a></li>
+<li><a href="#какие-условия-читает-мозг">Какие условия читает Мозг?</a></li>
+<li><a href="#какие-селекторы-выбирают-сущности-и-точки">Какие селекторы выбирают сущности и точки?</a></li>
+<li><a href="#какие-действия-может-выбрать-мозг">Какие действия может выбрать Мозг?</a></li>
+<li><a href="#какие-блоки-управляют-логикой-и-потоком">Какие блоки управляют логикой и потоком?</a></li>
+<li><a href="#каких-конструкций-в-словаре-нет">Каких конструкций в словаре нет?</a></li>
+<li><a href="#как-идентификаторы-переживают-локализацию">Как идентификаторы переживают локализацию?</a></li>
+<li><a href="#как-сохраняется-совместимость-версий">Как сохраняется совместимость версий?</a></li>
+<li><a href="#как-мозг-импортируется-и-экспортируется">Как Мозг импортируется и экспортируется?</a></li>
+<li><a href="#как-редактор-обрабатывает-ошибки">Как редактор обрабатывает ошибки?</a></li>
+</ul>
+<p>Справочник отвечает на вопрос, что разрешено выразить, но не учит собирать программу. Порядок исполнения, работа редактора, Память, тестирование и разбор решений описаны в главе о <a href="../programming-the-hero/">программировании героя</a>.</p>
+<h2 id="какие-правила-общи-для-всех-блоков">Какие правила общи для всех блоков?<a class="headerlink" href="#какие-правила-общи-для-всех-блоков" title="Permanent link">&para;</a></h2>
+<p>В словаре шесть семейств: условие, селектор, действие, параметр или литерал, управление потоком и вызов модуля. Каждый размещённый блок учитывается в Памяти, включая константы, литералы и вызовы модулей; точный расчёт бюджета принадлежит <a href="../programming-the-hero/#как-память-ограничивает-программу">главе о программировании</a>. Улучшение блока расширяет знакомую конструкцию, но не создаёт скрытый второй язык.</p>
+<p>Мозг не хранит записываемые переменные и счётчики. Он читает наблюдаемое состояние мира, фазы действий, перезарядки, ресурсы, теги и ограниченную историю событий, а один проход заканчивается на первом выбранном действии. Полный порядок проверки основных поведений и прерываний определён в <a href="../programming-the-hero/#как-мозг-принимает-решение">главе о принятии решений</a>.</p>
+<p>Тот же словарь исполняет шаблонные графы врагов и призванных существ. Такие графы используют разрешённое подмножество конструкций, но не появляются в редакторе игрока и не расходуют Память его Мозга. Отдельного языка поведения для них нет.</p>
+<p>Дробные значения, дистанции, проценты и точки симуляции используют фиксированную точку. Типа <code>Float</code> в словаре нет, поэтому одинаковые входные данные дают одинаковые сравнения на поддерживаемых платформах. Клиент воспроизводит готовую запись событий боя, а не пересчитывает эти решения по сиду.</p>
+<p>Блоки читают теги навыков, сущностей и эффектов, но сами не несут gameplay-тегов. Теговый запрос не может выбрать или изменить блок так же, как он выбирает навык. Идентичность блока задаётся его типом и <code>nodeId</code>, а не набором тегов.</p>
+<h2 id="какие-типы-значений-соединяют-блоки">Какие типы значений соединяют блоки?<a class="headerlink" href="#какие-типы-значений-соединяют-блоки" title="Permanent link">&para;</a></h2>
+<p>Порт принимает только значение своего типа. Несовпадение типов не создаёт отложенную или условно допустимую связь: такой граф не проходит проверку. Типы перечислены полностью в таблице.</p>
+<table>
+<thead>
+<tr>
+<th>Тип</th>
+<th>Что представляет</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Boolean</code></td>
+<td>Истину или ложь.</td>
+</tr>
+<tr>
+<td><code>Integer</code></td>
+<td>Целое число.</td>
+</tr>
+<tr>
+<td><code>Fixed</code></td>
+<td>Число в формате Q16.16.</td>
+</tr>
+<tr>
+<td><code>Distance</code></td>
+<td>Дистанцию в фиксированной точке симуляции.</td>
+</tr>
+<tr>
+<td><code>Percentage</code></td>
+<td>Отношение в фиксированной точке.</td>
+</tr>
+<tr>
+<td><code>DurationTicks</code></td>
+<td>Длительность в тиках симуляции.</td>
+</tr>
+<tr>
+<td><code>Direction16</code></td>
+<td>Одно из 16 направлений дискретной угловой сетки.</td>
+</tr>
+<tr>
+<td><code>Phase</code></td>
+<td>Фазу действия: подготовку, исполнение или восстановление.</td>
+</tr>
+<tr>
+<td><code>EntityRef</code></td>
+<td>Ссылку на сущность либо <code>None</code>.</td>
+</tr>
+<tr>
+<td><code>PointRef</code></td>
+<td>Ссылку на точку арены.</td>
+</tr>
+<tr>
+<td><code>HazardRef</code></td>
+<td>Ссылку на опасную зону.</td>
+</tr>
+<tr>
+<td><code>SkillQuery</code></td>
+<td>Теговый запрос, разрешаемый в установленный навык.</td>
+</tr>
+<tr>
+<td><code>Tag</code></td>
+<td>Тег игровой сущности или эффекта.</td>
+</tr>
+<tr>
+<td><code>ResourceTag</code></td>
+<td>Тег ресурса, например <code>mana</code>.</td>
+</tr>
+<tr>
+<td><code>EventTag</code></td>
+<td>Тег наблюдаемого события.</td>
+</tr>
+<tr>
+<td><code>CompareOp</code></td>
+<td>Операцию сравнения.</td>
+</tr>
+</tbody>
+</table>
+<p><code>SkillQuery</code> содержит булево выражение из <code>AND</code>, <code>OR</code> и <code>NOT</code>, а также упорядоченный список теговых критериев предпочтения. Разрешение берёт первый критерий, для которого существует кандидат; порядок навыков на панели не влияет на результат. Прямого литерала установленного навыка нет, а <code>SkillRef</code> используется только как дескриптор уже разрешённого навыка в событии решения и журнале; полный контракт запросов находится в главе о <a href="../skills-and-tags/#как-мозг-выбирает-навык-по-тегам">навыках и тегах</a>.</p>
+<p><code>RandomInt(lo, hi)</code> возвращает целое число в замкнутом диапазоне от <code>lo</code> до <code>hi</code>. Некорректный диапазон отклоняется редактором, а корректное значение вычисляется кроссплатформенным хешем от <code>(run_seed, entityId, nodeId, тик текущего решения)</code> с несмещённым сведением к диапазону. <code>nodeId</code> является устойчивым авторским UUID и не зависит от позиции блока, его копирования или визуальной раскладки.</p>
+<p>Значение <code>RandomInt</code> фиксируется на время текущего решения и меняется только при следующем решении сущности. Блок не продвигает поток генератора случайных чисел и не создаёт изменяемое состояние, поэтому серверная симуляция остаётся воспроизводимой. Несколько случайных блоков, влияющих на одно решение, допускаются, но редактор может показать необязательное предупреждение.</p>
+<h2 id="какие-условия-читает-мозг">Какие условия читает Мозг?<a class="headerlink" href="#какие-условия-читает-мозг" title="Permanent link">&para;</a></h2>
+<p>Условные блоки получают наблюдаемое значение или отвечают на проверяемый вопрос. Пометка «дорогой» означает, что реализация опирается на поддерживаемый пространственный или обратный индекс и не вправе запускать неограниченный перебор. Она не меняет игровую семантику блока.</p>
+<h3 id="какие-условия-описывают-сущность-и-пространство">Какие условия описывают сущность и пространство?<a class="headerlink" href="#какие-условия-описывают-сущность-и-пространство" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Идентификатор</th>
+<th>Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Health</code></td>
+<td>Текущее здоровье сущности для абсолютного или процентного сравнения.</td>
+</tr>
+<tr>
+<td><code>IsTargeting(a,b)</code></td>
+<td>Истина, если <code>a</code> выбрала <code>b</code> целью.</td>
+</tr>
+<tr>
+<td><code>Stagger(e)</code></td>
+<td>Текущее значение stagger сущности <code>e</code>.</td>
+</tr>
+<tr>
+<td><code>Poise(e)</code></td>
+<td>Текущее значение poise сущности <code>e</code>.</td>
+</tr>
+<tr>
+<td><code>Phase</code></td>
+<td>Текущая фаза действия выбранной сущности.</td>
+</tr>
+<tr>
+<td><code>DistanceBetween(a,b)</code></td>
+<td>Дистанция между <code>a</code> и <code>b</code>.</td>
+</tr>
+<tr>
+<td><code>DistanceToArenaEdge(e)</code></td>
+<td>Дистанция от <code>e</code> до края арены.</td>
+</tr>
+<tr>
+<td><code>InsideRadius(e,point,dist)</code></td>
+<td>Истина, если <code>e</code> находится в радиусе <code>dist</code> от <code>point</code>.</td>
+</tr>
+<tr>
+<td><code>DirectionFromTo(a,b)</code></td>
+<td>Направление от <code>a</code> к <code>b</code> в <code>Direction16</code>.</td>
+</tr>
+<tr>
+<td><code>InsideFrontalArc(e,guard)</code></td>
+<td>Истина, если <code>e</code> находится во фронтальном секторе охраняющего <code>guard</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>У сущности нет отдельного поля ориентации. Ось <code>InsideFrontalArc(e,guard)</code> проходит от <code>CurrentGuardTarget(guard)</code> через <code>guard</code> наружу, полуширина равна <code>sector_angle / 2</code> шагов <code>Direction16</code>, а сравнение идёт по кратчайшей дуге по модулю 16. Если охраняемой цели нет, ось не определяется и условие ложно.</p>
+<h3 id="какие-условия-описывают-союзников-и-врагов">Какие условия описывают союзников и врагов?<a class="headerlink" href="#какие-условия-описывают-союзников-и-врагов" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Идентификатор</th>
+<th>Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AlliesWithin(e,dist,tag?)</code></td>
+<td>Союзники в пределах <code>dist</code>, при необходимости с тегом.</td>
+</tr>
+<tr>
+<td><code>AnyAllyHealthBelow(pct,dist?)</code></td>
+<td>Истина, если здоровье подходящего союзника ниже <code>pct</code>.</td>
+</tr>
+<tr>
+<td><code>AnyAllyTargetedBy(e)</code></td>
+<td>Истина, если <code>e</code> выбрала целью любого союзника.</td>
+</tr>
+<tr>
+<td><code>AnyAllyInPhase(phase,dist?)</code></td>
+<td>Истина, если подходящий союзник находится в указанной фазе.</td>
+</tr>
+<tr>
+<td><code>EnemiesWithin</code></td>
+<td>Враги в заданной области; дорогой блок.</td>
+</tr>
+<tr>
+<td><code>EnemyDensityAround</code></td>
+<td>Плотность врагов вокруг точки отсчёта; дорогой блок.</td>
+</tr>
+<tr>
+<td><code>IsIsolated</code></td>
+<td>Проверка изолированности врага; дорогой блок.</td>
+</tr>
+<tr>
+<td><code>EnemiesTargeting</code></td>
+<td>Число или набор врагов, выбравших указанную цель; дорогой блок.</td>
+</tr>
+</tbody>
+</table>
+<p>Союзнические условия входят в словарь, но в одиночном MVP инертны, потому что у бойца игрока нет союзника. Их игровое применение относится к <a href="../deferred-design/">отложенным сетевым режимам</a>. Отсутствие союзника не создаёт скрытую фиктивную сущность.</p>
+<h3 id="какие-условия-описывают-зоны-время-и-ресурсы">Какие условия описывают зоны, время и ресурсы?<a class="headerlink" href="#какие-условия-описывают-зоны-время-и-ресурсы" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Идентификатор</th>
+<th>Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>InsideHazard(e,tag?)</code></td>
+<td>Истина, если <code>e</code> находится в подходящей опасной зоне.</td>
+</tr>
+<tr>
+<td><code>HazardsWithin</code></td>
+<td>Опасные зоны в заданной области; дорогой блок.</td>
+</tr>
+<tr>
+<td><code>HazardRemaining(e)</code></td>
+<td>Оставшееся время подходящей опасной зоны.</td>
+</tr>
+<tr>
+<td><code>PointInsideHazard(point,tag?)</code></td>
+<td>Истина, если <code>point</code> находится в подходящей опасной зоне.</td>
+</tr>
+<tr>
+<td><code>PhaseRemaining(e)</code></td>
+<td>Оставшаяся длительность текущей фазы <code>e</code>.</td>
+</tr>
+<tr>
+<td><code>TimeSinceEvent(e,eventTag)</code></td>
+<td>Число тиков с последнего подходящего события сущности.</td>
+</tr>
+<tr>
+<td><code>Every(duration,offset)</code></td>
+<td>Периодическая проверка по тикам симуляции со смещением <code>offset</code>.</td>
+</tr>
+<tr>
+<td><code>SkillReady(e,skillQuery)</code></td>
+<td>Истина, если разрешённый навык завершил перезарядку и на него хватает маны.</td>
+</tr>
+<tr>
+<td><code>SkillCooldownRemaining</code></td>
+<td>Оставшееся время перезарядки разрешённого навыка.</td>
+</tr>
+<tr>
+<td><code>Resource(e,tag)</code></td>
+<td>Текущее значение ресурса с указанным тегом.</td>
+</tr>
+<tr>
+<td><code>Charges(e,skillQuery)</code></td>
+<td>Число зарядов разрешённого навыка.</td>
+</tr>
+</tbody>
+</table>
+<p><code>TimeSinceEvent</code> принимает только <code>Damaged</code>, <code>SkillUsed</code>, <code>Interrupted</code> и <code>TargetChanged</code>. Он измеряет время симуляции, а не реальные часы. Сочетание <code>SkillReady</code> и <code>SkillCooldownRemaining</code> различает две причины отказа: ненулевое время означает перезарядку, а нулевое время при ложном <code>SkillReady</code> — нехватку маны.</p>
+<p><code>Resource(e, mana)</code> является обычным чтением ресурса, а не отдельным сенсором маны. Все навыковые условия разрешают один и тот же <code>SkillQuery</code> в тот же момент, поэтому готовность, перезарядка и заряды относятся к одному детерминированно выбранному кандидату. Экономику навыков определяет <a href="../skills-and-tags/#как-устроена-экономика-активных-навыков">её каноническая глава</a>.</p>
+<h2 id="какие-селекторы-выбирают-сущности-и-точки">Какие селекторы выбирают сущности и точки?<a class="headerlink" href="#какие-селекторы-выбирают-сущности-и-точки" title="Permanent link">&para;</a></h2>
+<p>Селектор возвращает ссылку на сущность, опасную зону или точку. Селекторы сущностей имеют полную сигнатуру <code>MaxDistance</code>, <code>RequiredTags</code>, <code>ExcludedTags</code> и фазовый фильтр; эти аргументы присутствуют в сериализованной форме даже при значениях по умолчанию. Пустые наборы тегов ничего не требуют и ничего не исключают, пустой фазовый фильтр допускает все фазы, а <code>MaxDistance</code> по умолчанию не ограничивает расстояние.</p>
+<h3 id="какие-селекторы-выбирают-врага">Какие селекторы выбирают врага?<a class="headerlink" href="#какие-селекторы-выбирают-врага" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Идентификатор</th>
+<th>Что выбирает</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NearestEnemy</code></td>
+<td>Ближайшего подходящего врага.</td>
+</tr>
+<tr>
+<td><code>LowestHealthEnemy</code></td>
+<td>Подходящего врага с наименьшим здоровьем.</td>
+</tr>
+<tr>
+<td><code>MostIsolatedEnemy</code></td>
+<td>Наиболее изолированного подходящего врага.</td>
+</tr>
+<tr>
+<td><code>PreparingEnemy</code></td>
+<td>Подходящего врага в фазе подготовки.</td>
+</tr>
+<tr>
+<td><code>RecoveringEnemy</code></td>
+<td>Подходящего врага в фазе восстановления.</td>
+</tr>
+<tr>
+<td><code>MarkedEnemy</code></td>
+<td>Подходящего помеченного врага.</td>
+</tr>
+<tr>
+<td><code>EnemyTargeting(e)</code></td>
+<td>Врага, который выбрал <code>e</code> целью.</td>
+</tr>
+</tbody>
+</table>
+<p><code>HighestThreatEnemy</code> не существует, как и отдельная движковая модель угрозы. Игрок выражает нужное понятие угрозы через здоровье, дистанцию, фазу и отношения выбора цели. Это сохраняет один наблюдаемый язык вместо второй скрытой системы приоритетов.</p>
+<h3 id="какие-селекторы-выбирают-союзника">Какие селекторы выбирают союзника?<a class="headerlink" href="#какие-селекторы-выбирают-союзника" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Идентификатор</th>
+<th>Что выбирает</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NearestAlly</code></td>
+<td>Ближайшего подходящего союзника.</td>
+</tr>
+<tr>
+<td><code>LowestHealthAlly</code></td>
+<td>Подходящего союзника с наименьшим здоровьем.</td>
+</tr>
+<tr>
+<td><code>MostThreatenedAlly</code></td>
+<td>Союзника, на которого направлена наибольшая наблюдаемая угроза.</td>
+</tr>
+<tr>
+<td><code>AllyTargetedBy(e)</code></td>
+<td>Союзника, которого <code>e</code> выбрала целью.</td>
+</tr>
+</tbody>
+</table>
+<p>Эти селекторы инертны в одиночном MVP и не подменяют отсутствие союзника самим бойцом. Они остаются частью совместимой формы словаря для отложенных режимов. Вызов зависимого действия при отсутствии кандидата обрабатывается общим правилом <code>None</code>.</p>
+<h3 id="какие-селекторы-выбирают-служебную-ссылку">Какие селекторы выбирают служебную ссылку?<a class="headerlink" href="#какие-селекторы-выбирают-служебную-ссылку" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Идентификатор</th>
+<th>Что выбирает</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Self</code></td>
+<td>Саму сущность, исполняющую Мозг.</td>
+</tr>
+<tr>
+<td><code>CurrentActionTarget(e)</code></td>
+<td>Текущую цель действия <code>e</code>.</td>
+</tr>
+<tr>
+<td><code>CurrentGuardTarget(e)</code></td>
+<td>Сущность, которую <code>e</code> охраняет в этот тик.</td>
+</tr>
+<tr>
+<td><code>EffectSourceOf(e,tag)</code></td>
+<td>Источник активной ауры или эффекта с тегом <code>tag</code> на <code>e</code>.</td>
+</tr>
+<tr>
+<td><code>NearestHazard</code></td>
+<td>Ближайшую подходящую опасную зону.</td>
+</tr>
+<tr>
+<td><code>SafestPointAround(e,radius)</code></td>
+<td>Достижимую точку с наименьшей опасностью в радиусе <code>radius</code> вокруг <code>e</code>.</td>
+</tr>
+<tr>
+<td><code>PointBetween(a,b,ratio)</code></td>
+<td>Точку на отрезке от <code>a</code> к <code>b</code> на доле <code>ratio</code> его длины.</td>
+</tr>
+</tbody>
+</table>
+<p><code>CurrentGuardTarget</code> описывает изменяемое отношение охраны, а не тип или роль сущности. <code>EffectSourceOf</code> так же читает наблюдаемый источник эффекта, а его тег описывает действие эффекта, а не уникального носителя. Тег, доступный только одной конфигурации и фактически называющий её, является дефектом авторинга контента.</p>
+<p><code>SafestPointAround</code> оценивает те же зоны, которые видит <code>PointInsideHazard</code>, и разрешается детерминированно в фиксированной точке. Для <code>PointBetween</code> значение <code>0</code> даёт <code>a</code>, а значение <code>1</code> — <code>b</code>. Оба блока возвращают <code>PointRef</code>, а не <code>EntityRef</code>.</p>
+<h3 id="как-селектор-разрешает-результат">Как селектор разрешает результат?<a class="headerlink" href="#как-селектор-разрешает-результат" title="Permanent link">&para;</a></h3>
+<p>Все селекторы переоцениваются при каждом проходе и не удерживают прежнюю цель. Ссылка становится снимком только в момент принятия действия. Если кандидатов нет, результат равен <code>None</code>: зависимое условие ложно, зависимое действие невалидно, а поиск следующего правила продолжается.</p>
+<p>Ничья разрешается одной цепочкой: основной счёт селектора, затем дистанция от его точки отсчёта, затем стабильный ID сущности по возрастанию. Значения фиксированной точки сравниваются точно. Эта семантика является частью версии словаря и не меняется миграцией.</p>
+<h2 id="какие-действия-может-выбрать-мозг">Какие действия может выбрать Мозг?<a class="headerlink" href="#какие-действия-может-выбрать-мозг" title="Permanent link">&para;</a></h2>
+<p>Каждое действие проходит подготовку, исполнение и восстановление с длительностями, заданными навыком или конфигурацией. Справочник описывает команду, но не повторяет правила прерывания и оплаты фаз; они принадлежат главе о <a href="../combat-and-replay/#как-действие-проходит-через-три-фазы">бое</a>. Недоступное или невалидное действие не завершает проход Мозга.</p>
+<h3 id="какие-действия-управляют-движением">Какие действия управляют движением?<a class="headerlink" href="#какие-действия-управляют-движением" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Идентификатор</th>
+<th>Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Approach(target,stopDistance)</code></td>
+<td>Двигаться к цели и остановиться на заданной дистанции.</td>
+</tr>
+<tr>
+<td><code>Retreat(target,minDistance)</code></td>
+<td>Увеличивать дистанцию до цели как минимум до <code>minDistance</code>.</td>
+</tr>
+<tr>
+<td><code>HoldRange(target,min,max)</code></td>
+<td>Удерживать дистанцию в диапазоне от <code>min</code> до <code>max</code>.</td>
+</tr>
+<tr>
+<td><code>Orbit(target,radius,direction)</code></td>
+<td>Двигаться вокруг цели на заданном радиусе и в заданном направлении.</td>
+</tr>
+<tr>
+<td><code>Regroup(ally\|point,radius)</code></td>
+<td>Сблизиться с союзником или точкой до заданного радиуса.</td>
+</tr>
+<tr>
+<td><code>MoveTo(point,stopDistance)</code></td>
+<td>Двигаться к точке и остановиться на заданной дистанции.</td>
+</tr>
+</tbody>
+</table>
+<p>Команда движения означает движение по рассчитанному маршруту, а не по прямому отрезку. Движок прокладывает путь через проходы и зоны арены, а геометрическая стоимость маршрута не является наблюдаемым значением Мозга. Отдельного сенсора линии огня нет: если препятствие блокирует атаку, исполнитель сам ищет позицию с чистой линией.</p>
+<h3 id="какие-действия-применяют-навыки">Какие действия применяют навыки?<a class="headerlink" href="#какие-действия-применяют-навыки" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Идентификатор</th>
+<th>Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>UseTargetSkill(skillQuery,entity)</code></td>
+<td>Применить разрешённый навык к сущности.</td>
+</tr>
+<tr>
+<td><code>UsePointSkill(skillQuery,point)</code></td>
+<td>Применить разрешённый навык к точке.</td>
+</tr>
+<tr>
+<td><code>UseDirectionSkill(skillQuery,direction16)</code></td>
+<td>Применить разрешённый навык в направлении.</td>
+</tr>
+<tr>
+<td><code>UseSelfSkill(skillQuery)</code></td>
+<td>Применить разрешённый навык к себе.</td>
+</tr>
+</tbody>
+</table>
+<p>Первый аргумент всегда является <code>SkillQuery</code>; прямого вызова навыка по имени или ID нет. Данные разрешённого навыка определяют допустимую команду цели, дальность, геометрию, урон, stagger, отбрасывание, теги, стоимость и длительности фаз. Один из четырёх видов вызова покрывает атаки, защиту, усиления, лечение, метки, прерывания и создание опасных зон.</p>
+<p>Перед вызовом валидатор доказывает, что в каждом достижимом состоянии активны совместимые билд и набор оружия именно для кандидата, в который разрешится запрос. Доказанно ошибочный и недоказанный путь одинаково блокируют сохранение; объединять требования всех потенциальных кандидатов нельзя. Runtime повторяет проверку как защиту от дефекта данных, а не как штатную игровую ветку отказа.</p>
+<h3 id="какие-действия-меняют-состояние-исполнения">Какие действия меняют состояние исполнения?<a class="headerlink" href="#какие-действия-меняют-состояние-исполнения" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Идентификатор</th>
+<th>Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SwitchWeaponSet</code></td>
+<td>Явно переключить активный набор оружия; аргументов нет.</td>
+</tr>
+<tr>
+<td><code>Wait(duration)</code></td>
+<td>Ждать указанное время с атомарностью по одному тику.</td>
+</tr>
+<tr>
+<td><code>StandStill</code></td>
+<td>Остаться на месте на один тик.</td>
+</tr>
+<tr>
+<td><code>CancelPreparation</code></td>
+<td>Отменить собственное действие во время его подготовки.</td>
+</tr>
+</tbody>
+</table>
+<p><code>SwitchWeaponSet</code> является обычным трёхфазным действием. Вызов навыка из неактивного набора не переключает оружие автоматически, а условия до атомарного исполнения смены видят старый билд и после него — новый. Перезарядки навыков при смене не сбрасываются и не замораживаются.</p>
+<p><code>CancelPreparation</code> допустим только во время подготовки. После отмены следующая отмена блокируется до выбора и начала нового действия, а результат записывается как <code>ActionCancelled</code>, отдельно от внешнего <code>ActionInterrupted</code> и ошибки <code>ActionFailed</code>. Последствия для ресурса и восстановления определены <a href="../combat-and-replay/#что-происходит-при-срыве-подготовки">боевым контрактом</a>.</p>
+<h3 id="какие-события-сопровождают-действие">Какие события сопровождают действие?<a class="headerlink" href="#какие-события-сопровождают-действие" title="Permanent link">&para;</a></h3>
+<p>Жизненный цикл действия порождает <code>ActionStarted</code>, <code>PhaseChanged</code>, <code>ActionExecuted</code>, <code>ActionResolved</code>, <code>ActionCancelled</code>, <code>ActionInterrupted</code> и <code>ActionFailed</code>. Эффекты дополнительно порождают <code>Moved</code>, <code>DamageApplied</code>, <code>StaggerApplied</code>, <code>KnockbackApplied</code>, <code>TagAdded</code>, <code>TagRemoved</code>, <code>ResourceChanged</code>, <code>HazardCreated</code> и <code>HazardExpired</code>. Эти события входят в запись симуляции и диагностику, но не все являются допустимыми <code>EventTag</code> для <code>TimeSinceEvent</code>.</p>
+<p>Если цель исчезает до атомарного исполнения, действие порождает <code>ActionFailed(TargetInvalid)</code> и не оплачивает восстановление. После этого Мозг начинает следующий полный цикл по обычным правилам. Намеренная отмена, внешнее прерывание и потеря цели поэтому остаются тремя различимыми причинами.</p>
+<h2 id="какие-блоки-управляют-логикой-и-потоком">Какие блоки управляют логикой и потоком?<a class="headerlink" href="#какие-блоки-управляют-логикой-и-потоком" title="Permanent link">&para;</a></h2>
+<p><code>AND</code>, <code>OR</code> и <code>NOT</code> объединяют булевы условия и теговые критерии, а блоки сравнения применяют значение типа <code>CompareOp</code> к совместимым операндам. Арифметические выражения в словарь не входят. Константы и литералы дают типизированные аргументы и подчиняются тем же правилам Памяти и соединений, что остальные блоки.</p>
+<p><code>Continue</code> продолжает текущий список с элемента после последнего выполненного дочернего узла. <code>Restart</code> начинает новый проход с <code>child[0]</code>. Оба имени являются стабильными машинными ID, поэтому подпись интерфейса может переводиться без изменения поведения.</p>
+<p>Блок вызова модуля передаёт управление другому графу того же Мозга. Граф и модуль являются одной сущностью в разных ролях, а вызовы могут образовывать только ациклическую структуру. Обратные связи, циклические вызовы и рекурсия отклоняются до сохранения.</p>
+<p>Прерывания используют те же условия, селекторы, действия, модули и потоковые блоки. Свойство прерывания разрешает ему остановить только выполняющееся прерывание ниже по приоритету, а повторный вход в само себя запрещён. Эти ограничения не добавляют отдельного семейства узлов.</p>
+<h2 id="каких-конструкций-в-словаре-нет">Каких конструкций в словаре нет?<a class="headerlink" href="#каких-конструкций-в-словаре-нет" title="Permanent link">&para;</a></h2>
+<p>Исключённая конструкция не резервирует скрытое поведение и не должна угадываться при импорте. Если такой ID встречается в данных без поддерживаемой записи словаря, загрузка завершается ошибкой. Доступные замены перечислены только как границы выразительности, а не как готовые рецепты.</p>
+<table>
+<thead>
+<tr>
+<th>Исключено</th>
+<th>Чем выражается доступная часть задачи</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Циклы и рекурсия</td>
+<td>Повторной переоценкой Мозга; циклы модулей запрещены.</td>
+</tr>
+<tr>
+<td>Арифметические выражения</td>
+<td>Сравнениями, процентами, диапазонами и селекторами.</td>
+</tr>
+<tr>
+<td>Записываемые переменные и счётчики</td>
+<td>Ресурсами, фазами, перезарядками, тегами и временем с события.</td>
+</tr>
+<tr>
+<td>Очереди и последовательности действий</td>
+<td>Одним действием за проход или атомарной последовательностью внутри навыка.</td>
+</tr>
+<tr>
+<td>Общий blackboard бойцов</td>
+<td>Наблюдаемыми целями, метками, усилениями и опасными зонами.</td>
+</tr>
+<tr>
+<td>Проверка типа или класса врага</td>
+<td>Наблюдаемыми тегами, состоянием, фазой и отношениями.</td>
+</tr>
+<tr>
+<td>Инспекция или предсказание чужого Мозга</td>
+<td>Публичной целью, текущей фазой, таймингом и эффектами.</td>
+</tr>
+<tr>
+<td>Обучение и адаптация между проходами</td>
+<td>Детерминированным <code>RandomInt</code> и наблюдаемой историей событий.</td>
+</tr>
+<tr>
+<td><code>HighestThreatEnemy</code></td>
+<td>Составным определением угрозы из наблюдаемых значений.</td>
+</tr>
+<tr>
+<td><code>Interpose(protectedAlly,threat,offset)</code></td>
+<td>В v1 прямой замены нет; доступно обычное движение относительно союзника или точки.</td>
+</tr>
+</tbody>
+</table>
+<p>Словарь способен выразить кайт, добивание, наказание восстановления, выход из опасной зоны и финт. Он не гарантирует абсолютное пространственное условие вроде вечного запрета приблизиться к герою: отбрасывание, атомарное движение, появление сущностей и стены арены способны изменить геометрию вне выбора одного действия. Это предел модели действий, а не ошибка конкретного селектора.</p>
+<h2 id="как-идентификаторы-переживают-локализацию">Как идентификаторы переживают локализацию?<a class="headerlink" href="#как-идентификаторы-переживают-локализацию" title="Permanent link">&para;</a></h2>
+<p>Идентификатор конструкции является стабильной English ASCII-строкой, например <code>NearestEnemy</code>, <code>Continue</code> или <code>Restart</code>. Сериализованный граф хранит ID, а не локализованную подпись. Название, описание и подсказка интерфейса являются представлением и могут меняться с языком без изменения программы.</p>
+<p>Один граф открывается и исполняется одинаково в любой локали. Клиент рисует перевод поверх тех же ID, поэтому смена языка не меняет блоки, связи, решения и каноническую трассу. <code>BlueprintExchange</code> также не содержит локализованных строк как идентичность конструкций.</p>
+<p>У каждого размещённого блока есть устойчивый <code>nodeId</code>, отличный от ID его типа. Первый определяет конкретный экземпляр и участвует в идентичности <code>RandomInt</code>, второй определяет семантику конструкции. Перемещение блока на холсте не меняет ни один из них.</p>
+<h2 id="как-сохраняется-совместимость-версий">Как сохраняется совместимость версий?<a class="headerlink" href="#как-сохраняется-совместимость-версий" title="Permanent link">&para;</a></h2>
+<p>Каждый сериализованный Мозг несёт <code>vocabulary_version</code>. Версия отвечает на вопрос, по каким правилам читается граф, а ревизия — какой именно граф сохранён. Поддержка старой программы означает миграцию её данных к действующему словарю, а не хранение отдельного симулятора для каждой версии.</p>
+<p>Миграция является чистым детерминированным преобразованием между соседними версиями <code>vN → vN+1</code>; несколько шагов применяются явной цепочкой. Она безопасна только при <code>Eval_v(G, P) == Eval_v+1(M(G), P)</code> для любого валидного старого графа <code>G</code> и любого допустимого входа восприятия и случайности <code>P</code>. Структурно допустимы переименование, разворачивание синтаксического сахара в эквивалентные узлы и добавление конструкций, недостижимых из старых графов.</p>
+<p>Миграция не меняет решение, порядок и типы аргументов, значения по умолчанию, приоритеты, разрешение ничьих, стоимость Памяти или идентичность случайности. Она не выбрасывает и не подменяет неизвестную конструкцию. Преобразование, корректность которого зависит от поведения runtime, а не видна из его структуры, не допускается.</p>
+<p>Золотые трассы побитово сравнивают решения и исходы сохранённых встреч при совпадающих версиях симуляции и контента. Такой гейт способен опровергнуть миграцию, но не доказать её для непокрытых ветвей; автор преобразования всё равно отвечает за равенство <code>Eval</code> на всех допустимых входах. Игровая команда <a href="../programming-the-hero/#как-проверить-мозг-до-забега">«Проверить всё изученное»</a> использует связанные данные для проверки уже освоенных ситуаций.</p>
+<p>Полная форма селектора заморожена с v1: <code>MaxDistance</code>, <code>RequiredTags</code>, <code>ExcludedTags</code> и фазовый фильтр всегда присутствуют. Так же заморожены булева форма и порядок предпочтений <code>SkillQuery</code>, распространение <code>None</code>, цепочка разрешения ничьих, переоценка на каждом проходе и отсутствие неявного удержания цели. <code>CurrentGuardTarget</code>, <code>InsideFrontalArc</code> и <code>EffectSourceOf</code> входят в v1 вместе с описанной геометрией охраны.</p>
+<p>Каждая ревизия Мозга хранит неизменяемый идентификатор, хеш родительской ревизии, канонический хеш содержимого, а также версии схемы и контента. Правка или миграция создаёт новую ревизию после сохранения проверенной резервной копии; исходная ревизия остаётся целой и открываемой. Удалённая из доступного редактора конструкция сохраняет реализацию-надгробие для уже сохранённых графов, но не возвращается под прежним ID с новой семантикой.</p>
+<p>Неизвестный ID или пропущенное звено миграции проваливает загрузку Мозга целиком. Частичного восстановления, карантина одного блока и молчаливой замены нет. Диагностика сохраняет исходные данные и сообщает точную причину отказа.</p>
+<h2 id="как-мозг-импортируется-и-экспортируется">Как Мозг импортируется и экспортируется?<a class="headerlink" href="#как-мозг-импортируется-и-экспортируется" title="Permanent link">&para;</a></h2>
+<p><code>BlueprintExchange</code> является версионируемым декларативным контейнером со стабильными ID и раздельными <code>schema_version</code> и <code>content_version</code> либо эквивалентными полями. Там, где порядок не имеет игрового смысла, формат использует детерминированное каноническое представление. Строка для буфера обмена и переносимый файл являются адаптерами одного кодека, а не двумя форматами алгоритма.</p>
+<p>Обмен переносит графы, модули, связи, параметры и расположение элементов. Он не переносит предметы, валюту, опыт, уровни, пассивные очки, Память, entitlements, секреты или любой иной источник силы. Внутри envelope нет исполняемого кода, путей и ссылок на файлы, внешние ресурсы и произвольные payload’ы.</p>
+<p>Любой импорт считается недоверенным вводом, включая данные, пришедшие из внутренней библиотеки. До сохранения кодек проверяет ограничения размера, глубины и количества элементов, схему, типы, стабильные ID, порты и рёбра, после чего общий валидатор проверяет граф, совместимость с билдом, Память и доступный персонажу контент. Числовые защитные пределы задаёт реализация до выпуска; справочник не вводит непроверенные значения.</p>
+<p>Диагностика машинно различает неподдерживаемую версию схемы, неизвестную версию контента, отсутствующий ID, недоступный entitlement, невозможную миграцию и невалидный граф. Поддерживаемые старые версии проходят явную цепочку миграций, а неизвестные данные не угадываются и не заменяются. В сетевом режиме окончательный вердикт принадлежит авторитетному серверному валидатору независимо от результата локальной проверки.</p>
+<h2 id="как-редактор-обрабатывает-ошибки">Как редактор обрабатывает ошибки?<a class="headerlink" href="#как-редактор-обрабатывает-ошибки" title="Permanent link">&para;</a></h2>
+<p>Локальный черновик может быть неполным, но сохранение, публикация и назначение Мозга блокируются авторитетной ошибкой. К этой категории относятся неизвестные или небезопасные блоки, циклы, несовпадение типов, превышение Памяти и вызов навыка, для которого на достижимом пути не доказана совместимость активного билда. Ошибка указывает конкретное место графа и структурированную причину.</p>
+<p>Недостижимая или неиспользуемая логика и <code>SkillQuery</code> без кандидата при текущей экипировке являются предупреждениями. Игрок может явно принять их и сохранить Мозг. Несовместимый порт отказывает в соединении сразу, подсвечивает связь и даёт текстовую причину, доступную экранному диктору.</p>
+<p>Запрос без кандидата возвращает объяснимый отказ и не ломает весь алгоритм. Зависимое действие становится невалидным, не завершает проход, и Мозг продолжает искать следующее подходящее правило. Если весь проход не выбрал действие, герой стоит и ждёт, а временная шкала показывает причину «нет подходящего правила».</p>
+<p>Невалидная цель до исполнения даёт <code>ActionFailed(TargetInvalid)</code>, намеренная отмена — <code>ActionCancelled</code>, а внешнее вмешательство — <code>ActionInterrupted</code>. Эти причины не сливаются в общий отказ, поэтому игрок может связать результат с конкретным условием или действием. Состав пользовательской диагностики описан в <a href="../programming-the-hero/#как-игрок-разбирает-решение-после-боя">главе о разборе решений</a>.</p>
+<p>Проверенный Мозг не получает отдельного предстартового барьера при запуске забега. В бой уходит уже сохранённая программа, а runtime-защита от несовместимого навыка сообщает дефект данных вместо того, чтобы превращать его в штатную тактическую неудачу. Импорт и загрузка следуют более строгому правилу: неизвестная семантика отклоняет объект целиком.</p>
+<h2 id="что-читать-дальше">Что читать дальше?<a class="headerlink" href="#что-читать-дальше" title="Permanent link">&para;</a></h2>
+<p>Дальше — <a href="../deferred-design/">какие системы и режимы остаются за границей MVP</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.top", "search.highlight", "search.suggest", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/navigation-state.js"></script>
+      
+    
+  </body>
+</html>

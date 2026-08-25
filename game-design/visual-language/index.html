@@ -1,0 +1,2059 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Живая игровая и техническая документация CodeDungeon">
+      
+      
+      
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/game-design/visual-language/">
+      
+      
+        <link rel="prev" href="../narrative-and-setting/">
+      
+      
+        <link rel="next" href="../audio-direction/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Как игра выглядит и как читается на экране? - CodeDungeon — документация</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#как-игра-выглядит-и-как-читается-на-экране" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="CodeDungeon — документация" class="md-header__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CodeDungeon — документация
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Как игра выглядит и как читается на экране?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить тёмную тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Включить тёмную тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить светлую тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Включить светлую тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CodeDungeon — документация" class="md-nav__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CodeDungeon — документация
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как читать документацию
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Игровой дизайн
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Игровой дизайн
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что это за игра?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен основной цикл игры?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../run-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен забег?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../programming-the-hero/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как игрок программирует героя?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../combat-and-replay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как проходит бой и как игрок его разбирает?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../progression-and-builds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как растёт персонаж и из чего собирается билд?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроены навыки, теги и модификаторы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../items-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как работают предметы, добыча и крафт?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enemies-and-encounters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    С кем сражается герой?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../biomes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Чем отличаются биомы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../narrative-and-setting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что за мир и почему игрок в нём именно программист?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как игра выглядит и как читается на экране?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как игра выглядит и как читается на экране?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#какой-визуальный-язык-поддерживает-игру" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какой визуальный язык поддерживает игру?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#почему-бой-остаётся-трёхмерным" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Почему бой остаётся трёхмерным?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-камера-показывает-бой" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как камера показывает бой?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Как камера показывает бой?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#как-работает-основная-камера" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как работает основная камера?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#как-работает-камера-записи" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как работает камера записи?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-собирается-арена" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как собирается арена?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Как собирается арена?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#кто-владеет-геометрией-арены" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Кто владеет геометрией арены?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#как-складывается-земля" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как складывается земля?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-поверхности-образуют-биом" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие поверхности образуют биом?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#как-размещаются-формы-и-пропсы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как размещаются формы и пропсы?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-действие-сообщает-о-намерении" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как действие сообщает о намерении?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Как действие сообщает о намерении?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#как-строится-время-замаха" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как строится время замаха?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#как-поза-остаётся-читаемой" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как поза остаётся читаемой?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#как-разные-облики-сохраняют-один-урок" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как разные облики сохраняют один урок?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-дополнительные-сигналы-допустимы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие дополнительные сигналы допустимы?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-сцена-проходит-приёмку" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как сцена проходит приёмку?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-читать-дальше" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что читать дальше?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audio-direction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как звучит игра?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../accessibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как игра остаётся доступной?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что означает термин?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../brain-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Какие блоки доступны в редакторе Мозга?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deferred-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что сознательно отложено за пределы MVP?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Техническая документация
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Техническая документация
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Техническая документация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектурный скелет
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/tech-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Технологический стек
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/process-topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Топология процессов и запуск
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/production-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    План производства и разделение ролей
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/dev-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Среда разработки и инструменты агентов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/content-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пакеты контента и баланса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/combat-simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Спецификация боевой симуляции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/stat-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Единый конвейер расчёта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/stat-registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реестр stat ID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/item-content-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Контент предметов и движок крафта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/item-persistence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Хранение предметов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/ui-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Интерфейс: экраны, навигация и граница клиента
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/screen-specs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Спецификации экранов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Конвейер 3D-ассетов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/testing-and-ci/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Стратегия тестирования и CI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/mvp-definition-of-done/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definition of Done для MVP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../open-questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реестр открытых вопросов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Роли в разработке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../undocumented-areas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Незадокументированные области
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#какой-визуальный-язык-поддерживает-игру" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какой визуальный язык поддерживает игру?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#почему-бой-остаётся-трёхмерным" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Почему бой остаётся трёхмерным?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-камера-показывает-бой" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как камера показывает бой?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Как камера показывает бой?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#как-работает-основная-камера" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как работает основная камера?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#как-работает-камера-записи" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как работает камера записи?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-собирается-арена" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как собирается арена?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Как собирается арена?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#кто-владеет-геометрией-арены" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Кто владеет геометрией арены?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#как-складывается-земля" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как складывается земля?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-поверхности-образуют-биом" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие поверхности образуют биом?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#как-размещаются-формы-и-пропсы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как размещаются формы и пропсы?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-действие-сообщает-о-намерении" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как действие сообщает о намерении?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Как действие сообщает о намерении?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#как-строится-время-замаха" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как строится время замаха?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#как-поза-остаётся-читаемой" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как поза остаётся читаемой?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#как-разные-облики-сохраняют-один-урок" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как разные облики сохраняют один урок?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#какие-дополнительные-сигналы-допустимы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие дополнительные сигналы допустимы?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-сцена-проходит-приёмку" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как сцена проходит приёмку?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-читать-дальше" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что читать дальше?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/game-design/visual-language.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="как-игра-выглядит-и-как-читается-на-экране">Как игра выглядит и как читается на экране?<a class="headerlink" href="#как-игра-выглядит-и-как-читается-на-экране" title="Permanent link">&para;</a></h1>
+<p>Эта глава отвечает, как визуальный стиль, камера, устройство арены и анимация превращают рассчитанный бой в понятное зрелище.</p>
+<h2 id="какой-визуальный-язык-поддерживает-игру">Какой визуальный язык поддерживает игру?<a class="headerlink" href="#какой-визуальный-язык-поддерживает-игру" title="Permanent link">&para;</a></h2>
+<p>CodeDungeon использует полноценное 3D с low-poly-подачей: гранёную геометрию, плоские неперегруженные поверхности, мягкий динамический свет, приглушённую палитру и минимум мелких деталей. Контурной обводки нет, поэтому форма читается за счёт силуэта, светлоты и движения, а не комиксовой чернильной линии. Земля, персонажи и объекты окружения принадлежат одной трёхмерной технике и не требуют маскировать стык между рисованной поверхностью и объёмными моделями.</p>
+<p>Читаемость всегда важнее декоративной сложности. В первую очередь кадр показывает намерение и результат действия, затем сохраняет различимость силуэта, оружия и команды, после этого остаётся стабильным в движении и замедлении. Целостность мира и узнаваемость CodeDungeon важнее украшений, но не могут затруднять разбор боя.</p>
+<p>Окружение удерживает спокойные значения, а участники отделяются от земли по светлоте и форме. Архетип врага распознаётся с одного взгляда по силуэту и дополнительному цветовому признаку; цвет никогда не становится единственным носителем различия. Биомный облик сохраняет характерную форму архетипа и меняет палитру и отделку, чтобы знакомый противник оставался знакомым уроком в новом окружении (<a href="../enemies-and-encounters/">враги и встречи</a>).</p>
+<p>Эта ясность нужна не только для реакции на угрозу. Игрок наблюдает, как Мозг распоряжается билдом, и связывает удачный или ошибочный выбор с конкретной фигурой, оружием и результатом контакта. Визуальный слой помогает поставить диагноз программе, но никогда не сообщает симуляции тип врага и не влияет на её решение.</p>
+<h2 id="почему-бой-остаётся-трёхмерным">Почему бой остаётся трёхмерным?<a class="headerlink" href="#почему-бой-остаётся-трёхмерным" title="Permanent link">&para;</a></h2>
+<p>Трёхмерная основа поддерживает свободный просмотр записи с разных высот и направлений, сочетания тел и экипировки, физические контакты оружия, брони, щитов и окружения. Та же боевая сущность работает в основном изометрическом кадре и при приближении камеры, без отдельного набора спрайтов для каждого ракурса, попадания и падения. Отдельные декоративные слои могут использовать спрайты, но участники боя остаются трёхмерными.</p>
+<p>3D служит системным возможностям, а не реализму. Анимация может адаптироваться к контакту, тело — реагировать на удар или падение, а камера — менять ракурс, не подменяя рассчитанное событие. При этом ассеты прежде всего выдерживают штатную дистанцию боя: возможность приблизить запись не требует кинематографического качества крупного плана у каждой модели.</p>
+<h2 id="как-камера-показывает-бой">Как камера показывает бой?<a class="headerlink" href="#как-камера-показывает-бой" title="Permanent link">&para;</a></h2>
+<p>Камера принадлежит представлению и никогда не меняет позицию, время, цель или исход события в симуляции. Она показывает готовую запись событий, поэтому вращение, приближение, пауза и постановочный ракурс меняют только способ наблюдения. Правила фаз, контактов и результата принадлежат главе о <a href="../combat-and-replay/">бое и его разборе</a>.</p>
+<h3 id="как-работает-основная-камера">Как работает основная камера?<a class="headerlink" href="#как-работает-основная-камера" title="Permanent link">&para;</a></h3>
+<p>Основной кадр — изометрический вид сверху, близкий по функции к современным ARPG. Он показывает бой как систему: игрок одновременно видит участников, пространство между ними, угрозы и результаты контактов. Графика, свет и плотность окружения сначала проверяются именно на этой дистанции.</p>
+<p>Персонажи и препятствия не должны надолго перекрывать участника или важный игровой сигнал. Если геометрия закрывает действие, камера или представление восстанавливают видимость, например изменением прозрачности мешающего объекта. Диапазон приближения не раскрывает незавершённую геометрию, приемлемую только из одной точки.</p>
+<p>Небольшое вращение допустимо лишь тогда, когда после него сохраняются навигация, ориентация и контроль перекрытий. Значения FOV, наклона, диапазона приближения и прозрачности препятствий не закрепляются как числа GDD и подбираются вместе с целевой плотностью сцены. Любое такое значение оценивается по тому, насколько легко игрок связывает причину с результатом.</p>
+<h3 id="как-работает-камера-записи">Как работает камера записи?<a class="headerlink" href="#как-работает-камера-записи" title="Permanent link">&para;</a></h3>
+<p>Кинематографическая камера входит в первый релиз и используется по умолчанию как при первом показе боя, так и при повторном просмотре. Она сочетает свободный облёт, вид сверху, слежение за участником и низкие ракурсы. Игрок в любой момент перехватывает управление, вращает камеру и меняет приближение.</p>
+<p>Готовая запись содержит будущие события, поэтому автоматическая камера заранее подготавливает кадр перед обезоруживанием, промахом на грани, сильным контактом или падением. Она не переставляет события и не меняет скорость симуляции: пауза, переход к моменту и slow motion принадлежат воспроизведению. Монтажный переход не скрывает причинность, а перед результатом в кадре остаются атакующий, цель и действие, которое их связало.</p>
+<p>Если автоматический выбор неудачен, игрок переключается на нейтральный или ручной режим. Постановочные ракурсы и покачивание отключаются настройкой; кинематографический режим после этого продолжает выбирать понятный кадр без этих приёмов. Отладочные и аналитические слои включаются отдельно и не загрязняют чистый первый просмотр.</p>
+<p><strong>Ненормативный пример.</strong> Перед сильным ударом камера заранее оставляет в кадре оружие, атакующего и цель, а после контакта удерживает результат достаточно долго для чтения. Если декорация перекрывает оружие, камера выбирает нейтральный ракурс вместо эффектного низкого плана.</p>
+<h2 id="как-собирается-арена">Как собирается арена?<a class="headerlink" href="#как-собирается-арена" title="Permanent link">&para;</a></h2>
+<p>Арена состоит из 3–5 связанных выпуклых зон с проходами, а не из одной круглой комнаты. Логическая геометрия определяет пространство боя, после чего визуальная сборка превращает её в место конкретного биома. Декорация подчёркивает маршруты, опасные поверхности и препятствия, не создавая новых правил движения.</p>
+<h3 id="кто-владеет-геометрией-арены">Кто владеет геометрией арены?<a class="headerlink" href="#кто-владеет-геометрией-арены" title="Permanent link">&para;</a></h3>
+<p>Серверная симуляция владеет логической геометрией, идентичностями и футпринтами препятствий, а также боевым состоянием в Q16.16. Godot владеет визуальной землёй, размещением во float, вариантами мешей, масками плотности, пропсами, светом и тенями. Визуальный объект не заводит собственную боевую коллизию и не меняет движение или атаку.</p>
+<p>Внешний вид повторяемого боя остаётся стабильным: визуальный сид выводится из <code>run_seed</code>, поэтому камни, трава и варианты тайлов не меняются между просмотрами одной записи. <code>run_seed</code> определяет только воспроизводимую одежду сцены и не служит источником событий для клиента. Истиной повтора остаётся готовая запись, полученная после серверного расчёта.</p>
+<h3 id="как-складывается-земля">Как складывается земля?<a class="headerlink" href="#как-складывается-земля" title="Permanent link">&para;</a></h3>
+<p>Земля собирается чанками из тайлов с сокетами на рёбрах по Wang-подходу и дополняется авторскими макро-штампами для ландмарков. Сначала фиксируются логические футпринты препятствий, затем вокруг них подбираются тайлы, меши, декали и пропсы. Такой порядок сохраняет проходимость и позволяет художественному слою варьировать место без расхождения с симуляцией.</p>
+<p>Сокеты описывают только северное, восточное, южное и западное рёбра. Углы оформляются декоративными оверлеями и не входят в сигнатуру тайла, иначе число сочетаний вырастает до <code>4^8 = 65 536</code>. Blob-автотайлы могут оформлять границу почвы внутри этой системы, но не заменяют рёберные сокеты.</p>
+<h3 id="какие-поверхности-образуют-биом">Какие поверхности образуют биом?<a class="headerlink" href="#какие-поверхности-образуют-биом" title="Permanent link">&para;</a></h3>
+<p>Каждый биом использует четыре базовых типа поверхности: проходимую землю, сплошную непроходимую массу, опасную поверхность и воду или пропасть. Снег, листва, лужи, цветы и рябь песка являются вторичными покрытиями, а не новым типом сокета. Крупные деревья, столбы и валуны надеваются на логические футпринты препятствий как визуальные пропсы.</p>
+<p>Непроходимые типы не соприкасаются напрямую: между ними сохраняется буфер проходимой земли. Поэтому на биом приходится 46 сигнатур: четыре чистые заливки и по четырнадцать смешанных для каждой из трёх допустимых пар. Сорок сигнатур используются часто, шесть чередующихся границ остаются редкими, а стыки трёх типов не создаются.</p>
+<p><strong>Ненормативный пример.</strong> Логика задаёт непроходимый футпринт у края прохода. В лесу визуальный слой ставит на него группу деревьев, подбирает соседние земляные тайлы и добавляет листву, но стволы не получают отдельной коллизии и не сужают проход для симуляции.</p>
+<h3 id="как-размещаются-формы-и-пропсы">Как размещаются формы и пропсы?<a class="headerlink" href="#как-размещаются-формы-и-пропсы" title="Permanent link">&para;</a></h3>
+<p>Пропсы распределяются через Poisson-disk sampling с масками плотности, маской биома, ограничением по уклону и собственным минимальным радиусом для каждого типа. Зоны логических препятствий исключаются, а вокруг важных участников, маршрутов и сигналов сохраняются зазоры видимости. Плотность окружения подчиняется читаемости кадра, даже если более густая сцена лучше передаёт биом.</p>
+<p>Крупные формы ландшафта используют value- или simplex-шум с domain warping как маску размещения авторских кусков. Шум не становится финальной текстурой и не определяет боевую геометрию. Благодаря этому природная нерегулярность остаётся управляемой и не размывает формы, нужные игроку для чтения арены.</p>
+<h2 id="как-действие-сообщает-о-намерении">Как действие сообщает о намерении?<a class="headerlink" href="#как-действие-сообщает-о-намерении" title="Permanent link">&para;</a></h2>
+<p>Подготовка действия показывает намерение и длительность одной анимацией, без служебной метки полосы. Игрок различает длительности по времени удержания одинаково читаемой позы, а не по скорости входа в неё. Сами фазы и последствия срыва описаны в <a href="../combat-and-replay/">правилах боя</a>, тогда как эта глава определяет их визуальную грамматику.</p>
+<h3 id="как-строится-время-замаха">Как строится время замаха?<a class="headerlink" href="#как-строится-время-замаха" title="Permanent link">&para;</a></h3>
+<p>Ключевой силуэт выставляется к 20% полной длительности подготовки и удерживается до 70%. С 70% до 100% проходит одна направленная дуга броска, а контакт совпадает со 100% и авторитетным <code>impact_tick</code>. Анимация следует таймингу симуляции и не переносит контакт ради красивого кадра.</p>
+<p>Удержание занимает половину подготовки, поэтому действие короче 16 тиков не может одновременно сохранить эту грамматику и минимальную читаемую позу. Это ограничение для подбора полос длительности, а не самостоятельное число боевого баланса. Разница между соседними полосами остаётся видимой без счётчика: нижняя граница следующей полосы минус верхняя граница предыдущей составляет не меньше <code>max(15 тиков, 25% верхней границы предыдущей)</code>.</p>
+<p><strong>Ненормативный пример.</strong> Два врага поднимают одинаковое оружие в одну и ту же ключевую позу. Более медленная подготовка не растягивает вход, а дольше удерживает силуэт, поэтому игрок видит разницу до единой финальной дуги удара.</p>
+<h3 id="как-поза-остаётся-читаемой">Как поза остаётся читаемой?<a class="headerlink" href="#как-поза-остаётся-читаемой" title="Permanent link">&para;</a></h3>
+<p>Активная конечность или оружие отделяются от корпуса не меньше чем на 10% экранной высоты персонажа. Ключевая поза удерживается минимум 8 тиков симуляции и содержит ровно одно предвосхищение и одно направление броска. Петли, развороты и ложные удары внутри одного замаха запрещены; ложная подготовка существует как отдельное действие со своей длительностью.</p>
+<p>Броня, отделка облика и эффекты не перекрывают активную конечность. Силуэт продолжает читаться среди четырёх участников боя и при выключенных необязательных VFX. Если эффект делает удар зрелищнее, но скрывает оружие или цель, эффект упрощается.</p>
+<h3 id="как-разные-облики-сохраняют-один-урок">Как разные облики сохраняют один урок?<a class="headerlink" href="#как-разные-облики-сохраняют-один-урок" title="Permanent link">&para;</a></h3>
+<p>Одинаковая конфигурация врага под разными биомными обликами использует одинаковые опорные тики и одинаковую геометрию со стороны действия. Силуэтная огибающая сохраняется в пределах ±10%, а активная конечность остаётся открытой. Меняются палитра и отделка, но не тайминг, направление или амплитуда читаемого движения.</p>
+<p>Эта стабильность позволяет переносить освоенный навык между биомами. Игрок узнаёт знакомую подготовку прежде, чем рассматривает декоративные детали, и не принимает новую шкуру за новое правило. То, как биом меняет состав и частоту встреч, описано в главе о <a href="../biomes/">биомах</a>.</p>
+<h3 id="какие-дополнительные-сигналы-допустимы">Какие дополнительные сигналы допустимы?<a class="headerlink" href="#какие-дополнительные-сигналы-допустимы" title="Permanent link">&para;</a></h3>
+<p>В чистом боевом слое нет значка полосы, цветовой метки, пульсации или индикатора фазы. При первом просмотре намерение читается по движению тела, оружия и последствиям, а аналитический слой повтора включается отдельно (<a href="../combat-and-replay/#как-повтор-превращает-зрелище-в-разбор">разбор записи</a>). Телеграф остаётся понятным в оттенках серого, без звука и без необязательных эффектов.</p>
+<p>Звук может повторять тайминг замаха, но привязывается к авторитетному тику предупреждения, а не к кадру анимации. Он дублирует визуальную информацию и не становится её единственным носителем; подробные правила принадлежат главе о <a href="../audio-direction/">звуковом направлении</a>. Требования к нецветовым сигналам и отключаемым эффектам собраны в главе о <a href="../accessibility/">доступности</a>.</p>
+<h2 id="как-сцена-проходит-приёмку">Как сцена проходит приёмку?<a class="headerlink" href="#как-сцена-проходит-приёмку" title="Permanent link">&para;</a></h2>
+<p>Готовая сцена проверяется в основном изометрическом кадре, в движении камеры и в минимальном плане записи. Игроки должны распознавать атакующего, цель, оружие и исход контакта на штатной дистанции; броня и VFX не разрушают силуэты в группе. Тени и posterization не мерцают при движении, а приближение не обнаруживает заметного разрушения формы.</p>
+<p>Каждая пара «действие × облик» проходит ручную проверку: не меньше 90% верных опознаний соседней полосы в оттенках серого, с выключенным звуком и при четырёх участниках боя. Автоматическая проверка сверяет числовые границы полос и расстояние между ними, но не заменяет человеческую оценку позы и силуэта. Пара, не достигшая порога, не проходит приёмку даже при корректных таймингах симуляции.</p>
+<p>Сцена также укладывается в целевые бюджеты frame time и памяти и воспроизводится общим pipeline без ручной переделки каждого нового ассета. Проверка охватывает нейтральную, кинематографическую и ручную камеры, чтобы эффектный ракурс не скрывал причинность. Незакреплённые параметры стиля и процедуры тестовой выборки ведутся в <a href="../../open-questions/">реестре открытых вопросов</a>.</p>
+<h2 id="что-читать-дальше">Что читать дальше?<a class="headerlink" href="#что-читать-дальше" title="Permanent link">&para;</a></h2>
+<p>Дальше — <a href="../audio-direction/">как звук сообщает о событиях и поддерживает повтор</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.top", "search.highlight", "search.suggest", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/navigation-state.js"></script>
+      
+    
+  </body>
+</html>
