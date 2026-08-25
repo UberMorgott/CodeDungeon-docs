@@ -13,10 +13,10 @@
         <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/testing-and-ci/">
       
       
-        <link rel="prev" href="../asset-pipeline/">
+        <link rel="prev" href="../development-workflow/">
       
       
-        <link rel="next" href="../mvp-definition-of-done/">
+        <link rel="next" href="../future-online/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Стратегия тестирования и CI - CodeDungeon — документация</title>
+        <title>Как тесты доказывают, что изменение можно интегрировать? - CodeDungeon — документация</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#стратегия-тестирования-и-ci" class="md-skip">
+        <a href="#как-тесты-доказывают-что-изменение-можно-интегрировать" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Стратегия тестирования и CI
+              Как тесты доказывают, что изменение можно интегрировать?
             
           </span>
         </div>
@@ -877,7 +877,7 @@
   <span class="md-ellipsis">
     
   
-    Техническая документация
+    Как читать техническую документацию CodeDungeon?
   
 
     
@@ -905,7 +905,7 @@
   <span class="md-ellipsis">
     
   
-    Архитектурный скелет
+    Где проходят границы системы и кому принадлежит состояние?
   
 
     
@@ -926,14 +926,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../tech-stack/" class="md-nav__link">
+      <a href="../technology-baseline/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Технологический стек
+    На каких технологиях и форматах строится MVP?
   
 
     
@@ -954,14 +954,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../process-topology/" class="md-nav__link">
+      <a href="../runtime-topology/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Топология процессов и запуск
+    Как запускаются и завершаются два процесса игры?
   
 
     
@@ -982,14 +982,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../production-plan/" class="md-nav__link">
+      <a href="../contracts-and-data-flow/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    План производства и разделение ролей
+    Как команды, события и данные переходят между Go и Godot?
   
 
     
@@ -1010,14 +1010,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev-environment/" class="md-nav__link">
+      <a href="../simulation-core/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Среда разработки и инструменты агентов
+    Как работает детерминированное ядро симуляции?
   
 
     
@@ -1038,14 +1038,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../content-packages/" class="md-nav__link">
+      <a href="../combat-engine/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Пакеты контента и баланса
+    Как боевой движок разрешает арену и действия?
   
 
     
@@ -1066,14 +1066,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../combat-simulation/" class="md-nav__link">
+      <a href="../replay/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Спецификация боевой симуляции
+    Как хранится и читается авторитетная запись забега?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../brain-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как компилируется, проверяется и исполняется Мозг?
   
 
     
@@ -1101,7 +1129,35 @@
   <span class="md-ellipsis">
     
   
-    Единый конвейер расчёта
+    Как значение проходит единый конвейер расчёта?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modifiers-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как модификатор находит характеристику по тегам?
   
 
     
@@ -1129,7 +1185,7 @@
   <span class="md-ellipsis">
     
   
-    Реестр stat ID
+    Какие характеристики разрешены в расчёте?
   
 
     
@@ -1150,14 +1206,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../item-content-and-crafting/" class="md-nav__link">
+      <a href="../items-and-crafting/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Контент предметов и движок крафта
+    Как реализовать предметы, инвентарь и крафт?
   
 
     
@@ -1178,14 +1234,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../item-persistence/" class="md-nav__link">
+      <a href="../run-systems/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Хранение предметов
+    Как сервер ведёт забег, миссию и переходы между узлами?
   
 
     
@@ -1206,14 +1262,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ui-architecture/" class="md-nav__link">
+      <a href="../persistence/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Интерфейс: экраны, навигация и граница клиента
+    Как локальное состояние сохраняется и восстанавливается?
   
 
     
@@ -1234,14 +1290,629 @@
   
   
     <li class="md-nav__item">
-      <a href="../screen-specs/" class="md-nav__link">
+      <a href="../client-architecture/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Спецификации экранов
+    Как Godot отображает авторитетное состояние и управляет интерфейсом?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audio-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как события превращаются в синхронный звук?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_18" id="__nav_3_18_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экраны
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_18">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Экраны
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроены экраны и общие правила интерфейса?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/ai-editor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран редактора Мозга?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/combat-viewing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен первый просмотр боя?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/road-forge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроена Дорожная кузня?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/inventory-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран инвентаря и крафта?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/progression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран прогрессии?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/run-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроена подготовка забега?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/run-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как работает карта маршрута?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/room-resolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран подводит итог комнаты и передаёт добычу?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/rest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран точки отдыха проводит обязательный выбор?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/shop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран лавки проводит покупку и продажу?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/run-result/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран итога забега завершает попытку?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/replay-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как библиотека перечисляет сохранённые записи забегов?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/replay-viewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как просмотрщик помогает разобрать запись по боям-главам?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/settings-and-system-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как работают настройки и системное меню?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/boot-and-connection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как клиент показывает запуск и подключение к локальному Go?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/main-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как главное меню выбирает профиль и открывает игру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как авторский JSON становится пакетом контента?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../localization-and-narrative-content/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как текст попадает в игру и остаётся переводимым?
   
 
     
@@ -1269,7 +1940,35 @@
   <span class="md-ellipsis">
     
   
-    Конвейер 3D-ассетов
+    Как исходный ассет становится ресурсом Godot?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как подготовить изменение и передать его без потери контракта?
   
 
     
@@ -1306,7 +2005,7 @@
   <span class="md-ellipsis">
     
   
-    Стратегия тестирования и CI
+    Как тесты доказывают, что изменение можно интегрировать?
   
 
     
@@ -1324,7 +2023,7 @@
   <span class="md-ellipsis">
     
   
-    Стратегия тестирования и CI
+    Как тесты доказывают, что изменение можно интегрировать?
   
 
     
@@ -1350,10 +2049,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#статус" class="md-nav__link">
+  <a href="#какие-слои-образуют-один-gate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Статус
+        Какие слои образуют один gate?
       
     </span>
   </a>
@@ -1361,10 +2060,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#принцип-что-тестируется-до-кода-что-после" class="md-nav__link">
+  <a href="#как-устроен-детерминированный-корпус" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Принцип: что тестируется до кода, что после
+        Как устроен детерминированный корпус?
       
     </span>
   </a>
@@ -1372,10 +2071,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#почему-это-важнее-чем-в-обычном-проекте" class="md-nav__link">
+  <a href="#что-выдаёт-балансовая-матрица" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Почему это важнее, чем в обычном проекте
+        Что выдаёт балансовая матрица?
       
     </span>
   </a>
@@ -1383,77 +2082,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#харнесс-детерминизма" class="md-nav__link">
+  <a href="#что-именно-проверяет-коридор-баланса" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Харнесс детерминизма
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Харнесс детерминизма">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#корпус-трасс" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Корпус трасс
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#обновление-эталонов" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Обновление эталонов
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#балансовые-тесты" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Балансовые тесты
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Балансовые тесты">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#прогоны-баланса" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Прогоны баланса
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#балансовые-тесты-коридора-чисел" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Балансовые тесты коридора чисел
+        Что именно проверяет коридор баланса?
       
     </span>
   </a>
@@ -1461,10 +2093,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#тесты-конвейера-расчёта" class="md-nav__link">
+  <a href="#какие-контракты-проверяются-сквозным-gate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Тесты единого конвейера расчёта
+        Какие контракты проверяются сквозным gate?
       
     </span>
   </a>
@@ -1472,49 +2104,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#расписание-ci" class="md-nav__link">
+  <a href="#как-принимаются-ui-и-доступность" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Расписание CI
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Расписание CI">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#на-каждый-коммит" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        На каждый коммит
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ночной-прогон" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ночной прогон
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#первые-три-файла-тестов" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Первые три файла тестов
+        Как принимаются UI и доступность?
       
     </span>
   </a>
@@ -1522,10 +2115,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#норма-стоимости-memory-в-тестах" class="md-nav__link">
+  <a href="#когда-запускается-каждая-проверка" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Норма стоимости Memory в тестах
+        Когда запускается каждая проверка?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-ведут-себя-версии-и-ошибки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как ведут себя версии и ошибки?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-нужно-сделать" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что нужно сделать
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-читать-дальше" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что читать дальше?
       
     </span>
   </a>
@@ -1536,6 +2162,62 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../future-online/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как CodeDungeon переходит к публичному Online после MVP?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../production-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    План производства и разделение ролей
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1603,60 +2285,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../roles/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Роли в разработке
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../undocumented-areas/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Незадокументированные области
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -1684,10 +2312,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#статус" class="md-nav__link">
+  <a href="#какие-слои-образуют-один-gate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Статус
+        Какие слои образуют один gate?
       
     </span>
   </a>
@@ -1695,10 +2323,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#принцип-что-тестируется-до-кода-что-после" class="md-nav__link">
+  <a href="#как-устроен-детерминированный-корпус" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Принцип: что тестируется до кода, что после
+        Как устроен детерминированный корпус?
       
     </span>
   </a>
@@ -1706,10 +2334,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#почему-это-важнее-чем-в-обычном-проекте" class="md-nav__link">
+  <a href="#что-выдаёт-балансовая-матрица" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Почему это важнее, чем в обычном проекте
+        Что выдаёт балансовая матрица?
       
     </span>
   </a>
@@ -1717,77 +2345,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#харнесс-детерминизма" class="md-nav__link">
+  <a href="#что-именно-проверяет-коридор-баланса" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Харнесс детерминизма
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Харнесс детерминизма">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#корпус-трасс" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Корпус трасс
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#обновление-эталонов" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Обновление эталонов
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#балансовые-тесты" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Балансовые тесты
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Балансовые тесты">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#прогоны-баланса" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Прогоны баланса
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#балансовые-тесты-коридора-чисел" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Балансовые тесты коридора чисел
+        Что именно проверяет коридор баланса?
       
     </span>
   </a>
@@ -1795,10 +2356,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#тесты-конвейера-расчёта" class="md-nav__link">
+  <a href="#какие-контракты-проверяются-сквозным-gate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Тесты единого конвейера расчёта
+        Какие контракты проверяются сквозным gate?
       
     </span>
   </a>
@@ -1806,49 +2367,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#расписание-ci" class="md-nav__link">
+  <a href="#как-принимаются-ui-и-доступность" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Расписание CI
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Расписание CI">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#на-каждый-коммит" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        На каждый коммит
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ночной-прогон" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ночной прогон
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#первые-три-файла-тестов" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Первые три файла тестов
+        Как принимаются UI и доступность?
       
     </span>
   </a>
@@ -1856,10 +2378,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#норма-стоимости-memory-в-тестах" class="md-nav__link">
+  <a href="#когда-запускается-каждая-проверка" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Норма стоимости Memory в тестах
+        Когда запускается каждая проверка?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-ведут-себя-версии-и-ошибки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как ведут себя версии и ошибки?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-нужно-сделать" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что нужно сделать
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-читать-дальше" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что читать дальше?
       
     </span>
   </a>
@@ -1891,141 +2446,113 @@
   
 
 
-<h1 id="стратегия-тестирования-и-ci">Стратегия тестирования и CI<a class="headerlink" href="#стратегия-тестирования-и-ci" title="Permanent link">&para;</a></h1>
-<p>Контракт тестирования проекта: что тестируется до кода, что после, харнесс детерминизма, балансовые тесты, и расписание CI. Терминология симуляции, фиксированной точки и RNG соответствует <a href="../combat-simulation/">спецификации боевой симуляции</a>. Перечень гейтов CI без дублирования приведён в <a href="../tech-stack/#github-actions">технологическом стеке</a>.</p>
-<h2 id="статус">Статус<a class="headerlink" href="#статус" title="Permanent link">&para;</a></h2>
-<p><strong>Принято.</strong></p>
-<h2 id="принцип-что-тестируется-до-кода-что-после">Принцип: что тестируется до кода, что после<a class="headerlink" href="#принцип-что-тестируется-до-кода-что-после" title="Permanent link">&para;</a></h2>
-<p>Тесты до кода пишутся там, где ответ зафиксирован в спецификации и тест лишь переносит принятое решение в исполняемую форму:</p>
-<ul>
-<li>арифметика Q16.16: округление, насыщение, отрицательные значения, семантика деления;</li>
-<li>PCG32 и вывод четырёх потоков из <code>(run_seed, system_id, encounter_id)</code>;</li>
-<li>планирование тика, порядок команд, столкновения кругов, порядок урона и смертей, выдача идентификаторов сущностей;</li>
-<li>реплей и каноническое кодирование состояния.</li>
-</ul>
-<p>Причина едина: это вечные контракты реплея. Любой дрейф в потреблении сида задним числом меняет все ранее записанные бои.</p>
-<p>Тесты после кода -- там, где правильный ответ находят, а не знают заранее: эвристики выбора цели и пути, генерация энкаунтеров, таблицы лута, формулы прогрессии. Для них фиксируются инварианты, а не конкретная последовательность решений: легальность действий, завершаемость, стабильность разрешения ничьих, ограниченность поведения.</p>
-<p>Без тестов: геттеры, сгенерированный код протокола, логирование, конструкторы-проводка, детали подачи, покрытые тестами Godot.</p>
-<p>Для UI, сцен и анимаций тесты до кода бессмысленны -- там нет заранее известного правильного ответа.</p>
-<h2 id="почему-это-важнее-чем-в-обычном-проекте">Почему это важнее, чем в обычном проекте<a class="headerlink" href="#почему-это-важнее-чем-в-обычном-проекте" title="Permanent link">&para;</a></h2>
-<p>Регресс детерминизма невидим глазом: сломанный бой выглядит как нормальный бой, просто другой. Без теста, сравнивающего хеш состояния по тикам, поломка обнаружится через месяцы, когда перестанут воспроизводиться сохранённые реплеи.</p>
-<h2 id="харнесс-детерминизма">Харнесс детерминизма<a class="headerlink" href="#харнесс-детерминизма" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Хешируется каноническое авторитетное состояние после каждого тика.</li>
-<li>В хеш входят: номер тика, упорядоченные сущности и их идентификаторы, координаты и величины в фиксированной точке, статы и статусы, отложенные команды и события, состояние программы мозга, состояния всех четырёх потоков RNG.</li>
-<li>Харнесс отдельно утверждает числовой контракт: версия правил симуляции равна <code>4</code>, <code>position scale = 65536</code>, и во всей симуляции используется единственный формат Q16.16 — второго формата и преобразований между форматами быть не должно.</li>
-<li>В хеш <strong>не</strong> входят: логи, байтовая раскладка протокола, показания часов, порядок обхода мап, кеши, любые поля слоя отображения.</li>
-<li><strong>Детерминированная навигация.</strong> Маршруты, вычисленные по графу порталов арены, входят в потиковый хеш состояния и покрываются харнессом детерминизма. Геометрические эксплойты — заклинивание в проходах, безопасные петли кайтинга, стрельба через узкие проходы — требуют выделенных тестов (см. <a href="../combat-simulation/#генерация-арены">генерация арены</a>).</li>
-</ul>
-<p><strong>Требование: золотой оракул только на уровне сценария.</strong> Прежняя реализация служит эталоном исключительно для исходов сценария целиком — совпадения потиковых значений с ней не требуется и не проверяется: float и Q16.16 не сходятся по построению.</p>
-<p><strong>Требование: единая функция сериализации.</strong> Хеш выводится из той же функции сериализации, что и снапшот состояния, а не считается отдельной функцией. Отдельная функция расходится с реальным состоянием при первом же добавленном поле: поле появилось, в хеш его не внесли, тест продолжает зеленеть и молча перестаёт покрывать часть симуляции.</p>
-<p><strong>Требование: статический запрет float.</strong> Статическая проверка запрещает <code>float32</code> и <code>float64</code> в пакетах симуляции, фиксированной точки и RNG. Весь класс багов детерминизма сводится к протёкшему float, и ловить его трассами дорого и поздно -- расхождение всплывает только на другой платформе.</p>
-<h3 id="корпус-трасс">Корпус трасс<a class="headerlink" href="#корпус-трасс" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Путь: <code>server/internal/sim/testdata/traces/v&lt;N&gt;/</code>.</li>
-<li>Хранятся входы сценария, ожидаемые хеши в контрольных точках и терминальная сводка, с читаемым манифестом.</li>
-<li>Контрольные точки каждые 60 тиков плюс терминальная. При расхождении локальный прогон с хешем на каждом тике находит первый разошедшийся тик.</li>
-<li>В манифесте записаны: версия схемы канонического состояния, версия баланса и контента, сид, ревизия симуляции и имя сценария. Схема канонического состояния версионируется отдельно от версии баланса и контента.</li>
-</ul>
-<h3 id="обновление-эталонов">Обновление эталонов<a class="headerlink" href="#обновление-эталонов" title="Permanent link">&para;</a></h3>
-<p>Осознанное изменение баланса, делающее эталоны недействительными, требует явной команды обновления эталонов, инкремента версии баланса и ревью диффа исходов. CI никогда не обновляет эталоны автоматически.</p>
-<h2 id="балансовые-тесты">Балансовые тесты<a class="headerlink" href="#балансовые-тесты" title="Permanent link">&para;</a></h2>
-<p>Симуляция детерминирована, но цель баланса размыта, поэтому балансовый тест проверяет не исход, а широкий проектный коридор на фиксированной матрице: доля прохождений, медианная длина забега, перцентили урона и полученного лута, доминирование отдельных сборок, отсутствие невозможных состояний. Коридоры намеренно широкие и выводятся из GDD. Более тонкие тренды телеметрии печатаются в отчёт, но CI не роняют. Порог меняется только в ревью, где объяснено проектное намерение.</p>
-<h3 id="прогоны-баланса">Прогоны баланса<a class="headerlink" href="#прогоны-баланса" title="Permanent link">&para;</a></h3>
-<p>Числа коридора производит headless-прогонщик — подкоманды бинарника ядра (<a href="../combat-simulation/#headless-first">headless-first ядро</a>), поэтому измеряется ровно та симуляция, что идёт в игру.</p>
-<ul>
-<li><strong>Одна строка JSONL на забег.</strong> Строка несёт исход забега, балансовые числа и поля тождества прогона, по которым два забега вообще сравнимы: сид, ID сценария, хеш контента, версия контента, версия симуляции, хеш программы поведения. Читаемое человеком повествование в строку не входит — оно живёт в артефакте replay (<a href="../combat-simulation/#replay">replay</a>).</li>
-<li><strong>Состав строки сверх полей тождества — три группы.</strong> Имена полей канонические, разбор опирается на них; всё остальное производится из них при разборе и построчно не пишется.</li>
-<li><strong>Исход.</strong> <code>outcome</code> — результат забега; <code>end_reason</code> — причина завершения; <code>rooms_cleared</code> — сколько узлов забега пройдено; <code>duration_ticks</code> — длительность прогона в тиках. Причина берётся из события <code>FIGHT_ENDED</code> последнего боя, несущего победившую сторону и причину (<a href="../combat-simulation/#поток-событий">поток событий</a>). Терминальных причин три: победа над боссом третьего акта, гибель бойца и упор в абсолютный стоп. <strong>Выхода из игры среди них нет:</strong> намеренный выход в solo возобновляет забег с чекпоинта (<a href="../../game-design/run-structure/">чекпоинт узла</a>), поэтому терминальным состоянием он не является и строку не порождает.</li>
-<li><strong>Баланс.</strong> <code>damage_dealt</code> — нанесённый урон; <code>damage_taken</code> — полученный урон; <code>items_kept_by_rarity</code> — число предметов, унесённых из забега, по уровням редкости; <code>xp_gained</code> — полученный опыт; <code>materials_gained</code> — количество полученных материалов по видам; <code>build_hash</code> — хеш сборки. Группа выбрана так, чтобы из неё выводился весь <a href="#балансовые-тесты">коридор</a> целиком: доля прохождений — из <code>outcome</code>, медианная длина забега — из <code>duration_ticks</code> и <code>rooms_cleared</code>, перцентили урона — из <code>damage_dealt</code> и <code>damage_taken</code>, перцентили полученного лута — покомпонентно из <code>items_kept_by_rarity</code>, <code>xp_gained</code> и <code>materials_gained</code>, без сведе́ния их в одно число, доминирование отдельных сборок — из <code>build_hash</code> вместе с <code>outcome</code>.<ul>
-<li><strong>Единой скалярной «ценности лута» нет намеренно.</strong> Считается только то, что забег переживает: предметы в рюкзаке, опыт и материалы сохраняются, а золото — валюта забега и исчезает в его конце (<a href="../../game-design/progression-and-builds/">прогрессия и idle</a>), поэтому скаляр с золотом измерял бы ровно то, что игрок теряет. Известная цена решения: прогоны перестают показывать, хватало ли золота на лавки внутри забега; если сигнал понадобится, он вернётся отдельным полем, а не как часть добычи.</li>
-</ul>
-</li>
-<li><strong>Целостность.</strong> <code>hit_tick_cap</code> — упёрся ли прогон в абсолютный стоп 18 000 тиков (<a href="../combat-simulation/#правило-пата">правило пата</a>); <code>impossible_states</code> — число зафиксированных за прогон невозможных состояний, закрывающее последнюю метрику коридора; <code>final_state_hash</code> — итоговый хеш состояния из той же функции сериализации, что и снапшот. Флаг остаётся отдельным полем при существующем <code>end_reason</code>: упор в потолок — красный тест CI, и отбирать такие прогоны нужно независимо от того, чем забег кончился.</li>
-<li>Формат выбран под то, чем пользуются: файл дописывается по забегу, пакет прерывается без потери сделанного, а разбор не требует ни базы, ни сервера метрик. Отложенная наблюдаемость online предпосылкой прогонов баланса не является.</li>
-<li><strong>Четвёртая ось матрицы — программа поведения.</strong> Матрица баланса читается «билд × встреча × сид × программа поведения». При единственной закреплённой программе метрики измеряют качество этой программы, выдавая себя за баланс миссии: провал одинаково объясняется и слишком сильным врагом, и слабой веткой в графе, и различить их нечем.</li>
-<li><strong>Программы этой оси берутся из эталонного набора</strong>, написанного в репозитории как контент и
-  хранимого в том же формате ревизии, что и мозги игрока
-  (<a href="../../game-design/brain-reference/">эталонный набор</a>). Там же зафиксированы правило
-  различных намерений и отклонение клетки, где доступной Memory меньше объявленного программой
-  бюджета.</li>
-<li><strong>Размер прогона у коммита и у ночи различается.</strong> Малая матрица на каждый коммит держит <strong>две</strong>
-  программы — два самых противоположных намерения набора, давить в упор и держать дистанцию;
-  ночной широкий прогон берёт <strong>весь</strong> эталонный набор. Причина: гейт коммита дёшево ловит грубые
-  сдвиги, а полную картину даёт ночной прогон (<a href="#расписание-ci">расписание CI</a>).</li>
-<li><strong>Коридор пересчитывается целиком при изменении любой из четырёх версий:</strong> семантики словаря
-  мозга, контента, симуляции и состава эталонного набора. Отдельного механизма для этого не
-  требуется: поля тождества прогона в строке JSONL уже позволяют машинно отличить числа, снятые на
-  прежних версиях, от текущих, поэтому устаревание коридора обнаруживается разбором, а не ручным
-  учётом.</li>
-</ul>
-<h2 id="балансовые-тесты-коридора-чисел">Балансовые тесты коридора чисел<a class="headerlink" href="#балансовые-тесты-коридора-чисел" title="Permanent link">&para;</a></h2>
-<p>Перечисленные ниже гейты реализуют числовой контракт <a href="../../game-design/progression-and-builds/">принципов баланса чисел</a> и не дублируют его — за обоснованием обращаться к тому документу.</p>
-<ul>
-<li>Любая законная сборка укладывается в коридор силы.</li>
-<li>Ни одна характеристика не выходит за свою асимптоту убывающей отдачи; снижение урона не достигает ста процентов.</li>
-<li>В контенте нет запрещённых форм роста и рекурсивных срабатываний.</li>
-<li>Эталонные дуэли на нескольких уровнях дают медианное время до убийства внутри коридора на фиксированной матрице сидов.</li>
-<li>Насыщение фиксированной точки не срабатывает нигде.</li>
-<li>Бой, достигший аварийного предела в 18 000 тиков, — блокирующая ошибка.</li>
-</ul>
-<h2 id="тесты-конвейера-расчёта">Тесты единого конвейера расчёта<a class="headerlink" href="#тесты-конвейера-расчёта" title="Permanent link">&para;</a></h2>
-<p>Гейты ниже проверяют <a href="../stat-pipeline/">единый конвейер расчёта</a>. Они относятся к тестам «до кода»: ответ уже зафиксирован спецификацией.</p>
-<ul>
-<li><strong>Золотые векторы трёх прежних формул — обязательны.</strong> Для физического вычитания <code>max(1, A - armor_подтипа)</code>, стихийного процента <code>max(1, A · K/(resist + K))</code> и тика яда фиксируются табличные векторы входов и результатов, включая границы и отрицательные значения. Конвейер обязан воспроизвести их <strong>число в число</strong>. Расхождение означает, что формулы были заменены, а не объединены, и это блокирующая ошибка, а не повод обновить эталон.</li>
-<li><strong>Тесты перестановок входа.</strong> Один и тот же набор модификаторов, поданный в произвольном порядке (порядок файлов контента, порядок надевания предметов, порядок обхода мапы), обязан давать побитово одинаковый результат: канонический порядок агрегации <code>(stage, stat_id, source_id, modifier_id)</code> игнорирует порядок входных данных.</li>
-<li><strong>Границы, переполнение и деление на ноль.</strong> Проверяются предельные значения int64 на стадиях 3–5, проверяемое умножение и деление, <code>K &gt; 0</code> и <code>rating &gt;= 0</code>. Невалидный знаменатель обязан быть отклонён валидатором контента <strong>до</strong> арифметики; сценарий «спасли в runtime» является красным тестом.</li>
-<li><strong>Трасса участвует в потиковом хеше.</strong> Трасса сработавших модификаторов входит в каноническое состояние и хешируется вместе с ним той же функцией сериализации: изменение набора сработавших модификаторов без изменения итогового числа обязано ронять харнесс детерминизма.</li>
-</ul>
-<h2 id="расписание-ci">Расписание CI<a class="headerlink" href="#расписание-ci" title="Permanent link">&para;</a></h2>
-<h3 id="на-каждый-коммит">На каждый коммит<a class="headerlink" href="#на-каждый-коммит" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Юнит-тесты фиксированной точки, RNG и правил.</li>
-<li>Курируемые детерминированные трассы.</li>
-<li>Property-тесты инвариантов.</li>
-<li>Интеграционные тесты протокола.</li>
-<li><code>go test</code> по всему дереву.</li>
-<li>Малая матрица «билд × встреча × сид × программа поведения» на двух программах эталонного набора — давить в упор и держать дистанцию (<a href="#прогоны-баланса">прогоны баланса</a>).</li>
-<li>Headless-тесты Godot.</li>
-<li>Полнота локализации: каждый ключ, переданный в <code>tr()</code> или в штатный механизм движка для множественных форм, присутствует в <code>translations.csv</code> со строками <code>ru</code> и <code>en</code>.</li>
-<li>Видимый игроку текст живёт только в таблице перевода: гейт роняет сборку, если строковый литерал, доходящий до игрока, найден вне <code>translations.csv</code> — в коде или в файлах контента. Проверка защищает сквозной инвариант проекта (<a href="../../game-design/">игра построена на идентификаторах</a>); конкретный матчер принадлежит реализации и здесь не задаётся.</li>
-<li>Полосы длительностей: каждая длительность авторского контента, по которой одно поведение врага отличается от другого, лежит внутри своей опубликованной полосы; выход за полосу — блокирующая ошибка (<a href="../../game-design/enemies-and-encounters/#как-защищаются-поведенческие-тайминги">полосы длительностей</a>). Та же проверка сверяет <strong>разделение соседних полос</strong>: нижняя граница следующей полосы минус верхняя граница предыдущей ≥ <code>max(15 тиков, 25% верхней границы предыдущей)</code>; меньший разрыв — блокирующая ошибка (<a href="../../game-design/visual-language/">разделение соседних полос</a>).</li>
-<li><code>gofmt</code>.</li>
-</ul>
-<h3 id="ночной-прогон">Ночной прогон<a class="headerlink" href="#ночной-прогон" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Широкие прогоны по многим сидам и всему эталонному набору программ поведения (<a href="#прогоны-баланса">прогоны баланса</a>).</li>
-<li>Долгие сравнения реплеев.</li>
-<li>Фаззинг некорректных полезных нагрузок протокола.</li>
-<li>Детектор гонок (<code>go test -race</code>).</li>
-<li>Бенчмарки аллокаций и производительности.</li>
-<li>Отчёты по трендам телеметрии.</li>
-</ul>
-<h2 id="первые-три-файла-тестов">Первые три файла тестов<a class="headerlink" href="#первые-три-файла-тестов" title="Permanent link">&para;</a></h2>
+<h1 id="как-тесты-доказывают-что-изменение-можно-интегрировать">Как тесты доказывают, что изменение можно интегрировать?<a class="headerlink" href="#как-тесты-доказывают-что-изменение-можно-интегрировать" title="Permanent link">&para;</a></h1>
+<p>Эта глава задаёт слои проверок, детерминированный корпус, балансовую матрицу и расписание CI, по которым изменение получает однозначный проход или отказ.</p>
+<p><strong>Реализует:</strong> <a href="../../game-design/combat-and-replay/#кто-управляет-схваткой">авторитетный расчёт боя</a>, <a href="../../game-design/combat-and-replay/#как-повтор-превращает-зрелище-в-разбор">повтор готовой последовательности событий</a>, <a href="../../game-design/progression-and-builds/#какие-пределы-останавливают-вертикальный-рост">пределы вертикального роста</a>, <a href="../../game-design/enemies-and-encounters/#как-защищаются-поведенческие-тайминги">защиту поведенческих таймингов</a>, <a href="../../game-design/accessibility/#как-проверяется-доступность">практическую проверку доступности</a>.</p>
+<h2 id="какие-слои-образуют-один-gate">Какие слои образуют один gate?<a class="headerlink" href="#какие-слои-образуют-один-gate" title="Permanent link">&para;</a></h2>
+<p>Gate применяет только относящиеся к изменению слои, но не разрешает пропустить слой из-за того, что соседний тест уже прошёл. <code>tools/check.ps1</code> оркестрирует проверки и возвращает ненулевой код при первом блокирующем отказе; сами правила остаются у владельцев доменных контрактов. Локальный запуск, CI и пакетная приёмка вызывают одни и те же test entry points и не поддерживают отдельные облегчённые реализации правил.</p>
 <table>
 <thead>
 <tr>
-<th>Файл</th>
-<th>Покрытие</th>
+<th>Слой</th>
+<th>Владелец</th>
+<th>Вход</th>
+<th>Наблюдаемый выход и отказ</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>internal/fixed/fixed_test.go</code></td>
-<td>Точные преобразования Q16.16, округление, умножение и деление, границы, таблица отрицательных значений</td>
+<td>Статика и формат</td>
+<td>владелец изменённого пути</td>
+<td>исходники, schemas, generated files, ресурсы Godot</td>
+<td>чистый diff и нулевой код; запрещённая конструкция, drift генерации или невалидный ресурс блокируют изменение до runtime</td>
 </tr>
 <tr>
-<td><code>internal/rng/pcg32_test.go</code></td>
-<td>Эталонные векторы, сиды четырёх потоков, изоляция потоков, снимок и восстановление, детерминированное число выборок</td>
+<td>Unit и table tests</td>
+<td>Go/симуляция либо Godot/клиент</td>
+<td>одно правило и граничные значения</td>
+<td>точные значения либо типизированный отказ; несовпадение является дефектом контракта</td>
 </tr>
 <tr>
-<td><code>internal/sim/determinism_test.go</code></td>
-<td>Крошечный сценарий прогоняется дважды, сравниваются последовательность канонических хешей и терминальный исход</td>
+<td>Property и invariant tests</td>
+<td>владелец домена</td>
+<td>множество сгенерированных допустимых и недопустимых входов</td>
+<td>порядок входа не меняет исход, невозможное состояние не возникает, отказ не оставляет частичной мутации</td>
+</tr>
+<tr>
+<td>Golden и deterministic tests</td>
+<td>Go/симуляция</td>
+<td>замороженный сценарий, версии, seed и ожидаемые checkpoints</td>
+<td>одинаковые потиковые hashes, события и терминальная сводка; первое расхождение блокирует изменение</td>
+</tr>
+<tr>
+<td>Contract и integration tests</td>
+<td>владелец общего интерфейса</td>
+<td>schema, fixtures и два потребителя</td>
+<td>обе стороны читают один смысл и одинаково отклоняют несовместимый вход</td>
+</tr>
+<tr>
+<td>Headless UI и accessibility</td>
+<td>Godot/клиент</td>
+<td>замороженный view-model, input actions и параметры представления</td>
+<td>один и тот же экран проходит обязательные состояния и пользовательские задачи; недоступное действие или потеря смысла блокируют приёмку</td>
+</tr>
+<tr>
+<td>Balance batch</td>
+<td>Go/симуляция</td>
+<td>фиксированная матрица и immutable content package</td>
+<td>воспроизводимый JSONL и отчёт коридора; нарушение блокирующего инварианта не скрывается агрегатом</td>
 </tr>
 </tbody>
 </table>
-<h2 id="норма-стоимости-memory-в-тестах">Норма стоимости Memory в тестах<a class="headerlink" href="#норма-стоимости-memory-в-тестах" title="Permanent link">&para;</a></h2>
-<p>Любой размещённый bubble стоит ровно 1 Memory независимо от типа, узел вызова модуля включительно; лестница Memory от 8 до 64 посчитана именно так — <a href="../../game-design/programming-the-hero/">мозг персонажа</a>. Таблицы стоимости по типу узла в тестах не заводить.</p>
+<p>Точный ответ фиксируется до реализации для арифметики, RNG, порядка тика, сериализации, формул, wire compatibility и replay round-trip. Эвристики генерации, выбора цели, лута и прогрессии проверяются инвариантами и широкими коридорами: тест не замораживает одну допустимую последовательность там, где контракт разрешает несколько. Простые getters, wiring, logging и generated code отдельно не тестируются, если их наблюдаемое поведение уже покрыто вызывающим слоем и generated-diff gate.</p>
+<h2 id="как-устроен-детерминированный-корпус">Как устроен детерминированный корпус?<a class="headerlink" href="#как-устроен-детерминированный-корпус" title="Permanent link">&para;</a></h2>
+<p>Go/симуляция владеет входами сценариев и ожидаемыми результатами. Базовые golden vectors и hashes живут в <code>testdata/determinism/</code>, а сценарные трассы — в <code>internal/sim/testdata/traces/v&lt;N&gt;/</code>, где <code>N</code> соответствует версии канонического состояния корпуса. Клиент не создаёт эталон боя и не обновляет его по увиденному кадру.</p>
+<p>Манифест сценария содержит имя, seed, версию канонического состояния, версию симуляции, версии баланса и контента, hash контента и ревизию симуляции. Вход закрепляет encounter, resolved build и ревизию Мозга. Ожидаемый результат хранит hash после каждого шестидесятого тика и терминальный hash со сводкой; локальный диагностический режим может вычислить hash каждого тика, чтобы назвать первое расхождение, но не создаёт второй формат эталона.</p>
+<p>Hash получается из тех же канонических байтов, что и snapshot, по контракту <a href="../simulation-core/#что-именно-хешируется-и-сохраняется-в-snapshot">ядра симуляции</a>. Корпус не перечисляет поля состояния повторно и не поддерживает отдельный hasher. Навигационные маршруты, состояние исполнения Мозга и все прочие авторитетные данные входят или не входят в hash только по этому контракту.</p>
+<p>Повторный запуск одного сценария в отдельных процессах, с другим порядком запуска соседних сценариев и с другим числом workers даёт одинаковые checkpoints, события и терминальную сводку. Параллелизм допускается только между забегами. Race, wall-clock, порядок обхода Go map, FPS и способ доставки playback не могут попасть в результат.</p>
+<p>Эталоны обновляет только явная локальная команда. Изменение, которое правомерно меняет состояния или события, сначала получает новые версии у владельцев <a href="../simulation-core/#когда-меняется-версия-симуляции">симуляции</a>, <a href="../content-packages/#как-пакет-публикуется-и-откатывается">контента</a>, <a href="../brain-runtime/#как-устроен-стабильный-словарь">Мозга</a> или <a href="../replay/#когда-запись-отвергается">записи</a>, затем переснимает затронутый корпус и показывает review-дифф исходов. CI никогда не записывает новые golden data и не превращает расхождение в автоматическое принятие.</p>
+<h2 id="что-выдаёт-балансовая-матрица">Что выдаёт балансовая матрица?<a class="headerlink" href="#что-выдаёт-балансовая-матрица" title="Permanent link">&para;</a></h2>
+<p><code>internal/harness</code> запускает ровно тот же headless application port, который обслуживает игру и одиночный CLI-run. Матрица имеет четыре независимые оси: build, encounter, seed и программа поведения. Закрепление одной программы недопустимо, потому что тогда метрика смешивает силу контента с качеством одного Мозга.</p>
+<p>Программы поведения хранятся в репозитории как эталонный контент в том же формате ревизии, что и Мозги игрока. Ячейка с доступной Памятью меньше заявленного программой бюджета отвергается как неприменимая и не подменяется урезанным графом. Малый набор использует два противоположных намерения — давление вблизи и удержание дистанции; широкий набор использует весь эталонный корпус.</p>
+<p>Runner пишет одну строку JSONL на завершённый забег. Типизированная запись и единственный encoder принадлежат <code>internal/harness</code>; потребители не заводят собственную схему и не выводят значения из текста отчёта. Строка содержит обязательные свойства идентичности — seed, scenario ID, hash и версию контента, версию симуляции и hash программы поведения — и три группы результатов:</p>
+<ul>
+<li>исход: <code>outcome</code>, <code>end_reason</code>, <code>rooms_cleared</code>, <code>duration_ticks</code>;</li>
+<li>баланс: <code>damage_dealt</code>, <code>damage_taken</code>, <code>items_kept_by_rarity</code>, <code>xp_gained</code>, <code>materials_gained</code>, <code>build_hash</code>;</li>
+<li>целостность: <code>hit_tick_cap</code>, <code>impossible_states</code>, <code>final_state_hash</code>.</li>
+</ul>
+<p>Читаемое повествование и события боя в строку не входят: их хранит <a href="../replay/">replay</a>. Единой скалярной цены добычи нет; предметы по редкости, опыт и материалы агрегируются раздельно, а забеговое золото не считается сохраняемым лутом. Прерванный batch сохраняет уже дописанные строки, но неполная матрица не получает проход: отчёт обязан назвать отсутствующие ячейки.</p>
+<p>Сравнивать разрешено только строки с совместимыми свойствами идентичности. Изменение семантики словаря Мозга, контента, симуляции или состава эталонных программ делает прежний коридор неприменимым и требует полного пересчёта. Runner не смешивает поколения данных и не исключает провалившиеся клетки из знаменателя.</p>
+<h2 id="что-именно-проверяет-коридор-баланса">Что именно проверяет коридор баланса?<a class="headerlink" href="#что-именно-проверяет-коридор-баланса" title="Permanent link">&para;</a></h2>
+<p>Балансовый gate проверяет широкий опубликованный коридор, а не единственный желаемый исход. Из матрицы рассчитываются доля завершений, медианная длина забега, распределения нанесённого и полученного урона, распределения сохраняемого лута, результаты по <code>build_hash</code> и число невозможных состояний. Тонкие тренды попадают в отчёт и не блокируют CI, пока не пересекают утверждённую границу.</p>
+<p>Блокирующими являются выход законной сборки из коридора силы, нарушение убывающей отдачи, достижение полной защиты, запрещённая форма роста или рекурсивное срабатывание, насыщение fixed-point, невозможное состояние и достижение абсолютного stop симуляции. Golden vectors <a href="../stat-pipeline/">единого конвейера</a> отдельно проверяют формулы, границы, отрицательные значения, переполнение, деление на ноль и канонический порядок модификаторов. Эта глава не копирует формулы, stat ID, предел тиков или числовые thresholds их владельцев.</p>
+<p>Порог меняется только отдельным review вместе с объяснением игрового намерения и новым отчётом на полной сравнимой матрице. Автоматическая подгонка порога под свежий результат запрещена. Публикация content package на S8 вызывает тот же runner и тот же набор коридоров, поэтому локальный пакет не может пройти по иным правилам, чем устанавливаемый.</p>
+<h2 id="какие-контракты-проверяются-сквозным-gate">Какие контракты проверяются сквозным gate?<a class="headerlink" href="#какие-контракты-проверяются-сквозным-gate" title="Permanent link">&para;</a></h2>
+<p>Wire gate выполняет format, lint и breaking checks владельца Protobuf, проверяет generated diff и прогоняет общие golden packets через Go и Godot. Malformed, oversized и неизвестный обязательный payload возвращает типизированный отказ и не меняет доменное состояние. Поля, opcode, framing и version negotiation принадлежат <a href="../contracts-and-data-flow/">контрактам и потоку данных</a>, а эта глава только требует исполняемого доказательства обеих сторон.</p>
+<p>Content gate выполняет schema и domain validation, проверяет уникальность stable ID, разрешение ссылок, канонизацию и воспроизводимый package hash. Formula и modifier gates используют table vectors, permutation tests и trace. Мозг и build используют одни fixtures для подсказок редактора и авторитетного server rejection; совпадение клиентской подсказки не заменяет серверную проверку.</p>
+<p>Combat gate объединяет deterministic corpus, invariant tests и replay round-trip готовой записи событий. Dungeon gate повторяет генерацию по seed, проверяет топологию и разрешает каждый node/template ID через один content package. Persistence gate прогоняет общий repository contract suite над memory adapter и SQLite, включая concurrency, idempotency, rollback, миграцию и восстановление. Orchestration gate проходит state machine миссии и забега, включая повтор команды и отказ без частичного перехода.</p>
+<p>На S9 сквозной тест запускает Go core и Godot как два процесса, завершает localhost handshake, проводит команду через validation и воспроизводит полученную запись. Обрыв и повторное подключение, перезапуск клиента, повтор <code>request_id</code>, несовместимая версия, sequence gap и неравномерная доставка не меняют авторитетный исход. Проверка jitter оценивает плавность presentation, но никогда не принимает клиентский кадр за состояние симуляции.</p>
+<h2 id="как-принимаются-ui-и-доступность">Как принимаются UI и доступность?<a class="headerlink" href="#как-принимаются-ui-и-доступность" title="Permanent link">&para;</a></h2>
+<p>Каждый из шестнадцати экранов рендерится headless из замороженной fixture без запущенного Go core. Один и тот же view-model adapter обслуживает fixture и live DTO. Корпус покрывает skeleton загрузки, ошибку с повтором, stale revision и пустое состояние; если доменный инвариант исключает состояние, экранная глава содержит проверяемое доказательство неприменимости.</p>
+<p>Navigation smoke проходит весь допустимый граф, а reducer tests доказывают, что server event остаётся единственным источником gameplay-state. Проверки на 16:9 и 21:9 используют отдельные snapshots композиции. Все player-visible строки проходят через <code>tr()</code>, каждый использованный ключ имеет <code>ru</code> и <code>en</code>, а литерал вне <code>translations.csv</code> блокирует сборку.</p>
+<p>Accessibility gate выполняет задачи, а не ищет наличие настройки. Keyboard-only прогон достигает каждого действия мыши, не попадает в ловушку фокуса и после модального слоя возвращается к вызвавшему элементу; screen reader объявляет смену экрана, роль, состояние и результат действия. Максимальный поддерживаемый масштаб не обрезает текст и controls, проверка в оттенках серого сохраняет механические различия, а бой без звука и необязательных эффектов остаётся читаемым.</p>
+<p>Числовая часть телеграфа автоматически проверяет опубликованные полосы длительностей и разделение соседних полос по <a href="../../game-design/visual-language/#как-строится-время-замаха">визуальному контракту</a>. Ручная приёмка каждой пары «действие × облик» проверяет распознавание в штатной камере, оттенках серого, без звука и при полной группе. Автоматический snapshot не заменяет проверку позы, силуэта и понятности задачи.</p>
+<h2 id="когда-запускается-каждая-проверка">Когда запускается каждая проверка?<a class="headerlink" href="#когда-запускается-каждая-проверка" title="Permanent link">&para;</a></h2>
+<p>Перед каждым коммитом разработчик запускает <code>tools/check.ps1</code>. Быстрый набор включает static gates, format, unit/table/property tests, курируемый deterministic corpus, contract fixtures, <code>go test ./...</code>, малую balance matrix, headless Godot tests, localization и timing-band gates. Локальный Godot smoke выполняется через <code>tools/check-godot.ps1 -Mode All</code>; CI job повторяет форматирование и lint изменённых GDScript и обязательный headless import на закреплённой версии движка, не подменяя локальный smoke.</p>
+<p>На push и PR CI повторяет применимые быстрые проверки в чистом окружении и публикует диагностические артефакты неуспешного шага. Gate не исправляет формат, не меняет schemas, не перегенерирует принятые данные и не обновляет snapshots. Каждый механизм gate имеет отрицательный тест: подсаженный float, неотсортированный map, drift generated code, повреждённый пакет, строковый литерал или несовместимый packet обязаны дать ненулевой код.</p>
+<p>Ночной запуск использует широкую матрицу по многим seeds и всему эталонному корпусу программ, длинные replay comparisons, fuzzing некорректных protocol payloads, <code>go test -race</code>, benchmarks аллокаций и производительности и отчёты трендов. Fuzzing и race не заменяют быстрые воспроизводимые примеры: найденный дефект сокращается до regression fixture и после исправления входит в commit gate. Отчёт тренда сам по себе не блокирует интеграцию, а нарушение уже опубликованного инварианта блокирует.</p>
+<h2 id="как-ведут-себя-версии-и-ошибки">Как ведут себя версии и ошибки?<a class="headerlink" href="#как-ведут-себя-версии-и-ошибки" title="Permanent link">&para;</a></h2>
+<p>Testing harness не владеет <code>simulation_version</code>, content version/hash, <code>vocabulary_version</code>, replay schema или wire protocol. Он записывает значения владельцев рядом с результатом и до сравнения проверяет их совместимость. Неизвестная обязательная версия, отсутствующая fixture, неполная matrix или повреждённый manifest дают явный отказ, а не пропуск теста и не ближайший доступный эталон.</p>
+<p>Один упавший слой останавливает зависимые проверки, если их вход уже нельзя считать корректным. Независимые jobs могут завершиться и сохранить диагностику, но общий gate остаётся красным. В handoff перечисляются выполненные команды, фактические результаты, пропуски с причиной и оставшийся риск; отсутствие runtime или wrapper не превращается в успешную проверку другой версией инструмента.</p>
+<h2 id="что-нужно-сделать">Что нужно сделать<a class="headerlink" href="#что-нужно-сделать" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Владелец:</strong> Go/симуляция владеет <code>tools/check.ps1</code>, CI, static/unit/property/contract gates, детерминированным корпусом и harness: фундамент создаётся на S0, fixed-point/RNG проверки — на S1, потиковые трассы и replay checks — на S4, матрица — на S6, package acceptance — на S8, двухпроцессная интеграция — на S9 по <a href="../production-plan/">плану производства</a>. Godot/клиент владеет headless UI, navigation, layout и accessibility checks на S3 и своей стороной сквозного теста на S9.</li>
+<li><strong>Артефакты:</strong> <code>tools/check.ps1</code> и repository wrappers; jobs в <code>.github/workflows/</code>; <code>internal/fixed/fixed_test.go</code>, <code>internal/rng/pcg32_test.go</code>, <code>internal/sim/determinism_test.go</code>; <code>testdata/determinism/</code> и <code>internal/sim/testdata/traces/v&lt;N&gt;/</code>; batch runner, типизированная JSONL-запись и encoder в <code>internal/harness/</code>; contract fixtures для Protobuf, content, repositories и replay; read-only <code>fixtures/ui/</code>; headless screen, reducer, navigation, layout и accessibility tests под <code>codedungeon/tests/</code>; публикуемые отчёты малой и широкой матриц.</li>
+<li><strong>Готово, когда:</strong> <code>tools/check.ps1</code> возвращает <code>0</code> на чистом дереве и ненулевой код на каждом отрицательном примере; повтор deterministic corpus в двух процессах и при разном числе workers даёт одинаковые checkpoints, events и terminal hashes; CI не меняет golden data; JSONL содержит все свойства идентичности и перечисленные result fields, а неполная матрица названа неуспешной; малый и ночной batch используют соответственно два крайних намерения и весь эталонный корпус; каждый contract fixture одинаково читается Go и Godot; шестнадцать экранов проходят четыре состояния, keyboard-only path, focus return, screen reader, 16:9, 21:9, максимальный масштаб и grayscale; S9 сохраняет потиковый исход при reconnect и jitter; nightly публикует широкий отчёт, race, fuzz и benchmark results.</li>
+<li><strong>Не трогать:</strong> порядок тика, canonical state, RNG и fixed-point принадлежат <code>simulation-core.md</code>; combat geometry и абсолютный stop — <code>combat-engine.md</code>; формулы и trace — <code>stat-pipeline.md</code>; словарь, компиляция и бюджет Памяти — <code>brain-runtime.md</code>; replay container и compatibility — <code>replay.md</code>; Protobuf, opcode и envelope — <code>contracts-and-data-flow.md</code>; content schema, ID и publication — <code>content-packages.md</code>; save transactions — <code>persistence.md</code>; store, mapper, focus и modal runtime — <code>client-architecture.md</code>; состав экранов — <code>screens/</code>; локальный workflow — <code>development-workflow.md</code>; post-MVP проверки — <code>future-online.md</code>.</li>
+</ul>
+<h2 id="что-читать-дальше">Что читать дальше?<a class="headerlink" href="#что-читать-дальше" title="Permanent link">&para;</a></h2>
+<p>Дальше — <a href="../future-online/">какие online-возможности сознательно остаются за пределами MVP</a>.</p>
 
 
 

@@ -13,10 +13,10 @@
         <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/asset-pipeline/">
       
       
-        <link rel="prev" href="../screen-specs/">
+        <link rel="prev" href="../localization-and-narrative-content/">
       
       
-        <link rel="next" href="../testing-and-ci/">
+        <link rel="next" href="../development-workflow/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Конвейер 3D-ассетов - CodeDungeon — документация</title>
+        <title>Как исходный ассет становится ресурсом Godot? - CodeDungeon — документация</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#конвейер-3d-ассетов" class="md-skip">
+        <a href="#как-исходный-ассет-становится-ресурсом-godot" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Конвейер 3D-ассетов
+              Как исходный ассет становится ресурсом Godot?
             
           </span>
         </div>
@@ -877,7 +877,7 @@
   <span class="md-ellipsis">
     
   
-    Техническая документация
+    Как читать техническую документацию CodeDungeon?
   
 
     
@@ -905,7 +905,7 @@
   <span class="md-ellipsis">
     
   
-    Архитектурный скелет
+    Где проходят границы системы и кому принадлежит состояние?
   
 
     
@@ -926,14 +926,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../tech-stack/" class="md-nav__link">
+      <a href="../technology-baseline/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Технологический стек
+    На каких технологиях и форматах строится MVP?
   
 
     
@@ -954,14 +954,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../process-topology/" class="md-nav__link">
+      <a href="../runtime-topology/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Топология процессов и запуск
+    Как запускаются и завершаются два процесса игры?
   
 
     
@@ -982,14 +982,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../production-plan/" class="md-nav__link">
+      <a href="../contracts-and-data-flow/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    План производства и разделение ролей
+    Как команды, события и данные переходят между Go и Godot?
   
 
     
@@ -1010,14 +1010,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev-environment/" class="md-nav__link">
+      <a href="../simulation-core/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Среда разработки и инструменты агентов
+    Как работает детерминированное ядро симуляции?
   
 
     
@@ -1038,14 +1038,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../content-packages/" class="md-nav__link">
+      <a href="../combat-engine/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Пакеты контента и баланса
+    Как боевой движок разрешает арену и действия?
   
 
     
@@ -1066,14 +1066,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../combat-simulation/" class="md-nav__link">
+      <a href="../replay/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Спецификация боевой симуляции
+    Как хранится и читается авторитетная запись забега?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../brain-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как компилируется, проверяется и исполняется Мозг?
   
 
     
@@ -1101,7 +1129,35 @@
   <span class="md-ellipsis">
     
   
-    Единый конвейер расчёта
+    Как значение проходит единый конвейер расчёта?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modifiers-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как модификатор находит характеристику по тегам?
   
 
     
@@ -1129,7 +1185,7 @@
   <span class="md-ellipsis">
     
   
-    Реестр stat ID
+    Какие характеристики разрешены в расчёте?
   
 
     
@@ -1150,14 +1206,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../item-content-and-crafting/" class="md-nav__link">
+      <a href="../items-and-crafting/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Контент предметов и движок крафта
+    Как реализовать предметы, инвентарь и крафт?
   
 
     
@@ -1178,14 +1234,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../item-persistence/" class="md-nav__link">
+      <a href="../run-systems/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Хранение предметов
+    Как сервер ведёт забег, миссию и переходы между узлами?
   
 
     
@@ -1206,14 +1262,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ui-architecture/" class="md-nav__link">
+      <a href="../persistence/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Интерфейс: экраны, навигация и граница клиента
+    Как локальное состояние сохраняется и восстанавливается?
   
 
     
@@ -1234,14 +1290,629 @@
   
   
     <li class="md-nav__item">
-      <a href="../screen-specs/" class="md-nav__link">
+      <a href="../client-architecture/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Спецификации экранов
+    Как Godot отображает авторитетное состояние и управляет интерфейсом?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audio-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как события превращаются в синхронный звук?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_18" id="__nav_3_18_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экраны
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_18">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Экраны
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроены экраны и общие правила интерфейса?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/ai-editor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран редактора Мозга?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/combat-viewing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен первый просмотр боя?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/road-forge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроена Дорожная кузня?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/inventory-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран инвентаря и крафта?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/progression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран прогрессии?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/run-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроена подготовка забега?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/run-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как работает карта маршрута?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/room-resolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран подводит итог комнаты и передаёт добычу?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/rest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран точки отдыха проводит обязательный выбор?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/shop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран лавки проводит покупку и продажу?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/run-result/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран итога забега завершает попытку?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/replay-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как библиотека перечисляет сохранённые записи забегов?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/replay-viewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как просмотрщик помогает разобрать запись по боям-главам?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/settings-and-system-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как работают настройки и системное меню?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/boot-and-connection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как клиент показывает запуск и подключение к локальному Go?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/main-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как главное меню выбирает профиль и открывает игру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как авторский JSON становится пакетом контента?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../localization-and-narrative-content/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как текст попадает в игру и остаётся переводимым?
   
 
     
@@ -1278,7 +1949,7 @@
   <span class="md-ellipsis">
     
   
-    Конвейер 3D-ассетов
+    Как исходный ассет становится ресурсом Godot?
   
 
     
@@ -1296,7 +1967,7 @@
   <span class="md-ellipsis">
     
   
-    Конвейер 3D-ассетов
+    Как исходный ассет становится ресурсом Godot?
   
 
     
@@ -1322,10 +1993,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#статус" class="md-nav__link">
+  <a href="#где-проходит-граница-конвейера" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Статус
+        Где проходит граница конвейера?
       
     </span>
   </a>
@@ -1333,10 +2004,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#граница-ответственности" class="md-nav__link">
+  <a href="#что-считается-входом-и-что-публикуется" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Граница ответственности
+        Что считается входом и что публикуется?
       
     </span>
   </a>
@@ -1344,10 +2015,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#целевой-поток" class="md-nav__link">
+  <a href="#как-выполняется-преобразование" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Целевой поток
+        Как выполняется преобразование?
       
     </span>
   </a>
@@ -1355,10 +2026,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#входы-и-provenance" class="md-nav__link">
+  <a href="#что-фиксируют-body-skeleton-и-socket-contracts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Входы и provenance
+        Что фиксируют body, skeleton и socket contracts?
       
     </span>
   </a>
@@ -1366,10 +2037,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#канонические-тела-и-скелеты" class="md-nav__link">
+  <a href="#как-проверяются-тело-и-экипировка" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Канонические тела и скелеты
+        Как проверяются тело и экипировка?
       
     </span>
   </a>
@@ -1377,10 +2048,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#броня-и-одежда" class="md-nav__link">
+  <a href="#какие-проверки-блокируют-публикацию" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Броня и одежда
+        Какие проверки блокируют публикацию?
       
     </span>
   </a>
@@ -1388,10 +2059,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#оружие-и-sockets" class="md-nav__link">
+  <a href="#как-выглядит-первый-обязательный-срез" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Оружие и sockets
+        Как выглядит первый обязательный срез?
       
     </span>
   </a>
@@ -1399,10 +2070,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#валидация-и-бюджеты" class="md-nav__link">
+  <a href="#что-нужно-сделать" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Валидация и бюджеты
+        Что нужно сделать
       
     </span>
   </a>
@@ -1410,10 +2081,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mvp-pipeline" class="md-nav__link">
+  <a href="#что-читать-дальше" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MVP pipeline
+        Что читать дальше?
       
     </span>
   </a>
@@ -1436,6 +2107,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../development-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как подготовить изменение и передать его без потери контракта?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../testing-and-ci/" class="md-nav__link">
         
   
@@ -1443,7 +2142,63 @@
   <span class="md-ellipsis">
     
   
-    Стратегия тестирования и CI
+    Как тесты доказывают, что изменение можно интегрировать?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../future-online/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как CodeDungeon переходит к публичному Online после MVP?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../production-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    План производства и разделение ролей
   
 
     
@@ -1519,60 +2274,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../roles/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Роли в разработке
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../undocumented-areas/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Незадокументированные области
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -1600,10 +2301,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#статус" class="md-nav__link">
+  <a href="#где-проходит-граница-конвейера" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Статус
+        Где проходит граница конвейера?
       
     </span>
   </a>
@@ -1611,10 +2312,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#граница-ответственности" class="md-nav__link">
+  <a href="#что-считается-входом-и-что-публикуется" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Граница ответственности
+        Что считается входом и что публикуется?
       
     </span>
   </a>
@@ -1622,10 +2323,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#целевой-поток" class="md-nav__link">
+  <a href="#как-выполняется-преобразование" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Целевой поток
+        Как выполняется преобразование?
       
     </span>
   </a>
@@ -1633,10 +2334,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#входы-и-provenance" class="md-nav__link">
+  <a href="#что-фиксируют-body-skeleton-и-socket-contracts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Входы и provenance
+        Что фиксируют body, skeleton и socket contracts?
       
     </span>
   </a>
@@ -1644,10 +2345,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#канонические-тела-и-скелеты" class="md-nav__link">
+  <a href="#как-проверяются-тело-и-экипировка" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Канонические тела и скелеты
+        Как проверяются тело и экипировка?
       
     </span>
   </a>
@@ -1655,10 +2356,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#броня-и-одежда" class="md-nav__link">
+  <a href="#какие-проверки-блокируют-публикацию" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Броня и одежда
+        Какие проверки блокируют публикацию?
       
     </span>
   </a>
@@ -1666,10 +2367,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#оружие-и-sockets" class="md-nav__link">
+  <a href="#как-выглядит-первый-обязательный-срез" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Оружие и sockets
+        Как выглядит первый обязательный срез?
       
     </span>
   </a>
@@ -1677,10 +2378,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#валидация-и-бюджеты" class="md-nav__link">
+  <a href="#что-нужно-сделать" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Валидация и бюджеты
+        Что нужно сделать
       
     </span>
   </a>
@@ -1688,10 +2389,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mvp-pipeline" class="md-nav__link">
+  <a href="#что-читать-дальше" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MVP pipeline
+        Что читать дальше?
       
     </span>
   </a>
@@ -1723,118 +2424,58 @@
   
 
 
-<h1 id="конвейер-3d-ассетов">Конвейер 3D-ассетов<a class="headerlink" href="#конвейер-3d-ассетов" title="Permanent link">&para;</a></h1>
-<p>Этот документ задаёт целевую инженерную границу подготовки визуальных 3D-ассетов для Godot. Внешний генератор или художник создаёт сырьё; внутренний pipeline превращает его в валидируемый ресурс CodeDungeon. Runtime не исправляет несовместимые ассеты на лету.</p>
-<h2 id="статус">Статус<a class="headerlink" href="#статус" title="Permanent link">&para;</a></h2>
-<p><strong>Принято как направление:</strong> внутренний формат и проверки проекта не зависят от конкретного AI-сервиса; персонажи и экипировка используют ограниченный набор канонических тел/скелетов; оружие является отдельным ресурсом с sockets и metadata.</p>
-<p><strong>Не внедрено и требует прототипа:</strong> автоматические remesh/UV/rig, перенос весов, fitting брони, clipping auto-fix, генерация collision/LOD и полный asset compiler. Название <code>CodeDungeon Asset Compiler</code> обозначает границу системы, а не существующий продукт.</p>
-<h2 id="граница-ответственности">Граница ответственности<a class="headerlink" href="#граница-ответственности" title="Permanent link">&para;</a></h2>
-<p>Pipeline владеет:</p>
-<ul>
-<li>импортом исходного mesh/texture/rig и provenance metadata;</li>
-<li>нормализацией масштаба, осей, origin и имён;</li>
-<li>преобразованием к каноническому skeleton/profile;</li>
-<li>sockets, collision shapes, LOD и runtime metadata;</li>
-<li>автоматическими проверками и воспроизводимым отчётом;</li>
-<li>публикацией только прошедшей проверки версии ассета.</li>
-</ul>
-<p>Pipeline не владеет gameplay stats предмета, формулами урона, балансом, выбором атаки или runtime-физическим исходом. Gameplay definition ссылается на опубликованный visual asset по stable ID; visual metadata не становится скрытым вторым источником gameplay-чисел.</p>
-<h2 id="целевой-поток">Целевой поток<a class="headerlink" href="#целевой-поток" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>Authored / scanned / AI-generated source
-                │
-                ▼
-        source + provenance
-                │
-                ▼
-     geometry/texture preparation
-     remesh · UV · material cleanup
-                │
-                ▼
-      canonicalization stage
-     scale · axes · origin · naming
-     skeleton · fitting · weights
-                │
-                ▼
-        runtime enrichment
-     sockets · collisions · LOD
-     body masks · asset metadata
-                │
-                ▼
-          validation suite
-     pose stress · clipping · bounds
-     topology · dependencies · budget
-                │
-                ▼
-       PASS / review / regenerate
-                │
-                ▼
-       versioned GLB + Godot import
+<h1 id="как-исходный-ассет-становится-ресурсом-godot">Как исходный ассет становится ресурсом Godot?<a class="headerlink" href="#как-исходный-ассет-становится-ресурсом-godot" title="Permanent link">&para;</a></h1>
+<p>Эта глава задаёт путь от авторского или сгенерированного исходника до воспроизводимого, проверенного и версионированного ресурса клиентского проекта.</p>
+<p><strong>Реализует:</strong> <a href="../../game-design/visual-language/#какой-визуальный-язык-поддерживает-игру">визуальный язык</a>, <a href="../../game-design/visual-language/#почему-бой-остаётся-трёхмерным">трёхмерную основу боя</a>, <a href="../../game-design/visual-language/#как-поза-остаётся-читаемой">читаемость позы</a>, <a href="../../game-design/visual-language/#как-сцена-проходит-приёмку">приёмку сцены</a>.</p>
+<h2 id="где-проходит-граница-конвейера">Где проходит граница конвейера?<a class="headerlink" href="#где-проходит-граница-конвейера" title="Permanent link">&para;</a></h2>
+<p>Asset pipeline владеет исходниками нетекстовых ресурсов, сведениями об их происхождении, visual asset ID, каноническими body/skeleton/socket contracts, воспроизводимыми преобразованиями, visual metadata, профилями технических бюджетов, отчётами проверок и опубликованными ресурсами Godot. В эту область входят 3D-модели, rig, анимации, текстуры, изображения, иконки, шрифты и звуковые файлы. Для каждого класса применяется только относящаяся к нему часть общего процесса.</p>
+<p>Направление Godot/клиент принимает исходник вместе с записью происхождения и версионированными контрактами, а выпускает готовый артефакт и машиночитаемый отчёт проверки. Сцена и runtime получают только опубликованную версию. Они не нормализуют масштаб, не исправляют rig, не подбирают socket и не заменяют повреждённую зависимость при загрузке.</p>
+<p>Gameplay definition может ссылаться на опубликованный visual asset, но его content ID и механическая совместимость принадлежат <a href="../content-packages/#как-адресуется-контент">пакетам контента</a>. Visual metadata не содержит damage, mass, requirements, теги навыка или иные балансовые данные. Логические формы арены, hit zones и столкновения симуляции принадлежат <a href="../combat-engine/#как-представлена-и-строится-арена">боевому движку</a>; collision и ragdoll из Godot остаются представлением и не возвращают исход в Go.</p>
+<h2 id="что-считается-входом-и-что-публикуется">Что считается входом и что публикуется?<a class="headerlink" href="#что-считается-входом-и-что-публикуется" title="Permanent link">&para;</a></h2>
+<p>Единицей входа служит версия исходника: исходные файлы mesh, rig, animation, texture, image, font или audio, их зависимости, provenance record и набор параметров преобразования. Источник может быть создан вручную, получен из поддерживаемого инструмента или внешнего генератора. Поставщик исходника не определяет внутренние axes, единицы, naming, skeleton, material slots, sockets или import settings.</p>
+<p>Provenance record хранит автора либо сервис, дату получения, разрешённые reference или prompt ID, лицензию и допустимые способы использования и переработки, версию генератора или редактора, существенные параметры, hashes входов и исходного результата, а также отметку human review. Неприменимое поле не подменяется вымышленным значением. Отсутствие данных, без которых нельзя доказать право использования или воспроизвести получение результата, запрещает публикацию.</p>
+<p>Выходом служит версионированный артефакт: для 3D это нормализованный GLB с нужными зависимостями и metadata, для остальных классов — подготовленный исходник поддерживаемого Godot формата и его фиксированные import settings. Рядом доступен отчёт, связывающий source hash, версии инструментов и контрактов, параметры шагов, output hash и результаты проверок. Каталог <code>.godot/imported/</code> остаётся производным cache и не является публикуемым артефактом или источником истины.</p>
+<p>Visual asset ID адресует художественный ресурс независимо от gameplay content ID. Версия артефакта различает воспроизводимые выпуски одного visual asset; версия metadata определяет, как читать его техническое описание. Неизвестная версия metadata, skeleton, body profile или socket contract приводит к отказу до импорта, а не к попытке угадать совместимость.</p>
+<h2 id="как-выполняется-преобразование">Как выполняется преобразование?<a class="headerlink" href="#как-выполняется-преобразование" title="Permanent link">&para;</a></h2>
+<p>Конвейер проходит одни и те же границы для ручного и сгенерированного материала:</p>
+<div class="highlight"><pre><span></span><code>source + provenance
+    -&gt; geometry / texture / audio preparation
+    -&gt; canonicalization
+    -&gt; runtime enrichment
+    -&gt; validation
+    -&gt; versioned artifact
+    -&gt; Godot headless import and representative scene smoke
 </code></pre></div>
-<p>Каждый автоматический шаг должен быть идемпотентным либо фиксировать tool/version/parameters, чтобы результат можно было воспроизвести. Ручное исправление сохраняется как новый source или явный patch stage, а не как неотслеживаемая правка результата сборки.</p>
-<h2 id="входы-и-provenance">Входы и provenance<a class="headerlink" href="#входы-и-provenance" title="Permanent link">&para;</a></h2>
-<p>Источником может быть ручная работа, maintained tool или внешний text/image-to-3D сервис. Meshy, Tripo и Hunyuan3D являются примерами кандидатов, не принятыми зависимостями.</p>
-<p>До попадания source в проект необходимо сохранить:</p>
+<p>Подготовка 3D-геометрии охватывает remesh, UV и очистку материалов там, где они нужны конкретному source revision. Канонизация приводит scale, axes, origin и naming к контрактам проекта, затем связывает персонажа или экипировку с выбранным body profile и skeleton contract. Runtime enrichment добавляет только presentation-данные: sockets, grip points, body masks, LOD и допустимые collision artifacts.</p>
+<p>Для изображения, шрифта или звука шаги, не имеющие смысла для этого класса, отсутствуют. Их обработка всё равно фиксирует source hash, tool/version/parameters, зависимости, output hash и Godot import settings. Семантическое сопоставление звука с событием, порядок вариантов и параметры воспроизведения принадлежат <a href="../audio-runtime/#как-событие-становится-cue">audio runtime</a>; asset pipeline лишь гарантирует, что указанный ресурс легален, воспроизводимо подготовлен и импортируется.</p>
+<p>Автоматический шаг является идемпотентным либо записывает все данные, необходимые для повторения результата. Повтор с теми же входными hashes, версиями инструментов и параметрами обязан привести к тому же output hash и тому же итогу отчёта. Если инструмент не обеспечивает это свойство, его результат не публикуется напрямую.</p>
+<p>Ручная правка не вносится в собранный артефакт. Она становится новой версией исходника либо явным patch stage со своим входом, параметрами и hash. Для операции, которую нельзя надёжно автоматизировать, инструкция ручного fallback задаёт инструмент, вход, проверяемый результат и место сохранения новой версии; незаписанная правка в Godot editor не считается частью конвейера.</p>
+<h2 id="что-фиксируют-body-skeleton-и-socket-contracts">Что фиксируют body, skeleton и socket contracts?<a class="headerlink" href="#что-фиксируют-body-skeleton-и-socket-contracts" title="Permanent link">&para;</a></h2>
+<p>Проект использует небольшой versioned registry канонических body profiles и skeleton contracts. Уникальный rig от внешнего генератора не проходит непосредственно в runtime. Body profile задаёт геометрическую основу fitting и связанные с категорией экипировки допуски, а skeleton contract задаёт stable bone names и hierarchy, bind pose, orientation, единицы масштаба и перечень обязательных и необязательных bones.</p>
+<p>Skeleton contract также объявляет sockets оружия, щита, спины, бедра и колчана. Связь bones с hit zones и physical-bone profile хранится как presentation mapping к канонической игровой сущности, а не как вторая схема hit zones. Socket contract фиксирует локальные системы координат и правила совместимости вложений.</p>
+<p>Оружие публикуется отдельно от mesh тела. Его metadata описывает категорию визуального вложения, primary и optional secondary grip, локальные forward и edge axes и совместимую версию socket contract. Эти данные устанавливают положение mesh и рук, но не определяют дальность, попадание, тип урона, массу или выбор атаки.</p>
+<p>Изменение hierarchy, bind pose, orientation, обязательных bones или смысла socket требует новой версии соответствующего контракта. Вместе с ней создаются migration report и regression run по каноническому набору анимаций и экипировки. Артефакт со старой совместимой версией остаётся воспроизводимым; несовместимый артефакт не переименовывается под новую версию и не исправляется при загрузке.</p>
+<h2 id="как-проверяются-тело-и-экипировка">Как проверяются тело и экипировка?<a class="headerlink" href="#как-проверяются-тело-и-экипировка" title="Permanent link">&para;</a></h2>
+<p>Броня и одежда проходят normalize, fitting к body profile, перенос или авторинг skin weights, pose stress test, clipping validation и human review. Для полностью закрытого участка допускается явная body mask metadata. Маска меняет только отображение тела и не меняет gameplay coverage брони.</p>
+<p>Validation pose set включает idle, locomotion, крайние положения оружия, падение и recovery. Clipping tolerance берётся из versioned профиля для пары body profile и категории предмета. Плащ, юбка, ремни и подвесы могут использовать дополнительные bones или secondary motion только после отдельной проверки производительности и без влияния на событие симуляции.</p>
+<p>Автоматическая коррекция clipping допустима лишь как диагностируемый шаг с объявленным порогом уверенности. Результат ниже порога требует human review и не публикуется автоматически. Числовая проверка не заменяет визуальную приёмку силуэта, активной конечности и пары «действие × облик» по <a href="../../game-design/visual-language/#как-сцена-проходит-приёмку">правилу сцены</a>.</p>
+<h2 id="какие-проверки-блокируют-публикацию">Какие проверки блокируют публикацию?<a class="headerlink" href="#какие-проверки-блокируют-публикацию" title="Permanent link">&para;</a></h2>
+<p>Для каждой категории существует versioned budget profile. Он задаёт применимые пределы polygon count, texture, material, bone, draw-call, frame-time и memory costs; число не дублируется в сцене, import preset или скрипте проверки. Категория без полного budget profile не может быть опубликована.</p>
+<p>Validator проверяет scale, axes, origin, bounds, topology, обязательные bones, sockets и material slots, разрешимость зависимостей, совместимость версий, collision artifacts, LOD transitions и соблюдение бюджетов. Для экипировки он добавляет pose и clipping checks; для любого класса — целостность provenance и лицензии. Отчёт перечисляет asset ID и version, точный шаг, проверенное правило, измеренное значение там, где оно существует, ожидаемую границу и пути входов.</p>
+<p>Нарушение обязательного контракта, неизвестная версия, недостающая зависимость, превышение бюджета или неполный provenance завершают сборку ненулевым кодом и не создают публикуемую версию. Неоднозначный результат автоматической fitting или clipping-коррекции направляется на human review; после правки процесс начинается от новой версии исходника или patch stage. Validator не понижает качество молча и не подставляет предыдущий артефакт под запрошенной новой версией.</p>
+<p>После внутренних проверок Godot импортирует опубликованные файлы headless с тем же engine pin и через тот же repository wrapper, которые задаёт <a href="../technology-baseline/#какие-инструменты-обязательны-для-воспроизводимой-разработки">технологический baseline</a>. Representative scene загружает ресурсы через <code>res://</code>, проигрывает канонический набор анимаций, проверяет sockets, LOD и presentation collision и измеряет целевую сцену. Ошибка импорта, отсутствующая ссылка, предупреждение о несовместимом skeleton или нарушение бюджета делает артефакт непригодным к публикации.</p>
+<h2 id="как-выглядит-первый-обязательный-срез">Как выглядит первый обязательный срез?<a class="headerlink" href="#как-выглядит-первый-обязательный-срез" title="Permanent link">&para;</a></h2>
+<p>Первый срез охватывает один humanoid skeleton, один body profile, один комплект брони и два вида оружия. Он доказывает весь путь на малом наборе: сборку версии исходника в версионированный GLB и ресурс Godot, стабильные scale/origin/axes и sockets, retarget одной representative animation library, автоматический pose/clipping/budget report и сохранение provenance с лицензией.</p>
+<p>Повреждённая metadata и неизвестная версия skeleton обязаны останавливать этот же путь. Для каждого шага без надёжной автоматизации существует воспроизводимый manual fallback. Массовое создание ассетов начинается только после того, как этот срез повторяется с теми же hashes и проходит headless import и representative scene smoke без ручной правки результата.</p>
+<h2 id="что-нужно-сделать">Что нужно сделать<a class="headerlink" href="#что-нужно-сделать" title="Permanent link">&para;</a></h2>
 <ul>
-<li>автора/сервис и дату получения;</li>
-<li>prompt/reference IDs там, где это допустимо;</li>
-<li>лицензию и разрешённые способы использования/переработки;</li>
-<li>версию генератора и существенные параметры;</li>
-<li>hashes входов и исходного результата;</li>
-<li>отметку human review.</li>
+<li><strong>Владелец:</strong> Godot/клиент. <a href="../production-plan/">План производства</a> не выделяет конвейер в отдельный этап: базовые темы, шрифты и иконки идут после S0 и входят в S0b/S3, а ассеты авторского наполнения должны пройти тот же путь к S7. Направление Go/симуляция предоставляет только канонические gameplay-ссылки и не реализует преобразование визуальных или звуковых файлов.</li>
+<li><strong>Артефакты:</strong> исходники и provenance records в зоне <code>codedungeon/</code>; versioned registry body profiles, skeleton и socket contracts; budget profiles и validation pose set; воспроизводимый build/validation tool с machine-readable reports; опубликованные GLB, textures, images, fonts и audio files под <code>codedungeon/assets/</code> с фиксированными Godot import settings; representative scenes и regression-набор анимаций/экипировки; manual fallback для неавтоматизированных шагов; подключение проверок к <code>tools/check.ps1</code> и headless Godot wrapper.</li>
+<li><strong>Готово, когда:</strong> повтор одной версии исходника с теми же инструментами и параметрами даёт тот же output hash и отчёт; исходник без лицензии, повреждённая metadata, неизвестная версия, отсутствующий обязательный bone/socket, недостающая зависимость, clipping выше профиля или превышенный бюджет дают ненулевой код и не публикуют артефакт; первый обязательный срез полностью проходит retarget, pose/clipping/budget checks, human review, headless import и representative scene smoke; сцена ссылается только на опубликованный <code>res://</code> resource; runtime не исправляет asset и не передаёт presentation collision в симуляцию.</li>
+<li><strong>Не трогать:</strong> gameplay content ID, stats, tags, requirements и публикация JSON принадлежат <code>content-packages.md</code>; логическая геометрия, hit zones и исход столкновений — <code>combat-engine.md</code>; дерево сцен, playback и camera — <code>client-architecture.md</code>; cue ID, event mapping, variation и voice arbitration — <code>audio-runtime.md</code>; translation keys и нарративный текст — <code>localization-and-narrative-content.md</code>; расписание общих гейтов — <code>testing-and-ci.md</code>.</li>
 </ul>
-<p>Ассет без достаточного provenance не публикуется. Внешний сервис не определяет внутренний skeleton, axes, размеры, material contract или naming.</p>
-<h2 id="канонические-тела-и-скелеты">Канонические тела и скелеты<a class="headerlink" href="#канонические-тела-и-скелеты" title="Permanent link">&para;</a></h2>
-<p>Проект использует небольшой versioned registry body profiles и skeleton contracts вместо уникального несовместимого rig для каждого результата генерации. Конкретное количество мужских/женских форм из исходной концепции не утверждено.</p>
-<p>Skeleton contract должен определить:</p>
-<ul>
-<li>stable bone names и hierarchy;</li>
-<li>bind pose, orientation и единицы масштаба;</li>
-<li>обязательные/необязательные bones;</li>
-<li>sockets оружия, щита, спины, бедра и колчана;</li>
-<li>связь с hit zones и physical-bone profile без дублирования gameplay-схемы;</li>
-<li>правила совместимости и миграции версии.</li>
-</ul>
-<p>Изменение skeleton contract требует version bump, миграционного отчёта и regression-набора анимаций/экипировки.</p>
-<h2 id="броня-и-одежда">Броня и одежда<a class="headerlink" href="#броня-и-одежда" title="Permanent link">&para;</a></h2>
-<p>Предлагаемый поток: normalize → fit к body profile → transfer/author skin weights → pose stress test → clipping validation → review. Автоматический auto-fix допускается только как диагностируемый этап с порогом уверенности.</p>
-<p>Для полностью закрытых участков может применяться явная body mask metadata. Она принадлежит visual asset и не меняет gameplay coverage брони. Плащи, юбки, ремни и подвесы могут использовать дополнительные bones или secondary motion после отдельного performance-теста.</p>
-<p>Validation poses должны покрывать не только idle, но и крайние положения оружия, locomotion, падение и recovery. Допуски clipping задаются для body profile и категории предмета.</p>
-<h2 id="оружие-и-sockets">Оружие и sockets<a class="headerlink" href="#оружие-и-sockets" title="Permanent link">&para;</a></h2>
-<p>Оружие не встраивается в mesh тела. Опубликованный ресурс содержит visual mesh, локальную систему координат, grip points и совместимость с socket contract.</p>
-<p>Кандидат минимальной metadata-схемы:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">asset_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">weapon.longsword.example</span>
-<span class="nt">asset_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="nt">category</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">two_handed_sword</span>
-<span class="nt">primary_grip</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.13</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-0.02</span><span class="p p-Indicator">]</span>
-<span class="nt">secondary_grip</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.52</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-0.02</span><span class="p p-Indicator">]</span>
-<span class="nt">forward_axis</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-1</span><span class="p p-Indicator">]</span>
-<span class="nt">edge_axis</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0</span><span class="p p-Indicator">]</span>
-</code></pre></div>
-<p>Это visual/attachment metadata. Авторитетные mass, damage tags, requirements и balance values принадлежат content package. Если collision geometry выводится из asset, она проходит отдельную проверку и публикуется как versioned runtime artifact.</p>
-<h2 id="валидация-и-бюджеты">Валидация и бюджеты<a class="headerlink" href="#валидация-и-бюджеты" title="Permanent link">&para;</a></h2>
-<p>Публикация должна отклонять либо отправлять на review ассеты с:</p>
-<ul>
-<li>неверным масштабом, axes, origin или bounds;</li>
-<li>отсутствующими обязательными bones/sockets/material slots;</li>
-<li>invalid topology, missing dependencies или несовместимой schema;</li>
-<li>превышением polygon, texture, material, bone или draw-call budgets;</li>
-<li>clipping выше допуска в обязательных poses;</li>
-<li>недопустимыми collision shapes или LOD transitions;</li>
-<li>отсутствующим provenance/license record.</li>
-</ul>
-<p>Числовые budgets определяются после целевой сцены из <a href="../../game-design/visual-language/">визуального направления</a>. Проверки запускаются в CI без GUI; импорт Godot и representative scene smoke test входят в acceptance pipeline.</p>
-<h2 id="mvp-pipeline">MVP pipeline<a class="headerlink" href="#mvp-pipeline" title="Permanent link">&para;</a></h2>
-<p>Первый срез ограничен одним humanoid skeleton, одним body profile, одним комплектом брони и двумя видами оружия. Он должен доказать:</p>
-<ol>
-<li>воспроизводимую сборку одного source в versioned GLB/Godot artifact;</li>
-<li>стабильные scale/origin/axes и sockets;</li>
-<li>retarget одной representative animation library;</li>
-<li>автоматический pose/clipping/budget report;</li>
-<li>отказ сборки при повреждённой metadata или неизвестной версии skeleton;</li>
-<li>документированный ручной fallback для шагов, которые пока нельзя надёжно автоматизировать;</li>
-<li>сохранение provenance и лицензии рядом с опубликованной версией.</li>
-</ol>
-<p>До прохождения этого среза массовая AI-генерация, автоматический armor auto-fix и обещание «никто не моделирует вручную» считаются недоказанными гипотезами.</p>
+<h2 id="что-читать-дальше">Что читать дальше?<a class="headerlink" href="#что-читать-дальше" title="Permanent link">&para;</a></h2>
+<p>Дальше — <a href="../development-workflow/">как настроить окружение, выполнить локальные проверки и передать изменение на ревью</a>.</p>
 
 
 

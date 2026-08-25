@@ -9,14 +9,6 @@
          <lastmod>2026-08-25</lastmod>
     </url>
     <url>
-         <loc>https://ubermorgott.github.io/CodeDungeon-docs/roles/</loc>
-         <lastmod>2026-08-25</lastmod>
-    </url>
-    <url>
-         <loc>https://ubermorgott.github.io/CodeDungeon-docs/undocumented-areas/</loc>
-         <lastmod>2026-08-25</lastmod>
-    </url>
-    <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/game-design/</loc>
          <lastmod>2026-08-25</lastmod>
     </url>
@@ -97,7 +89,19 @@
          <lastmod>2026-08-25</lastmod>
     </url>
     <url>
-         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/combat-simulation/</loc>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/audio-runtime/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/brain-runtime/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/client-architecture/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/combat-engine/</loc>
          <lastmod>2026-08-25</lastmod>
     </url>
     <url>
@@ -105,15 +109,27 @@
          <lastmod>2026-08-25</lastmod>
     </url>
     <url>
-         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/dev-environment/</loc>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/contracts-and-data-flow/</loc>
          <lastmod>2026-08-25</lastmod>
     </url>
     <url>
-         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/item-content-and-crafting/</loc>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/development-workflow/</loc>
          <lastmod>2026-08-25</lastmod>
     </url>
     <url>
-         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/item-persistence/</loc>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/future-online/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/items-and-crafting/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/localization-and-narrative-content/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/modifiers-and-tags/</loc>
          <lastmod>2026-08-25</lastmod>
     </url>
     <url>
@@ -121,7 +137,7 @@
          <lastmod>2026-08-25</lastmod>
     </url>
     <url>
-         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/process-topology/</loc>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/persistence/</loc>
          <lastmod>2026-08-25</lastmod>
     </url>
     <url>
@@ -129,7 +145,19 @@
          <lastmod>2026-08-25</lastmod>
     </url>
     <url>
-         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screen-specs/</loc>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/replay/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/run-systems/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/runtime-topology/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/simulation-core/</loc>
          <lastmod>2026-08-25</lastmod>
     </url>
     <url>
@@ -141,7 +169,7 @@
          <lastmod>2026-08-25</lastmod>
     </url>
     <url>
-         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/tech-stack/</loc>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/technology-baseline/</loc>
          <lastmod>2026-08-25</lastmod>
     </url>
     <url>
@@ -149,7 +177,71 @@
          <lastmod>2026-08-25</lastmod>
     </url>
     <url>
-         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/ui-architecture/</loc>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/ai-editor/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/boot-and-connection/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/combat-viewing/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/inventory-and-crafting/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/main-menu/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/progression/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/replay-library/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/replay-viewer/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/rest/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/road-forge/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/room-resolution/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/run-map/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/run-result/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/run-setup/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/settings-and-system-menu/</loc>
+         <lastmod>2026-08-25</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/shop/</loc>
          <lastmod>2026-08-25</lastmod>
     </url>
 </urlset>

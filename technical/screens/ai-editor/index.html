@@ -1,0 +1,2728 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Живая игровая и техническая документация CodeDungeon">
+      
+      
+      
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/ai-editor/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../combat-viewing/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Как устроен экран редактора Мозга? - CodeDungeon — документация</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#как-устроен-экран-редактора-мозга" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../../.." title="CodeDungeon — документация" class="md-header__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CodeDungeon — документация
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Как устроен экран редактора Мозга?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить тёмную тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Включить тёмную тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить светлую тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Включить светлую тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CodeDungeon — документация" class="md-nav__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CodeDungeon — документация
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как читать документацию
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Игровой дизайн
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Игровой дизайн
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что это за игра?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game-design/core-loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен основной цикл игры?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game-design/run-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен забег?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game-design/programming-the-hero/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как игрок программирует героя?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game-design/combat-and-replay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как проходит бой и как игрок его разбирает?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game-design/progression-and-builds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как растёт персонаж и из чего собирается билд?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game-design/skills-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроены навыки, теги и модификаторы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game-design/items-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как работают предметы, добыча и крафт?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game-design/enemies-and-encounters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    С кем сражается герой?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game-design/biomes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Чем отличаются биомы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game-design/narrative-and-setting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что за мир и почему игрок в нём именно программист?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game-design/visual-language/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как игра выглядит и как читается на экране?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game-design/audio-direction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как звучит игра?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game-design/accessibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как игра остаётся доступной?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game-design/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что означает термин?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game-design/brain-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Какие блоки доступны в редакторе Мозга?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game-design/deferred-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что сознательно отложено за пределы MVP?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Техническая документация
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Техническая документация
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как читать техническую документацию CodeDungeon?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Где проходят границы системы и кому принадлежит состояние?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technology-baseline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    На каких технологиях и форматах строится MVP?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../runtime-topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как запускаются и завершаются два процесса игры?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contracts-and-data-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как команды, события и данные переходят между Go и Godot?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../simulation-core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как работает детерминированное ядро симуляции?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../combat-engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как боевой движок разрешает арену и действия?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../replay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как хранится и читается авторитетная запись забега?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../brain-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как компилируется, проверяется и исполняется Мозг?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как значение проходит единый конвейер расчёта?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modifiers-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как модификатор находит характеристику по тегам?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat-registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Какие характеристики разрешены в расчёте?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../items-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как реализовать предметы, инвентарь и крафт?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как сервер ведёт забег, миссию и переходы между узлами?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../persistence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как локальное состояние сохраняется и восстанавливается?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../client-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как Godot отображает авторитетное состояние и управляет интерфейсом?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как события превращаются в синхронный звук?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_18" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_18" id="__nav_3_18_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экраны
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_18_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_18">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Экраны
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроены экраны и общие правила интерфейса?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран редактора Мозга?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран редактора Мозга?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#на-какой-вопрос-отвечает-экран" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        На какой вопрос отвечает экран?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#когда-в-редактор-можно-войти" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Когда в редактор можно войти?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-игрок-покидает-экран" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как игрок покидает экран?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-данные-и-команды-пересекают-границу-экрана" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие данные и команды пересекают границу экрана?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#в-каком-порядке-читается-информация" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        В каком порядке читается информация?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-раскладывается-экран-на-169-и-219" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как раскладывается экран на 16:9 и 21:9?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-работают-ввод-и-фокус" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как работают ввод и фокус?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-выглядит-основной-цикл-взаимодействия" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как выглядит основной цикл взаимодействия?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-ведут-себя-выделение-наведение-и-модали" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как ведут себя выделение, наведение и модали?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-состояния-обязан-показать-экран" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие состояния обязан показать экран?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какая-обратная-связь-нужна-экрану" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какая обратная связь нужна экрану?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-визуальные-ассеты-требуются" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие визуальные ассеты требуются?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-экран-выполняет-требования-доступности" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как экран выполняет требования доступности?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-экран-сохраняет-между-визитами" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что экран сохраняет между визитами?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-сценарии-фиксируют-контракт" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие сценарии фиксируют контракт?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-нужно-сделать" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что нужно сделать
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-читать-дальше" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что читать дальше?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../combat-viewing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен первый просмотр боя?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../road-forge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроена Дорожная кузня?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inventory-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран инвентаря и крафта?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../progression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран прогрессии?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../run-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроена подготовка забега?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../run-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как работает карта маршрута?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../room-resolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран подводит итог комнаты и передаёт добычу?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран точки отдыха проводит обязательный выбор?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран лавки проводит покупку и продажу?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../run-result/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран итога забега завершает попытку?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../replay-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как библиотека перечисляет сохранённые записи забегов?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../replay-viewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как просмотрщик помогает разобрать запись по боям-главам?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../settings-and-system-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как работают настройки и системное меню?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../boot-and-connection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как клиент показывает запуск и подключение к локальному Go?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../main-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как главное меню выбирает профиль и открывает игру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как авторский JSON становится пакетом контента?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../localization-and-narrative-content/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как текст попадает в игру и остаётся переводимым?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как исходный ассет становится ресурсом Godot?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как подготовить изменение и передать его без потери контракта?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing-and-ci/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как тесты доказывают, что изменение можно интегрировать?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../future-online/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как CodeDungeon переходит к публичному Online после MVP?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../production-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    План производства и разделение ролей
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mvp-definition-of-done/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definition of Done для MVP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../open-questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реестр открытых вопросов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#на-какой-вопрос-отвечает-экран" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        На какой вопрос отвечает экран?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#когда-в-редактор-можно-войти" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Когда в редактор можно войти?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-игрок-покидает-экран" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как игрок покидает экран?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-данные-и-команды-пересекают-границу-экрана" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие данные и команды пересекают границу экрана?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#в-каком-порядке-читается-информация" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        В каком порядке читается информация?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-раскладывается-экран-на-169-и-219" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как раскладывается экран на 16:9 и 21:9?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-работают-ввод-и-фокус" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как работают ввод и фокус?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-выглядит-основной-цикл-взаимодействия" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как выглядит основной цикл взаимодействия?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-ведут-себя-выделение-наведение-и-модали" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как ведут себя выделение, наведение и модали?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-состояния-обязан-показать-экран" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие состояния обязан показать экран?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какая-обратная-связь-нужна-экрану" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какая обратная связь нужна экрану?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-визуальные-ассеты-требуются" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие визуальные ассеты требуются?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-экран-выполняет-требования-доступности" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как экран выполняет требования доступности?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-экран-сохраняет-между-визитами" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что экран сохраняет между визитами?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#какие-сценарии-фиксируют-контракт" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какие сценарии фиксируют контракт?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-нужно-сделать" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что нужно сделать
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-читать-дальше" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что читать дальше?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/technical/screens/ai-editor.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="как-устроен-экран-редактора-мозга">Как устроен экран редактора Мозга?<a class="headerlink" href="#как-устроен-экран-редактора-мозга" title="Permanent link">&para;</a></h1>
+<p>Эта глава задаёт контракт сцены Godot, в которой игрок выбирает Мозг, правит его граф и проверяет новую ревизию до назначения персонажу.</p>
+<p><strong>Реализует:</strong> <a href="../../../game-design/programming-the-hero/#кому-принадлежат-персонажи-и-мозги">владение персонажами и Мозгами</a>, <a href="../../../game-design/programming-the-hero/#как-игрок-работает-в-редакторе">работу в редакторе</a>, <a href="../../../game-design/programming-the-hero/#как-проверить-мозг-до-забега">проверку до забега</a>, <a href="../../../game-design/programming-the-hero/#как-игрок-разбирает-решение-после-боя">разбор решения после боя</a>, <a href="../../../game-design/accessibility/#как-клавиатура-управляет-мозгом">управление Мозгом с клавиатуры</a>, <a href="../../../game-design/accessibility/#как-озвучивается-мозг">озвучивание Мозга</a>.</p>
+<h2 id="на-какой-вопрос-отвечает-экран">На какой вопрос отвечает экран?<a class="headerlink" href="#на-какой-вопрос-отвечает-экран" title="Permanent link">&para;</a></h2>
+<p>AI Editor отвечает на вопрос: «Почему боец выбрал это действие и какую ветку нужно изменить?» Экран объединяет библиотеку Мозгов, редактор графа, авторитетную проверку и тестовый просмотр, чтобы весь цикл от причины до принятой ревизии проходил без перехода в другую вкладку.</p>
+<p>Экран не исполняет Мозг и не определяет допустимость программы. Registry, канонизация, расчёт Памяти, валидация, компиляция, тестовый прогон и диагностическая трасса принадлежат <a href="../../brain-runtime/">runtime Мозга</a>; AI Editor только отображает их входы и результаты.</p>
+<h2 id="когда-в-редактор-можно-войти">Когда в редактор можно войти?<a class="headerlink" href="#когда-в-редактор-можно-войти" title="Permanent link">&para;</a></h2>
+<p>Обычный вход идёт через вкладку <strong>Мозг</strong> в Дорожной кузне или между завершёнными комнатами активного забега. Во время боя редактор недоступен: первый просмотр боя занимает отдельный экран, а правка становится возможной после получения результата комнаты.</p>
+<p>Диагностический вход приходит из отметки временной шкалы записи или из первой регрессии команды «Проверить всё изученное». Router открывает нужный Мозг, список поведения или прерываний, модуль и блок, центрирует его в <code>GraphWorkspace</code> и передаёт панели причины соответствующую трассу. Выбранный персонаж приходит контекстом профиля; менять персонажа этот экран не позволяет.</p>
+<h2 id="как-игрок-покидает-экран">Как игрок покидает экран?<a class="headerlink" href="#как-игрок-покидает-экран" title="Permanent link">&para;</a></h2>
+<p>Постоянная панель вкладок ведёт в любой доступный экран по <a href="../#как-работает-постоянная-панель-вкладок">общему контракту навигации</a>. <code>Escape</code> последовательно закрывает блокирующую модаль, настройки блока, граф модуля и обзор Мозга; следующий <code>Escape</code> покидает экран или открывает системное меню согласно текущему маршруту.</p>
+<p>При выходе с непринятым черновиком блокирующая модаль предлагает применить его, отбросить или остаться. Применение отправляет команду в Go и закрывает экран только после принятого ответа; отказ или ошибка оставляют черновик и фокус на месте. Мозг с блокирующими ошибками нельзя сохранить, опубликовать или назначить, а предупреждения требуют отдельного явного подтверждения.</p>
+<h2 id="какие-данные-и-команды-пересекают-границу-экрана">Какие данные и команды пересекают границу экрана?<a class="headerlink" href="#какие-данные-и-команды-пересекают-границу-экрана" title="Permanent link">&para;</a></h2>
+<p>Go/симуляция владеет подтверждёнными данными. View-model содержит библиотеку профиля с именами, hashes, временем последней правки и признаком назначенного варианта; текущую ревизию и её hash; бюджет и расход Памяти; доступный каталог блоков; структурированные ошибки и предупреждения; последнюю трассу решения; сведения о предстоящей встрече; результаты одиночного теста и «Проверить всё изученное»; доступность комнаты смерти. Точные DTO fields, opcode и envelope не принадлежат экрану и определяются <a href="../../contracts-and-data-flow/">контрактами потока данных</a>.</p>
+<p>Через command facade экран отправляет создание, копирование, переименование, удаление и назначение Мозга; авторитетную проверку черновика с debounce; сохранение ревизии, публикацию и назначение персонажу; запуск теста на fixture или комнате смерти; пакетную проверку изученных встреч; детерминированный reset теста. Импорт из буфера или файла и экспорт в эти адаптеры используют единый <code>BlueprintExchange</code>; кодек и строгая проверка недоверенного ввода принадлежат <a href="../../brain-runtime/">runtime Мозга</a>, поэтому сцена не разбирает контейнер самостоятельно и не сохраняет частичный импорт.</p>
+<p>Локальными остаются выделение, поиск, фильтры, прокрутка, открытый масштаб, позиции блоков незавершённого черновика, ghost-соединения и undo. Они не меняют подтверждённую revision и не дают оптимистично назначить Мозг. После ответа Go экран получает новый view-model целиком; отказ сохраняет прежнюю подтверждённую проекцию и показывает машинный код причины через <code>tr()</code>.</p>
+<h2 id="в-каком-порядке-читается-информация">В каком порядке читается информация?<a class="headerlink" href="#в-каком-порядке-читается-информация" title="Permanent link">&para;</a></h2>
+<p>Первой читается библиотека и имя Мозга, который сейчас правится. Затем всегда видны Память и итог валидации, после них — панель причины с последней трассой или первой регрессией. Палитра блоков и списки поведений, модулей и прерываний обслуживают правку, а команды одиночного и пакетного теста замыкают порядок.</p>
+<p>Панель причины показывает фактически пройденный путь, выбранное действие и отклонённых кандидатов более высокого приоритета. Она не предлагает готового исправления и не раскрывает Мозг врага: gameplay-смысл диагностической трассы принадлежит <a href="../../../game-design/programming-the-hero/#как-игрок-разбирает-решение-после-боя">разбору решения</a>.</p>
+<h2 id="как-раскладывается-экран-на-169-и-219">Как раскладывается экран на 16:9 и 21:9?<a class="headerlink" href="#как-раскладывается-экран-на-169-и-219" title="Permanent link">&para;</a></h2>
+<p>Слева расположена библиотека Мозгов, а под ней — палитра и раздельные списки поведений и прерываний. Центр занимает <code>GraphWorkspace</code> в одном из трёх масштабов: обзор Мозга, граф модуля или настройки блока. Справа находятся инспектор выделенного и панель причины; сверху — путь между масштабами, снизу — Память, итог валидации и команды проверки.</p>
+<p>На 21:9 дополнительная ширина отдаётся <code>GraphWorkspace</code> и панели причины. Узлы, кегль и боковые панели не растягиваются, инспектор не отделяется от полотна. На 16:9 и при максимальном поддерживаемом масштабе интерфейса контейнеры используют перенос и прокрутку: ни одна команда, ошибка или строка Памяти не исчезает и не обрезается.</p>
+<h2 id="как-работают-ввод-и-фокус">Как работают ввод и фокус?<a class="headerlink" href="#как-работают-ввод-и-фокус" title="Permanent link">&para;</a></h2>
+<p>Основной жест мыши — выбрать тип блока, затем указать место; drag-and-drop остаётся ускорителем. Провод тянется от выхода ко входу, приоритет строки меняется за рукоять, средняя кнопка панорамирует, колесо меняет масштаб полотна в пределах 50–200%. Каждая операция имеет клавиатурный эквивалент.</p>
+<p>Во внешнем графе фокуса <code>GraphWorkspace</code> является одной остановкой. Внутри стрелки перемещают фокус пространственно, <code>Enter</code> входит в блок и его порты, <code>Ctrl</code> со стрелками двигает блок, <code>Escape</code> возвращает на предыдущий масштаб, а команда совместимых целей открывает список допустимых портов и прямой переход. Внешний порядок таков: вкладки → путь масштабов → библиотека → списки и палитра → <code>GraphWorkspace</code> → инспектор → проверки.</p>
+<h2 id="как-выглядит-основной-цикл-взаимодействия">Как выглядит основной цикл взаимодействия?<a class="headerlink" href="#как-выглядит-основной-цикл-взаимодействия" title="Permanent link">&para;</a></h2>
+<p>Игрок открывает причину неудачного решения, меняет одну ветку, запускает фиксированную ситуацию, затем «Проверить всё изученное» и применяет новую ревизию. При провале пакетной проверки экран открывает первый момент расхождения и даёт команду перейти к следующей регрессии. Неполная проверка из-за несовместимой версии не показывается как успех.</p>
+<p>Комната смерти использует тот же тестовый проигрыватель, что fixture: доступны пауза, шаг по тикам, seek, перемотка и reset. Тест читает готовый авторитетный event record, не начинает забег, не выдаёт наград и не продолжает завершённую попытку. При отсутствии комнаты смерти команда остаётся видимой и фокусируемой и сообщает причину недоступности.</p>
+<h2 id="как-ведут-себя-выделение-наведение-и-модали">Как ведут себя выделение, наведение и модали?<a class="headerlink" href="#как-ведут-себя-выделение-наведение-и-модали" title="Permanent link">&para;</a></h2>
+<p>Выделяется один блок, связь или элемент списка; выделение подсвечивает связанный путь и адресует инспектор. Наведение повторяет сведения выделения и никогда не является единственным способом прочитать параметр или причину. Ghost размещения и проводки остаётся предварительным, <code>Escape</code> отменяет жест, а удаление выделенной связи выполняется отдельной командой.</p>
+<p>Несовместимый порт отклоняет соединение немедленно, сохраняет исходный граф и даёт текстовую причину экранному диктору. Через общий <code>ModalLayer</code> открываются подтверждение выхода с черновиком, назначение при предупреждениях, удаление Мозга, импорт недоверенного контейнера и ошибка сохранения. Одновременно существует не более одной блокирующей модали, после закрытия фокус возвращается вызвавшему <code>Control</code>.</p>
+<h2 id="какие-состояния-обязан-показать-экран">Какие состояния обязан показать экран?<a class="headerlink" href="#какие-состояния-обязан-показать-экран" title="Permanent link">&para;</a></h2>
+<p>Загрузка сохраняет геометрию будущих панелей, но не подставляет числа и отключает зависимые команды. Пустой Мозг называет следующее действие — добавить первое правило; пустая библиотека ведёт к созданию Мозга. Stale revision показывает баннер перечитывания и никогда не накладывает локальный diff поверх неизвестной версии.</p>
+<p>Блокирующая диагностика показывает список с переходом к виновному блоку; transport failure даёт повтор и сохраняет черновик. Неподдерживаемый <code>BlueprintExchange</code>, неизвестный ID, недоступный content или невалидный граф отклоняются целиком с различимой причиной. После успеха экран показывает новый hash и зафиксированный расход Памяти, а прежнюю трассу помечает как относящуюся к другой ревизии.</p>
+<p>Неизвестная обязательная семантика view-model не получает клиентский default. Mapper переводит экран в явную ошибку совместимости по <a href="../#как-меняется-контракт-экрана">общему правилу версий</a>, а смена layout, фокуса или locale не повышает server revision.</p>
+<h2 id="какая-обратная-связь-нужна-экрану">Какая обратная связь нужна экрану?<a class="headerlink" href="#какая-обратная-связь-нужна-экрану" title="Permanent link">&para;</a></h2>
+<p>Установка блока, завершение связи, отказ порта, принятие ревизии и провал валидации получают различимые короткие UI cues. Их каталог, buses и приоритеты принадлежат <a href="../../audio-runtime/">audio runtime</a>; сцена выпускает семантическое событие интерфейса и не заводит локальные cue IDs.</p>
+<p>Анимация используется только для перехода между тремя масштабами и центрирования блока после диагностического входа. Переход сохраняет зрительный контекст и не задерживает появление ошибки или принятого hash. Эти эффекты не входят в replay и не зависят от событий боевой симуляции.</p>
+<h2 id="какие-визуальные-ассеты-требуются">Какие визуальные ассеты требуются?<a class="headerlink" href="#какие-визуальные-ассеты-требуются" title="Permanent link">&para;</a></h2>
+<p>Категории блоков различаются шестью формами: условие, селектор, действие, параметр или литерал, управление потоком, вызов модуля. Конкретную конструкцию обозначает иконка из канонического registry, а состояния обычного, выделенного, сработавшего, отключённого и невалидного блока остаются различимыми в оттенках серого.</p>
+<p>Проводам нужны состояния обычного соединения, ghost, отказа и подсвеченного пути с ортогональной разводкой. Прерывание и вызов модуля получают отдельные узнаваемые знаки. Производство, provenance и импорт ассетов принадлежат <a href="../../asset-pipeline/">asset pipeline</a>, а визуальный смысл следует <a href="../../../game-design/visual-language/">языку интерфейса</a>.</p>
+<h2 id="как-экран-выполняет-требования-доступности">Как экран выполняет требования доступности?<a class="headerlink" href="#как-экран-выполняет-требования-доступности" title="Permanent link">&para;</a></h2>
+<p>Диктор читает Мозг как упорядоченные правила, а не как координаты. Для блока он последовательно сообщает положение, категорию, имя, stable ID, значение, типизированные входы и их источники, потребителей выхода и результат проверки. Постоянная строка позиции и команда «где я» добавляют число входящих и исходящих ссылок.</p>
+<p>Поиск по имени и stable ID, переход к модулю, выбор и размещение блока, соединение портов, изменение параметров, удаление связи, запуск тестов и операции библиотеки выполняются без мыши. Максимальный масштаб интерфейса не скрывает действия, а скриншот в оттенках серого сохраняет шесть категорий, состояния блоков, проводов и видимый фокус. Практический барьер приёмки — незрячий автор собирает правило, входит в модуль, возвращается и находит причину решения.</p>
+<h2 id="что-экран-сохраняет-между-визитами">Что экран сохраняет между визитами?<a class="headerlink" href="#что-экран-сохраняет-между-визитами" title="Permanent link">&para;</a></h2>
+<p>Экран восстанавливает локальный путь между тремя масштабами, точку фокуса, выделение, поиск, фильтры, свёрнутые ветви, положение полотна и undo в пределах сессии. При возврате из timeline или результата проверки он открывает ту точку графа, из которой был выполнен переход.</p>
+<p>Содержимое принятой ревизии, библиотека, назначение и результаты тестов всегда перечитываются из selector. Сцена не определяет собственный формат Мозга или layout: сохранение authoring data и canonical hash следует <a href="../../brain-runtime/#где-проходит-граница-ревизии">границе ревизии</a>, а локальный presentation state не подменяет её.</p>
+<h2 id="какие-сценарии-фиксируют-контракт">Какие сценарии фиксируют контракт?<a class="headerlink" href="#какие-сценарии-фиксируют-контракт" title="Permanent link">&para;</a></h2>
+<p>Переход из timeline открывает точный граф и блок и показывает отклонённых кандидатов более высокого приоритета. Полная клавиатурная цепочка создаёт или выбирает Мозг, правит ветку, запускает fixture, выполняет пакетную проверку и получает принятую ревизию; ни на одном шаге фокус не теряется. Несовместимый порт, блокирующая диагностика, stale revision, транспортная ошибка и несовместимый импорт сохраняют прежнюю подтверждённую ревизию и называют разные причины.</p>
+<p>Сцена одинаково строится из замороженной fixture S3 и live view-model S9 без ветви <code>if fixture</code> и без изменения layout. Комната смерти даёт тот же транспорт чтения, что обычный тест, но не меняет профиль. Снимки 16:9, 21:9, максимального масштаба и оттенков серого сохраняют весь состав, смысл и доступный фокус.</p>
+<h2 id="что-нужно-сделать">Что нужно сделать<a class="headerlink" href="#что-нужно-сделать" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Владелец:</strong> Godot/клиент, этап S3 по <a href="../../production-plan/">плану производства</a>; Go/симуляция предоставляет замороженный view-model в S0, runtime и одиночный тест в S4, пакетный результат в S6, а S9 подключает ту же сцену к live-данным без изменения разметки.</li>
+<li><strong>Артефакты:</strong> сцена <code>UILayer/AIEditorScreen</code> и компонент <code>GraphWorkspace</code> в <code>codedungeon/</code>; selector и fixture adapter для AI Editor; read-only набор его loading, empty, stale, error, success и unavailable fixtures в <code>fixtures/ui/</code>; локализованные строки в <code>codedungeon/translations/translations.csv</code>; headless screen, focus, keyboard, narrator, modal, layout и snapshot tests.</li>
+<li><strong>Готово, когда:</strong> сцена проходит все сценарии предыдущего раздела; пять библиотечных операций, импорт и экспорт, правка графа, оба тестовых режима и применение ревизии доступны с клавиатуры; блокирующая ошибка запрещает сохранение, публикацию и назначение; ответ Go является единственным способом изменить подтверждённую revision; fixture и live DTO строят один view-model; <code>tools/check.ps1</code> завершается с кодом 0.</li>
+<li><strong>Не трогать:</strong> registry блоков, <code>BlueprintExchange</code>, Память, validator, compiler, executor и test-mode принадлежат <code>brain-runtime.md</code>; wire fields и совместимость — <code>contracts-and-data-flow.md</code>; store, router, command facade, <code>ModalLayer</code> и общий focus manager — <code>client-architecture.md</code>; общая навигация и presentation states — <code>screens/index.md</code>; gameplay-смысл Мозга — <code>game-design/programming-the-hero.md</code> и <code>game-design/brain-reference.md</code>; cue catalog — <code>audio-runtime.md</code>; player-visible текст — <code>localization-and-narrative-content.md</code>.</li>
+</ul>
+<h2 id="что-читать-дальше">Что читать дальше?<a class="headerlink" href="#что-читать-дальше" title="Permanent link">&para;</a></h2>
+<p>Дальше — <a href="../combat-viewing/">как устроен первый просмотр боя</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.top", "search.highlight", "search.suggest", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../javascripts/navigation-state.js"></script>
+      
+    
+  </body>
+</html>

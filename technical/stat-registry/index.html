@@ -13,10 +13,10 @@
         <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/stat-registry/">
       
       
-        <link rel="prev" href="../stat-pipeline/">
+        <link rel="prev" href="../modifiers-and-tags/">
       
       
-        <link rel="next" href="../item-content-and-crafting/">
+        <link rel="next" href="../items-and-crafting/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Реестр stat ID - CodeDungeon — документация</title>
+        <title>Какие характеристики разрешены в расчёте? - CodeDungeon — документация</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#реестр-stat-id" class="md-skip">
+        <a href="#какие-характеристики-разрешены-в-расчёте" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Реестр stat ID
+              Какие характеристики разрешены в расчёте?
             
           </span>
         </div>
@@ -877,7 +877,7 @@
   <span class="md-ellipsis">
     
   
-    Техническая документация
+    Как читать техническую документацию CodeDungeon?
   
 
     
@@ -905,7 +905,7 @@
   <span class="md-ellipsis">
     
   
-    Архитектурный скелет
+    Где проходят границы системы и кому принадлежит состояние?
   
 
     
@@ -926,14 +926,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../tech-stack/" class="md-nav__link">
+      <a href="../technology-baseline/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Технологический стек
+    На каких технологиях и форматах строится MVP?
   
 
     
@@ -954,14 +954,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../process-topology/" class="md-nav__link">
+      <a href="../runtime-topology/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Топология процессов и запуск
+    Как запускаются и завершаются два процесса игры?
   
 
     
@@ -982,14 +982,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../production-plan/" class="md-nav__link">
+      <a href="../contracts-and-data-flow/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    План производства и разделение ролей
+    Как команды, события и данные переходят между Go и Godot?
   
 
     
@@ -1010,14 +1010,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev-environment/" class="md-nav__link">
+      <a href="../simulation-core/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Среда разработки и инструменты агентов
+    Как работает детерминированное ядро симуляции?
   
 
     
@@ -1038,14 +1038,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../content-packages/" class="md-nav__link">
+      <a href="../combat-engine/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Пакеты контента и баланса
+    Как боевой движок разрешает арену и действия?
   
 
     
@@ -1066,14 +1066,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../combat-simulation/" class="md-nav__link">
+      <a href="../replay/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Спецификация боевой симуляции
+    Как хранится и читается авторитетная запись забега?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../brain-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как компилируется, проверяется и исполняется Мозг?
   
 
     
@@ -1101,7 +1129,35 @@
   <span class="md-ellipsis">
     
   
-    Единый конвейер расчёта
+    Как значение проходит единый конвейер расчёта?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modifiers-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как модификатор находит характеристику по тегам?
   
 
     
@@ -1138,7 +1194,7 @@
   <span class="md-ellipsis">
     
   
-    Реестр stat ID
+    Какие характеристики разрешены в расчёте?
   
 
     
@@ -1156,7 +1212,7 @@
   <span class="md-ellipsis">
     
   
-    Реестр stat ID
+    Какие характеристики разрешены в расчёте?
   
 
     
@@ -1182,10 +1238,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#статус" class="md-nav__link">
+  <a href="#где-находится-источник-истины" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Статус
+        Где находится источник истины?
       
     </span>
   </a>
@@ -1193,10 +1249,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#как-читать-таблицу" class="md-nav__link">
+  <a href="#что-является-частью-идентичности" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Как читать таблицу
+        Что является частью идентичности?
       
     </span>
   </a>
@@ -1204,10 +1260,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ключи" class="md-nav__link">
+  <a href="#как-читать-единицы-стадии-и-измерения" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ключи
+        Как читать единицы, стадии и измерения?
       
     </span>
   </a>
@@ -1215,10 +1271,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#уточнения-к-отдельным-ключам" class="md-nav__link">
+  <a href="#какие-stat-id-входят-в-mvp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Уточнения к отдельным ключам
+        Какие stat ID входят в MVP?
       
     </span>
   </a>
@@ -1226,10 +1282,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#чего-в-реестре-нет" class="md-nav__link">
+  <a href="#когда-нужен-новый-stat-id" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Чего в реестре нет
+        Когда нужен новый stat ID?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-нужно-сделать" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что нужно сделать
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-читать-дальше" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что читать дальше?
       
     </span>
   </a>
@@ -1252,14 +1330,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../item-content-and-crafting/" class="md-nav__link">
+      <a href="../items-and-crafting/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Контент предметов и движок крафта
+    Как реализовать предметы, инвентарь и крафт?
   
 
     
@@ -1280,14 +1358,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../item-persistence/" class="md-nav__link">
+      <a href="../run-systems/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Хранение предметов
+    Как сервер ведёт забег, миссию и переходы между узлами?
   
 
     
@@ -1308,14 +1386,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ui-architecture/" class="md-nav__link">
+      <a href="../persistence/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Интерфейс: экраны, навигация и граница клиента
+    Как локальное состояние сохраняется и восстанавливается?
   
 
     
@@ -1336,14 +1414,629 @@
   
   
     <li class="md-nav__item">
-      <a href="../screen-specs/" class="md-nav__link">
+      <a href="../client-architecture/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Спецификации экранов
+    Как Godot отображает авторитетное состояние и управляет интерфейсом?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audio-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как события превращаются в синхронный звук?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_18" id="__nav_3_18_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экраны
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_18">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Экраны
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроены экраны и общие правила интерфейса?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/ai-editor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран редактора Мозга?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/combat-viewing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен первый просмотр боя?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/road-forge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроена Дорожная кузня?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/inventory-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран инвентаря и крафта?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/progression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран прогрессии?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/run-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроена подготовка забега?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/run-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как работает карта маршрута?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/room-resolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран подводит итог комнаты и передаёт добычу?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/rest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран точки отдыха проводит обязательный выбор?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/shop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран лавки проводит покупку и продажу?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/run-result/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран итога забега завершает попытку?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/replay-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как библиотека перечисляет сохранённые записи забегов?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/replay-viewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как просмотрщик помогает разобрать запись по боям-главам?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/settings-and-system-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как работают настройки и системное меню?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/boot-and-connection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как клиент показывает запуск и подключение к локальному Go?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/main-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как главное меню выбирает профиль и открывает игру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как авторский JSON становится пакетом контента?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../localization-and-narrative-content/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как текст попадает в игру и остаётся переводимым?
   
 
     
@@ -1371,7 +2064,35 @@
   <span class="md-ellipsis">
     
   
-    Конвейер 3D-ассетов
+    Как исходный ассет становится ресурсом Godot?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как подготовить изменение и передать его без потери контракта?
   
 
     
@@ -1399,7 +2120,63 @@
   <span class="md-ellipsis">
     
   
-    Стратегия тестирования и CI
+    Как тесты доказывают, что изменение можно интегрировать?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../future-online/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как CodeDungeon переходит к публичному Online после MVP?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../production-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    План производства и разделение ролей
   
 
     
@@ -1475,60 +2252,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../roles/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Роли в разработке
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../undocumented-areas/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Незадокументированные области
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -1556,10 +2279,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#статус" class="md-nav__link">
+  <a href="#где-находится-источник-истины" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Статус
+        Где находится источник истины?
       
     </span>
   </a>
@@ -1567,10 +2290,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#как-читать-таблицу" class="md-nav__link">
+  <a href="#что-является-частью-идентичности" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Как читать таблицу
+        Что является частью идентичности?
       
     </span>
   </a>
@@ -1578,10 +2301,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ключи" class="md-nav__link">
+  <a href="#как-читать-единицы-стадии-и-измерения" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ключи
+        Как читать единицы, стадии и измерения?
       
     </span>
   </a>
@@ -1589,10 +2312,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#уточнения-к-отдельным-ключам" class="md-nav__link">
+  <a href="#какие-stat-id-входят-в-mvp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Уточнения к отдельным ключам
+        Какие stat ID входят в MVP?
       
     </span>
   </a>
@@ -1600,10 +2323,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#чего-в-реестре-нет" class="md-nav__link">
+  <a href="#когда-нужен-новый-stat-id" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Чего в реестре нет
+        Когда нужен новый stat ID?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-нужно-сделать" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что нужно сделать
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-читать-дальше" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что читать дальше?
       
     </span>
   </a>
@@ -1635,124 +2380,97 @@
   
 
 
-<h1 id="реестр-stat-id">Реестр stat ID<a class="headerlink" href="#реестр-stat-id" title="Permanent link">&para;</a></h1>
-<p>Полный перечень ключей характеристик MVP. Форма адресации принадлежит <a href="../stat-pipeline/#идентичность-характеристики">идентичности характеристики</a>, стадии — <a href="../stat-pipeline/#девять-стадий">девяти стадиям конвейера</a>, числовые границы — <a href="../../game-design/progression-and-builds/">принципам баланса чисел</a>.</p>
-<p>Реестр фиксирует <strong>идентичность и форму</strong>, а не числа. Единица, область значений, стадия применения и измерение векторизации — часть контракта ключа; конкретные величины принадлежат балансу и плейтесту и в реестре не появляются. Реестр <strong>append-only</strong>: удалённый ключ становится надгробием, никогда не переиспользуется и никогда не переосмысляется. Векторизованный ключ считается <strong>один раз</strong>: его полосы — не отдельные ключи, и семи <code>mitigation</code> или шести <code>status_duration</code> в реестре нет.</p>
-<h2 id="статус">Статус<a class="headerlink" href="#статус" title="Permanent link">&para;</a></h2>
-<p><strong>Принято.</strong> Закрывает открытый вопрос о полном перечне stat ID.</p>
-<ul>
-<li>Ключей 61: 58 <code>[MVP]</code> и 3 <code>[headroom]</code>.</li>
-<li><code>[headroom]</code> означает: форма ключа заморожена, но ни один источник MVP его не выдаёт. Такой ключ существует, чтобы поздняя механика не потребовала нового ID с той же семантикой.</li>
-<li>Изменение единицы, области, знака, стадии или смысла существующего ключа запрещено и требует нового ID (<a href="../stat-pipeline/#сериализация-и-совместимость">сериализация и совместимость</a>).</li>
-</ul>
-<h2 id="как-читать-таблицу">Как читать таблицу<a class="headerlink" href="#как-читать-таблицу" title="Permanent link">&para;</a></h2>
+<h1 id="какие-характеристики-разрешены-в-расчёте">Какие характеристики разрешены в расчёте?<a class="headerlink" href="#какие-характеристики-разрешены-в-расчёте" title="Permanent link">&para;</a></h1>
+<p>Эта глава задаёт единственный реестр stat ID MVP, их единицы, области допустимых итоговых значений, стадии наблюдения, измерения <code>StatRef</code> и правила необратимого удаления.</p>
+<p><strong>Реализует:</strong> <a href="../../game-design/skills-and-tags/#как-устроена-экономика-активных-навыков">экономику активных навыков</a>, <a href="../../game-design/skills-and-tags/#какие-типы-урона-существуют">типы урона и семь полос защиты</a>, <a href="../../game-design/progression-and-builds/#как-устроено-большое-пассивное-дерево">атрибуты и их производные</a>, <a href="../../game-design/progression-and-builds/#какие-пределы-останавливают-вертикальный-рост">пределы вертикального роста</a>, <a href="../../game-design/combat-and-replay/#как-действие-проходит-через-три-фазы">фазы действия</a>, <a href="../../game-design/combat-and-replay/#как-эффекты-контроля-меняют-действие">эффекты контроля</a>.</p>
+<h2 id="где-находится-источник-истины">Где находится источник истины?<a class="headerlink" href="#где-находится-источник-истины" title="Permanent link">&para;</a></h2>
+<p>Реестром владеет Go/симуляция. Он является единственным разрешающим справочником для <code>stat_id</code>: загрузчик контента, разрешение билда, построение плана модификаторов, исполнение симуляции и проверка сохранённых ссылок используют одну и ту же запись. Godot получает локализованное представление уже разрешённой характеристики и не поддерживает собственный список ID, единиц или границ.</p>
+<p>Входом реестра является <code>stat_id</code> из канонического <code>StatRef</code> либо из определения базового значения. Формой <code>StatRef</code>, его селекторами и канонизацией владеет глава о <a href="../modifiers-and-tags/#как-сериализуется-ссылка-на-характеристику">модификаторах и тегах</a>; эта глава указывает только, какие измерения разрешены конкретному ID. Успешное разрешение возвращает неизменяемую запись реестра и может использовать плотный runtime-индекс, но сериализуются только стабильный строковый ID и селекторы. Само разрешение не создаёт игрового события; события и трассы используют уже разрешённую ссылку по контрактам своих владельцев.</p>
+<p>Неизвестный <code>stat_id</code>, запрещённое для него измерение или ссылка на запись-надгробие в новом контенте являются структурной ошибкой. Загрузчик отклоняет весь объект до тика 0 и возвращает машинно-читаемый путь к ошибочному полю; он не исправляет написание, не выбирает похожий ID и не отбрасывает только нераспознанный модификатор. Во время тика появление ссылки, не разрешённой закреплённым <code>ContentSnapshot</code>, завершает прогон внутренней ошибкой без публикации частичного результата.</p>
+<h2 id="что-является-частью-идентичности">Что является частью идентичности?<a class="headerlink" href="#что-является-частью-идентичности" title="Permanent link">&para;</a></h2>
+<p>Stat ID — неизменяемая English ASCII-строка в <code>snake_case</code>. Вместе с ней замораживаются семантический смысл, единица, знак и область итогового значения, разрешённые измерения, момент наблюдения и стадии, на которых характеристика влияет на расчёт. Изменение любой из этих частей создаёт новый ID; молчаливое сопоставление старого имени новому запрещено.</p>
+<p>Под тем же ID можно менять локализованные подписи, справочные метаданные, реализацию вычислителя и баланс конкретных источников, если наблюдаемая семантика записи не меняется. Арифметика, точки усечения и порядок стадий принадлежат <a href="../stat-pipeline/">единому конвейеру</a>, а жизненный цикл определений контента и их версий — <a href="../content-packages/">пакетам контента</a>. Реестр не вводит отдельный способ версионировать симуляцию, replay или транспортный контракт.</p>
+<p>Реестр append-only. Если характеристика больше не разрешена для нового контента, её строка остаётся известной записью-надгробием с исходными единицей, областью, стадиями, измерениями и смыслом. ID надгробия не переиспользуется, не становится синонимом и не получает новую семантику; сериализованный объект со ссылкой на такой ID принимается только совместимым обработчиком, иначе объект отклоняется целиком.</p>
+<h2 id="как-читать-единицы-стадии-и-измерения">Как читать единицы, стадии и измерения?<a class="headerlink" href="#как-читать-единицы-стадии-и-измерения" title="Permanent link">&para;</a></h2>
+<p>Колонка «Единица» определяет представление значения. <code>Q16.16</code> использует числовую модель симуляции; доля хранится в том же формате, где <code>ONE = 65536</code>. Промилле является целым значением от 0 до 1000, тики — целым временем при 60 Гц, а счётчик не имеет дробной части. <code>Direction16</code> является единственной угловой сеткой логического боя.</p>
+<p>Колонка «Область» задаёт инвариант наблюдаемого итогового значения. Обычные модификаторы собираются на стадиях 3–5 и ограничиваются на стадии 7; указанные стадии показывают, где готовая характеристика читается доменной системой или фиксируется в состоянии. Неприменимая стадия остаётся тождественным шагом, как требует <a href="../stat-pipeline/#в-каком-порядке-выполняются-стадии">контракт девяти стадий</a>.</p>
+<p>Колонка «Измерения <code>StatRef</code>» перечисляет разрешённые селекторы. Знак <code>—</code> требует <code>mode: none</code> во всех измерениях. Значения <code>damage_types</code>, <code>statuses</code> и <code>crit_channels</code> обозначают полосы одного stat ID, а не семейства новых ID; конкретные значения селекторов принадлежат своим реестрам и здесь не копируются.</p>
+<h2 id="какие-stat-id-входят-в-mvp">Какие stat ID входят в MVP?<a class="headerlink" href="#какие-stat-id-входят-в-mvp" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Колонка</th>
-<th>Смысл</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Единица</td>
-<td><code>плоское значение</code> — Q16.16; <code>доля</code> — Q16.16, где <code>ONE = 65536</code>; <code>промилле</code> — целое <code>0…1000</code>; <code>тики</code> — целое при 60 Гц; <code>целое</code> — счётчик без дробной части</td>
-</tr>
-<tr>
-<td>Стадия</td>
-<td>момент, когда <strong>итог</strong> характеристики влияет на расчёт; модификаторы ключа собираются штатными стадиями 3–5 и ограничиваются стадией 7 в любом случае</td>
-</tr>
-<tr>
-<td>Векторизация</td>
-<td>измерение <code>StatRef</code>, в котором ключ раскрывается в полосы: <code>damage_type</code>, <code>status</code>, <code>crit_channel</code> или <code>нет</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="ключи">Ключи<a class="headerlink" href="#ключи" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Ключ</th>
+<th><code>stat_id</code></th>
 <th>Категория</th>
 <th>Единица</th>
 <th>Область</th>
-<th>Стадия</th>
-<th>Векторизация</th>
-<th>Смысл</th>
+<th>Стадии</th>
+<th>Измерения <code>StatRef</code></th>
+<th>Технический смысл</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>health</code></td>
 <td>Ресурсы</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>[0,max_health]</code></td>
 <td>9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Текущее здоровье сущности, читаемое Brain и изменяемое уроном либо лечением.</td>
+<td>—</td>
+<td>Текущее здоровье сущности; читается Мозгом и изменяется уроном или лечением.</td>
 </tr>
 <tr>
 <td><code>max_health</code></td>
 <td>Ресурсы</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>7, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Верхняя граница здоровья, питаемая силой, экипировкой и силовой веткой дерева.</td>
+<td>—</td>
+<td>Верхняя граница <code>health</code>.</td>
 </tr>
 <tr>
 <td><code>mana</code></td>
 <td>Ресурсы</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>[0,max_mana]</code></td>
 <td>9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Текущая мана, общая для пяти навыков и наблюдаемая предикатом <code>Resource</code>.</td>
+<td>—</td>
+<td>Текущая мана, общая для активных навыков сущности.</td>
 </tr>
 <tr>
 <td><code>max_mana</code></td>
 <td>Ресурсы</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>7, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Верхняя граница маны, питаемая интеллектом, предметами и пассивами.</td>
+<td>—</td>
+<td>Верхняя граница <code>mana</code>.</td>
 </tr>
 <tr>
 <td><code>energy_shield</code></td>
 <td>Ресурсы</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>[0,max_energy_shield]</code></td>
 <td>9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Текущий энергетический щит; стадия 8 читает его как ёмкость поглощения, но сама характеристика проходит стадию 8 тождественно.</td>
+<td>—</td>
+<td>Текущая ёмкость поглощения; стадия 8 читает её, не преобразуя сам stat.</td>
 </tr>
 <tr>
 <td><code>max_energy_shield</code></td>
 <td>Ресурсы</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>7, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Ёмкость энергетического щита от интеллекта и тематических аффиксов брони.</td>
+<td>—</td>
+<td>Верхняя граница <code>energy_shield</code>.</td>
 </tr>
 <tr>
 <td><code>damage</code></td>
 <td>Урон</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>3</td>
-<td>damage_type</td>
-<td><code>[MVP]</code> Урон удара, тика яда, области или порождённого эффекта в каждой полосе типа.</td>
-</tr>
-<tr>
-<td><code>penetration</code></td>
-<td>Урон</td>
-<td>плоское значение</td>
-<td><code>&gt;=0</code></td>
-<td>6</td>
-<td>damage_type</td>
-<td><code>[headroom]</code> Величина игнорирования соответствующей полосы митигации. Пробитие обязано быть <strong>ограниченным</strong>: неограниченное пробитие сопротивлений — запрещённая форма роста (<a href="../../game-design/progression-and-builds/">запрещённые формы роста</a>). Ни один источник MVP пробития не выдаёт.</td>
+<td><code>damage_types</code></td>
+<td>Урон действия или периодического эффекта в каждой полосе типа.</td>
 </tr>
 <tr>
 <td><code>stagger_damage</code></td>
@@ -1760,35 +2478,35 @@
 <td>тики</td>
 <td><code>&gt;=0</code></td>
 <td>7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Вклад попадания в счётчик стаггера, считаемый после смягчения и до щита.</td>
+<td>—</td>
+<td>Вклад попадания в stagger после смягчения и до маршрутизации щита.</td>
 </tr>
 <tr>
 <td><code>mitigation</code></td>
 <td>Митигация</td>
-<td>плоское значение либо рейтинг — по профилю</td>
+<td>плоское <code>Q16.16</code> или рейтинг профиля</td>
 <td><code>&gt;=0</code></td>
 <td>6</td>
-<td>damage_type</td>
-<td><code>[MVP]</code> Семь полос брони или сопротивления, интерпретируемых профилем типа урона.</td>
+<td><code>damage_types</code></td>
+<td>Плоская броня физического профиля либо рейтинг стихийного или ядовитого профиля.</td>
 </tr>
 <tr>
 <td><code>damage_floor</code></td>
 <td>Митигация</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;0</code></td>
 <td>6</td>
-<td>damage_type</td>
-<td><code>[MVP]</code> Нижний предел <code>max(floor, …)</code> внутри самой формулы стадии 6, не позволяющий смягчению довести положительный урон до нуля.</td>
+<td><code>damage_types</code></td>
+<td>Нижний предел внутри формулы смягчения соответствующей полосы.</td>
 </tr>
 <tr>
 <td><code>block_damage_reduction</code></td>
 <td>Митигация</td>
-<td>доля</td>
+<td>доля <code>Q16.16</code></td>
 <td><code>[0,1)</code></td>
 <td>5</td>
-<td>нет</td>
-<td><code>[MVP]</code> Доля урона, снимаемая успешным блоком без превращения блока в постоянную неуязвимость.</td>
+<td>—</td>
+<td>Доля урона, снимаемая успешным блоком.</td>
 </tr>
 <tr>
 <td><code>damage_absorb_chance</code></td>
@@ -1796,17 +2514,17 @@
 <td>промилле</td>
 <td><code>[0,1000)</code></td>
 <td>6</td>
-<td>нет</td>
-<td><code>[MVP]</code> Шанс активировать силовой броневой аффикс поглощения фиксированного урона.</td>
+<td>—</td>
+<td>Шанс применить фиксированное поглощение урона.</td>
 </tr>
 <tr>
 <td><code>damage_absorb_amount</code></td>
 <td>Митигация</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>6</td>
-<td>нет</td>
-<td><code>[MVP]</code> Фиксированная величина, поглощаемая при срабатывании соответствующего броневого аффикса.</td>
+<td>—</td>
+<td>Фиксированная величина поглощения при успешной проверке.</td>
 </tr>
 <tr>
 <td><code>poise_capacity</code></td>
@@ -1814,8 +2532,8 @@
 <td>тики</td>
 <td><code>&gt;=0</code></td>
 <td>7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Порог накопленного стаггера, до которого прерываемое действие сохраняет устойчивость.</td>
+<td>—</td>
+<td>Порог <code>stagger</code>, до которого прерываемое действие сохраняет устойчивость.</td>
 </tr>
 <tr>
 <td><code>accuracy</code></td>
@@ -1823,8 +2541,8 @@
 <td>промилле</td>
 <td><code>[0,1000)</code></td>
 <td>6, 7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Итоговая точность атаки для проверки промаха до уклонения, блока и крита.</td>
+<td>—</td>
+<td>Итоговая точность атаки для проверки промаха.</td>
 </tr>
 <tr>
 <td><code>dodge_chance</code></td>
@@ -1832,8 +2550,8 @@
 <td>промилле</td>
 <td><code>[0,1000)</code></td>
 <td>6, 7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Насыщающийся шанс цели превратить прошедшую проверку точности атаку в уворот.</td>
+<td>—</td>
+<td>Шанс цели превратить прошедшую проверку точности атаку в уворот.</td>
 </tr>
 <tr>
 <td><code>block_chance</code></td>
@@ -1841,8 +2559,8 @@
 <td>промилле</td>
 <td><code>[0,1000)</code></td>
 <td>6, 7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Насыщающийся шанс доступного блока после промаха и уворота.</td>
+<td>—</td>
+<td>Шанс доступного блока после проверок промаха и уворота.</td>
 </tr>
 <tr>
 <td><code>crit_chance</code></td>
@@ -1850,35 +2568,35 @@
 <td>промилле</td>
 <td><code>[0,1000)</code></td>
 <td>6, 7</td>
-<td>crit_channel</td>
-<td><code>[MVP]</code> Глобальный либо поканальный шанс единственного крит-броска удара; по типу урона не различается.</td>
+<td><code>crit_channels</code></td>
+<td>Глобальный либо поканальный шанс единственного критического броска удара.</td>
 </tr>
 <tr>
 <td><code>crit_multiplier</code></td>
 <td>Точность и крит</td>
-<td>доля</td>
+<td>доля <code>Q16.16</code></td>
 <td><code>&gt;=1</code></td>
 <td>5</td>
-<td>damage_type + crit_channel</td>
-<td><code>[MVP]</code> Множитель критического результата, векторизованный и по полосе урона, и по каналу крита.</td>
+<td><code>damage_types</code>, <code>crit_channels</code></td>
+<td>Множитель критического результата конкретной полосы и канала.</td>
 </tr>
 <tr>
 <td><code>action_duration_multiplier</code></td>
 <td>Темп действий</td>
-<td>доля</td>
+<td>доля <code>Q16.16</code></td>
 <td><code>(0,+∞)</code></td>
 <td>5</td>
-<td>нет</td>
-<td><code>[MVP]</code> Общий именованный множитель фаз действия для быстрых атак, аур поддержки и вражеского темпа.</td>
+<td>—</td>
+<td>Общий именованный множитель фаз действия.</td>
 </tr>
 <tr>
 <td><code>cooldown_duration_multiplier</code></td>
 <td>Темп действий</td>
-<td>доля</td>
+<td>доля <code>Q16.16</code></td>
 <td><code>(0,+∞)</code></td>
 <td>5</td>
-<td>нет</td>
-<td><code>[MVP]</code> Именованный множитель перезарядки, в том числе для умеренной эскалации врагов по актам.</td>
+<td>—</td>
+<td>Именованный множитель длительности перезарядки.</td>
 </tr>
 <tr>
 <td><code>preparation_duration</code></td>
@@ -1886,8 +2604,8 @@
 <td>тики</td>
 <td><code>&gt;=0</code></td>
 <td>3–5, 7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Длительность прерываемой подготовки навыка, манёвра или смены билда.</td>
+<td>—</td>
+<td>Длительность прерываемой подготовки действия.</td>
 </tr>
 <tr>
 <td><code>execution_duration</code></td>
@@ -1895,8 +2613,8 @@
 <td>тики</td>
 <td><code>&gt;=0</code></td>
 <td>3–5, 7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Длительность атомарного исполнения, внутри которого контроль откладывается.</td>
+<td>—</td>
+<td>Длительность атомарного исполнения действия.</td>
 </tr>
 <tr>
 <td><code>recovery_duration</code></td>
@@ -1904,8 +2622,8 @@
 <td>тики</td>
 <td><code>&gt;=0</code></td>
 <td>3–5, 7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Длительность обязательного восстановления после состоявшегося исполнения.</td>
+<td>—</td>
+<td>Длительность обязательного восстановления после исполнения.</td>
 </tr>
 <tr>
 <td><code>cooldown_duration</code></td>
@@ -1913,8 +2631,8 @@
 <td>тики</td>
 <td><code>&gt;=0</code></td>
 <td>3–5, 7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Перезарядка конкретного навыка, продолжающаяся независимо от активного оружейного набора.</td>
+<td>—</td>
+<td>Перезарядка конкретного навыка.</td>
 </tr>
 <tr>
 <td><code>effect_tick_interval</code></td>
@@ -1922,125 +2640,125 @@
 <td>тики</td>
 <td><code>&gt;0</code></td>
 <td>7, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Интервал между тиками яда, лечения со временем или постоянной опасной области.</td>
+<td>—</td>
+<td>Интервал между тиками периодического эффекта или постоянной области.</td>
 </tr>
 <tr>
 <td><code>move_speed</code></td>
 <td>Движение</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>6, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Базовая скорость логического перемещения, насыщающимся образом питаемая ловкостью.</td>
+<td>—</td>
+<td>Скорость логического перемещения.</td>
 </tr>
 <tr>
 <td><code>phase_move_speed_multiplier</code></td>
 <td>Движение</td>
-<td>доля</td>
+<td>доля <code>Q16.16</code></td>
 <td><code>[0,1]</code></td>
 <td>5</td>
-<td>нет</td>
-<td><code>[MVP]</code> Штраф движения во время подготовки, исполнения, восстановления или конкретного манёвра.</td>
+<td>—</td>
+<td>Множитель скорости движения во время фазы действия или манёвра.</td>
 </tr>
 <tr>
 <td><code>action_range</code></td>
 <td>Движение</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Максимальная дистанция логического разрешения атаки, навыка или манёвра.</td>
+<td>—</td>
+<td>Максимальная дистанция логического разрешения действия.</td>
 </tr>
 <tr>
 <td><code>area_radius</code></td>
 <td>Движение</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Радиус области навыка, ауры, контроля или опасной зоны.</td>
+<td>—</td>
+<td>Радиус области навыка, эффекта, контроля или опасной зоны.</td>
 </tr>
 <tr>
 <td><code>sector_angle</code></td>
 <td>Движение</td>
-<td>шаги <code>Direction16</code> (целое)</td>
+<td>шаги <code>Direction16</code></td>
 <td><code>[0,16]</code></td>
 <td>7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Угловой сектор направленной атаки, блока или фронтальной защиты, считаемый в шагах единственной угловой сетки игры.</td>
+<td>—</td>
+<td>Размер направленного сектора; <code>16</code> обозначает полный оборот.</td>
 </tr>
 <tr>
 <td><code>movement_distance</code></td>
 <td>Движение</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Дистанция рывка, прыжка или кувырка, включая implicit ловкостной брони.</td>
+<td>—</td>
+<td>Дистанция рывка, прыжка или кувырка.</td>
 </tr>
 <tr>
 <td><code>knockback_distance</code></td>
 <td>Движение</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>7, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Дистанция принудительного перемещения, остаток которой заменяется новым импульсом.</td>
+<td>—</td>
+<td>Дистанция принудительного перемещения; новый импульс заменяет остаток.</td>
 </tr>
 <tr>
 <td><code>body_radius</code></td>
 <td>Движение</td>
-<td>плоское значение (мировые единицы)</td>
+<td>мировые единицы <code>Q16.16</code></td>
 <td><code>&gt;0</code></td>
 <td>7, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Радиус окружности тела, которым сущность участвует в разведении тел, проверке ширины прохода и валидации точки появления (<a href="../combat-simulation/#столкновения-и-разведение-тел">столкновения и разведение тел</a>).</td>
+<td>—</td>
+<td>Радиус логического тела для разведения, проходов и появления.</td>
 </tr>
 <tr>
 <td><code>heal_amount</code></td>
 <td>Восстановление</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>7, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Плоское лечение от навыка, лечебного билда, флакона или периодического эффекта.</td>
+<td>—</td>
+<td>Плоская величина лечения.</td>
 </tr>
 <tr>
 <td><code>mana_restore_amount</code></td>
 <td>Восстановление</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>7, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Плоское восстановление маны мановым флаконом или применимым навыком.</td>
+<td>—</td>
+<td>Плоская величина восстановления маны.</td>
 </tr>
 <tr>
 <td><code>health_regen_per_tick</code></td>
 <td>Восстановление</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Плоское потиковое восстановление здоровья, используемое правилом болотного биома и эффектами.</td>
+<td>—</td>
+<td>Восстановление здоровья за тик.</td>
 </tr>
 <tr>
 <td><code>mana_regen_per_tick</code></td>
 <td>Восстановление</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Плоское естественное или эффектное восстановление маны за тик; цель благословения «Источник».</td>
+<td>—</td>
+<td>Восстановление маны за тик.</td>
 </tr>
 <tr>
 <td><code>shield_regen_per_tick</code></td>
 <td>Восстановление</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>7, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Плоское восстановление энергетического щита после истечения задержки перезарядки.</td>
+<td>—</td>
+<td>Восстановление энергетического щита за тик после задержки.</td>
 </tr>
 <tr>
 <td><code>shield_recharge_delay_ticks</code></td>
@@ -2048,8 +2766,8 @@
 <td>тики</td>
 <td><code>&gt;=0</code></td>
 <td>7, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Задержка восстановления щита, заново запускаемая любым положительным уроном после смягчения.</td>
+<td>—</td>
+<td>Задержка восстановления щита, заново запускаемая положительным уроном после смягчения.</td>
 </tr>
 <tr>
 <td><code>health_regen_delay_ticks</code></td>
@@ -2057,8 +2775,8 @@
 <td>тики</td>
 <td><code>&gt;=0</code></td>
 <td>7, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Ожидание без полученного урона перед запуском отложенной регенерации, нужной болотному правилу.</td>
+<td>—</td>
+<td>Ожидание без полученного урона перед отложенной регенерацией.</td>
 </tr>
 <tr>
 <td><code>status_duration</code></td>
@@ -2066,8 +2784,8 @@
 <td>тики</td>
 <td><code>&gt;=0</code></td>
 <td>3–5, 7</td>
-<td>status</td>
-<td><code>[MVP]</code> Длительность оглушения, отбрасывания, заморозки, страха, очарования или яда.</td>
+<td><code>statuses</code></td>
+<td>Длительность конкретного статуса; по типу урона не векторизуется.</td>
 </tr>
 <tr>
 <td><code>effect_duration</code></td>
@@ -2075,8 +2793,8 @@
 <td>тики</td>
 <td><code>&gt;=0</code></td>
 <td>3–5, 7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Длительность не являющегося статусом усиления, ослабления, ауры, зоны или snapshot-эффекта.</td>
+<td>—</td>
+<td>Длительность усиления, ослабления, ауры, зоны или snapshot-эффекта, не являющегося статусом.</td>
 </tr>
 <tr>
 <td><code>stagger</code></td>
@@ -2084,8 +2802,8 @@
 <td>тики</td>
 <td><code>&gt;=0</code></td>
 <td>7, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Текущее накопление стаггера, сравниваемое с <code>poise_capacity</code> для прерываемых действий.</td>
+<td>—</td>
+<td>Текущее накопление stagger для сравнения с <code>poise_capacity</code>.</td>
 </tr>
 <tr>
 <td><code>control_dr_reset_ticks</code></td>
@@ -2093,26 +2811,26 @@
 <td>тики</td>
 <td><code>&gt;0</code></td>
 <td>7</td>
-<td>status</td>
-<td><code>[MVP]</code> Окно, по истечении которого цепочка убывающей отдачи контроля сбрасывается в «первое наложение» (<a href="../../game-design/combat-and-replay/">единые правила эффектов контроля</a>).</td>
+<td><code>statuses</code></td>
+<td>Окно сброса общей цепочки убывающей отдачи контроля.</td>
 </tr>
 <tr>
 <td><code>mana_cost</code></td>
 <td>Экономика навыков</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>7, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Полная мана-стоимость активного навыка до обычного списания или расчёта цены срыва.</td>
+<td>—</td>
+<td>Полная стоимость активного навыка в мане.</td>
 </tr>
 <tr>
 <td><code>interrupted_mana_cost_ratio</code></td>
 <td>Экономика навыков</td>
-<td>доля</td>
+<td>доля <code>Q16.16</code></td>
 <td><code>[0,1]</code></td>
 <td>7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Доля полной стоимости, списываемая при срыве или намеренной отмене подготовки.</td>
+<td>—</td>
+<td>Доля полной стоимости при срыве или отмене подготовки.</td>
 </tr>
 <tr>
 <td><code>max_charges</code></td>
@@ -2120,8 +2838,8 @@
 <td>целое</td>
 <td><code>&gt;=0</code></td>
 <td>7, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Ёмкость зарядов навыка или флакона, читаемая предикатом <code>Charges</code>; цель благословения «Алхимик».</td>
+<td>—</td>
+<td>Ёмкость зарядов навыка или флакона.</td>
 </tr>
 <tr>
 <td><code>charge_cost</code></td>
@@ -2129,71 +2847,71 @@
 <td>целое</td>
 <td><code>&gt;=0</code></td>
 <td>7, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Число зарядов, атомарно расходуемое одной активацией навыка или флакона.</td>
+<td>—</td>
+<td>Число зарядов, атомарно расходуемое одной активацией.</td>
 </tr>
 <tr>
 <td><code>str</code></td>
 <td>Атрибуты</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>3, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Сила персонажа, питающая здоровье и poise и проверяемая силовыми требованиями.</td>
+<td>—</td>
+<td>Сила персонажа.</td>
 </tr>
 <tr>
 <td><code>dex</code></td>
 <td>Атрибуты</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>3, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Ловкость персонажа, питающая скорость движения и глобальный шанс крита.</td>
+<td>—</td>
+<td>Ловкость персонажа.</td>
 </tr>
 <tr>
 <td><code>int</code></td>
 <td>Атрибуты</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>3, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Интеллект персонажа, питающий ману и энергетический щит.</td>
+<td>—</td>
+<td>Интеллект персонажа.</td>
 </tr>
 <tr>
 <td><code>required_str</code></td>
 <td>Требования</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Жёсткое требование силы для предмета или навыка без самообеспечения проверяемым предметом.</td>
+<td>—</td>
+<td>Требование силы без самообеспечения проверяемым предметом.</td>
 </tr>
 <tr>
 <td><code>required_dex</code></td>
 <td>Требования</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Жёсткое требование ловкости для предмета или навыка.</td>
+<td>—</td>
+<td>Требование ловкости без самообеспечения проверяемым предметом.</td>
 </tr>
 <tr>
 <td><code>required_int</code></td>
 <td>Требования</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Жёсткое требование интеллекта для предмета или навыка.</td>
+<td>—</td>
+<td>Требование интеллекта без самообеспечения проверяемым предметом.</td>
 </tr>
 <tr>
 <td><code>healing_per_battle_limit</code></td>
 <td>Бюджеты</td>
-<td>плоское значение</td>
+<td>плоское <code>Q16.16</code></td>
 <td><code>&gt;=0</code></td>
 <td>7, 9</td>
-<td>нет</td>
-<td><code>[MVP]</code> Верхний накопительный бюджет лечения сущности за один бой.</td>
+<td>—</td>
+<td>Верхний накопительный бюджет лечения сущности за бой.</td>
 </tr>
 <tr>
 <td><code>projectile_count</code></td>
@@ -2201,8 +2919,8 @@
 <td>целое</td>
 <td><code>&gt;=0</code></td>
 <td>7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Ограниченное число снарядов одной активации внутри общего бюджета урона.</td>
+<td>—</td>
+<td>Ограниченное число снарядов одной активации внутри общего бюджета урона.</td>
 </tr>
 <tr>
 <td><code>chain_hit_count</code></td>
@@ -2210,48 +2928,27 @@
 <td>целое</td>
 <td><code>&gt;=0</code></td>
 <td>7</td>
-<td>нет</td>
-<td><code>[MVP]</code> Ограниченное число последовательных целей цепного действия без рекурсивных поколений.</td>
-</tr>
-<tr>
-<td><code>summon_limit</code></td>
-<td>Счётчики</td>
-<td>целое</td>
-<td><code>&gt;=0</code></td>
-<td>7, 9</td>
-<td>нет</td>
-<td><code>[headroom]</code> Максимум одновременно принадлежащих источнику призванных сущностей.</td>
-</tr>
-<tr>
-<td><code>persistent_area_limit</code></td>
-<td>Счётчики</td>
-<td>целое</td>
-<td><code>&gt;=0</code></td>
-<td>7, 9</td>
-<td>нет</td>
-<td><code>[headroom]</code> Максимум одновременно поддерживаемых источником постоянных областей или опасных зон.</td>
+<td>—</td>
+<td>Ограниченное число последовательных целей цепного действия.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="уточнения-к-отдельным-ключам">Уточнения к отдельным ключам<a class="headerlink" href="#уточнения-к-отдельным-ключам" title="Permanent link">&para;</a></h2>
-<p><strong><code>mitigation</code> — единица параметризована профилем.</strong> Физический профиль читает значение как <strong>плоскую броню</strong> подтипа, стихийный и ядовитый — как <strong>рейтинг</strong> в знаменателе <code>K/(rating + K)</code> (<a href="../stat-pipeline/#три-формулы--это-один-шаг-6">три формулы — это один шаг 6</a>). Единица различается по профилю полосы, а не по решению модификатора: внутри одной полосы она неизменна, поэтому запрет на смену единицы под существующим ID не нарушается. Один ключ с двумя единицами в одной полосе был бы нарушением — такого случая нет.</p>
-<p><strong><code>sector_angle</code> считается в <code>Direction16</code>.</strong> Угловой единицы, кроме <code>Direction16</code>, в игре нет: направление нормализуется по модулю 16 в диапазон <code>[0,16)</code> (<a href="../combat-simulation/">модель мира</a>). Сектор выражен целым числом шагов этой же сетки; <code>16</code> — полный оборот. Градусов и долей оборота в Q16.16 реестр не вводит.</p>
-<p><strong>Стадия 8 читает щит, но не является его стадией.</strong> <code>energy_shield</code>, <code>max_energy_shield</code>, <code>shield_regen_per_tick</code> и <code>shield_recharge_delay_ticks</code> — не доставляемый урон, поэтому стадия 8 для них <strong>тождественна</strong> (<a href="../stat-pipeline/#8-маршрутизация-щита">условие применимости</a>). Маршрутизация их читает как входные данные распределения; их собственные значения фиксируются стадией 9, а ограничиваются стадией 7.</p>
-<p><strong><code>damage_floor</code> принадлежит стадии 6.</strong> Это <code>floor</code> внутри <code>max(floor, trunc0(…))</code>, то есть часть самой формулы смягчения, а не общее ограничение стадии 7. Категория — Митигация.</p>
-<p><strong>Дальность кувырка — это <code>movement_distance</code>.</strong> Implicit <code>+0,5 м к дальности кувырка</code> (<a href="../../game-design/items-and-crafting/">предметы и крафт</a>) выражается модификатором <code>add_flat</code> на <code>movement_distance</code> с теговым запросом манёвра. Отдельного ключа под кувырок нет: различие манёвров живёт в тегах, а не в имени характеристики — иначе рывок, прыжок и кувырок породили бы три ключа с одной семантикой.</p>
-<p><strong>Благословения точки отдыха новых ключей не требуют</strong> (<a href="../../game-design/core-loop/">основной цикл и забеги</a>): «Источник» — <code>mana_regen_per_tick</code>, «Ускорение» — <code>cooldown_duration_multiplier</code>, «Алхимик» — <code>max_charges</code>, «Закалка» — обычный модификатор на <code>mitigation</code> со ссылкой <code>damage_types { mode: all }</code>, вносящий вклад по одному разу в каждую из семи полос.</p>
-<h2 id="чего-в-реестре-нет">Чего в реестре нет<a class="headerlink" href="#чего-в-реестре-нет" title="Permanent link">&para;</a></h2>
+<p><code>mitigation</code> параметризует единицу профилем полосы. Физическая полоса читает значение как плоскую броню, а стихийная или ядовитая — как рейтинг; решение принимает профиль полосы, не модификатор. Внутри одной полосы единица неизменна, поэтому один <code>StatRef</code> не может смешать плоское значение и рейтинг.</p>
+<p><code>energy_shield</code>, <code>max_energy_shield</code>, <code>shield_regen_per_tick</code> и <code>shield_recharge_delay_ticks</code> не являются доставляемым уроном. Маршрутизация стадии 8 читает их как входные данные, но для самих характеристик остаётся тождественной; их значения ограничиваются стадией 7 и фиксируются стадией 9.</p>
+<p><code>damage_floor</code> принадлежит стадии 6, потому что входит в <code>max(floor, …)</code> формулы смягчения, а не является общим ограничением стадии 7. <code>sector_angle</code> хранится целым числом шагов <code>Direction16</code>; градусы и доли оборота в Q16.16 для него не допускаются.</p>
+<h2 id="когда-нужен-новый-stat-id">Когда нужен новый stat ID?<a class="headerlink" href="#когда-нужен-новый-stat-id" title="Permanent link">&para;</a></h2>
+<p>Новый ID появляется только для самостоятельной вычисляемой величины с собственной единицей, областью или моментом наблюдения. Полоса существующего измерения новым ID не является: вместо <code>fire_damage</code> или <code>stun_duration</code> используется соответствующий селектор <code>damage</code> либо <code>status_duration</code>. Различие рывка, прыжка и кувырка выражается тегами вокруг <code>movement_distance</code>, а не тремя характеристиками одинаковой формы.</p>
+<p>Операции <code>add_pct</code>, <code>mul</code>, <code>min</code> и <code>max</code> не являются характеристиками. Правило без настраиваемого числа, включая запрет рекурсивного порождения эффектов, также не получает stat ID. Предел одной активации выражается <code>max</code> над исходной характеристикой, если отдельного накопительного состояния между активациями не существует.</p>
+<p>Представление не добавляет характеристики симуляции. Скорость визуального снаряда, масса модели, физический импульс и ширина несуществующей логической формы не входят в реестр: клиент подгоняет визуальный эффект к уже рассчитанному событию по <a href="../../game-design/combat-and-replay/#как-движение-и-позиция-определяют-исход">границе боя и записи</a>. Отдельной выносливости в MVP нет; мана и заряды используют зарегистрированные ID.</p>
+<h2 id="что-нужно-сделать">Что нужно сделать<a class="headerlink" href="#что-нужно-сделать" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Отдельных <code>fire_damage</code>, <code>stun_duration</code> и подобных: это дублирование полос <code>StatRef</code>.</li>
-<li><code>increased_damage</code>, <code>more_damage</code> и аналогов: <code>add_pct</code> и <code>mul</code> — <strong>операции</strong>, а не характеристики.</li>
-<li><code>vulnerability</code> и <code>damage_taken</code>: уязвимость выражается ограниченным модификатором <code>damage</code> по тегам цели.</li>
-<li>Отдельных <code>*_cap</code> для шанса, фазы и статуса: обычные пределы задаются <code>min</code> / <code>max</code> по исходному ключу на стадии 7.</li>
-<li><code>healing_per_activation_limit</code>: это <code>max</code> стадии 7 по <code>heal_amount</code>, а не собственный ключ.</li>
-<li><code>line_width</code>: форм доставки три — удар, снаряд, область; линейной формы не существует.</li>
-<li><code>trigger_generation_limit</code>: срабатывания только одного поколения — <strong>правило</strong>, а не настраиваемое число.</li>
-<li><code>projectile_speed</code>, массы и физического импульса: полёт снаряда не симулируется — дальнобойная атака разрешается логически на тике удара, а представление лишь подгоняет пролёт к этому тику (<a href="../../game-design/combat-and-replay/">симуляция боя и запись боя</a>).</li>
-<li>Stamina: ресурс удалён из дизайна.</li>
+<li><strong>Владелец:</strong> Go/симуляция, этап S0 по <a href="../production-plan/">плану производства</a>. Владелец Godot/клиента использует проекции реестра на S3 и реальные данные на S9, но не меняет идентичность или границы.</li>
+<li><strong>Артефакты:</strong> каноническая таблица в <code>docs/technical/stat-registry.md</code>; машинно-читаемый append-only реестр и его загрузчик в <code>internal/content/</code>; ограничения ссылок на stat ID в единственной схеме <code>content/schema/v1/</code>; валидные, неизвестные, несовместимо векторизованные и надгробные примеры в <code>content/fixtures/</code>; тесты разрешения и необратимости ID рядом с загрузчиком.</li>
+<li><strong>Готово, когда:</strong> все 58 ID таблицы разрешаются одной реализацией реестра; каждый ID имеет ровно одну единицу, область, набор стадий и список допустимых измерений; сериализация сохраняет строковый ID и не сохраняет runtime-индекс; неизвестный ID, запрещённое измерение и надгробие в новом контенте отклоняют весь объект с путём до поля до тика 0; перестановка записей не меняет каноническое разрешение; удаление оставляет ID занятым, повторное добавление с другим смыслом не проходит; изменение единицы, области, стадии или измерения требует нового ID; определения с прямым значением вне строгой области таблицы отклоняются до тика, а итог вычисления после ограничения и фиксации всегда лежит в области строки; Godot не содержит второго реестра; проверки S0 и <code>go test ./... -race</code> проходят.</li>
+<li><strong>Не трогать:</strong> форму и канонизацию <code>StatRef</code>, режимы селекторов, tag ID, отбор и складывание определяет <code>modifiers-and-tags.md</code>; арифметику Q16.16, девять стадий, крит, смягчение, щит и трассу — <code>stat-pipeline.md</code>; геометрию и разрешение действий — <code>combat-engine.md</code>; раскладку схем, content ID и публикацию — <code>content-packages.md</code>; поля Protobuf и opcode — <code>contracts-and-data-flow.md</code>; тексты, тултипы и отображение значений — главы Godot/клиента.</li>
 </ul>
+<h2 id="что-читать-дальше">Что читать дальше?<a class="headerlink" href="#что-читать-дальше" title="Permanent link">&para;</a></h2>
+<p>Дальше — <a href="../items-and-crafting/">как определения предметов превращаются в добычу и крафтовые операции</a>.</p>
 
 
 

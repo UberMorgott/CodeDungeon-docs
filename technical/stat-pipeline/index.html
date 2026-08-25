@@ -13,10 +13,10 @@
         <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/stat-pipeline/">
       
       
-        <link rel="prev" href="../combat-simulation/">
+        <link rel="prev" href="../brain-runtime/">
       
       
-        <link rel="next" href="../stat-registry/">
+        <link rel="next" href="../modifiers-and-tags/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Единый конвейер расчёта - CodeDungeon — документация</title>
+        <title>Как значение проходит единый конвейер расчёта? - CodeDungeon — документация</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#единый-конвейер-расчёта" class="md-skip">
+        <a href="#как-значение-проходит-единый-конвейер-расчёта" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Единый конвейер расчёта
+              Как значение проходит единый конвейер расчёта?
             
           </span>
         </div>
@@ -877,7 +877,7 @@
   <span class="md-ellipsis">
     
   
-    Техническая документация
+    Как читать техническую документацию CodeDungeon?
   
 
     
@@ -905,7 +905,7 @@
   <span class="md-ellipsis">
     
   
-    Архитектурный скелет
+    Где проходят границы системы и кому принадлежит состояние?
   
 
     
@@ -926,14 +926,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../tech-stack/" class="md-nav__link">
+      <a href="../technology-baseline/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Технологический стек
+    На каких технологиях и форматах строится MVP?
   
 
     
@@ -954,14 +954,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../process-topology/" class="md-nav__link">
+      <a href="../runtime-topology/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Топология процессов и запуск
+    Как запускаются и завершаются два процесса игры?
   
 
     
@@ -982,14 +982,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../production-plan/" class="md-nav__link">
+      <a href="../contracts-and-data-flow/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    План производства и разделение ролей
+    Как команды, события и данные переходят между Go и Godot?
   
 
     
@@ -1010,14 +1010,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev-environment/" class="md-nav__link">
+      <a href="../simulation-core/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Среда разработки и инструменты агентов
+    Как работает детерминированное ядро симуляции?
   
 
     
@@ -1038,14 +1038,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../content-packages/" class="md-nav__link">
+      <a href="../combat-engine/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Пакеты контента и баланса
+    Как боевой движок разрешает арену и действия?
   
 
     
@@ -1066,14 +1066,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../combat-simulation/" class="md-nav__link">
+      <a href="../replay/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Спецификация боевой симуляции
+    Как хранится и читается авторитетная запись забега?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../brain-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как компилируется, проверяется и исполняется Мозг?
   
 
     
@@ -1110,7 +1138,7 @@
   <span class="md-ellipsis">
     
   
-    Единый конвейер расчёта
+    Как значение проходит единый конвейер расчёта?
   
 
     
@@ -1128,7 +1156,7 @@
   <span class="md-ellipsis">
     
   
-    Единый конвейер расчёта
+    Как значение проходит единый конвейер расчёта?
   
 
     
@@ -1154,10 +1182,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#статус" class="md-nav__link">
+  <a href="#где-проходит-граница-вычислителя" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Статус
+        Где проходит граница вычислителя?
       
     </span>
   </a>
@@ -1165,149 +1193,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#девять-стадий" class="md-nav__link">
+  <a href="#в-каком-порядке-выполняются-стадии" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Девять стадий
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Девять стадий">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-контекст" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Контекст
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-отбор" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Отбор
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#35-накопление" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3–5. Накопление
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3–5. Накопление">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#5-g-геометрический-множитель" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5-Г. Геометрический множитель
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-смягчение" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Смягчение
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-ограничения" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Ограничения
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-маршрутизация-щита" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Маршрутизация щита
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-фиксация" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Фиксация
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#идентичность-характеристики" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Идентичность характеристики
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Идентичность характеристики">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#сериализация-и-совместимость" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Сериализация и совместимость
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#крит" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Крит
+        В каком порядке выполняются стадии?
       
     </span>
   </a>
@@ -1315,10 +1204,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#длительность-статусов" class="md-nav__link">
+  <a href="#как-выполняется-арифметика-стадий-37" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Длительность статусов
+        Как выполняется арифметика стадий 3–7?
       
     </span>
   </a>
@@ -1326,10 +1215,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#три-формулы--это-один-шаг-6" class="md-nav__link">
+  <a href="#как-работают-критический-удар-и-длительность-статуса" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Три формулы — это один шаг 6
+        Как работают критический удар и длительность статуса?
       
     </span>
   </a>
@@ -1337,38 +1226,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#теги-и-модификаторы" class="md-nav__link">
+  <a href="#что-делает-маршрутизация-щита" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Теги и модификаторы
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Теги и модификаторы">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#источники-тегов-контекста" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Источники тегов контекста
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#детерминизм" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Детерминизм
+        Что делает маршрутизация щита?
       
     </span>
   </a>
@@ -1376,10 +1237,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#цена-решения" class="md-nav__link">
+  <a href="#что-содержит-фиксация-и-трасса" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Цена решения
+        Что содержит фиксация и трасса?
       
     </span>
   </a>
@@ -1387,10 +1248,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#граница-против-переусложнения" class="md-nav__link">
+  <a href="#что-нужно-сделать" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Граница против переусложнения
+        Что нужно сделать
       
     </span>
   </a>
@@ -1398,10 +1259,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#открытые-вопросы" class="md-nav__link">
+  <a href="#что-читать-дальше" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Открытые вопросы
+        Что читать дальше?
       
     </span>
   </a>
@@ -1424,6 +1285,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../modifiers-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как модификатор находит характеристику по тегам?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../stat-registry/" class="md-nav__link">
         
   
@@ -1431,7 +1320,7 @@
   <span class="md-ellipsis">
     
   
-    Реестр stat ID
+    Какие характеристики разрешены в расчёте?
   
 
     
@@ -1452,14 +1341,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../item-content-and-crafting/" class="md-nav__link">
+      <a href="../items-and-crafting/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Контент предметов и движок крафта
+    Как реализовать предметы, инвентарь и крафт?
   
 
     
@@ -1480,14 +1369,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../item-persistence/" class="md-nav__link">
+      <a href="../run-systems/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Хранение предметов
+    Как сервер ведёт забег, миссию и переходы между узлами?
   
 
     
@@ -1508,14 +1397,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ui-architecture/" class="md-nav__link">
+      <a href="../persistence/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Интерфейс: экраны, навигация и граница клиента
+    Как локальное состояние сохраняется и восстанавливается?
   
 
     
@@ -1536,14 +1425,629 @@
   
   
     <li class="md-nav__item">
-      <a href="../screen-specs/" class="md-nav__link">
+      <a href="../client-architecture/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Спецификации экранов
+    Как Godot отображает авторитетное состояние и управляет интерфейсом?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audio-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как события превращаются в синхронный звук?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_18" id="__nav_3_18_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экраны
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_18">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Экраны
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроены экраны и общие правила интерфейса?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/ai-editor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран редактора Мозга?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/combat-viewing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен первый просмотр боя?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/road-forge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроена Дорожная кузня?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/inventory-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран инвентаря и крафта?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/progression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран прогрессии?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/run-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроена подготовка забега?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/run-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как работает карта маршрута?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/room-resolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран подводит итог комнаты и передаёт добычу?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/rest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран точки отдыха проводит обязательный выбор?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/shop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран лавки проводит покупку и продажу?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/run-result/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран итога забега завершает попытку?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/replay-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как библиотека перечисляет сохранённые записи забегов?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/replay-viewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как просмотрщик помогает разобрать запись по боям-главам?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/settings-and-system-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как работают настройки и системное меню?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/boot-and-connection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как клиент показывает запуск и подключение к локальному Go?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/main-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как главное меню выбирает профиль и открывает игру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как авторский JSON становится пакетом контента?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../localization-and-narrative-content/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как текст попадает в игру и остаётся переводимым?
   
 
     
@@ -1571,7 +2075,35 @@
   <span class="md-ellipsis">
     
   
-    Конвейер 3D-ассетов
+    Как исходный ассет становится ресурсом Godot?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как подготовить изменение и передать его без потери контракта?
   
 
     
@@ -1599,7 +2131,63 @@
   <span class="md-ellipsis">
     
   
-    Стратегия тестирования и CI
+    Как тесты доказывают, что изменение можно интегрировать?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../future-online/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как CodeDungeon переходит к публичному Online после MVP?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../production-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    План производства и разделение ролей
   
 
     
@@ -1675,60 +2263,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../roles/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Роли в разработке
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../undocumented-areas/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Незадокументированные области
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -1756,10 +2290,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#статус" class="md-nav__link">
+  <a href="#где-проходит-граница-вычислителя" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Статус
+        Где проходит граница вычислителя?
       
     </span>
   </a>
@@ -1767,149 +2301,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#девять-стадий" class="md-nav__link">
+  <a href="#в-каком-порядке-выполняются-стадии" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Девять стадий
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Девять стадий">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-контекст" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Контекст
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-отбор" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Отбор
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#35-накопление" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3–5. Накопление
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3–5. Накопление">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#5-g-геометрический-множитель" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5-Г. Геометрический множитель
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-смягчение" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Смягчение
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-ограничения" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Ограничения
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-маршрутизация-щита" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Маршрутизация щита
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-фиксация" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Фиксация
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#идентичность-характеристики" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Идентичность характеристики
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Идентичность характеристики">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#сериализация-и-совместимость" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Сериализация и совместимость
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#крит" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Крит
+        В каком порядке выполняются стадии?
       
     </span>
   </a>
@@ -1917,10 +2312,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#длительность-статусов" class="md-nav__link">
+  <a href="#как-выполняется-арифметика-стадий-37" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Длительность статусов
+        Как выполняется арифметика стадий 3–7?
       
     </span>
   </a>
@@ -1928,10 +2323,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#три-формулы--это-один-шаг-6" class="md-nav__link">
+  <a href="#как-работают-критический-удар-и-длительность-статуса" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Три формулы — это один шаг 6
+        Как работают критический удар и длительность статуса?
       
     </span>
   </a>
@@ -1939,38 +2334,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#теги-и-модификаторы" class="md-nav__link">
+  <a href="#что-делает-маршрутизация-щита" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Теги и модификаторы
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Теги и модификаторы">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#источники-тегов-контекста" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Источники тегов контекста
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#детерминизм" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Детерминизм
+        Что делает маршрутизация щита?
       
     </span>
   </a>
@@ -1978,10 +2345,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#цена-решения" class="md-nav__link">
+  <a href="#что-содержит-фиксация-и-трасса" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Цена решения
+        Что содержит фиксация и трасса?
       
     </span>
   </a>
@@ -1989,10 +2356,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#граница-против-переусложнения" class="md-nav__link">
+  <a href="#что-нужно-сделать" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Граница против переусложнения
+        Что нужно сделать
       
     </span>
   </a>
@@ -2000,10 +2367,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#открытые-вопросы" class="md-nav__link">
+  <a href="#что-читать-дальше" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Открытые вопросы
+        Что читать дальше?
       
     </span>
   </a>
@@ -2035,305 +2402,104 @@
   
 
 
-<h1 id="единый-конвейер-расчёта">Единый конвейер расчёта<a class="headerlink" href="#единый-конвейер-расчёта" title="Permanent link">&para;</a></h1>
-<p>Технический контракт <strong>единственной формулы игры</strong>. Урон, смягчение, характеристики, длительности, стоимости — всё считается одним и тем же конвейером. Игровой смысл тегов принадлежит <a href="../../game-design/skills-and-tags/">навыкам и тегам</a>, числовые границы — <a href="../../game-design/progression-and-builds/">принципам баланса чисел</a>, тиковый порядок и фиксированная точка — <a href="../combat-simulation/">спецификации боевой симуляции</a>.</p>
-<h2 id="статус">Статус<a class="headerlink" href="#статус" title="Permanent link">&para;</a></h2>
-<p><strong>Принято.</strong> Обязательное решение владельца проекта.</p>
-<ul>
-<li>В игре <strong>одна</strong> формула расчёта. Отдельных формул для урона, смягчения, лечения, скоростей и стоимостей не существует.</li>
-<li>Дублирующих кусков арифметики в коде нет: любое вычисляемое число проходит через один и тот же вычислитель.</li>
-<li>Формула динамическая: переменные входят в неё и покидают её <strong>по тегам</strong>, а реестр тегов общий для всей игры.</li>
-<li>Различия между типами урона живут в <strong>данных</strong>, а не в ветвлениях кода.</li>
-</ul>
-<h2 id="девять-стадий">Девять стадий<a class="headerlink" href="#девять-стадий" title="Permanent link">&para;</a></h2>
-<p><strong>Нормативно и заморожено.</strong> Один расчёт исполняет стадии строго в этом порядке. Изменение порядка меняет результат и требует новой версии правил симуляции наравне с <a href="../combat-simulation/#канонический-порядок-тика">каноническим порядком тика</a>.</p>
-<p>Девятистадийная семантика — <strong>версия контракта 4</strong>. Версия поднималась дважды: с 2 до 3 — потому что появление стадии маршрутизации щита изменило состав и порядок замороженных стадий; с 3 до 4 — потому что подшаг <a href="#5-g-геометрический-множитель">5-Г «Геометрический множитель»</a> меняет исход при том же seed, а версия привязана к воспроизводимости, а не к одному лишь составу стадий (<a href="../combat-simulation/#версионирование-replay">версионирование replay</a>). Следствие: золотые векторы Q16.16, снятые под версиями 2 и 3, <strong>недействительны</strong> и обязаны быть перегенерированы под версией 4. Прогон старых векторов под новой версией валит тест, а не подтверждает совместимость.</p>
+<h1 id="как-значение-проходит-единый-конвейер-расчёта">Как значение проходит единый конвейер расчёта?<a class="headerlink" href="#как-значение-проходит-единый-конвейер-расчёта" title="Permanent link">&para;</a></h1>
+<p>Эта глава задаёт входы, девять стадий вычисления, правила критического удара и статусов, фиксацию результата и детерминированную трассу единственного числового конвейера игры.</p>
+<p><strong>Реализует:</strong> <a href="../../game-design/skills-and-tags/#как-модификатор-находит-свою-цель">применимость модификаторов</a>, <a href="../../game-design/skills-and-tags/#как-работают-конверсии">порядок конверсий и effective tags</a>, <a href="../../game-design/skills-and-tags/#какие-типы-урона-существуют">профили типов урона</a>, <a href="../../game-design/skills-and-tags/#как-тип-урона-связан-с-критическим-ударом">связь типа урона с критическим ударом</a>, <a href="../../game-design/progression-and-builds/#какие-пределы-останавливают-вертикальный-рост">пределы вертикального роста</a>, <a href="../../game-design/brain-reference/#какие-условия-описывают-сущность-и-пространство">геометрию фронтального сектора охраны</a>.</p>
+<h2 id="где-проходит-граница-вычислителя">Где проходит граница вычислителя?<a class="headerlink" href="#где-проходит-граница-вычислителя" title="Permanent link">&para;</a></h2>
+<p>Вычислителем владеет Go/симуляция. Через него проходят урон, смягчение, лечение, скорость, длительность, стоимость, шанс, рейтинг и любая другая вычисляемая характеристика. Доменный код не содержит параллельной арифметики для отдельной механики: различия задаются входными данными, признаками контекста и профилем характеристики.</p>
+<p>Один вызов получает каноническую ссылку на характеристику, базовое значение, неизменяемые снимки источника и цели, контекст действия, подходящие модификаторы и параметры нужного профиля. Для удара контекст дополнительно несёт уже разрешённый результат критического броска, геометрию источника и цели и состояние энергетического щита. Идентичность характеристики принадлежит <a href="../stat-registry/">реестру stat ID</a>, а канонизация ссылок, effective tags, запросы и порядок модификаторов — <a href="../modifiers-and-tags/">модификаторам и тегам</a>; эта глава не повторяет их схемы и ID.</p>
+<p>Успешный вызов возвращает рассчитанное значение, необходимые доменные изменения и каноническую трассу. Для доставляемого урона результат также содержит распределение между энергетическим щитом и здоровьем. Состав Protobuf-событий принадлежит <code>shared/proto/</code> и <a href="../contracts-and-data-flow/">контракту потока данных</a>; Godot получает готовые события и проекцию трассы, но не повторяет расчёт.</p>
+<p>Контент валидируется до тика 0. Неизвестная ссылка, неканонический селектор, неоднозначная или циклическая конверсия, <code>K &lt;= 0</code>, <code>rating &lt; 0</code> либо недопустимый знаменатель отклоняют вход до арифметики. Во время симуляции нарушение числового инварианта завершает прогон типизированной внутренней ошибкой: частичный результат, частичная трасса и незаконченная запись боя не публикуются. Runtime не подбирает ближайший ID, не подставляет локальное значение и не исправляет профиль насыщением без диагностики.</p>
+<h2 id="в-каком-порядке-выполняются-стадии">В каком порядке выполняются стадии?<a class="headerlink" href="#в-каком-порядке-выполняются-стадии" title="Permanent link">&para;</a></h2>
+<p>Один расчёт всегда проходит ровно девять стадий. Стадии не пропускаются: неприменимая стадия является тождественным преобразованием и передаёт вход дальше без изменения.</p>
 <table>
 <thead>
 <tr>
-<th>№</th>
+<th style="text-align: right;">№</th>
 <th>Стадия</th>
-<th>Что делает</th>
+<th>Наблюдаемый результат</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
+<td style="text-align: right;">1</td>
 <td>Контекст</td>
-<td>применяет конверсии, затем раскрывает теги до неподвижной точки и выдаёт effective tags</td>
+<td>конверсии применены, добавляемые теги раскрыты до неподвижной точки, получены <code>effective tags</code></td>
 </tr>
 <tr>
-<td>2</td>
+<td style="text-align: right;">2</td>
 <td>Отбор</td>
-<td>выбирает модификаторы, чей теговый запрос AND / OR / NOT совпал с effective tags контекста, и раскрывает селекторы в конкретные полосы по типам урона</td>
+<td>выбраны применимые модификаторы и построены конкретные типизированные полосы</td>
 </tr>
 <tr>
-<td>3</td>
+<td style="text-align: right;">3</td>
 <td>Плоские значения</td>
 <td><code>A = base + Σflat</code></td>
 </tr>
 <tr>
-<td>4</td>
+<td style="text-align: right;">4</td>
 <td>Суммируемые проценты</td>
 <td><code>A = qmul(A, ONE + Σadd_pct)</code></td>
 </tr>
 <tr>
-<td>5</td>
+<td style="text-align: right;">5</td>
 <td>Множители</td>
-<td><code>A = qmul(A, множитель)</code> по одному, в каноническом порядке; сюда же входит подшаг <a href="#5-g-геометрический-множитель">5-Г «Геометрический множитель»</a></td>
+<td>каждый именованный множитель применён отдельно в каноническом порядке</td>
 </tr>
 <tr>
-<td>6</td>
+<td style="text-align: right;">6</td>
 <td>Смягчение</td>
-<td><code>A = max(floor, trunc0((A - flat_mitigation) · K / (rating + K)))</code></td>
+<td>применены плоское смягчение и насыщаемый рейтинг одного профиля</td>
 </tr>
 <tr>
-<td>7</td>
+<td style="text-align: right;">7</td>
 <td>Ограничения</td>
-<td>общие min/max и типизированные post-эффекты — через тот же механизм модификаторов</td>
+<td>применены общие <code>min</code>/<code>max</code> и типизированные post-эффекты</td>
 </tr>
 <tr>
-<td>8</td>
+<td style="text-align: right;">8</td>
 <td>Маршрутизация щита</td>
-<td>распределяет результат между энергетическим щитом и здоровьем</td>
+<td>доставляемый урон распределён между щитом и здоровьем; остальные значения прошли без изменения</td>
 </tr>
 <tr>
-<td>9</td>
+<td style="text-align: right;">9</td>
 <td>Фиксация</td>
-<td>пишет результат и трассу стадий в состояние и в потиковый хеш</td>
+<td>результат и каноническая трасса атомарно записаны в состояние</td>
 </tr>
 </tbody>
 </table>
-<p>Обозначения: <code>A</code> — накапливаемое значение; <code>ONE</code> — единица единственного формата фиксированной точки Q16.16, то есть <code>65536</code>; <code>qmul(a, b) = trunc0(a · b / ONE)</code> в int64; <code>trunc0</code> — усечение к нулю.</p>
-<h3 id="1-контекст">1. Контекст<a class="headerlink" href="#1-контекст" title="Permanent link">&para;</a></h3>
-<p>Порядок внутри стадии совпадает с уже утверждённым: сначала конверсии, затем добавление тегов до стабилизации набора (<a href="../../game-design/skills-and-tags/#как-добавляются-и-наследуются-теги">источники добавления тегов</a>). Раскрытие монотонно и каждый источник срабатывает не более раза, поэтому неподвижная точка достигается за конечное число шагов и отдельный лимит глубины не нужен.</p>
-<h3 id="2-отбор">2. Отбор<a class="headerlink" href="#2-отбор" title="Permanent link">&para;</a></h3>
-<p>Модификатор применим тогда и только тогда, когда его теговый запрос истинен на effective tags контекста. Списков навыков, имён сущностей и исключений «кроме вот этого скилла» в отборе нет.</p>
-<p>Здесь же селекторы <a href="#идентичность-характеристики">идентичности характеристики</a> раскрываются в <strong>конкретные полосы</strong>: одна полоса на один тип урона. Каждая полоса исполняет стадии 3–7 самостоятельно, в том же каноническом порядке модификаторов.</p>
+<p>На стадии 1 конверсии завершаются раньше добавления тегов. Затем разрешённые источники добавляют теги монотонно до стабилизации набора; каждый источник срабатывает не более одного раза. Точный состав источников и семантика наследования принадлежат <a href="../modifiers-and-tags/">главе о модификаторах и тегах</a>.</p>
+<p>Стадия 2 проверяет применимость по итоговым <code>effective tags</code>, а не по имени навыка или классу сущности. Селекторы раскрываются в конкретные полосы, после чего каждая полоса независимо проходит стадии 3–7. Сводная полоса «все типы» не создаётся; правила <code>none</code>, <code>all</code>, <code>set</code>, дедупликации и стабильного порядка определяет владелец ссылок и модификаторов.</p>
+<h2 id="как-выполняется-арифметика-стадий-37">Как выполняется арифметика стадий 3–7?<a class="headerlink" href="#как-выполняется-арифметика-стадий-37" title="Permanent link">&para;</a></h2>
+<p>Вся арифметика использует Q16.16 через единственный фасад <code>internal/fixed/</code>. Масштаб <code>ONE</code>, типы хранения, усечение к нулю, проверка границ и поведение насыщения принадлежат <a href="../simulation-core/#как-устроена-числовая-модель">числовой модели симуляции</a>. Конвейер не реализует собственные сдвиги, float-преобразования или правила округления.</p>
+<p>На стадии 3 сумма <code>flat</code> целиком накапливается в <code>int64</code>; промежуточное масштабирование между слагаемыми не выполняется. Стадия 4 так же сначала собирает единое ведро <code>add_pct</code>, затем один раз умножает накопленное значение на <code>ONE + Σadd_pct</code>. Функция <code>qmul(a, b)</code> вычисляет <code>trunc0(a · b / ONE)</code> с проверяемым промежуточным значением.</p>
+<p>Стадия 5 применяет каждый именованный <code>mul</code> последовательно. После каждого умножения выполняется усечение к нулю, поэтому предварительно перемножать коэффициенты или переносить округление в конец запрещено. Порядок входных файлов, Go map, экипировки и источников не влияет на последовательность: вычислитель получает канонический порядок <code>(stage, stat_id, source_id, modifier_id)</code> и сравнивает stable ID побайтово.</p>
+<p>Фронтальное снижение урона Оплота является геометрическим подшагом стадии 5. Для удара один раз вычисляется <code>InsideFrontalArc</code> по позициям, отношению охраны и сетке <code>Direction16</code>; при истинном условии применяется множитель <code>ONE / 2</code>, при ложном условии подшаг ничего не меняет. Множитель стоит до смягчения, участвует в общем каноническом порядке и трассе и не создаёт тег, новую стадию или дополнительный профиль <code>mitigation</code>.</p>
+<p>Стадия 6 вычисляет:</p>
+<p><code>A = max(floor, trunc0((A - flat_mitigation) · K / (rating + K)))</code>.</p>
+<p>Один алгоритм обслуживает все профили: физический профиль задаёт плоское смягчение и нейтральный рейтинг, а стихийные профили и яд задают рейтинг без плоского вычитания. Конкретные полосы и их ID берутся из реестров, а числовое наполнение <code>K</code> — только из <a href="../../open-questions/#открытые">зарегистрированной строки плейтеста</a>. Вход обязан удовлетворять <code>K &gt; 0</code> и <code>rating &gt;= 0</code>; стадия не допускает деление на ноль и не достигает полного процентного смягчения при конечном рейтинге.</p>
+<p>Стадия 7 применяет <code>min</code>, <code>max</code> и типизированные post-эффекты через тот же набор операций и тот же отбор. Отдельный движок кэпов отсутствует. Выход стадии 7 является окончательным числом характеристики до необязательной маршрутизации доставляемого урона.</p>
+<h2 id="как-работают-критический-удар-и-длительность-статуса">Как работают критический удар и длительность статуса?<a class="headerlink" href="#как-работают-критический-удар-и-длительность-статуса" title="Permanent link">&para;</a></h2>
+<p>Критический бросок не является стадией конвейера. Боевой движок выполняет ровно один бросок на удар после проверок промаха, уклонения и блока, используя поток RNG боевых бросков, а затем передаёт булев результат вычислителю. Конвейер не читает RNG на стадиях 1–9.</p>
+<p>Канал крита задаётся навыком при авторинге и не выводится из типа урона. На стадии 2 набор применимых модификаторов образуется из глобальной области и совпавшего канала с дедупликацией по <code>modifier_id</code>; один модификатор не может попасть в расчёт дважды. Один результат броска действует на все полосы удара, а каждая полоса применяет свой разрешённый <code>crit_multiplier</code> ровно один раз как именованный множитель. Производный периодический урон наследует канал и результат исходного броска и собственного броска не выполняет.</p>
+<p>Длительность статуса адресуется измерением статуса, а не типом урона. Для воздействия с несколькими полосами урона <code>status_duration</code> вычисляется один раз для каждого накладываемого статуса и не дублируется по полосам. Конкретные stat ID, допустимые измерения и ограничения их формы принадлежат <a href="../stat-registry/">реестру характеристик</a>.</p>
+<h2 id="что-делает-маршрутизация-щита">Что делает маршрутизация щита?<a class="headerlink" href="#что-делает-маршрутизация-щита" title="Permanent link">&para;</a></h2>
+<p>Стадия 8 активна только для значения, обозначенного входом как урон, доставляемый сущности. Для стоимости, скорости, длительности, шанса, рейтинга и остальных характеристик она возвращает значение стадии 7 без изменения. Периодический урон проходит ту же маршрутизацию, что и прямой удар.</p>
+<p>Для доставляемого урона вычислитель получает текущее значение щита и рассчитывает <code>absorbed = min(energy_shield, A)</code> и <code>health_damage = A - absorbed</code>. Щит не отменяет контроль и наложение статусов. Stagger и poise используют значение после стадии 6, но до щита, поэтому полностью поглощённый урон всё равно считается нанесённым ударом.</p>
+<p>Любой положительный урон после смягчения сбрасывает <code>shield_recharge_delay_ticks</code>, в том числе когда весь урон поглощён. После истечения задержки тик симуляции добавляет <code>shield_regen_per_tick</code> не выше <code>max_energy_shield</code>. Щит является конечным линейным ресурсом и не получает собственный <code>K</code>.</p>
+<h2 id="что-содержит-фиксация-и-трасса">Что содержит фиксация и трасса?<a class="headerlink" href="#что-содержит-фиксация-и-трасса" title="Permanent link">&para;</a></h2>
+<p>Стадия 9 атомарно фиксирует доменный результат и каноническую трассу расчёта. Трасса сохраняет базу, итог плоского ведра, сумму процентов, каждый применённый множитель в порядке исполнения, результат смягчения, ограничения, маршрутизацию и итог, а также stable ID каждого сработавшего модификатора. Она использует те же Q16.16-значения, которые участвовали в вычислении, и не пересчитывается из округлённого текста для интерфейса.</p>
+<p>Каноническая часть трассы входит в авторитетное состояние и потиковый хеш через тот же serializer, что и остальные данные тика. Поэтому замена набора модификаторов при случайно совпавшем итоговом числе остаётся наблюдаемым расхождением. Расширенные отвергнутые кандидаты и служебные объяснения могут храниться в opt-in диагностическом артефакте по правилам <a href="../replay/#что-входит-в-диагностические-трассы">replay</a>, но не подменяют каноническую трассу стадии 9.</p>
+<p>Девять стадий исполняются под <code>simulation_version = 4</code>; отдельной версии вычислителя нет. Любое изменение порядка стадий, формулы, точки усечения, геометрического подшага или другого правила, которое меняет состояния либо события при тех же канонических входах, меняет <code>simulation_version</code> по правилам <a href="../simulation-core/#когда-меняется-версия-симуляции">ядра</a>. Вместе с ним вручную переснимаются golden vectors и потиковые трассы; старые эталоны не прогоняются как доказательство совместимости. Формат replay и его отказ при несовпадении версии определяет <a href="../replay/#когда-запись-отвергается">владелец записи</a>.</p>
+<h2 id="что-нужно-сделать">Что нужно сделать<a class="headerlink" href="#что-нужно-сделать" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Модификатор с режимом <code>all</code> вносит вклад <strong>по одному разу в каждую полосу</strong>.</li>
-<li>Модификатор с режимом <code>set: [fire]</code> вносит вклад только в огненную полосу.</li>
-<li>Сводной полосы «все типы» не существует. Поэтому двойной учёт невозможен структурно, а не за счёт проверки.</li>
+<li><strong>Владелец:</strong> Go/симуляция, этап S4 по <a href="../production-plan/">плану производства</a>. Реализация использует Q16.16 из S1 и валидированные реестры и контент из S0/S2; Godot/клиент на S9 подключает только read-only представление результата и трассы.</li>
+<li><strong>Артефакты:</strong> <code>internal/sim/</code> с единственным вычислителем девяти стадий, типами результата и канонической трассы, маршрутизацией щита и адаптером к боевому тику; <code>internal/fixed/</code> как единственная арифметическая зависимость; <code>content/fixtures/</code> с валидными и невалидными профилями; <code>testdata/determinism/</code> с golden vectors contract v4 и сценариями, где трасса входит в потиковый хеш.</li>
+<li><strong>Готово, когда:</strong> тест утверждает девять стадий и их точный порядок; физический, стихийный и ядовитый профили совпадают с golden vectors; перестановка входных модификаторов не меняет число и трассу; стадии 4 и 5 усекают в заданных точках; фронтальный сектор применяет <code>ONE / 2</code> до смягчения только внутри заданной геометрии; на удар расходуется один критический бросок, а производный урон не расходует новый; длительность статуса не дублируется по полосам урона; прямой и периодический урон одинаково проходят щит, контроль проходит независимо, а stagger и poise читают значение до щита; невалидные <code>K</code>, <code>rating</code>, ссылки и конверсии отклоняются до тика; переполнение обнаруживается; изменение списка сработавших <code>modifier_id</code> меняет потиковый хеш даже при равном итоге; <code>go test ./... -race</code> и потиковые проверки S4 проходят.</li>
+<li><strong>Не трогать:</strong> Q16.16, RNG, tick order, snapshots и state serializer принадлежат <code>simulation-core.md</code>; геометрия удара, промах, уклонение, блок, stagger и knockback — <code>combat-engine.md</code>; <code>StatRef</code>, modifier schema, effective tags, stacking и cache plan — <code>modifiers-and-tags.md</code>; stat ID, единицы, bounds и tombstones — <code>stat-registry.md</code>; Protobuf fields и opcode — <code>contracts-and-data-flow.md</code>; replay container, seek и необязательная расширенная трасса — <code>replay.md</code>; тултипы, локализация и визуализация расчёта — главам Godot/клиента.</li>
 </ul>
-<h3 id="35-накопление">3–5. Накопление<a class="headerlink" href="#35-накопление" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Стадия 3 складывает плоские слагаемые <strong>без промежуточных сдвигов</strong>: сумма набирается целиком, и лишь потом идёт в следующую стадию.</li>
-<li>Стадия 4 применяет одно аддитивное ведро «увеличение» — ровно та замена неограниченного перемножения, которая требуется <a href="../../game-design/progression-and-builds/">принципами баланса</a>.</li>
-<li>Стадия 5 применяет каждый именованный множитель <strong>по одному</strong>, а не перемножает их предварительно: предварительное перемножение даёт другой результат усечения.</li>
-</ul>
-<h4 id="5-g-геометрический-множитель">5-Г. Геометрический множитель<a class="headerlink" href="#5-g-геометрический-множитель" title="Permanent link">&para;</a></h4>
-<p><strong>Нормативно.</strong> Подшаг стадии 5, не новая стадия. Стадий по-прежнему <strong>девять</strong>, их состав и порядок не изменились, и ни один номер стадии не сдвинулся — документы, ссылающиеся на «стадию 6» или «стадию 7», продолжают ссылаться на то же самое.</p>
-<p>Множитель отличается от остальных множителей стадии 5 только <strong>условием применимости</strong>: оно геометрическое, а не теговое. Условие вычисляется один раз на удар, по позициям сущностей и сетке <code>Direction16</code>, и не зависит от порядка входных данных.</p>
-<ul>
-<li>Единственный случай MVP — <strong>фронтальное снижение урона вдвое</strong> у Оплота: удар, пришедший внутрь фронтального сектора охраняющего, получает множитель <code>ONE / 2</code>, удар извне сектора — множитель не получает вовсе. Геометрия сектора определена в <a href="../../game-design/brain-reference/">охране и источнике эффекта</a> — ось по охраняемому, полуширина <code>sector_angle / 2</code>; поля ориентации у сущности нет.</li>
-<li>Подшаг стоит <strong>до смягчения</strong>: сектор режет доставляемый удар, а стадия 6 затем применяет броню и сопротивления к уже урезанному числу. Обратный порядок дал бы другое усечение.</li>
-<li><strong>Митигация не трогается.</strong> Стадия 6 остаётся одной характеристикой <code>mitigation</code> с семью типизированными полосами; ни восьмой полосы, ни второго профиля фронтальное снижение не порождает.</li>
-<li>В каноническом порядке агрегации <code>(stage, stat_id, source_id, modifier_id)</code> геометрический множитель участвует как обычный модификатор стадии 5 со своим стабильным ID и попадает в трассу стадий наравне с остальными.</li>
-<li><strong>Версия контракта: подшаг поднял её с 3 до 4.</strong> Решено: версия привязана к <strong>воспроизводимости</strong>, а не к составу и порядку стадий (<a href="../combat-simulation/#версионирование-replay">версионирование replay</a>). Подшаг не сдвигает ни одной стадии, но меняет исход при том же seed и обесценивает уже снятые золотые векторы — значит, бамп обязателен. Прежняя формулировка правила «версию поднимает состав и порядок стадий» была уже и противоречила требованию воспроизводимости; она переписана.</li>
-<li>Теговый источник для этого условия <strong>не заводится</strong>: перечень источников добавления тегов закрыт и целиком авторский (<a href="../../game-design/skills-and-tags/#как-добавляются-и-наследуются-теги">источники добавления тегов</a>), а effective tags служат ключом кеша плана расчёта — потиково меняющийся геометрический тег обесценил бы кеш.</li>
-</ul>
-<h3 id="6-смягчение">6. Смягчение<a class="headerlink" href="#6-смягчение" title="Permanent link">&para;</a></h3>
-<p><code>A = max(floor, trunc0((A - flat_mitigation) · K / (rating + K)))</code></p>
-<p>Это и есть та убывающая отдача, которая записана в <a href="../../game-design/progression-and-builds/">принципах баланса чисел</a>: при <code>rating &gt; 0</code> множитель <code>K/(rating + K)</code> строго меньше единицы и строго больше нуля, поэтому стопроцентного снижения не существует ни при каком вложении. При <code>rating = 0</code> множитель равен ровно единице — это нейтральное значение, снижения нет.</p>
-<h3 id="7-ограничения">7. Ограничения<a class="headerlink" href="#7-ограничения" title="Permanent link">&para;</a></h3>
-<p>Общие <code>min</code> / <code>max</code> и типизированные post-эффекты выражены <strong>теми же операциями модификаторов</strong>, что и стадии 3–5, и отбираются тем же теговым запросом. Отдельного механизма кэпов нет.</p>
-<h3 id="8-маршрутизация-щита">8. Маршрутизация щита<a class="headerlink" href="#8-маршрутизация-щита" title="Permanent link">&para;</a></h3>
-<p><strong>Условие применимости.</strong> Стадия 8 применима <strong>только</strong> к характеристикам, чьё значение есть урон, доставляемый сущности. Для любой другой характеристики — длительности, стоимости, скорости, шанса, рейтинга — стадия 8 является тождественной: значение стадии 7 проходит насквозь неизменным. Это правило, а не частный случай: конвейер один для всех вычисляемых чисел, и стадия 8 отличает их по признаку «доставляемый урон», а не по имени характеристики.</p>
-<p>Когда стадия применима, результат стадии 7 распределяется между энергетическим щитом и здоровьем: <code>absorbed = min(energy_shield, A)</code>, <code>health_damage = A − absorbed</code>. Тики периодического урона маршрутизируются так же.</p>
-<ul>
-<li>Щит <strong>не</strong> блокирует эффекты контроля и наложение статусов.</li>
-<li>Стаггер и poise считают величину <strong>после смягчения, но до щита</strong>: щит поглощает урон, а не удар.</li>
-<li>Любой положительный урон после смягчения сбрасывает <code>shield_recharge_delay_ticks</code>. После того как задержка истекла, каждый тик прибавляется плоский <code>shield_regen_per_tick</code>, ограниченный сверху <code>max_energy_shield</code>.</li>
-<li>Собственной константы <code>K</code> у щита нет: это конечный ресурс в Q16.16, расходуемый линейно, а не рейтинг с асимптотой. <code>K</code> принадлежит только насыщающимся кривым отклика.</li>
-</ul>
-<h3 id="9-фиксация">9. Фиксация<a class="headerlink" href="#9-фиксация" title="Permanent link">&para;</a></h3>
-<p>Результат и трасса стадий записываются в состояние и участвуют в потиковом хеше (<a href="../testing-and-ci/#харнесс-детерминизма">харнесс детерминизма</a>).</p>
-<h2 id="идентичность-характеристики">Идентичность характеристики<a class="headerlink" href="#идентичность-характеристики" title="Permanent link">&para;</a></h2>
-<p><strong>Нормативно.</strong> Характеристика адресуется не плоским именем, а структурной композитной ссылкой:</p>
-<div class="highlight"><pre><span></span><code>StatRef {
-  stat_id
-  damage_types  { mode: none | all | set, ids: [] }
-  crit_channels { mode: none | all | set, ids: [] }
-  statuses      { mode: none | all | set, ids: [] }
-}
-</code></pre></div>
-<p>Каноническая форма одинакова для всех трёх селекторов: списки <code>ids</code> отсортированы и лишены дубликатов; при <code>mode: none</code> и <code>mode: all</code> список пуст. Две ссылки равны тогда и только тогда, когда равны их канонические формы.</p>
-<p>Типов урона семь: <code>piercing</code>, <code>crushing</code>, <code>slashing</code>, <code>fire</code>, <code>cold</code>, <code>lightning</code>, <code>poison</code>.</p>
-<p>Полный перечень ключей и их формы — <a href="../stat-registry/">реестр stat ID</a>.</p>
-<p>По типу урона векторизованы: <code>damage</code>, <code>mitigation</code>, <code>penetration</code>, <code>crit_multiplier</code>. <code>crit_chance</code> по типу урона <strong>не</strong> векторизуется (<a href="#крит">крит</a>).</p>
-<p><code>status_duration</code> векторизован по измерению <code>statuses</code> и по типу урона <strong>не</strong> векторизуется (<a href="#длительность-статусов">длительность статусов</a>): в его ссылке <code>damage_types</code> всегда <code>mode: none</code>. Длительность оглушения и длительность заморозки — две разные ссылки на один stat ID.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"stat_id"</span><span class="p">:</span><span class="s2">"status_duration"</span><span class="p">,</span><span class="nt">"damage_types"</span><span class="p">:{</span><span class="nt">"mode"</span><span class="p">:</span><span class="s2">"none"</span><span class="p">,</span><span class="nt">"ids"</span><span class="p">:[]},</span><span class="nt">"crit_channels"</span><span class="p">:{</span><span class="nt">"mode"</span><span class="p">:</span><span class="s2">"none"</span><span class="p">,</span><span class="nt">"ids"</span><span class="p">:[]},</span><span class="nt">"statuses"</span><span class="p">:{</span><span class="nt">"mode"</span><span class="p">:</span><span class="s2">"set"</span><span class="p">,</span><span class="nt">"ids"</span><span class="p">:[</span><span class="s2">"poison"</span><span class="p">]}}</span>
-</code></pre></div>
-<h3 id="сериализация-и-совместимость">Сериализация и совместимость<a class="headerlink" href="#сериализация-и-совместимость" title="Permanent link">&para;</a></h3>
-<ul>
-<li>ID характеристики — неизменяемая ASCII-строка, и сериализуется именно она.</li>
-<li>Реестр <strong>append-only</strong>: удалённый ключ становится надгробием, никогда не переиспользуется и никогда не переосмысляется.</li>
-<li>Плотный целочисленный индекс генерируется при загрузке для runtime-массивов и <strong>никогда</strong> не сериализуется.</li>
-</ul>
-<p>Под существующим ID разрешено менять: подписи, метаданные, реализацию, балансовые значения.</p>
-<p>Под существующим ID запрещено менять: масштаб Q16.16, единицу измерения, область значений, знак, семантический смысл, смысл измерения, момент наблюдения, округление, стадию конвейера, на которой характеристика применяется.</p>
-<p>Любое семантическое изменение требует <strong>нового ID</strong>. Старый ID остаётся живым через legacy-вычислитель. Молчаливое сопоставление старого ID новому запрещено.</p>
-<h2 id="крит">Крит<a class="headerlink" href="#крит" title="Permanent link">&para;</a></h2>
-<p><strong>Нормативно.</strong> Крит адресуется измерением <code>crit_channel</code> со значениями <code>weapon_strike</code> и <code>spell_cast</code>. Это значения существующей категории тегов «способ применения и дистанция» (<a href="../../game-design/skills-and-tags/#что-именно-описывают-теги">категории тегов</a>); восьмой категории не появляется.</p>
-<ul>
-<li>Канал — свойство <strong>навыка</strong>, зафиксированное при авторинге. Ни тип урона, ни внешний вид эффекта его не определяют. Удар мечом, сконвертированный в огонь, остаётся <code>weapon_strike</code>. Призванный магический клинок — <code>spell_cast</code>.</li>
-<li>Производный урон (периодический урон, тики недугов) наследует канал наносящего удара <strong>и исход его крит-броска</strong>; собственного броска у него нет.</li>
-<li>Порождённым сущностям отдельного правила не требуется: они наследуют effective tags родителя (<a href="../../game-design/skills-and-tags/#как-добавляются-и-наследуются-теги">наследование тегов порождёнными сущностями</a>).</li>
-</ul>
-<p><strong>Векторизация.</strong> <code>crit_chance</code> бывает глобальным и поканальным; глобальные модификаторы питают <strong>оба</strong> канала, по типу урона <code>crit_chance</code> не различается. <code>crit_multiplier</code> векторизован и по типу урона, и по каналу.</p>
-<p><strong>Отбор.</strong> На стадии 2 берётся объединение глобальных модификаторов и модификаторов совпавшего канала, дедуплицированное по <code>modifier_id</code>. Дедупликация делает двойной учёт невозможным.</p>
-<p><strong>Бросок.</strong> Ровно <strong>один</strong> бросок на удар, после проверок промаха, уклонения и блока, из потока RNG 3 «Боевые броски» (<a href="../combat-simulation/#rng">RNG</a>). Бросок происходит в разрешении атаки — стадия 5 тика (<a href="../combat-simulation/#канонический-порядок-тика">канонический порядок тика</a>), — а не в стадии расчёта. Стадии 8 и 9 ничего не бросают: маршрутизация и фиксация.</p>
-<p>Один булев результат крита общий для всех полос. Дальше каждая полоса применяет свой разрешённый <code>crit_multiplier</code> ровно один раз, как именованный множитель в стадиях накопления.</p>
-<p><strong>Бюджетное ограничение.</strong> Крит перераспределяет бюджет урона, а не добавляет поверх него (<a href="../../game-design/progression-and-builds/">принципы баланса чисел</a>). Формально: <code>Σ_t D_t((1 − p) + p · M_t)</code> не превышает бюджет, выделенный удару, где <code>p</code> — шанс крита, <code>D_t</code> и <code>M_t</code> — урон и множитель крита полосы <code>t</code>. Рост шанса или множителя обязан уменьшить базовый урон либо другой выход; коридор времени до убийства сохраняется.</p>
-<h2 id="длительность-статусов">Длительность статусов<a class="headerlink" href="#длительность-статусов" title="Permanent link">&para;</a></h2>
-<p><strong>Нормативно.</strong> Длительность векторизована по <strong>статусу</strong>, а не по типу урона. Статусы: <code>stun</code>, <code>knockback</code>, <code>freeze</code>, <code>fear</code>, <code>charm</code>, <code>poison</code>.</p>
-<p>Измерение статуса живёт в селекторе <code>statuses</code> <a href="#идентичность-характеристики">идентичности характеристики</a> — так же, как тип урона живёт в <code>damage_types</code>. Отдельных stat ID под каждый статус нет.</p>
-<p>Следствие: удар, охватывающий несколько типов урона, не порождает неоднозначности — ни одна полоса не претендует на то, чтобы задать длительность.</p>
-<h2 id="три-формулы--это-один-шаг-6">Три формулы — это один шаг 6<a class="headerlink" href="#три-формулы--это-один-шаг-6" title="Permanent link">&para;</a></h2>
-<div class="admonition important">
-<p class="admonition-title">Несущая мысль</p>
-<p>Три формулы митигации, записанные в GDD, <strong>не являются тремя формулами</strong>. Это три набора параметров одной стадии 6. Ветвления по типу урона в коде нет и не будет.</p>
-</div>
-<table>
-<thead>
-<tr>
-<th>Профиль</th>
-<th><code>flat_mitigation</code></th>
-<th><code>rating</code></th>
-<th>Во что сводится стадия 6</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Физический (колющий, дробящий, рубящий)</td>
-<td>броня подтипа</td>
-<td><code>0</code></td>
-<td><code>K/(0 + K) = 1</code>, остаётся только вычитание: <code>max(1, A - armor_подтипа)</code></td>
-</tr>
-<tr>
-<td>Стихийный (огонь, холод, молния)</td>
-<td><code>0</code></td>
-<td>сопротивление стихии</td>
-<td>вычитать нечего, остаётся процент: <code>max(1, A · K/(resist + K))</code></td>
-</tr>
-<tr>
-<td>Яд</td>
-<td><code>0</code></td>
-<td>сопротивление яду</td>
-<td>тот же процент, применяемый к урону тика: <code>max(1, A_tick · K/(poison_resist + K))</code></td>
-</tr>
-</tbody>
-</table>
-<p>Семь значений митигации (<a href="../../game-design/skills-and-tags/#какие-типы-урона-существуют">реестр типов урона</a>) — это семь профилей <strong>одного</strong> stat ID <code>mitigation</code>, адресуемого через семь типизированных полос. Семи отдельных stat ID у митигации нет: тип урона живёт в измерении идентичности, а не в имени характеристики (<a href="#идентичность-характеристики">идентичность характеристики</a>). Добавление восьмого типа урона — добавление строки данных, а не ветки в коде.</p>
-<h2 id="теги-и-модификаторы">Теги и модификаторы<a class="headerlink" href="#теги-и-модификаторы" title="Permanent link">&para;</a></h2>
-<p>Модификатор — это данные из четырёх частей: стабильный ID, операция, целевая характеристика и теговый запрос.</p>
-<table>
-<thead>
-<tr>
-<th>Поле</th>
-<th>Смысл</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>id</code></td>
-<td>стабильный ID; участвует в каноническом порядке и в трассе</td>
-</tr>
-<tr>
-<td><code>op</code></td>
-<td><code>add_flat</code> (стадия 3), <code>add_pct</code> (стадия 4), <code>mul</code> (стадия 5), <code>min</code> / <code>max</code> (стадия 7)</td>
-</tr>
-<tr>
-<td><code>stat</code></td>
-<td>stat ID, к которому применяется операция</td>
-</tr>
-<tr>
-<td><code>all</code> / <code>any</code> / <code>not</code></td>
-<td>теговый запрос AND / OR / NOT</td>
-</tr>
-<tr>
-<td><code>q</code></td>
-<td>значение в фиксированной точке Q16.16 (<code>ONE = 65536</code>)</td>
-</tr>
-</tbody>
-</table>
-<p>Примеры строк данных:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"modifier:item:barbed_tip"</span><span class="p">,</span><span class="nt">"all"</span><span class="p">:[</span><span class="s2">"physical_damage"</span><span class="p">,</span><span class="s2">"projectile"</span><span class="p">],</span><span class="nt">"op"</span><span class="p">:</span><span class="s2">"add_flat"</span><span class="p">,</span><span class="nt">"stat"</span><span class="p">:</span><span class="s2">"damage"</span><span class="p">,</span><span class="nt">"q"</span><span class="p">:</span><span class="mi">65536</span><span class="p">}</span>
-<span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"modifier:passive:burning_area"</span><span class="p">,</span><span class="nt">"all"</span><span class="p">:[</span><span class="s2">"fire_damage"</span><span class="p">,</span><span class="s2">"area"</span><span class="p">],</span><span class="nt">"not"</span><span class="p">:[</span><span class="s2">"projectile"</span><span class="p">],</span><span class="nt">"op"</span><span class="p">:</span><span class="s2">"add_pct"</span><span class="p">,</span><span class="nt">"stat"</span><span class="p">:</span><span class="s2">"damage"</span><span class="p">,</span><span class="nt">"q"</span><span class="p">:</span><span class="mi">16384</span><span class="p">}</span>
-</code></pre></div>
-<p>Ни одна из этих строк не называет навык. Первая усилит любой источник, который в момент расчёта несёт <code>physical_damage</code> и <code>projectile</code>, — включая порождённые сущности, унаследовавшие оба тега.</p>
-<p><strong>Реестр модификаторов плоский.</strong> Категории тегов существуют только для UI и редактора; применимость всегда решается по effective tags (<a href="../../game-design/skills-and-tags/#что-именно-описывают-теги">категории тегов</a>).</p>
-<h3 id="источники-тегов-контекста">Источники тегов контекста<a class="headerlink" href="#источники-тегов-контекста" title="Permanent link">&para;</a></h3>
-<p>Контекст расчёта объединяет теги источника, активного навыка, способа доставки и дистанции, типа урона и стихии, ресурса или эффекта и цели. Все они берутся из <strong>одного</strong> реестра тегов и ложатся на уже утверждённые категории:</p>
-<table>
-<thead>
-<tr>
-<th>Ось контекста</th>
-<th>Категория из <a href="../../game-design/skills-and-tags/#что-именно-описывают-теги">навыков и тегов</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>активный навык</td>
-<td>тип сущности: активный или пассивный навык</td>
-</tr>
-<tr>
-<td>тип урона и стихия</td>
-<td>урон и стихия</td>
-</tr>
-<tr>
-<td>способ доставки и дистанция</td>
-<td>способ применения и дистанция; форма доставки</td>
-</tr>
-<tr>
-<td>ресурс или эффект</td>
-<td>ресурс; эффект</td>
-</tr>
-<tr>
-<td>цель</td>
-<td>цель</td>
-</tr>
-<tr>
-<td>источник расчёта</td>
-<td><strong>отдельной категории нет и не требуется</strong> — источник вносит собственные effective tags (правило под таблицей)</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Отдельной категории «источник расчёта» не существует.</strong> Источник расчёта — это сам вычисляемый лист характеристик, а контекст уже объединяет его effective tags; отдельный тег-удостоверение личности повторил бы то, что отбор по тегам и так умеет.</p>
-<ul>
-<li>Теги <code>fighter</code> и <code>enemy</code> <strong>запрещены</strong>: они позволили бы одному и тому же навыку считаться по-разному у игрока и у врага, что прямо исключает <a href="../../game-design/enemies-and-encounters/#почему-враг-является-задачей-для-мозга">правило равенства расчёта</a> — враг проходит тот же конвейер девяти стадий и те же реестры, а отличаться вправе только характеристиками, набором навыков и скрытым графом мозга.</li>
-<li>Наследование тегов делает такой тег хуже, а не лучше: призыв наследует все effective tags родителя и нёс бы одновременно <code>fighter</code> и <code>summoned</code>. Оставить <code>fighter</code> — протечь на призывы модификаторы, писанные для бойца; убрать — сломать само правило наследования. Тег создаёт дилемму без хорошей стороны.</li>
-<li>Единственный по-настоящему механический случай уже покрыт: <code>summoned</code> существует как обычный тег, а <a href="../../game-design/skills-and-tags/#что-именно-описывают-теги">валидатор не требует</a>, чтобы тег принадлежал какой-либо категории.</li>
-<li>Категория «цель» с её значениями враг/союзник прецедентом не является: они <strong>относительны</strong> действующей сущности, а не абсолютное удостоверение личности источника.</li>
-</ul>
-<h2 id="детерминизм">Детерминизм<a class="headerlink" href="#детерминизм" title="Permanent link">&para;</a></h2>
-<p><strong>Нормативно.</strong></p>
-<ul>
-<li><strong>Канонический порядок агрегации:</strong> <code>(stage, stat_id, source_id, modifier_id)</code>, сравнение по стабильным ID <strong>побайтово</strong>. Порядок входных данных игнорируется полностью: порядок обхода Go-мапы, порядок файлов контента и порядок надевания предметов на результат не влияют.</li>
-<li>Суммы <code>add_flat</code> и <code>add_pct</code> набираются в <strong>int64</strong>; множители применяются затем <strong>по одному</strong> в том же каноническом порядке.</li>
-<li><strong>Усечение к нулю выполняется после каждой стадии умножения и деления</strong>, а не один раз в конце. Единственное финальное округление даёт другой результат и приближает переполнение int64.</li>
-<li><code>K &gt; 0</code> и <code>rating &gt;= 0</code>; знаменатель <code>rating + K</code> валидируется. Невалидный контент падает <strong>до</strong> арифметики, как ошибка контента, и никогда не чинится в runtime подстановкой значения.</li>
-<li>Умножение и деление int64 — <strong>проверяемые</strong>: переполнение является багом и обязано быть замечено, а не насыщено молча (<a href="../combat-simulation/#контракт-фиксированной-точки">контракт фиксированной точки</a>).</li>
-<li>Результат расчёта и трасса стадий входят в потиковый хеш состояния.</li>
-</ul>
-<h2 id="цена-решения">Цена решения<a class="headerlink" href="#цена-решения" title="Permanent link">&para;</a></h2>
-<p>Записано честно: единая формула переносит стоимость с кода на объяснимость и на данные.</p>
-<ul>
-<li><strong>Отладка на стороне игрока.</strong> Тултип обязан раскладывать число на слагаемые: база, плоские прибавки, сумма процентов, каждый множитель отдельно, смягчение, итог. Без этого игрок видит одно число и не может связать его с надетым предметом.</li>
-<li><strong>Отладка на стороне разработчика.</strong> Детерминированная трасса записывает ID <strong>каждого</strong> сработавшего модификатора. Трасса — тот же артефакт, что участвует в хеше, а не отдельный лог.</li>
-<li><strong>Производительность при 60 Гц и до шести бойцов.</strong> Разрешённый план расчёта кешируется по паре «набор effective tags + ревизия сборки». Реестр модификаторов <strong>никогда не сканируется на каждый удар</strong>: сканирование происходит при смене сборки или набора тегов, дальше работает готовый план.</li>
-</ul>
-<h2 id="граница-против-переусложнения">Граница против переусложнения<a class="headerlink" href="#граница-против-переусложнения" title="Permanent link">&para;</a></h2>
-<p><strong>Нормативно.</strong> Один вычислитель, одна схема операций, профили в данных.</p>
-<ul>
-<li><strong>DSL нет.</strong> Произвольных формул в контенте нет. Данные несут только параметры: <code>op</code>, <code>stat</code>, теговый запрос и значение.</li>
-<li>Формулы исполняет <strong>Go</strong>; контент их не описывает. Это закрывает ранее открытый вопрос о том, являются ли геймплейные формулы выражениями в данных (<a href="../content-packages/">пакеты контента и баланса</a>).</li>
-<li>Новая механика — это новый тег и новые строки модификаторов, а не новая формула. Если механику нельзя выразить девятью стадиями, обсуждается <strong>изменение стадий</strong>, а не локальное исключение: исключение — это второй кусок арифметики, ровно то, что запрещено.</li>
-</ul>
-<h2 id="открытые-вопросы">Открытые вопросы<a class="headerlink" href="#открытые-вопросы" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Каковы конкретные значения константы <code>K</code> для каждой насыщающейся кривой? Это значения плейтеста.</li>
-</ul>
+<h2 id="что-читать-дальше">Что читать дальше?<a class="headerlink" href="#что-читать-дальше" title="Permanent link">&para;</a></h2>
+<p>Дальше — <a href="../modifiers-and-tags/">как выбираются и складываются модификаторы и effective tags</a>.</p>
 
 
 
