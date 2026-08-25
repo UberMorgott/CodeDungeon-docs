@@ -2049,12 +2049,19 @@ Direction16, Phase, EntityRef, PointRef, HazardRef, SkillQuery, Tag, ResourceTag
 <p><strong>Союзники:</strong> <code>NearestAlly</code>, <code>LowestHealthAlly</code>, <code>MostThreatenedAlly</code>, <code>AllyTargetedBy(e)</code>.
 Инертны в solo MVP, нужны для co-op.</p>
 <p><strong>Служебные:</strong> <code>Self</code>, <code>CurrentActionTarget(e)</code>, <code>CurrentGuardTarget(e)</code>, <code>EffectSourceOf(e,tag)</code>,
-<code>NearestHazard</code>, <code>SafestPointAround(e,radius)</code>, <code>PointBetween(a,b,ratio)</code>. Два последних описаны в
-<a href="#охрана-и-источник-эффекта-наблюдаемы">охрана и источник эффекта наблюдаемы</a>.</p>
+<code>NearestHazard</code>, <code>SafestPointAround(e,radius)</code>, <code>PointBetween(a,b,ratio)</code>. <code>CurrentGuardTarget</code>
+и <code>EffectSourceOf</code> описаны в
+<a href="#охрана-и-источник-эффекта-наблюдаемы">охрана и источник эффекта наблюдаемы</a>. Два последних
+возвращают точку, а не сущность: <code>SafestPointAround(e,radius)</code> — достижимая точка в круге радиуса
+<code>radius</code> вокруг <code>e</code> с наименьшей опасностью по тем же зонам, что видит <code>PointInsideHazard</code>;
+<code>PointBetween(a,b,ratio)</code> — точка на отрезке от <code>a</code> к <code>b</code> на доле <code>ratio</code> его длины, где <code>0</code> даёт
+<code>a</code>, а <code>1</code> — <code>b</code>. Обе разрешаются детерминированно и в фиксированной точке.</p>
 <p>Правила:</p>
 <ul>
-<li>Каждый селектор сущности принимает необязательные <code>MaxDistance</code>, <code>RequiredTags</code>, <code>ExcludedTags</code>;
-  фазовые селекторы дополнительно принимают список подходящих фаз.</li>
+<li>Каждый селектор сущности принимает <code>MaxDistance</code>, <code>RequiredTags</code>, <code>ExcludedTags</code> и фазовый
+  фильтр — список подходящих фаз. Сигнатура одинакова у всех селекторов v1 и в сериализованной
+  форме присутствует целиком; пустой фильтр означает «подходят все фазы»
+  (<a href="#необратимые-части-словаря">необратимые части словаря</a>).</li>
 <li>Порядок разрешения ничьих всегда один: основной счёт, затем дистанция от точки отсчёта
   селектора, затем стабильный ID сущности по возрастанию. Значения фиксированной точки сравниваются
   точно.</li>
@@ -2146,6 +2153,9 @@ recovery_ticks)</code>. Подготовка прерываема, исполн�
 усиления, лечение, метки, прерывания, отбрасывание и опасные зоны. Данные навыка задают допустимую
 команду цели, дальность, геометрию, урон, стаггер, отбрасывание, теги, стоимости и точные
 длительности фаз.</p>
+<p><strong>Смена набора оружия:</strong> <code>SwitchWeaponSet</code> — переключает активный набор оружия, аргументов не
+принимает. Это полноценное трёхфазное действие, а не служебная операция; автоматической смены при
+вызове навыка неактивного набора нет (<a href="../ai-brain/#подтверждено">мозг персонажа</a>).</p>
 <p><code>Wait(duration)</code> атомарен по одному тику за раз, чтобы прерывания оставались отзывчивыми.
 <code>StandStill</code> — <code>(0,1,0)</code>.</p>
 <p><strong>Отмена:</strong> <code>CancelPreparation</code> — единственная операция отмены в словаре. Она допустима <strong>только</strong>
