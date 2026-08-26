@@ -2432,11 +2432,12 @@
   любая проверка вида «дерево чистое» без сужения области будет на них падать.</li>
 <li><strong><code>internal/launch/process_other.go</code></strong> собирается кросс-компиляцией, но его тест
   никогда не исполнялся на живом Linux.</li>
-<li><strong>Legacy-остров в Godot жив.</strong> <code>game_world_3d</code>, <code>node_palette.gd</code>,
-  <code>blueprint_graph.gd</code>, <code>blueprint_node_base.gd</code>, <code>brain_overview.gd</code> и
-  компонентные сцены осиротели, но не удалены: это не экраны, и решение об их
-  судьбе не принималось. Около 358 замечаний линтера — оттуда. Гейт форматирования
-  намеренно не смотрит на этот остров, иначе он краснел бы на чужом коде.</li>
+<li><strong>Legacy-остров в Godot ужался, но жив.</strong> Полностью мёртвая его часть удалена
+  (21 файл, вместе с заброшенным вторым Godot-проектом <code>client/</code>). Живые остатки —
+  <code>node_palette.gd</code>, <code>blueprint_node_base.gd</code>, <code>brain_overview.gd</code>, четыре autoload
+  и компонентные сцены: это не экраны, они будут переписаны под игровую логику.
+  Замечания линтера — оттуда. Гейт форматирования намеренно не смотрит на этот
+  остров, иначе он краснел бы на чужом коде.</li>
 </ul>
 <h2 id="следующий-шаг">Следующий шаг<a class="headerlink" href="#следующий-шаг" title="Permanent link">&para;</a></h2>
 <p>По плану — S2: схема контента, валидатор, канонизация, подкоманда <code>validate</code>.
