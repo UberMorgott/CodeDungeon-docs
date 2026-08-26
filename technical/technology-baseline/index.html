@@ -290,6 +290,33 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../stage-1-handoff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что сделано в Stage 1 и что осталось открытым
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
     
@@ -299,10 +326,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -320,8 +347,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -831,10 +858,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -852,8 +879,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1478,10 +1505,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_18" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_18" >
         
           
-          <label class="md-nav__link" for="__nav_3_18" id="__nav_3_18_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_18" id="__nav_4_18_label" tabindex="0">
             
   
   
@@ -1499,8 +1526,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_18_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_18">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_18">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2416,13 +2443,13 @@
 </tr>
 <tr>
 <td>Локальный transport</td>
-<td>WebSocket; Go library <code>github.com/gorilla/websocket</code> <code>v1.5.3</code></td>
+<td>WebSocket; Go library <code>github.com/coder/websocket</code> <code>v1.8.15</code></td>
 <td>Адаптер связи; игровым состоянием не владеет</td>
 <td>Упорядоченная доставка команд и данных между двумя локальными процессами</td>
 </tr>
 <tr>
 <td>Общий wire contract</td>
-<td>Protobuf; Go runtime <code>google.golang.org/protobuf</code> <code>v1.36.11</code>; payload в ProtoJSON</td>
+<td>Protobuf; Go runtime <code>google.golang.org/protobuf</code> <code>v1.36.12</code>; payload в ProtoJSON</td>
 <td><a href="../contracts-and-data-flow/">Контракты и поток данных</a></td>
 <td>Версионированные сообщения, одинаково интерпретируемые Go и Godot</td>
 </tr>
@@ -2457,6 +2484,7 @@
 <p>Go-first означает приоритет Go для gameplay и application core, а не требование реализовать на Go каждый компонент. Go принимает намерения, валидирует их и выпускает подтверждённые данные и события. Godot принимает пользовательский ввод и готовые результаты, хранит только состояние представления и не вычисляет значения, способные изменить исход забега.</p>
 <p>Входами Go являются команды игрока, назначенная конфигурация Мозга, immutable snapshot контента и системные команды жизненного цикла. Выходами служат результаты команд, snapshots/view-model, диагностические ошибки и готовая запись событий. Входами Godot являются устройства ввода и подтверждённые данные Go; выходами — намерения, конфигурации и локальные события UI. Полная граница авторитетности находится в <a href="../architecture/">архитектурном скелете</a>, а запуск, readiness, heartbeat и shutdown двух процессов — в <a href="../runtime-topology/">топологии runtime</a>.</p>
 <p>WebSocket является локальным transport adapter поверх localhost IPC. Он переносит versioned contract и не знает gameplay-смысла сообщения; Protobuf является единственным источником wire-схемы, а ProtoJSON — кодированием payload для MVP. Клиент не повторяет Go-типы вручную за пределами явно проверяемого codec/adapter, а Go domain packages не импортируют WebSocket, Godot types или JSON-модели экрана.</p>
+<p>Библиотека transport выбрана по владению жизненным циклом: <code>coder/websocket</code> строит чтение, запись, ping и close вокруг <code>context.Context</code>, поэтому listener, соединение, heartbeat, ожидание дочернего процесса и shutdown-дедлайн имеют одного владельца и один путь завершения. Wire-формат остаётся тем же RFC 6455, и клиент Godot <code>WebSocketPeer</code> от смены library не зависит. <code>coder/websocket</code> — единственная transport-библиотека в <code>go.mod</code>.</p>
 <p>Очередь transport должна быть ограниченной, а encode/decode и чтение крупной записи не должны блокировать Godot main thread. Ошибочный frame, неизвестный opcode, превышение лимита, нарушение порядка или несовместимость версии не порождают частично применённую команду. Точное сопоставление ошибок, sequence и handshake задаёт глава-владелец wire-контракта; клиент показывает полученный отказ и не достраивает ответ локальной симуляцией.</p>
 <h2 id="какие-форматы-используются-внутри-процессов">Какие форматы используются внутри процессов?<a class="headerlink" href="#какие-форматы-используются-внутри-процессов" title="Permanent link">&para;</a></h2>
 <p>В Godot поведение хранится в типизированных <code>.gd</code>, композиция сцен — в <code>.tscn</code>, reusable data — в <code>.tres</code>. Сериализованные scene/resource-файлы используют только объявленные <code>ExtResource</code> и <code>SubResource</code>; в них не помещают выражения GDScript. Player-visible текст не хранится в коде или сценах: клиент обращается к ключам через <code>tr()</code>, а размещение строк и narrative assets принадлежит <a href="../localization-and-narrative-content/">локализации и нарративному контенту</a>.</p>

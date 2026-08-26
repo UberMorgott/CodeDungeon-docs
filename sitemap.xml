@@ -2,246 +2,250 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/open-questions/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
+    </url>
+    <url>
+         <loc>https://ubermorgott.github.io/CodeDungeon-docs/stage-1-handoff/</loc>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/game-design/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/game-design/accessibility/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/game-design/audio-direction/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/game-design/biomes/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/game-design/brain-reference/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/game-design/combat-and-replay/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/game-design/core-loop/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/game-design/deferred-design/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/game-design/enemies-and-encounters/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/game-design/glossary/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/game-design/items-and-crafting/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/game-design/narrative-and-setting/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/game-design/programming-the-hero/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/game-design/progression-and-builds/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/game-design/run-structure/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/game-design/skills-and-tags/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/game-design/visual-language/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/architecture/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/asset-pipeline/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/audio-runtime/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/brain-runtime/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/client-architecture/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/combat-engine/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/content-packages/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/contracts-and-data-flow/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/development-workflow/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/future-online/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/items-and-crafting/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/localization-and-narrative-content/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/modifiers-and-tags/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/mvp-definition-of-done/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/persistence/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/production-plan/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/replay/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/run-systems/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/runtime-topology/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/simulation-core/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/stat-pipeline/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/stat-registry/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/technology-baseline/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/testing-and-ci/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/ai-editor/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/boot-and-connection/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/combat-viewing/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/inventory-and-crafting/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/main-menu/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/progression/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/replay-library/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/replay-viewer/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/rest/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/road-forge/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/room-resolution/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/run-map/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/run-result/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/run-setup/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/settings-and-system-menu/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://ubermorgott.github.io/CodeDungeon-docs/technical/screens/shop/</loc>
-         <lastmod>2026-08-25</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
 </urlset>

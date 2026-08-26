@@ -290,6 +290,33 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../stage-1-handoff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что сделано в Stage 1 и что осталось открытым
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
     
@@ -299,10 +326,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -320,8 +347,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -831,10 +858,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -852,8 +879,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1489,10 +1516,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_18" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_18" >
         
           
-          <label class="md-nav__link" for="__nav_3_18" id="__nav_3_18_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_18" id="__nav_4_18_label" tabindex="0">
             
   
   
@@ -1510,8 +1537,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_18_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_18">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_18">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2425,10 +2452,11 @@ Godot scene &lt;- client store &lt;- DTO mapper &lt;- result / snapshot / event
 <p>Protocol adapter проверяет token текущего запуска, envelope, допустимый размер, opcode и ProtoJSON до вызова application handler. Handler преобразует DTO в доменную команду, заново проверяет права, фазу и входные ID, затем канонизирует и упорядочивает вход. Только после этих шагов команда может изменить авторитетное состояние или запустить детерминированную операцию.</p>
 <p>Каждая принятая команда получает ровно один типизированный outcome. Успех подтверждает уже применённое изменение и может сопровождаться snapshot или событиями; отказ содержит machine-readable причину и не меняет состояние. Повтор того же <code>request_id</code> не применяет изменение второй раз и возвращает тот же наблюдаемый outcome либо его эквивалентную подтверждённую проекцию.</p>
 <p><code>sequence</code> позволяет обеим сторонам обнаружить пропуск, повтор и нарушение порядка. Go остаётся владельцем порядка применения входных команд, а Godot применяет подтверждённые выходы не более одного раза и только в порядке серверного потока. При разрыве связи клиент запрашивает актуальную проекцию и не пытается заполнить пропуск самостоятельно.</p>
+<p>Счётчик ведётся <strong>каждым направлением отдельно</strong> и на каждое соединение: первое сообщение клиента несёт <code>1</code>, каждое следующее — ровно <code>предыдущее + 1</code>; серверное направление нумеруется своим счётчиком тем же правилом. Входящий конверт с любым другим значением — дубликат, пропуск или перестановка — отклоняется типизированной ошибкой до вызова handler, поэтому команда не может примениться второй раз или не в свою очередь. Сброса счётчика посреди сессии не существует; новое поколение начинается только с новым соединением.</p>
 <p>Ошибка framing, распаковки, JSON mapping, неизвестный opcode, превышение лимита или невалидный envelope останавливает сообщение до доменного handler. Если <code>request_id</code> уже безопасно прочитан, отказ коррелируется с ним; иначе transport выдаёт диагностическую ошибку соединения. Ни одна такая ошибка не оставляет частично применённую команду и не заставляет Godot вычислять предполагаемый результат.</p>
 <h2 id="как-устроены-frame-и-envelope">Как устроены frame и envelope?<a class="headerlink" href="#как-устроены-frame-и-envelope" title="Permanent link">&para;</a></h2>
 <p>MVP использует binary WebSocket frame. Первые два байта содержат <code>uint16</code> opcode в little-endian, оставшаяся часть содержит gzip-сжатый ProtoJSON UTF-8. После распаковки payload интерпретируется только как Protobuf message, назначенный этому opcode; произвольный JSON не является вторым публичным контрактом.</p>
-<p>Opcode объявляется в канонической Protobuf-схеме и не повторяется отдельным списком констант в Go и GDScript. Generated Go types и проверяемый Godot codec получают одно и то же сопоставление из schema/tooling. Domain handler не видит opcode, WebSocket frame или gzip: protocol adapter выбирает тип команды и вызывает типизированный application port.</p>
+<p>Opcode объявляется в канонической Protobuf-схеме ровно один раз и не повторяется ни списком констант в Go и GDScript, ни enum'ом внутри самой схемы. Конкретно: <code>uint16</code> opcode <strong>есть номер поля</strong> заполненного члена oneof <code>Envelope.payload</code>, и Go читает его через protoreflect, а не через собственную таблицу констант. Параллельный enum со списком opcode запрещён: он не проверяется ни одним из кодеков и потому способен разойтись со схемой, не вызвав отказа в runtime. Отсюда два правила приёма: opcode, не соответствующий ни одному объявленному полю payload, отклоняется до распаковки, а конверт, чей заполненный payload не совпал с opcode заголовка, отклоняется после разбора. Generated Go types и проверяемый Godot codec получают одно и то же сопоставление из schema/tooling. Domain handler не видит opcode, WebSocket frame или gzip: protocol adapter выбирает тип команды и вызывает типизированный application port.</p>
 <p>Versioned envelope несёт следующие обязательные значения безотносительно конкретного payload:</p>
 <table>
 <thead>
@@ -2466,13 +2494,16 @@ Godot scene &lt;- client store &lt;- DTO mapper &lt;- result / snapshot / event
 </tr>
 </tbody>
 </table>
-<p>Точные Protobuf message names, field numbers, oneof payload и enum values живут только в <code>shared/proto/</code>. Markdown фиксирует их семантику и evolution rules, но не создаёт копию схемы. Лимиты frame, decompressed payload и bounded queue задаются transport-конфигурацией и проверяются симметрично Go и Godot; неизвестное числовое значение нельзя подменять локальным default.</p>
+<p>Точные Protobuf message names, field numbers, oneof payload и enum values живут только в <code>shared/proto/</code>. Markdown фиксирует их семантику и evolution rules, но не создаёт копию схемы. Лимиты frame и decompressed payload задаются transport-конфигурацией и проверяются симметрично Go и Godot; неизвестное числовое значение нельзя подменять локальным default. Лимит записи (таймаут одной синхронной отправки) принадлежит только Go: очереди конвертов нет ни на одной стороне.</p>
 <h2 id="когда-соединение-готово-к-gameplay-командам">Когда соединение готово к gameplay-командам?<a class="headerlink" href="#когда-соединение-готово-к-gameplay-командам" title="Permanent link">&para;</a></h2>
 <p>Go создаёт случайные endpoint и token для каждого запуска по контракту <a href="../runtime-topology/">топологии runtime</a>. После установления WebSocket обе стороны завершают compatibility handshake: token относится к текущему поколению процесса, <code>protocol_version</code> поддерживается обоими участниками, а <code>content_hash</code> совпадает с пакетом, который Go уже загрузил для сессии. До выполнения всех условий соединение не переходит в ready и gameplay-команды не принимаются.</p>
+<p>Рукопожатие состоит ровно из четырёх сообщений и заканчивается четвёртым. Последнее сообщение идёт от Go и несёт весь набор значений, которыми Go владеет на этом этапе; отдельного запроса за теми же значениями после него нет. Клиент переходит в ready прямо на этом сообщении и показывает полученные числа, не изобретая ни одного из них. Значение, уже выданное в этом снимке, не получает второго wire-представления: дублирующее сообщение не добавляет ни аутентификации, ни согласования версии или контента.</p>
 <p>Несовместимость не скрывается частичным чтением ProtoJSON. Клиент получает типизированную диагностическую причину, не строит подтверждённую проекцию и не повторяет запрос с догадкой о другой версии. Точный порядок сообщений negotiation и переходов handshake берётся из <a href="../../open-questions/#открытые">записи «Как устроено рукопожатие между Godot и побочным процессом ядра?»</a>; launcher, Boot/Connection screen и transport не задают каждый свою последовательность.</p>
+<p>Первое сообщение рукопожатия не может быть привязано к выбранной версии: именно оно предлагает список, из которого выбирают. Клиент штампует на нём свой максимум, поэтому клиент с поддержкой <code>[1,2]</code> придёт к ядру версии 1 с внешним значением <code>2</code>. Правило bootstrap: внешний <code>protocol_version</code> первого сообщения проверяется не на равенство версии ядра, а на принадлежность списку <code>supported_protocol_versions</code> того же сообщения; общая версия затем ищется как пересечение, и отсутствие пересечения — единственный повод отказать. Все конверты после <code>ServerHello</code> привязаны к выбранной версии в обе стороны. Обратное правило (сверять внешнее значение с версией ядра сразу) отвергло бы двух собеседников, у которых общая версия есть, и обессмыслило бы само поле.</p>
+<p>Проверка версий не заканчивается рукопожатием. Команда, пришедшая в состоянии ready, заново сверяет не только <code>session_id</code>, но и <code>protocol_version</code> и <code>content_hash</code>: рукопожатие договорилось об одной wire-версии и одном снимке контента, и сообщение, переставшее их нести, в эту договорённость не входит и до handler не доходит. Каждое из трёх несовпадений даёт собственную типизированную причину отказа.</p>
 <p>Повторное подключение снова проходит authentication и compatibility gate. Оно может восстановить существующую авторитетную сессию только по данным Go; client snapshot, сохранённый envelope или token прошлого запуска для этого не подходят. Изменение <code>content_hash</code> не переключает уже открытую сессию на другой пакет.</p>
 <h2 id="как-эволюционирует-protobuf">Как эволюционирует Protobuf?<a class="headerlink" href="#как-эволюционирует-protobuf" title="Permanent link">&para;</a></h2>
-<p><code>shared/proto/</code> является единственным источником wire-visible messages, enum и opcode. Схемы разделяются по bounded context и получают версию в package name. Generated code в <code>server/pkg/proto/</code> создаётся из этих файлов и не редактируется вручную; Godot mapping проверяется тем же набором golden fixtures.</p>
+<p><code>shared/proto/</code> является единственным источником wire-visible messages, enum и opcode. Схемы разделяются по bounded context и получают версию в package name. Generated code создаётся из этих файлов и не редактируется вручную; Godot mapping проверяется тем же набором golden fixtures. Пакеты <code>codedungeon.ipc.v1</code> генерируются в <code>server/internal/gen/ipcv1/</code> намеренно: сгенерированный код не является публичным API сервера, и <code>internal/</code> запрещает импорт его извне модуля средствами самого Go. Генерацию выполняет только buf по <code>shared/buf.gen.yaml</code>; второго генератора и второй выходной директории нет.</p>
 <p>Совместимое расширение внутри одной package version добавляет новое поле с новым номером или новое enum value, если старый потребитель способен сохранить прежний смысл. Номер поля никогда не переиспользуется. Удалённые имя и номер резервируются, существующий тип и смысл поля не меняются, а нулевое enum value остаётся нейтральным <code>UNSPECIFIED</code>-состоянием.</p>
 <p>Изменение типа, смысла, структуры обязательного выбора или JSON mapping является breaking change и создаёт новую package version. Один message не несёт два несовместимых смысла. Каждая поддерживаемая версия получает изолированный adapter в текущую application command; домен не ветвится по opcode или версии wire.</p>
 <p>ProtoJSON требует отдельной проверки совместимости, потому что Godot читает JSON names и enum representation, а не generated binary codec. Для каждого изменения schema fixtures доказывают одинаковое чтение Go и Godot, поведение неизвестного совместимого поля, отказ на неизвестной обязательной семантике, границы чисел и точное сопоставление enum. Buf format, lint, breaking и generated-diff checks входят в gate изменения схемы.</p>
@@ -2523,8 +2554,8 @@ Godot scene &lt;- client store &lt;- DTO mapper &lt;- result / snapshot / event
 <p>Wire protocol переносит эти данные, но не становится их владельцем. Protobuf DTO не заменяет content definition, SQLite record или replay container только потому, что похожие значения проходят по соединению. Между форматом владельца и DTO всегда находится явный adapter, а версия и ошибка остаются в области исходного владельца.</p>
 <h2 id="что-нужно-сделать">Что нужно сделать<a class="headerlink" href="#что-нужно-сделать" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Владелец:</strong> направление Go/симуляция владеет wire schema, opcode, envelope semantics, version policy, ordering, idempotency и protocol fixtures. Схема и fixtures замораживаются на S0, а live WebSocket/handshake интегрируется на S9; направление Godot/клиент на S9 реализует codec, DTO mapper и применение выходного потока без присвоения контракта по <a href="../production-plan/">плану производства</a>.</li>
-<li><strong>Артефакты:</strong> versioned <code>.proto</code> packages в <code>shared/proto/</code>; <code>shared/buf.yaml</code> и <code>shared/buf.gen.yaml</code>; generated Go package <code>server/pkg/proto/</code>; framing и protocol adapters в <code>server/internal/network/</code>; client transport и DTO mapper в <code>codedungeon/scripts/autoload/network_manager.gd</code> либо его типизированной замене; замороженные <code>fixtures/ui/</code>; Go ↔ Godot golden fixtures для каждого opcode, envelope outcome и ошибки совместимости.</li>
+<li><strong>Владелец:</strong> направление Go/симуляция владеет wire schema, opcode, envelope semantics, version policy, ordering, idempotency и protocol fixtures. Схема и fixtures замораживаются на S0. Live WebSocket и handshake жизненного цикла реализованы досрочно как сквозной срез Stage 1 вместо запланированного S9, чтобы топология проверялась раньше детерминизма; codec, DTO mapper и применение выходного потока живут на стороне Godot без присвоения контракта. Остальные opcode и gameplay-команды приходят по <a href="../production-plan/">плану производства</a>.</li>
+<li><strong>Артефакты:</strong> versioned <code>.proto</code> packages в <code>shared/proto/</code>; <code>shared/buf.yaml</code> и <code>shared/buf.gen.yaml</code>; generated Go package <code>server/internal/gen/ipcv1/</code>; framing и protocol adapters в <code>server/internal/ipc/</code>; client transport в <code>roguelite/scripts/ipc/</code> и DTO mapper с применением состояния в <code>roguelite/scripts/autoload/state_bridge.gd</code>; замороженные <code>fixtures/ui/</code>; Go ↔ Godot golden fixtures для каждого opcode, envelope outcome и ошибки совместимости.</li>
 <li><strong>Готово, когда:</strong> Buf format/lint/breaking и generated-diff gates проходят; каждый opcode декодируется обеими сторонами в одинаковый смысл; malformed, oversized и неизвестный frame не меняет domain state; duplicate <code>request_id</code> не повторяет изменение; sequence gap или перестановка не меняют исход; неверные token, <code>protocol_version</code> или <code>content_hash</code> не переводят соединение в ready и дают диагностируемый отказ; reconnect восстанавливает проекцию без клиентского state upload; завершённый бой воспроизводится из переданной записи, а управление playback не меняет канонический результат.</li>
 <li><strong>Не трогать:</strong> endpoint, token generation, heartbeat и process lifecycle принадлежат <code>runtime-topology.md</code>; tick order, fixed point, RNG и event ordering — <code>simulation-core.md</code>; replay container, codec, seek и retention — <code>replay.md</code>; JSON Schema, content IDs и package publication — <code>content-packages.md</code>; SQLite tables, migrations и recovery — <code>persistence.md</code>; reducers, scene state и navigation — <code>client-architecture.md</code>; удалённая сеть и Online — <code>future-online.md</code>.</li>
 </ul>

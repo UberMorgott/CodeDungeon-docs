@@ -290,6 +290,33 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../stage-1-handoff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что сделано в Stage 1 и что осталось открытым
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
     
@@ -299,10 +326,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -320,8 +347,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -831,10 +858,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -852,8 +879,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1354,10 +1381,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_18" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_18" >
         
           
-          <label class="md-nav__link" for="__nav_3_18" id="__nav_3_18_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_18" id="__nav_4_18_label" tabindex="0">
             
   
   
@@ -1375,8 +1402,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_18_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_18">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_18">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2462,7 +2489,7 @@ mkdocs build --strict
 <p>Единым gate перед коммитом служит <code>tools/check.ps1</code>, который создаётся на S0 и вызывает репозиторные проверки, а не реализует параллельные правила. Его код возврата <code>0</code> означает, что применимые проверки завершились успешно; любой другой код блокирует handoff. Точный состав быстрых, merge и nightly gates, детерминированный corpus и contract fixtures принадлежат <a href="../testing-and-ci/">следующей главе</a>, поэтому здесь они не перечисляются второй раз.</p>
 <p>Generated editor state не является конфигурацией. В diff не попадают <code>.godot/</code>, imported artifacts, builds, export credentials, signing keys, <code>.env</code>, logs, screenshots, local MCP files и machine-specific IDE settings. Реальный секрет не заменяется «временным» коммитом: репозиторий получает только environment placeholder или <code>.env.example</code> без значения.</p>
 <h2 id="что-именно-повторяет-ci">Что именно повторяет CI?<a class="headerlink" href="#что-именно-повторяет-ci" title="Permanent link">&para;</a></h2>
-<p>Godot workflow устанавливает Python toolchain, <code>gdtoolkit==4.5.0</code> и Godot <code>4.7.1</code>. Для изменённых GDScript-файлов он выполняет <code>gdformat --check</code> и <code>gdlint</code>, затем запускает <code>tools/check-godot.ps1 -Mode Import</code>. Smoke остаётся обязательной локальной проверкой через <code>-Mode All</code>, даже если отдельный CI job его не вызывает.</p>
+<p>Godot workflow устанавливает Python toolchain, <code>gdtoolkit==4.5.0</code> и Godot <code>4.7.1</code>. Проверяются изменённые файлы Stage-1-пути клиента — <code>roguelite/scripts/{boot,ipc,generated}/**</code> и <code>roguelite/scripts/autoload/state_bridge.gd</code> — плюс любой вновь добавленный <code>.gd</code> где угодно; остальная часть <code>roguelite/scripts</code> является дострадийным островом, который удаляется целиком, и правка его комментария не обязана сначала исправить его унаследованные проблемы. Для этого набора он выполняет <code>gdformat --check</code> и <code>gdlint</code>, затем запускает <code>tools/check-godot.ps1 -Mode Import</code>. Smoke остаётся обязательной локальной проверкой через <code>-Mode All</code>, даже если отдельный CI job его не вызывает.</p>
 <p>Documentation workflow устанавливает <code>requirements-docs.txt</code> и выполняет <code>mkdocs build --strict</code> на PR и на изменении документации в <code>main</code>. Публикуется только сгенерированный каталог сайта; он не редактируется вручную и не становится источником Markdown. Ошибка navigation, link resolution или strict build блокирует публикацию так же, как ошибка компиляции блокирует код.</p>
 <p>Локальный зелёный результат не подменяет CI, потому что CI подтверждает pins и чистое окружение. CI также не исправляет файлы, не обновляет golden data и не принимает изменение контракта автоматически. Toolchain, action или engine version обновляются отдельным PR вместе с pins, wrappers и workflow; такое изменение проходит отрицательные примеры gate и все затронутые проверки до использования новой версии в feature work.</p>
 <h2 id="как-два-направления-передают-работу-друг-другу">Как два направления передают работу друг другу?<a class="headerlink" href="#как-два-направления-передают-работу-друг-другу" title="Permanent link">&para;</a></h2>
