@@ -317,6 +317,33 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../stage-4a-handoff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что оставляет открытым ядро симуляции (S4a)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
     
@@ -326,10 +353,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -347,8 +374,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -858,10 +885,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
@@ -879,8 +906,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1538,10 +1565,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_18" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_18" >
         
           
-          <label class="md-nav__link" for="__nav_4_18" id="__nav_4_18_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_18" id="__nav_5_18_label" tabindex="0">
             
   
   
@@ -1559,8 +1586,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_18_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_18">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_18">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2574,7 +2601,7 @@
 <p>Каждый поток хранится как часть авторитетного состояния. Snapshot сохраняет его состояние и increment, а восстановление продолжает со следующего значения, не выполняя дополнительный бросок. Восстановление атомарно: чётный increment хотя бы в одном потоке отклоняет весь набор до первого присваивания, поэтому отвергнутый snapshot не оставляет наполовину перезаписанные потоки. Один subsystem не читает поток другого и не создаёт дополнительный поток для MVP: изменение точки потребления или назначения <code>system_id</code> меняет воспроизводимость и проходит правила версии симуляции.</p>
 <h2 id="что-именно-хешируется-и-сохраняется-в-snapshot">Что именно хешируется и сохраняется в snapshot?<a class="headerlink" href="#что-именно-хешируется-и-сохраняется-в-snapshot" title="Permanent link">&para;</a></h2>
 <p>После каждого завершённого тика ядро канонически сериализует авторитетное состояние и вычисляет хеш из тех же байтов. Отдельная функция «только для хеша» запрещена: добавленное в snapshot поле, которое способно изменить будущее, должно автоматически влиять и на хеш. Схема канонического состояния версионируется отдельно от content version и wire protocol.</p>
-<p>В каноническое состояние входят номер тика, сущности в порядке stable ID, все фиксированные координаты и значения, характеристики и статусы, отложенные команды и события, состояние исполнения Мозгов, детерминированные навигационные данные и состояния четырёх потоков RNG. В него не входят логи, wall-clock, порядок Go map, caches, байтовая раскладка transport и любые поля presentation. Любая коллекция получает явный канонический порядок до сериализации.</p>
+<p>В каноническое состояние входят номер тика, сущности в порядке stable ID, все фиксированные координаты и значения, характеристики и статусы, отложенные команды и события, состояние исполнения Мозгов, детерминированные навигационные данные и состояния четырёх потоков RNG. В него не входят логи, wall-clock, порядок Go map, caches, байтовая раскладка transport и любые поля presentation. Любая коллекция получает явный канонический порядок до сериализации. Статусы одной сущности упорядочены по возрастанию <code>status_id</code>, и это их единственный канонический ключ; два статуса с одинаковым <code>status_id</code> на одной сущности отклоняются до тика 0, потому что правило stacking принадлежит <a href="../combat-engine/">боевому движку</a> и ещё не определено — выбор порядка здесь молча выдумал бы его и закрепил в корпусе.</p>
 <p>Потиковый хеш служит проверке воспроизводимости и поиску первого расхождения. Полный snapshot восстановления создаётся каждые 40 тиков и остаётся transport/recovery data, а не событием. Golden corpus хранит контрольные хеши каждые 60 тиков и терминальный хеш; интервалы 40 и 60 обслуживают разные задачи и не заменяют друг друга.</p>
 <p>Восстановление из snapshot с теми же входами обязано породить те же последующие хеши и события, что и непрерывный прогон. Snapshot с неизвестной версией канонического состояния отклоняется целиком. Replay container, его codec, seek-индекс и правила совместимости принадлежат <a href="../replay/">главе о replay</a>: контейнер хранит <strong>капсулу входов</strong> боя, а не snapshots и события, поэтому ядро отдаёт writer port входы и терминальный hash, а при просмотре пересчитывает бой заново и порождает snapshots на лету.</p>
 <p>Отсюда следствие для этой главы: с переходом на капсулу детерминизм перестал быть удобством для тестов. Недетерминизм больше не портит один прогон — он делает неверным просмотр <strong>каждой</strong> сохранённой записи, потому что каждая пересчитывается. Потиковый хеш и гейт запрещённых конструкций <code>server/internal/detgate</code> — единственное, что это удерживает, и ослабление любого из них меняет контракт, а не деталь реализации.</p>
@@ -2590,8 +2617,8 @@
 <h2 id="что-нужно-сделать">Что нужно сделать<a class="headerlink" href="#что-нужно-сделать" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Владелец:</strong> направление Go/симуляция. Арифметика и RNG входят в S1, а tick loop, каноническое состояние, snapshots, события и одиночный headless-runner — в S4 по <a href="../production-plan/">плану производства</a>. Godot/клиент подключает read-only playback на S9 и не владеет ни одним правилом этой главы.</li>
-<li><strong>Артефакты:</strong> <code>internal/fixed/</code> с типом Q16.16 и операциями; <code>internal/rng/</code> с фасадом четырёх PCG32 streams; <code>internal/sim/</code> с состоянием, десятистадийным scheduler, event buffer, canonical serializer, state hasher и snapshot restore; <code>cmd/codedungeon/</code> с одиночным headless-вызовом того же application port; <code>testdata/determinism/</code> и <code>internal/sim/testdata/traces/v4/</code> с golden vectors и сценарными трассами.</li>
-<li><strong>Готово, когда:</strong> тест напрямую утверждает <code>simulation_version == 4</code>, <code>tick_rate == 60</code> и <code>ONE == 65536</code>; десять стадий исполняются в заданном порядке; static gate отклоняет float, обход map без сортировки и RNG вне фасада; fixed-point vectors совпадают на отрицательных и граничных значениях; четыре RNG streams совпадают с golden vectors, изолированы и точно восстанавливаются; два процесса дают одинаковый хеш и одинаковые события на каждом тике одного сценария; snapshot каждого 40-го тика восстанавливает тот же остаток прогона; разное число workers не меняет результат; невалидный вход или внутренний инвариант не создаёт успешную запись; <code>go test ./... -race</code> проходит.</li>
+<li><strong>Артефакты:</strong> <code>internal/fixed/</code> с типом Q16.16 и операциями; <code>internal/rng/</code> с фасадом четырёх PCG32 streams; <code>internal/sim/</code> с состоянием, десятистадийным scheduler, event buffer, canonical serializer, state hasher и snapshot restore; <code>cmd/codedungeon/</code> с одиночным headless-вызовом того же application port; <code>testdata/determinism/</code> и <code>internal/sim/testdata/traces/v5/</code> с golden vectors и сценарными трассами.</li>
+<li><strong>Готово, когда:</strong> тест напрямую утверждает <code>simulation_version == 5</code>, <code>tick_rate == 60</code> и <code>ONE == 65536</code>; десять стадий исполняются в заданном порядке; static gate отклоняет float, обход map без сортировки и RNG вне фасада; fixed-point vectors совпадают на отрицательных и граничных значениях; четыре RNG streams совпадают с golden vectors, изолированы и точно восстанавливаются; два процесса дают одинаковый хеш и одинаковые события на каждом тике одного сценария; snapshot каждого 40-го тика восстанавливает тот же остаток прогона; разное число workers не меняет результат; невалидный вход или внутренний инвариант не создаёт успешную запись; <code>go test ./... -race</code> проходит.</li>
 <li><strong>Не трогать:</strong> геометрию, collisions, hazards и action resolution определяет <code>combat-engine.md</code>; девять стадий расчёта — <code>stat-pipeline.md</code>; компиляцию, бюджет Памяти и семантику Мозга — <code>brain-runtime.md</code>; replay container, codec, seek и retention — <code>replay.md</code>; Protobuf fields, opcode и envelope — <code>contracts-and-data-flow.md</code>; карту и состояние забега — <code>run-systems.md</code>; JSONL matrix и расписание CI — <code>testing-and-ci.md</code>; interpolation, камеры, звук и экраны — главы Godot/клиента.</li>
 </ul>
 <h2 id="что-читать-дальше">Что читать дальше?<a class="headerlink" href="#что-читать-дальше" title="Permanent link">&para;</a></h2>
