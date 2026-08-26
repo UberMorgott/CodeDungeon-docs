@@ -1476,7 +1476,7 @@
   <span class="md-ellipsis">
     
   
-    Как события превращаются в синхронный звук?
+    Как устроен аудио-runtime?
   
 
     
@@ -2411,7 +2411,7 @@
 <p>Эта глава фиксирует обязательную технологическую базу MVP, границы владения между Go и Godot и условия, при которых компонент разрешено обновить или заменить.</p>
 <p><strong>Реализует:</strong> <a href="../../game-design/#для-кого-и-в-каком-мире-сделана-игра">целевой PC-клиент и трёхмерное представление</a>, <a href="../../game-design/combat-and-replay/#кто-управляет-схваткой">авторитетный расчёт и готовую запись боя</a>.</p>
 <h2 id="каков-обязательный-baseline">Каков обязательный baseline?<a class="headerlink" href="#каков-обязательный-baseline" title="Permanent link">&para;</a></h2>
-<p>MVP состоит из двух исполняемых программ. Авторитетное ядро и launcher пишутся на Go <code>1.25.6</code>; клиент пишется на GDScript и запускается в Godot <code>4.7.1.stable.official</code>. Клиент использует renderer <code>Forward Plus</code> и встроенный backend <code>Jolt Physics</code>, но физика Godot остаётся частью представления и не участвует в определении боевого исхода.</p>
+<p>MVP состоит из двух исполняемых программ. Авторитетное ядро и launcher пишутся на Go <code>1.26.7</code>; клиент пишется на GDScript и запускается в Godot <code>4.7.1.stable.official</code>. Клиент использует renderer <code>Forward Plus</code> и встроенный backend <code>Jolt Physics</code>, но физика Godot остаётся частью представления и не участвует в определении боевого исхода.</p>
 <p>Версии фиксируются в репозитории, а не в локальных инструкциях разработчика. Go toolchain задаёт <code>go.mod</code>, Godot feature tag и параметры renderer/physics задаёт <code>codedungeon/project.godot</code>, а CI устанавливает ту же версию Godot, что используется для импорта и сборки. Локальный путь к исполняемому файлу Godot не является частью проекта: wrapper находит его через <code>$env:GODOT_BIN</code>, затем через <code>godot</code> или <code>godot4</code> в <code>PATH</code>.</p>
 <table>
 <thead>
@@ -2425,7 +2425,7 @@
 <tbody>
 <tr>
 <td>Авторитетный runtime</td>
-<td>Go <code>1.25.6</code></td>
+<td>Go <code>1.26.7</code></td>
 <td>Go/симуляция</td>
 <td>Команды, переходы состояния, расчёты, сохранение и готовая запись событий</td>
 </tr>
@@ -2506,7 +2506,7 @@
 <h2 id="что-нужно-сделать">Что нужно сделать<a class="headerlink" href="#что-нужно-сделать" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Владелец:</strong> направление Go/симуляция фиксирует общий toolchain, Go dependencies и общие форматы на S0; направление Godot/клиент фиксирует Godot, renderer, physics backend и GDScript tooling на S0b. Совместимость двух runtime подтверждается на S9 по <a href="../production-plan/">плану производства</a>.</li>
-<li><strong>Артефакты:</strong> <code>go.mod</code> с Go <code>1.25.6</code> и pinned modules; <code>codedungeon/project.godot</code> с feature tag <code>4.7</code>, <code>Forward Plus</code> и <code>Jolt Physics</code>; <code>requirements-tools.txt</code> с <code>gdtoolkit==4.5.0</code>; репозиторная Buf-конфигурация и generated Go package; <code>tools/godot.ps1</code>, <code>tools/check-godot.ps1</code>; CI, устанавливающий Godot <code>4.7.1</code> и те же инструменты; adapters для WebSocket/ProtoJSON и SQLite WAL без импорта в domain packages.</li>
+<li><strong>Артефакты:</strong> <code>go.mod</code> с Go <code>1.26.7</code> и pinned modules; <code>codedungeon/project.godot</code> с feature tag <code>4.7</code>, <code>Forward Plus</code> и <code>Jolt Physics</code>; <code>requirements-tools.txt</code> с <code>gdtoolkit==4.5.0</code>; репозиторная Buf-конфигурация и generated Go package; <code>tools/godot.ps1</code>, <code>tools/check-godot.ps1</code>; CI, устанавливающий Godot <code>4.7.1</code> и те же инструменты; adapters для WebSocket/ProtoJSON и SQLite WAL без импорта в domain packages.</li>
 <li><strong>Готово, когда:</strong> <code>go env GOVERSION</code> соответствует <code>go.mod</code>; CI и локальный wrapper используют Godot <code>4.7.1</code>; основной Godot-проект сообщает feature tag <code>4.7</code>, <code>Forward Plus</code> и <code>Jolt Physics</code>; чистая генерация Protobuf не меняет tracked files; изменённый GDScript проходит <code>gdformat --check</code>, <code>gdlint</code> и headless import; contract fixture одинаково читается Go и Godot; Godot не открывает SQLite и не рассчитывает авторитетный результат; неподдерживаемая версия wire, content, save или replay явно отклоняется владельцем формата.</li>
 <li><strong>Не трогать:</strong> lifecycle, endpoint, token и heartbeat принадлежат <code>runtime-topology.md</code>; envelope, opcode и Protobuf evolution — <code>contracts-and-data-flow.md</code>; replay container — <code>replay.md</code>; SQLite schema и recovery — <code>persistence.md</code>; JSON Schema и content ID — <code>content-packages.md</code>; команды проверки и CI matrix — <code>development-workflow.md</code> и <code>testing-and-ci.md</code>; post-MVP transport и Online infrastructure — <code>future-online.md</code>.</li>
 </ul>
