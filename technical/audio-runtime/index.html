@@ -2474,7 +2474,7 @@
 
 
 <h1 id="как-устроен-аудио-runtime">Как устроен аудио-runtime?<a class="headerlink" href="#как-устроен-аудио-runtime" title="Permanent link">&para;</a></h1>
-<p>Эта глава фиксирует фактическое состояние аудиосистемы <code>roguelite/</code> и отдельно
+<p>Эта глава фиксирует фактическое состояние аудиосистемы <code>codedungeon/</code> и отдельно
 отмечает решения, которые ещё не реализованы. Художественные требования остаются
 в <a href="../../game-design/audio-direction/">звуковом направлении</a>; наличие требования
 там не означает наличие соответствующего runtime.</p>
@@ -2482,11 +2482,11 @@
 <p>Аудио полностью принадлежит клиенту Godot. Go-сервер не загружает и не
 воспроизводит звук, не хранит громкость и не участвует в выборе аудиоресурсов.
 Добавлять аудионастройки или cue в wire contract не требуется.</p>
-<p>Реализовано сегодня: в <code>roguelite/project.godot</code> зарегистрирован autoload
-<code>AudioManager</code> из <code>roguelite/scripts/autoload/audio_manager.gd</code>. Отдельного узла
+<p>Реализовано сегодня: в <code>codedungeon/project.godot</code> зарегистрирован autoload
+<code>AudioManager</code> из <code>codedungeon/scripts/autoload/audio_manager.gd</code>. Отдельного узла
 <code>AudioRuntime</code> под <code>AppRoot</code> нет.</p>
 <p><code>AudioManager</code> не получает события от <code>StateBridge</code> и не синхронизируется с
-replay, playback cursor, speed, reverse или seek. В исходниках <code>roguelite/</code> вне
+replay, playback cursor, speed, reverse или seek. В исходниках <code>codedungeon/</code> вне
 самого менеджера нет вызовов <code>play_music()</code>, <code>play_sfx()</code> или помощников
 подключения кнопок <code>setup_button_sfx()</code> / <code>setup_buttons_in()</code>. Сейчас это
 работающая заготовка воспроизведения, а не законченный путь от события игры до
@@ -2499,10 +2499,10 @@ replay, playback cursor, speed, reverse или seek. В исходниках <co
 менеджер загружает <code>.ogg</code> по пути, запускает его на <code>-80 dB</code> и выполняет
 crossfade между проигрывателями через <code>Tween</code>. Повторный запуск того же пути
 игнорируется. Повтор трека выполняет обработчик сигнала <code>finished</code>.</p>
-<p>В <code>roguelite/assets/audio/music/</code> лежат восемь <code>.ogg</code>-файлов; текущими
+<p>В <code>codedungeon/assets/audio/music/</code> лежат восемь <code>.ogg</code>-файлов; текущими
 константами используются пять из них.</p>
 <h2 id="что-реализовано-для-sfx">Что реализовано для SFX?<a class="headerlink" href="#что-реализовано-для-sfx" title="Permanent link">&para;</a></h2>
-<p>Шесть коротких <code>.wav</code>-файлов из <code>roguelite/assets/audio/sfx/</code> подключены через
+<p>Шесть коротких <code>.wav</code>-файлов из <code>codedungeon/assets/audio/sfx/</code> подключены через
 <code>preload()</code> как константы <code>AudioStream</code>: hover, click, back, переход экрана,
 подбор золота и выбор предмета.</p>
 <p>Для SFX создаётся пул из четырёх <code>AudioStreamPlayer</code> на bus <code>SFX</code>. Первым
@@ -2576,8 +2576,8 @@ emitter, слияния одинаковых звуков и семантиче�
 реализованы.</p>
 <h2 id="как-хранятся-и-импортируются-аудиоассеты">Как хранятся и импортируются аудиоассеты?<a class="headerlink" href="#как-хранятся-и-импортируются-аудиоассеты" title="Permanent link">&para;</a></h2>
 <p>Аудио остаётся в двух существующих каталогах:</p>
-<div class="highlight"><pre><span></span><code>roguelite/assets/audio/music/
-roguelite/assets/audio/sfx/
+<div class="highlight"><pre><span></span><code>codedungeon/assets/audio/music/
+codedungeon/assets/audio/sfx/
 </code></pre></div>
 <p>Имена файлов пишутся в нижнем регистре через <code>snake_case</code> и описывают контекст
 или действие: <code>menu_dark_ambient.ogg</code>, <code>button_click.wav</code>. Производственные

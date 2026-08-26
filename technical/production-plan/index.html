@@ -2805,7 +2805,7 @@
 <tr>
 <td><code>codedungeon/</code></td>
 <td>B</td>
-<td>проект Godot (переезжает из <code>roguelite/</code>, содержимое переписывается с нуля)</td>
+<td>проект Godot (содержимое переписывается с нуля)</td>
 </tr>
 <tr>
 <td><code>codedungeon/translations/</code></td>
@@ -2904,12 +2904,11 @@
   CODEOWNERS, схемы JSON, реестр id, формат view-model фикстуры.
   Набор view-model фикстур, покрывающий все 16 экранов в четырёх обязательных состояниях
   (скелет загрузки, ошибка с повтором, устаревшая ревизия, пусто).
-  Тем же изменением проект Godot переезжает из <code>roguelite/</code> в <code>codedungeon/</code> вместе с аддоном
-  <code>addons/godot_mcp_toolkit/</code>, а <code>tools/sync-skills.ps1</code> и <code>CLAUDE.md</code> переписаны на новый путь.
-  Обновлены жёстко прописанные пути <code>roguelite/</code> в <code>docs/technical/mvp-definition-of-done.md</code>
-  (области CI <code>roguelite/scripts/**</code>, <code>roguelite/scenes/**</code>), <code>docs/technical/development-workflow.md</code> и
-  <code>docs/technical/technology-baseline.md</code> — иначе гейты будут смотреть не на то дерево после переезда
-  в <code>codedungeon/</code>.</li>
+  Каталог проекта Godot уже называется <code>codedungeon/</code> вместе с аддоном
+  <code>addons/godot_mcp_toolkit/</code>; <code>tools/sync-skills.ps1</code>, <code>CLAUDE.md</code>, области CI в
+  <code>docs/technical/mvp-definition-of-done.md</code> (<code>codedungeon/scripts/**</code>, <code>codedungeon/scenes/**</code>),
+  <code>docs/technical/development-workflow.md</code> и <code>docs/technical/technology-baseline.md</code> указывают
+  на этот путь.</li>
 <li><strong>Критерий:</strong> объявленный выход проверяется на существование — раскладка каталогов, все
   схемы, реестр id, формат фикстуры и полный набор фикстур на 16 экранов в четырёх состояниях;
   гейты проверяются отдельно отрицательными примерами. Каждый гейт <code>tools/check.ps1</code> доказан
