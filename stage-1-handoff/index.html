@@ -2422,9 +2422,14 @@
 <li><strong>Дедупликация <code>request_id</code> отсутствует.</strong> Обязана появиться до первой
   изменяющей состояние команды, не позже.</li>
 <li><strong>Запись насыщения как дефекта</strong> не реализована: канала диагностики ещё нет.</li>
-<li><strong>CI ни разу не выполнялся на GitHub.</strong> Локальными эквивалентами проверено всё,
-  что можно, но обвязка раннеров, доступность <code>pwsh</code> на <code>ubuntu-latest</code> и шаг
-  <code>buf breaking</code> с базой PR остаются непроверенными до первого запуска.</li>
+<li><strong>CI выполнен на GitHub, оба workflow зелёные.</strong> Первый прогон упал: гейт
+  «генерённый код актуален» смотрел <code>git status</code> по всему дереву и поймал
+  постороннюю грязь — ссылки <code>skills/*</code> резолвятся на Linux иначе, чем на Windows.
+  Гейт сужен до каталогов генерации и проверен на обоих случаях, ради которых
+  существует. <strong>Остаётся непроверенным</strong> шаг <code>buf breaking</code>: он срабатывает только
+  на pull request, а пуш шёл прямо в <code>main</code>.</li>
+<li><strong>Ссылки <code>skills/*</code> делают Linux-чекаут грязным.</strong> Само по себе безвредно, но
+  любая проверка вида «дерево чистое» без сужения области будет на них падать.</li>
 <li><strong><code>internal/launch/process_other.go</code></strong> собирается кросс-компиляцией, но его тест
   никогда не исполнялся на живом Linux.</li>
 <li><strong>Legacy-остров в Godot жив.</strong> <code>game_world_3d</code>, <code>node_palette.gd</code>,
