@@ -2080,6 +2080,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#какой-контракт-действует-для-ассетов-арены-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какой контракт действует для ассетов арены v1?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#что-фиксируют-body-skeleton-и-socket-contracts" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2388,6 +2399,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#какой-контракт-действует-для-ассетов-арены-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Какой контракт действует для ассетов арены v1?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#что-фиксируют-body-skeleton-и-socket-contracts" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2504,6 +2526,50 @@
 <p>Для изображения, шрифта или звука шаги, не имеющие смысла для этого класса, отсутствуют. Их обработка всё равно фиксирует source hash, tool/version/parameters, зависимости, output hash и Godot import settings. Семантическое сопоставление звука с событием, порядок вариантов и параметры воспроизведения принадлежат <a href="../audio-runtime/#как-хранятся-аудиоассеты">audio runtime</a>; asset pipeline лишь гарантирует, что указанный ресурс легален, воспроизводимо подготовлен и импортируется.</p>
 <p>Автоматический шаг является идемпотентным либо записывает все данные, необходимые для повторения результата. Повтор с теми же входными hashes, версиями инструментов и параметрами обязан привести к тому же output hash и тому же итогу отчёта. Если инструмент не обеспечивает это свойство, его результат не публикуется напрямую.</p>
 <p>Ручная правка не вносится в собранный артефакт. Она становится новой версией исходника либо явным patch stage со своим входом, параметрами и hash. Для операции, которую нельзя надёжно автоматизировать, инструкция ручного fallback задаёт инструмент, вход, проверяемый результат и место сохранения новой версии; незаписанная правка в Godot editor не считается частью конвейера.</p>
+<h2 id="какой-контракт-действует-для-ассетов-арены-v1">Какой контракт действует для ассетов арены v1?<a class="headerlink" href="#какой-контракт-действует-для-ассетов-арены-v1" title="Permanent link">&para;</a></h2>
+<p>Контракт v1 использует перспективную камеру с вертикальным FOV <code>40°</code>, yaw <code>45°</code> и наклоном вниз <code>55°</code> от горизонта. Каждый ассет арены принимается только после проверки на полном облёте камеры replay. Блокирующие объекты не используют спрайты, запечённые под один ракурс.</p>
+<p>Одна единица симуляции равна одному метру Godot. Одна ячейка Wang имеет размер <code>2 × 2</code> метра. Финальная растровая поверхность имеет размер <code>256 × 256</code> px и плотность <code>128</code> texels/м.</p>
+<p>Растровый формат — sRGB RGBA8 PNG. Непрозрачная поверхность заполняет alpha значением <code>255</code>. Cutout хранит straight alpha, использует порог <code>0.5</code> и имеет не менее чем <code>4</code> полностью прозрачных пикселя между непрозрачной областью и каждым краем изображения.</p>
+<p>Базовая поверхность без шва повторяется по всем четырём краям. <code>46</code> Wang-сигнатур собираются общими масками, созданными кодом. Модель изображений не создаёт переходы. Декали и cutout не повторяются.</p>
+<p>Начало координат поверхности и декали находится в центре. Начало координат вертикального cutout находится в центре нижнего края. Начало координат 3D-пропа находится в центре проекции его авторитетного AABB на плоскость земли.</p>
+<p>Палитра <code>arena_palette_v1</code> состоит из <code>18</code> sRGB-образцов:</p>
+<div class="highlight"><pre><span></span><code>16191C 2A2E32 44494B 666B68 96978E D0C8B7 29414C 5E8490 AFCDD0 25382B 4E6444 7F8B5A 5A3D2A 95704A C4A36B 63352E A74F3B D7834F
+</code></pre></div>
+<p>Имя PNG имеет форму <code>arena_&lt;biome&gt;_&lt;class&gt;_&lt;subject&gt;_vNN_&lt;variant&gt;.png</code> и состоит только из строчных ASCII-букв, цифр и <code>_</code>. Visual asset ID стабилен и не включает версию артефакта. Он независим от gameplay content ID, включая ID в namespace <code>arena_object</code>; один ID не выводится из другого.</p>
+<p>Опубликованные файлы лежат в <code>codedungeon/assets/arena/&lt;biome&gt;/{surfaces,decals,cutouts,models}/</code>. Исходники, seed, prompt, reference, параметры генерации и provenance record лежат в <code>codedungeon/art_sources/arena/&lt;visual-id&gt;/</code>. Машиночитаемый handoff находится в <code>codedungeon/assets/arena/arena_asset_contract_v1.json</code>. Первая партия в handoff ограничена пустыней; статус <code>planned</code> и <code>null</code>-хеши означают, что файл ещё не создан и не может быть опубликован.</p>
+<p>Настройки импорта Godot фиксируются по классу:</p>
+<table>
+<thead>
+<tr>
+<th>Класс</th>
+<th>Фильтрация</th>
+<th>Mipmaps</th>
+<th>Сжатие</th>
+<th>Alpha-border fix</th>
+<th>Premultiplication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Непрозрачная 3D-текстура</td>
+<td>linear</td>
+<td>включены</td>
+<td>VRAM</td>
+<td>не применяется</td>
+<td>выключена</td>
+</tr>
+<tr>
+<td>RGBA-декаль и cutout</td>
+<td>linear</td>
+<td>включены</td>
+<td>lossless</td>
+<td>включён</td>
+<td>выключена</td>
+</tr>
+</tbody>
+</table>
+<p>Изменение проекции, масштаба, разрешения, alpha policy, правил шва, origin, палитры или стилевого контракта инвалидирует сгенерированный результат и требует новой версии исходника. Изменение naming, layout, atlas или import settings не инвалидирует исходник: оно требует только повторной упаковки и импорта.</p>
+<p>Модель изображений не считается источником точных размеров, бесшовного повтора по четырём краям, <code>46</code> согласованных Wang-вариантов, единства серии и production alpha. Каждый растровый исходник генерируется в <code>1024 × 1024</code> px; исходник, seed и запись provenance сохраняются. Затем скрипт выполняет crop, downsample, palette mapping, padding и validation. Швы исправляются через offset-and-inpaint; после правки повторно проверяются все четыре края. Wang-маски авторятся в коде. Gameplay-геометрия авторится как low-poly mesh и никогда не генерируется как изображение.</p>
 <h2 id="что-фиксируют-body-skeleton-и-socket-contracts">Что фиксируют body, skeleton и socket contracts?<a class="headerlink" href="#что-фиксируют-body-skeleton-и-socket-contracts" title="Permanent link">&para;</a></h2>
 <p>Проект использует небольшой versioned registry канонических body profiles и skeleton contracts. Уникальный rig от внешнего генератора не проходит непосредственно в runtime. Body profile задаёт геометрическую основу fitting и связанные с категорией экипировки допуски, а skeleton contract задаёт stable bone names и hierarchy, bind pose, orientation, единицы масштаба и перечень обязательных и необязательных bones.</p>
 <p>Skeleton contract также объявляет sockets оружия, щита, спины, бедра и колчана. Связь bones с hit zones и physical-bone profile хранится как presentation mapping к канонической игровой сущности, а не как вторая схема hit zones. Socket contract фиксирует локальные системы координат и правила совместимости вложений.</p>

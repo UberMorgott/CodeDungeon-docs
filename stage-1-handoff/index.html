@@ -2408,11 +2408,11 @@
 <li><code>codedungeon/scripts/{boot,ipc,generated}</code> и <code>autoload/state_bridge.gd</code> — клиентская половина.</li>
 </ul>
 <p>Три зависимости на всё ядро: <code>coder/websocket</code>, <code>golang.org/x/sys</code>,
-<code>google.golang.org/protobuf</code>. Go-кода — 21 файл, около 4000 строк.</p>
+<code>google.golang.org/protobuf</code>. Go-кода — 35 файлов, около 7800 строк.</p>
 <h2 id="что-доказано-запуском-а-не-рассуждением">Что доказано запуском, а не рассуждением<a class="headerlink" href="#что-доказано-запуском-а-не-рассуждением" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Сквозной прогон.</strong> Ядро запускает Godot, клиент показывает
-  <code>simulation_version=4 tick_rate=60 fixed_one=65536</code> — значения, которые
+  <code>simulation_version=7 tick_rate=60 fixed_one=65536</code> — значения, которые
   существуют только в Go.</li>
 <li><strong>Штатное прерывание.</strong> Ctrl+C на готовом лаунчере: ядро просит клиента выйти,
   клиент выходит сам за 126 мс, код возврата 0, Job Object не задействован.</li>
@@ -2467,7 +2467,7 @@
   в гейтах больше нет.</li>
 </ul>
 <h2 id="следующий-шаг">Следующий шаг<a class="headerlink" href="#следующий-шаг" title="Permanent link">&para;</a></h2>
-<p>По плану — S2: схема контента, валидатор, канонизация, подкоманда <code>validate</code>.
+<p>Более свежее состояние работ — <a href="../stage-4a-handoff/">записка S4a</a>.
 Детерминированные примитивы (<code>fixed</code>, <code>rng</code>) следует считать замороженными:
 изменение их результата требует поднятия <code>simulation_version</code> и новых голденов.</p>
 

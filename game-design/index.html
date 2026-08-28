@@ -509,6 +509,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#что-уже-реализовано" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что уже реализовано?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#что-читать-дальше" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2377,6 +2388,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#что-уже-реализовано" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что уже реализовано?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#что-читать-дальше" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2437,6 +2459,64 @@
 <h2 id="где-проходит-граница-mvp">Где проходит граница MVP?<a class="headerlink" href="#где-проходит-граница-mvp" title="Permanent link">&para;</a></h2>
 <p>MVP содержит полноценную одиночную игру: авторские миссии, процедурные забеги, визуальное программирование Мозг, автономный бой и его запись, развитие персонажа, пассивное дерево, предметы и крафт. Игрок проходит весь основной цикл локально, а доступные направления билдов дают несколько жизнеспособных способов решать одни и те же боевые задачи. Состав систем должен доказать главную ценность игры: подготовить героя, увидеть исполнение и сделать программу лучше.</p>
 <p>Co-op, PvP и Online не входят в MVP. Вместе с ними отложены сетевой код мультиплеера, LAN- и Steam-транспорт, удалённые аккаунты, публичный подбор, серверный античит, общий рынок и соревновательные матчи. Эти направления не определяют объём первой версии, хотя границы чисел и боевой расчёт не должны закрывать путь к ним в будущем.</p>
+<h2 id="что-уже-реализовано">Что уже реализовано?<a class="headerlink" href="#что-уже-реализовано" title="Permanent link">&para;</a></h2>
+<p>Это снимок состояния; источником истины остаётся код.</p>
+<table>
+<thead>
+<tr>
+<th>Система</th>
+<th>Состояние</th>
+<th>Источник</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Запуск Godot, IPC и детерминированные примитивы</td>
+<td>Реализовано</td>
+<td><a href="../stage-1-handoff/"><code>docs/stage-1-handoff.md</code></a></td>
+</tr>
+<tr>
+<td>Тик: статусы, таймеры, действия, урон, движение и вытеснение</td>
+<td>Реализовано</td>
+<td><code>server/internal/sim/tick.go</code>, <code>server/internal/sim/collision.go</code></td>
+</tr>
+<tr>
+<td>Смерть, завершение боя и абсолютный стоп на тике 18 000</td>
+<td>Реализовано</td>
+<td><code>server/internal/sim/tick.go</code>, <a href="../stage-4a-handoff/"><code>docs/stage-4a-handoff.md</code></a></td>
+</tr>
+<tr>
+<td>Каноническое состояние версии 7 и snapshot/restore каждые 40 тиков</td>
+<td>Реализовано</td>
+<td><code>server/internal/sim/canonical.go</code>, <code>server/internal/sim/snapshot.go</code></td>
+</tr>
+<tr>
+<td>Валидация и канонизация пакета контента</td>
+<td>Специфицировано, не реализовано</td>
+<td><a href="../technical/production-plan/#s2-контент-схема-валидатор-канонизация-a--блокирует-s7-s8"><code>docs/technical/production-plan.md</code></a></td>
+</tr>
+<tr>
+<td>Мозг, реплей и прогонщик</td>
+<td>Специфицировано, не реализовано</td>
+<td><a href="../technical/production-plan/#s4-тик-мозг-реплей-прогонщик-a--блокирует-s6-s9"><code>docs/technical/production-plan.md</code></a>, <code>server/internal/sim/tick.go</code></td>
+</tr>
+<tr>
+<td>Конвейер расчёта характеристик; действия пока несут готовые значения</td>
+<td>Специфицировано, не реализовано</td>
+<td><a href="../technical/stat-pipeline/"><code>docs/technical/stat-pipeline.md</code></a>, <a href="../stage-4a-handoff/"><code>docs/stage-4a-handoff.md</code></a></td>
+</tr>
+<tr>
+<td>Диагностика насыщения fixed-point</td>
+<td>Специфицировано, не реализовано</td>
+<td><a href="../stage-1-handoff/"><code>docs/stage-1-handoff.md</code></a>, <a href="../stage-4a-handoff/"><code>docs/stage-4a-handoff.md</code></a></td>
+</tr>
+<tr>
+<td>Геометрия арены и границы, стадия 8 тика</td>
+<td>Не специфицировано</td>
+<td><code>server/internal/sim/tick.go</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="что-читать-дальше">Что читать дальше?<a class="headerlink" href="#что-читать-дальше" title="Permanent link">&para;</a></h2>
 <p>Дальше — <a href="core-loop/">как устроен основной цикл и какую обратную связь получает игрок</a>.</p>
 
