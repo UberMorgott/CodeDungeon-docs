@@ -2485,10 +2485,22 @@
 <td>форма дерева и три направления подтверждены, наполнение открыто</td>
 </tr>
 <tr>
-<td>Which per-biome and per-encounter arena variants surround the fixed <code>60 m × 40 m</code> default? The rectangle, default size, and behavioral bounds are closed; pool entries, costs, weights, budgets, gaps, spawn parameters, required clearances, and hazard ramp values remain content decisions</td>
+<td>Which per-biome and per-encounter arena variants surround the fixed <code>60 m × 40 m</code> default? The rectangle, default size, and behavioral bounds are closed. Terrain vocabulary, pool entries, costs, weights, budgets, gaps, spawn parameters, and hazard ramp values remain content decisions; the owner will tune the desert and later biomes in ArenaLab against generation telemetry</td>
 <td>плейтест</td>
 <td><a href="../technical/arena-model-v10/">Arena model v10</a></td>
-<td>v10 owner content decisions</td>
+<td>natural terrain and v10 owner content decisions</td>
+</tr>
+<tr>
+<td>Should natural-terrain occupancy be coalesced into canonical rectangles or should navigation move to a grid? A field may contain hundreds of occupied cells, while the shipped visibility graph accepts at most 30 active solid-plus-void footprints and 360 corner offsets. Rectangle coalescing preserves the graph but needs a deterministic cover, stable IDs and attribution, and a proof that the bounds still hold; grid navigation removes the footprint bound but replaces path metrics, ties, attachment, spawn derivation, caches, corpus, and simulation version. This is the first gate for the next arena spec; no option is selected</td>
+<td>реализация</td>
+<td><a href="../technical/arena-model-v10/#non-normative-natural-terrain-research">Natural-terrain generation research</a></td>
+<td>natural terrain exceeds the v10 navigation bounds</td>
+</tr>
+<tr>
+<td>Which integer terrain method composes the first natural-looking arenas? The ordered research shortlist is parameterized path carving, integer value noise or diamond-square, Manhattan-distance Worley noise, then a client-only decorator pass. Path carving only gets a monotonic connectivity proof when it removes forbidden occupancy; a path that adds void still needs the v10 guard. The choice must preserve connected free space, committed draws, and no reroll</td>
+<td>реализация</td>
+<td><a href="../technical/arena-model-v10/#non-normative-natural-terrain-research">Natural-terrain generation research</a></td>
+<td>ravines, ridges, outcrops, and grown-in props replace rectangle scatter</td>
 </tr>
 <tr>
 <td>Каковы конкретные длительности пяти эффектов контроля и проценты убывающей отдачи? Правила подтверждены, числа открыты и являются значениями плейтеста</td>
@@ -2568,6 +2580,24 @@
 <td><a href="../technical/combat-engine/">Combat engine</a></td>
 <td>the v9 portal-graph answer was deleted by arena v10</td>
 </tr>
+<tr>
+<td>Where do <code>NearestVoid</code> and <code>NominalPushEntersVoid</code> enter action selection? Arena v10 specifies both observable facts, but neither function nor a consumer exists. Define their stable ordering and expose them through actions and Brain perception without revealing future RNG or collision projection</td>
+<td>реализация</td>
+<td><a href="../technical/arena-model-v10/#84-which-void-facts-can-ai-observe">Arena model v10</a></td>
+<td>the AI does not yet avoid or exploit chasms</td>
+</tr>
+<tr>
+<td>Which void receives a death when one stage-6 segment crosses more than one footprint? The runtime currently returns the lowest object ID because <code>sweptVoid</code> scans canonical order. First intersection along the directed path is physically correct and changes only <code>CauseObjectID</code>, but it needs an exact rational comparison and deterministic tie-break before the record changes</td>
+<td>реализация</td>
+<td><a href="../technical/arena-model-v10/#82-which-trajectory-is-swept">Arena model v10</a></td>
+<td>lowest ID differs from nearest along the path</td>
+</tr>
+<tr>
+<td>Why did the latest incremental graph extraction report 79 nodes for the same eight changed documents that previously produced 111? The full committed graph does not retain the rejected candidate graph, so the loss must be reproduced and compared before accepting another shrink</td>
+<td>реализация</td>
+<td><a href="../technical/development-workflow/#как-обновляется-граф-знаний-по-документации">Development workflow</a></td>
+<td>graph-refresh shrink guard exposed an extraction-quality regression</td>
+</tr>
 </tbody>
 </table>
 <h2 id="закрытые">Закрытые<a class="headerlink" href="#закрытые" title="Permanent link">&para;</a></h2>
@@ -2581,15 +2611,23 @@
 <tbody>
 <tr>
 <td>How does tile composition relate to arena generation?</td>
-<td>Settled by v10: tiles compose the complete rectangle and never define authoritative geometry. The presentation grid derives Hazard, Void, and Solid roles independently and composites <code>Solid &gt; Void &gt; Hazard &gt; walkable</code> — <a href="../technical/arena-model-v10/">arena model v10</a></td>
+<td>Settled by v10 and retained by the natural-terrain direction: tiles compose the complete rectangle and never define authoritative geometry. The presentation grid derives Hazard, Void, and Solid roles independently and composites <code>Solid &gt; Void &gt; Hazard &gt; walkable</code>; rubble, edge debris, and aligned props are a client-only decorator pass — <a href="../technical/arena-model-v10/">arena model v10</a>, <a href="../technical/arena-model-v10/#non-normative-natural-terrain-research">natural-terrain generation research</a></td>
 </tr>
 <tr>
 <td>Which metric and tie-break assign enemy spawns?</td>
-<td>Settled by v10: assignment uses maximum-radius visibility-graph path distance. The first enemy ranks hero distance, clearance, then site index; later enemies rank minimum hero distance, minimum assigned-enemy distance, clearance, then site index. The reserve-completability filter runs before ranking, and assignment consumes no RNG — <a href="../technical/arena-model-v10/">arena model v10</a></td>
+<td>Settled by v10 and the separation fix: assignment uses maximum-radius visibility-graph path distance. The first enemy maximizes hero distance; each later enemy maximizes its minimum distance to any participant already placed, then hero distance, clearance, and lowest site index. The reserve-completability filter runs before ranking, and assignment consumes no RNG — <a href="../technical/arena-model-v10/">arena model v10</a></td>
 </tr>
 <tr>
 <td>Who defines zone shapes and passage widths?</td>
 <td>Superseded by v10: zones and passages do not exist. The boundary and gameplay footprints are AABBs; the profile supplies footprint dimensions, and placement does not rotate them — <a href="../technical/arena-model-v10/">arena model v10</a></td>
+</tr>
+<tr>
+<td>May ordinary floating-point Perlin or Simplex noise drive authoritative arena generation?</td>
+<td>No. Replays re-simulate from seed, while ordinary implementations depend on floating-point evaluation whose intermediates and contraction can vary by compiler and target. Authoritative terrain remains integer-only; integer value noise supplies the same class of scalar field with a smaller deterministic contract — <a href="../technical/arena-model-v10/#non-normative-natural-terrain-research">natural-terrain generation research</a></td>
+</tr>
+<tr>
+<td>How does arena generation preserve one connected free-space component without rerolls?</td>
+<td>Settled and shipped in v10: coordinate compression and union-find test every tentative solid or void placement; a disconnecting candidate is skipped with its draws consumed. Authored artifacts run the same connectivity validation and reject if invalid. There is no whole-arena rejection, seed mutation, or retry index — <a href="../technical/arena-model-v10/">arena model v10</a></td>
 </tr>
 <tr>
 <td>Как устроено <strong>рукопожатие между Godot и побочным процессом ядра</strong>?</td>

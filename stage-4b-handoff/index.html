@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#что-закрывает-продолжение-ядра-симуляции-s4b" class="md-skip">
+        <a href="#what-does-the-arena-v10-implementation-hand-off-s4c" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -405,10 +405,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#что-теперь-есть" class="md-nav__link">
+  <a href="#what-now-exists" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Что теперь есть
+        What now exists
       
     </span>
   </a>
@@ -416,10 +416,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#что-доказано-тестами" class="md-nav__link">
+  <a href="#what-tests-prove" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Что доказано тестами
+        What tests prove
       
     </span>
   </a>
@@ -427,10 +427,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#что-отложено-сознательно" class="md-nav__link">
+  <a href="#what-was-deliberately-deferred" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Что отложено сознательно
+        What was deliberately deferred
       
     </span>
   </a>
@@ -438,10 +438,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#открытые-места-и-мины" class="md-nav__link">
+  <a href="#open-places-and-hazards" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Открытые места и мины
+        Open places and hazards
       
     </span>
   </a>
@@ -449,10 +449,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#следующий-шаг" class="md-nav__link">
+  <a href="#next-step" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Следующий шаг
+        Next step
       
     </span>
   </a>
@@ -2364,10 +2364,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#что-теперь-есть" class="md-nav__link">
+  <a href="#what-now-exists" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Что теперь есть
+        What now exists
       
     </span>
   </a>
@@ -2375,10 +2375,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#что-доказано-тестами" class="md-nav__link">
+  <a href="#what-tests-prove" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Что доказано тестами
+        What tests prove
       
     </span>
   </a>
@@ -2386,10 +2386,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#что-отложено-сознательно" class="md-nav__link">
+  <a href="#what-was-deliberately-deferred" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Что отложено сознательно
+        What was deliberately deferred
       
     </span>
   </a>
@@ -2397,10 +2397,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#открытые-места-и-мины" class="md-nav__link">
+  <a href="#open-places-and-hazards" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Открытые места и мины
+        Open places and hazards
       
     </span>
   </a>
@@ -2408,10 +2408,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#следующий-шаг" class="md-nav__link">
+  <a href="#next-step" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Следующий шаг
+        Next step
       
     </span>
   </a>
@@ -2443,82 +2443,99 @@
   
 
 
-<h1 id="что-закрывает-продолжение-ядра-симуляции-s4b">Что закрывает продолжение ядра симуляции (S4b)<a class="headerlink" href="#что-закрывает-продолжение-ядра-симуляции-s4b" title="Permanent link">&para;</a></h1>
-<p>Записка состояния после реализации геометрии и генератора арены. Она фиксирует
-доставленные части S4, границы этой реализации и вход для следующей работы.
-Нормативные правила остаются в <a href="../technical/">технической документации</a>.</p>
-<h2 id="что-теперь-есть">Что теперь есть<a class="headerlink" href="#что-теперь-есть" title="Permanent link">&para;</a></h2>
+<h1 id="what-does-the-arena-v10-implementation-hand-off-s4c">What does the arena v10 implementation hand off (S4c)?<a class="headerlink" href="#what-does-the-arena-v10-implementation-hand-off-s4c" title="Permanent link">&para;</a></h1>
+<p>This note records the repository state after arena model v10 shipped. It gives
+the next session an entry point for natural terrain, the first desert arena
+presentation, and the remaining simulation work. Normative rules remain in the
+<a href="../technical/">technical documentation</a>.</p>
+<h2 id="what-now-exists">What now exists<a class="headerlink" href="#what-now-exists" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Snapshot/restore принимает только состояния RNG, выведенные из seed и ID
-  стрима, не принимает уже истёкший статус и не принимает переходные фазы
-  действия <code>Pending</code> и <code>Impact</code> на границе тика.</li>
-<li><code>FromRaw64Checked</code>, <code>MulChecked</code>, <code>DivChecked</code> и <code>MulDivChecked</code> дополняют
-  существующие Checked-операции и возвращают признак насыщения без изменения
-  результата обычных форм. Числовая модель описана в
-  <a href="../technical/simulation-core/#как-устроена-числовая-модель">ядре симуляции</a>.</li>
-<li>Стадия 8 разрешает границу арены и контакты с <code>solid &amp;&amp; active</code> геометрией.
-  Каталог объектов, collision view, порядок поправок и fallback реализуют
-  записанный <a href="../technical/combat-engine/#как-разрешаются-движение-и-столкновения">контракт боевого движка</a>.</li>
-<li>Процедурный producer создаёт 3–5 зон, обязательный цикл и Delaunay-срезки,
-  проходы, взвешенный граф порталов и кандидатов появления. Максимин-выбор
-  противников использует кратчайшую Q16.16-длину пути Dijkstra. Полный алгоритм
-  и tie-break принадлежат
-  <a href="../technical/combat-engine/#как-представлена-и-строится-арена">главе об арене</a>.</li>
-<li>Контракт первой партии ассетов арены зафиксирован в
-  <a href="../technical/asset-pipeline/">конвейере ассетов</a> и в машиночитаемом файле
-  <code>codedungeon/assets/arena/arena_asset_contract_v1.json</code>.</li>
-<li>Граф знаний по <code>docs/</code> обновляется после коммита через <code>post-commit</code> и
-  <code>tools/graph-refresh.ps1</code>; установка и режим отказа описаны в
-  <a href="../technical/development-workflow/#как-обновляется-граф-знаний-по-документации">рабочем процессе</a>.</li>
+<li><code>cdddc62</code> replaced the documented v9 zone/portal arena with the normative
+  <a href="../technical/arena-model-v10/">arena model v10</a>.</li>
+<li><code>7ba7902</code> removed zones, portal and passage topology, Delaunay construction,
+  zone-keyed spawn candidates, <code>ArenaLayout</code>, and <code>navigation.go</code>: 1,569 lines
+  were deleted and 61 added.</li>
+<li><code>7fcb47e</code> added <code>KindSolid</code>, <code>KindHazard</code>, and <code>KindVoid</code>, plus the
+  coordinate-compressed union-find free-space test. A disconnecting candidate
+  is skipped with its draws consumed; generation does not reject the whole
+  arena, mutate the seed, or retry it.</li>
+<li><code>3e22f33</code> added the bounded visibility graph, lattice-site derivation, and
+  deterministic spawn assignment. <code>8a40188</code> then fixed the squared-diagonal
+  overflow, applied the connectivity proof to authored artifacts, bounded the
+  profile's solid-plus-void maximum, and added the 256-seed corpus gate.</li>
+<li><code>641f47f</code> added stage-6 void sweeps, landing membership, void death records,
+  and half-tick quicksand dwell and decay.</li>
+<li><code>d6c910e</code> set <code>SimulationVersion</code> and <code>canonicalVersion</code> to 10, moved the
+  deterministic corpus to <code>traces/v10</code>, and replaced the inline canonical arena
+  section with the artifact SHA-256 digest. <code>0cab01c</code> moved spawn parameters and
+  capacities into the artifact bytes committed by that digest.</li>
+<li><code>e9ea3e6</code> migrated ArenaLab to v10. <code>1b62a06</code> exposed copied, read-only
+  navigation nodes, edges, and sites for the tool. <code>5cc0099</code> changed enemy
+  ranking to a minimum-separation criterion over the hero and already placed
+  enemies instead of packing them one lattice step apart in one cluster.</li>
+<li><code>59dd818</code> makes the graph-refresh log include the exporter's actual error
+  instead of only <code>export failed</code>.</li>
 </ul>
-<h2 id="что-доказано-тестами">Что доказано тестами<a class="headerlink" href="#что-доказано-тестами" title="Permanent link">&para;</a></h2>
+<h2 id="what-tests-prove">What tests prove<a class="headerlink" href="#what-tests-prove" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>SimulationVersion</code> и <code>canonicalVersion</code> равны <code>10</code>; текущий корпус лежит
-  только в <code>server/internal/sim/testdata/traces/v10</code>. Корпуса v7, v8 и v9
-  удалены из рабочего дерева и остаются в истории Git.</li>
-<li>Свежий <code>go test -count=1 -json ./...</code> завершил 401 именованный тест с учётом
-  подтестов без события <code>fail</code>.</li>
-<li>Проверки генератора закрепляют 3–5 зон, Poisson-disk separation на целой
-  Q16.16-решётке, цикл и Delaunay-срезки, веса графа, ширину обязательных
-  проходов, допустимость кандидатов и максимин по кратчайшему пути.</li>
+<li>A fresh <code>go test -count=1 -json ./...</code> at this handoff produced 480 passing
+  named test/subtest events and no failure event. The complete session baseline
+  at <code>3a6bf0e</code> produced 277; <code>cdddc62</code> itself produced 404.</li>
+<li>The generator test runs seeds <code>0..255</code> at one encounter ID and requires zero
+  class shortfalls and zero construction failures for the default profile.</li>
+<li>Tests pin version 10 and <code>traces/v10</code>, artifact digest verification and cache
+  rebuild, authored connectivity rejection, visibility-graph bounds, derived
+  spawn ordering, void falls, and quicksand lifecycle.</li>
 </ul>
-<h2 id="что-отложено-сознательно">Что отложено сознательно<a class="headerlink" href="#что-отложено-сознательно" title="Permanent link">&para;</a></h2>
+<h2 id="what-was-deliberately-deferred">What was deliberately deferred<a class="headerlink" href="#what-was-deliberately-deferred" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>GenerateArena</code> ещё не подключён к пути encounter/content и вызывается только
-  тестами. Схема, валидатор и канонизация пакета контента остаются этапом S2
-  <a href="../technical/production-plan/#s2-контент-схема-валидатор-канонизация-a--блокирует-s7-s8">плана производства</a>.</li>
-<li>Метрика ближайшей достижимой позиции с чистой линией огня закрыта в
-  документации, но runtime <code>Approach</code> и её проверки ещё не реализованы.</li>
-<li>Квадратные tiles/chunks, декор и размещение объектов внутри зон не входят в
-  логическую топологию генератора и остаются последующей работой.</li>
-<li>JSON-контракт ассетов имеет статус <code>planned</code>: опубликованных файлов и
-  заполненных provenance/hash в этой партии ещё нет.</li>
-<li>Checked-операции делают насыщение наблюдаемым для caller, но общего канала
-  сбора таких сигналов как дефектов прогона пока нет.</li>
+<li>The shipped generator still places AABB footprints. It does not yet produce
+  ravines, ridges, outcrop clusters, or a grown-in surface. The non-normative
+  <a href="../technical/arena-model-v10/#non-normative-natural-terrain-research">terrain research</a>
+  records the candidate methods and rejected alternatives.</li>
+<li><code>NearestVoid</code> and <code>NominalPushEntersVoid</code> are specified in arena model v10 but
+  have no implementation or consumer. They belong with actions and Brain
+  perception, which do not exist yet.</li>
+<li>The nine-stage <a href="../technical/stat-pipeline/">stat pipeline</a> remains specified
+  but combat still applies one roll in <code>resolveImpacts</code>. Actions still need
+  recovery, cancellation, and stable instance ordering. That work also unblocks
+  the two action-dependent generator acceptance tests.</li>
+<li>Per-biome arena contents remain untuned. Desert pool entries and counts are to
+  be tuned in ArenaLab against its telemetry rather than fixed in this handoff.</li>
+<li>The arena asset contract at
+  <code>codedungeon/assets/arena/arena_asset_contract_v1.json</code> is frozen, but the
+  directory contains no PNG files. Godot has only <code>boot.tscn</code>: no arena scene,
+  arena renderer, or camera exists.</li>
 </ul>
-<h2 id="открытые-места-и-мины">Открытые места и мины<a class="headerlink" href="#открытые-места-и-мины" title="Permanent link">&para;</a></h2>
+<h2 id="open-places-and-hazards">Open places and hazards<a class="headerlink" href="#open-places-and-hazards" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Первая реализация фиксирует зону как axis-aligned square. Caller задаёт
-  half-extent через <code>GeneratorSpec.ZoneExtent</code>, а ширины — через
-  <code>GeneratorSpec.PassageWidth</code> и <code>GeneratorSpec.ShortcutWidth</code>; спецификация не
-  назначает семейство формы и числовые значения. Смена формы или этих значений
-  меняет канонический artifact, требует новой версии симуляции и пересъёмки
-  корпуса.</li>
-<li>Каноническое состояние хранит только 32-байтовый дайджест artifact арены,
-  а капсула восстановления несёт сами байты artifact. Restore сверяет их
-  SHA-256 с дайджестом и выводит из них границу, collision view и terrain;
-  расхождение отвергает snapshot целиком.</li>
-<li>Автообновление графа зависит от локально установленного hook и локальных
-  prerequisites graphify. Ошибка фоновой пересборки записывается в лог и не
-  отменяет коммит.</li>
+<li><strong>Settle this first:</strong> a terrain field can contain hundreds of occupied cells,
+  while <code>maxNavigationFootprints</code> is 30 and <code>maxNavigationOffsets</code> is 360.
+  Either add a canonical contiguous-cell-to-rectangle cover that remains within
+  those bounds, or replace visibility-graph navigation with a grid. Rectangle
+  coalescing preserves more of v10 but introduces cover, ID, and attribution
+  rules; grid navigation replaces path metrics, ties, attachment, spawning,
+  caches, the corpus, and the simulation version. No choice has been made.</li>
+<li>The existing collision merge only deduplicates equal AABBs. It does not merge
+  arbitrary contacting tile cells into larger rectangles.</li>
+<li>When one movement segment crosses multiple voids, <code>sweptVoid</code> credits the
+  lowest object ID, not the first intersection along the path. Nearest-along-path
+  attribution is physically correct, but only the death record changes.</li>
+<li>The cap on permanent hazards created by boss actions remains undecided.</li>
+<li>The owner still needs to choose and tune each biome's terrain vocabulary:
+  what litters a desert or ice cave, which forms appear, and in what numbers.</li>
+<li>The last incremental graph refresh reported 79 extracted nodes for the same
+  eight changed documents that previously yielded 111. The committed full graph
+  does not preserve that comparison; extraction quality still needs diagnosis.</li>
 </ul>
-<h2 id="следующий-шаг">Следующий шаг<a class="headerlink" href="#следующий-шаг" title="Permanent link">&para;</a></h2>
-<p>S4 не завершён: Мозг, контейнер replay, production-прогонщик и конвейер
-характеристик остаются в состоянии, указанном в
-<a href="../technical/production-plan/#s4-тик-мозг-реплей-прогонщик-a--блокирует-s6-s9">плане производства</a>.
-Следующая работа с ареной должна подключить producer через канонизированный
-content path и использовать corpus v9 как текущую семантику, а не как фикстуру
-обратной совместимости.</p>
+<h2 id="next-step">Next step<a class="headerlink" href="#next-step" title="Permanent link">&para;</a></h2>
+<p>First resolve rectangle coalescing versus grid navigation in the next arena spec
+round. Then implement the selected integer terrain method without weakening
+connected free space, committed RNG draws, or the no-reroll rule. Use ArenaLab
+to tune a desert profile against telemetry. After that, produce the desert tile
+set under the frozen asset contract and build a Godot arena scene with a real
+renderer and camera. Actions, Brain chasm awareness, and the stat pipeline remain
+the next simulation dependencies alongside that presentation work.</p>
 
 
 

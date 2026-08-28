@@ -1616,6 +1616,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#non-normative-natural-terrain-research" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-normative natural-terrain research
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Non-normative natural-terrain research">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-remains-invariant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What remains invariant?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-representation-question-comes-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which representation question comes first?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-ordered-shortlist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the ordered shortlist?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-methods-were-rejected-for-this-round" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which methods were rejected for this round?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3130,6 +3191,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#non-normative-natural-terrain-research" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-normative natural-terrain research
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Non-normative natural-terrain research">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-remains-invariant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What remains invariant?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-representation-question-comes-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which representation question comes first?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-ordered-shortlist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the ordered shortlist?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-methods-were-rejected-for-this-round" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which methods were rejected for this round?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3391,7 +3513,7 @@ tempo_raw      = 65536 - loss
 <p>That is the whole encoding, and it is exactly the stored list of section 3.4. There is no spawn-site section, no required-clearance section, no decoration kind, and no merged collision view: the contacts are derived (section 3.4) and are a pure function of the boundary and the catalogue above, so hashing them would commit a view that adds no identity while making any later refinement of the merge rule look like a different arena. Decoding therefore re-resolves through the single producer path, which reassigns the object IDs, rebuilds the collision view, and validates the artifact. Publication requires <code>decode -&gt; validate -&gt; encode</code> byte equality and a committed SHA-256. Two producers resolving the same definition produce identical bytes.</p>
 <p>Canonical entity status bytes append <code>DwellHalfTicks uint32</code> after the existing <code>ID</code> and <code>ExpiresAt</code>; ordinary statuses write zero. <code>Action.WindupRemaining</code> is encoded and decoded as raw Q16.16 <code>int32</code>.</p>
 <p>The v10 digest wins over the v9 stage-8 section: per-tick canonical state stores the cached 32-byte artifact digest immediately after <code>encounter_id</code>, replacing rather than accompanying the inline boundary-plus-contacts bytes. The old section currently occupies exactly that position (<code>server/internal/sim/canonical.go:50-57,110-126</code>; <a href="../combat-engine/">combat engine</a>). A recovery/replay capsule carries immutable artifact bytes once alongside snapshots. Restore decodes and validates the artifact, verifies its SHA-256 against the state digest, then rebuilds boundary, contacts, graph, sites, connectors, indexes, and all other derived views into a cache keyed by that digest. A digest mismatch rejects atomically. When destruction ships, canonical state adds the real mutable activity/durability vector; it still does not repeat immutable catalogue bytes every tick.</p>
-<p>The current <code>server/internal/sim/arena_layout.go:390-497</code> is the complete artifact encoder and decoder, not a deletable zone-only range: framing and object encoding are <code>390-403</code>, layout encoding is <code>405-431</code>, and decoding is <code>438-497</code>. V10 retains/refactors the whole codec and replaces only v9 layout fields.</p>
+<p>The shipped codec is <code>server/internal/sim/arena_layout.go:92-168</code>: <code>appendCanonicalArtifact</code> writes the version, boundary, spawn parameters, capacities, and canonical object catalogue, while <code>decodeCanonicalArtifact</code> reads those fields and returns through the shared resolver. The collision view remains derived and has no artifact section of its own.</p>
 <h2 id="12-which-versions-and-corpus-ship-together">12. Which versions and corpus ship together?<a class="headerlink" href="#12-which-versions-and-corpus-ship-together" title="Permanent link">&para;</a></h2>
 <p>Same canonical input/seed producing different state/event sequences changes <code>SimulationVersion</code>; the existing policy names geometry, tie-breaks, RNG sites, future-affecting state, and event order (<a href="../simulation-core/#когда-меняется-версия-симуляции">simulation version policy</a>). Current constants and corpus are v9 (<code>server/internal/sim/types.go:25-35</code>; <code>server/internal/sim/determinism_test.go:22-27</code>).</p>
 <p>V10 ships atomically as <code>SimulationVersion = 10</code>, <code>canonicalVersion = 10</code>, and <code>server/internal/sim/testdata/traces/v10</code>. Record the corpus once after the complete arena, graph, spawn, void, quicksand, event, snapshot, and digest schema lands. Later semantic/canonical changes require v11. Content and wire versions do not substitute for simulation version.</p>
@@ -3427,6 +3549,97 @@ tempo_raw      = 65536 - loss
 <li>Per-biome/per-encounter variants around the fixed <code>60 × 40 m</code> default: pool entries, costs, weights, budgets, gaps, spawn step/clearance, required-clearance placement, and each hazard's <code>RampLossPerTick</code>. The behavioral limits and fallback rules above are closed.</li>
 <li>The maximum number of action-created permanent hazards in boss fights. The repository still records the general-two versus accumulating-ruptures conflict (<a href="../../open-questions/#открытые">open questions</a>). It is outside the immutable initial generator and needs an explicit boss/action rule before mutable terrain ships.</li>
 </ol>
+<h2 id="non-normative-natural-terrain-research">Non-normative natural-terrain research<a class="headerlink" href="#non-normative-natural-terrain-research" title="Permanent link">&para;</a></h2>
+<p>This section records research input for the next arena specification round. It
+does not select an algorithm or change the normative v10 rules. The unresolved
+choices remain in the <a href="../../open-questions/#открытые">open-question registry</a>.</p>
+<h3 id="what-remains-invariant">What remains invariant?<a class="headerlink" href="#what-remains-invariant" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Go owns authoritative terrain and uses deterministic integer arithmetic.</li>
+<li>Maximum-radius free space is non-empty and connected by construction. A
+  rejected candidate is skipped with its RNG draws consumed; there is no arena
+  reroll, seed mutation, or retry index.</li>
+<li>The tile grid composes the complete rectangle. Ground reads as one continuous
+  surface; rocks, ravine edges, rubble, and other props sit in that surface.</li>
+<li>Godot decoration never changes collision, navigation, spawn assignment,
+  canonical state, hashes, RNG, or replay results.</li>
+</ul>
+<h3 id="which-representation-question-comes-first">Which representation question comes first?<a class="headerlink" href="#which-representation-question-comes-first" title="Permanent link">&para;</a></h3>
+<p>Noise and path masks can occupy hundreds of cells. The shipped visibility graph
+accepts at most 30 active solid-plus-void footprints and derives at most 360
+corner offsets. The next spec round must settle one of two representations
+before it selects a terrain algorithm:</p>
+<ol>
+<li><strong>Coalesce occupied cells into rectangles.</strong> A deterministic rectangle cover
+   would feed the current AABB union and visibility graph. This preserves the
+   existing path model, but requires a canonical cover order, stable object and
+   death-attribution rules, and a proof that irregular boundaries remain below
+   the footprint and offset bounds. The existing collision view merges only
+   equal AABBs; contiguous-cell coalescing is new work.</li>
+<li><strong>Move navigation to a grid.</strong> The terrain mask becomes the direct navigation
+   representation and no rectangle-count bound is needed. This replaces the
+   visibility graph, path-distance and tie-break contract, dynamic graph
+   attachment, spawn-route derivation, cache shape, corpus, and simulation
+   version. Body-radius clearance and diagonal movement need new exact rules.</li>
+</ol>
+<p>Neither option is selected here.</p>
+<h3 id="what-is-the-ordered-shortlist">What is the ordered shortlist?<a class="headerlink" href="#what-is-the-ordered-shortlist" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Parameterized path carving.</strong> Advance a seeded centreline with integer
+   step lengths, Q16.16 angles, and a fixed Q16.16 sine/cosine lookup table;
+   vary width along the path. This is the best candidate for ravines, canyons,
+   ridges, and other directional forms. Minecraft exposes tunnel count,
+   thickness, and vertical-radius controls in its carver format, which confirms
+   the relevant parameter family (<a href="https://www.minecraft.net/en-us/article/minecraft-26-3-snapshot-2">Minecraft carver format</a>).</li>
+</ol>
+<p>The connectivity proof is conditional: removing forbidden occupancy can
+   only grow free space, but painting a <code>KindVoid</code> path onto walkable ground
+   shrinks free space and still requires the v10 connectivity guard.
+2. <strong>Integer value noise or diamond-square.</strong> Hash integer lattice points, use
+   integer lerp and a polynomial fade, then threshold the field into ridges and
+   outcrops. Diamond-square is a compact alternative when a height-like field
+   is useful (<a href="https://doi.org/10.1145/358523.358553">Fournier, Fussell, and Carpenter, 1982</a>).
+   Thresholding creates forbidden occupancy, so each committed result needs a
+   connectivity guard or a construction order that proves the invariant.
+3. <strong>Worley noise with Manhattan distance.</strong> Seed integer feature points and
+   evaluate exact L1 distance. The resulting diamond-like cells can group
+   outcrops into geological clusters. Worley's original basis uses distances to
+   scattered feature points and demonstrates rock and mountain-like textures
+   (<a href="https://doi.org/10.1145/237170.237267">Worley, 1996</a>). Thresholded occupied
+   cells need the same connectivity treatment as value noise.
+4. <strong>A Godot decorator pass.</strong> Place rubble at obstacle feet, debris along
+   boundaries, and presentation props aligned to a shared derived field. This
+   pass is client-only and may not create or modify gameplay geometry.</p>
+<p>The first three entries choose authoritative positions and shapes. The fourth
+only makes the published surface and props read as one place.</p>
+<h3 id="which-methods-were-rejected-for-this-round">Which methods were rejected for this round?<a class="headerlink" href="#which-methods-were-rejected-for-this-round" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Cellular automata:</strong> organic masks are easy, but connectivity is not a
+  construction invariant. Discarding maps or repairing them with tunnels would
+  reintroduce rerolls or a second topology pass.</li>
+<li><strong>Wave Function Collapse:</strong> its standard constraints are local, not a proof of
+  global free-space connectivity. The reference implementation can reach a
+  contradiction and stop; adding backtracking or a global constraint is excess
+  machinery at this arena scale
+  (<a href="https://github.com/mxgmn/WaveFunctionCollapse">reference implementation</a>).</li>
+<li><strong>Ordinary floating-point Perlin and Simplex noise:</strong> rejected for
+  authoritative generation. Perlin's reference implementation uses <code>double</code>
+  arithmetic and a polynomial fade
+  (<a href="https://cs.nyu.edu/~perlin/noise/">reference implementation</a>). Compiler and
+  target choices can retain x87 intermediates at extended precision or contract
+  operations into FMA; GCC exposes both behaviors as explicit options
+  (<a href="https://gcc.gnu.org/onlinedocs/gcc/x86-Options.html">x87 precision</a>,
+  <a href="https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html">floating-point contraction</a>).
+  Replays re-simulate from seed, so a threshold changing by one cell is not an
+  acceptable cross-platform difference. Integer value noise supplies the needed
+  field with a smaller numeric contract.</li>
+<li><strong>Hydraulic and thermal erosion:</strong> surveyed forms are float-heavy height-field
+  simulations and do not by themselves solve walkable topology.</li>
+<li><strong>Drunkard's walk:</strong> it tends toward blobby coverage without the directional
+  structure required for ravines and ridges.</li>
+<li><strong>L-systems:</strong> a grammar and expansion system is heavier than the path carver
+  needed for the same directional structure.</li>
+</ul>
 
 
 
