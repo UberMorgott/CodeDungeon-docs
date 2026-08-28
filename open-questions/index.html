@@ -342,6 +342,33 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../stage-4b-handoff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что закрывает продолжение ядра симуляции (S4b)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
     
@@ -351,10 +378,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
@@ -372,8 +399,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -881,10 +908,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
@@ -902,8 +929,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1404,10 +1431,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_18" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_18" >
         
           
-          <label class="md-nav__link" for="__nav_5_18" id="__nav_5_18_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_18" id="__nav_6_18_label" tabindex="0">
             
   
   
@@ -1425,8 +1452,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_18_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_18">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_18">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2529,6 +2556,10 @@
 <tr>
 <td>Как выбирается ближайшая достижимая позиция с чистой линией огня?</td>
 <td>Используется та же кратчайшая Q16.16-длина пути по взвешенному графу порталов; ключ — <code>(path_length ASC, straight_line_distance ASC, raw_x ASC, raw_y ASC)</code>, без RNG. Чистая линия огня — коридор <code>BodyRadius</code> бойца, а не отрезок между центрами; длины используют единственный <code>integerSquareRoot</code> (<code>TestApproachFiringPositionUsesWeightedPortalPath</code>, <code>TestLineOfFireUsesBodyRadiusCorridor</code>) — <a href="../technical/combat-engine/#как-представлена-и-строится-арена">генерация арены</a></td>
+</tr>
+<tr>
+<td>Кто задаёт форму и размеры зон и проходов генератора?</td>
+<td>Первая реализация фиксирует выпуклую зону как axis-aligned square: семейство формы выбирает код, а не caller. Caller передаёт её half-extent в <code>GeneratorSpec.ZoneExtent</code> и ширины в <code>GeneratorSpec.PassageWidth</code> и <code>GeneratorSpec.ShortcutWidth</code>, потому что спецификация не назначает ни семейство многоугольника, ни числовые значения. Смена формы или этих значений меняет канонический artifact, поднимает <code>simulation_version</code> и требует переснять корпус — <a href="../technical/combat-engine/#как-представлена-и-строится-арена">генерация арены</a></td>
 </tr>
 <tr>
 <td>Как устроено <strong>рукопожатие между Godot и побочным процессом ядра</strong>?</td>

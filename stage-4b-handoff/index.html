@@ -10,29 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/">
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/stage-4b-handoff/">
       
       
+        <link rel="prev" href="../stage-4a-handoff/">
       
-        <link rel="next" href="stage-1-handoff/">
+      
+        <link rel="next" href="../game-design/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>CodeDungeon — документация</title>
+        <title>Что закрывает продолжение ядра симуляции (S4b) - CodeDungeon — документация</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +53,9 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#как-читать-документацию-codedungeon" class="md-skip">
+        <a href="#что-закрывает-продолжение-ядра-симуляции-s4b" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -94,7 +96,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
-    <a href="." title="CodeDungeon — документация" class="md-header__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+    <a href=".." title="CodeDungeon — документация" class="md-header__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Как читать документацию
+              Что закрывает продолжение ядра симуляции (S4b)
             
           </span>
         </div>
@@ -232,7 +234,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="CodeDungeon — документация" class="md-nav__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+    <a href=".." title="CodeDungeon — документация" class="md-nav__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -259,37 +261,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Как читать документацию
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -305,48 +280,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Содержание">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#как-пройти-трек-a-понять-игру" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Как пройти трек A «Понять игру»?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#как-пройти-трек-b-собрать-игру" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Как пройти трек B «Собрать игру»?
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -358,7 +291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="stage-1-handoff/" class="md-nav__link">
+      <a href="../stage-1-handoff/" class="md-nav__link">
         
   
   
@@ -385,7 +318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="stage-4a-handoff/" class="md-nav__link">
+      <a href="../stage-4a-handoff/" class="md-nav__link">
         
   
   
@@ -409,10 +342,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="stage-4b-handoff/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что закрывает продолжение ядра симуляции (S4b)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -428,6 +388,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#что-теперь-есть" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что теперь есть
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-доказано-тестами" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что доказано тестами
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-отложено-сознательно" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что отложено сознательно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#открытые-места-и-мины" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Открытые места и мины
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#следующий-шаг" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Следующий шаг
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -486,7 +521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="game-design/" class="md-nav__link">
+      <a href="../game-design/" class="md-nav__link">
         
   
   
@@ -514,7 +549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="game-design/core-loop/" class="md-nav__link">
+      <a href="../game-design/core-loop/" class="md-nav__link">
         
   
   
@@ -542,7 +577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="game-design/run-structure/" class="md-nav__link">
+      <a href="../game-design/run-structure/" class="md-nav__link">
         
   
   
@@ -570,7 +605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="game-design/programming-the-hero/" class="md-nav__link">
+      <a href="../game-design/programming-the-hero/" class="md-nav__link">
         
   
   
@@ -598,7 +633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="game-design/combat-and-replay/" class="md-nav__link">
+      <a href="../game-design/combat-and-replay/" class="md-nav__link">
         
   
   
@@ -626,7 +661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="game-design/progression-and-builds/" class="md-nav__link">
+      <a href="../game-design/progression-and-builds/" class="md-nav__link">
         
   
   
@@ -654,7 +689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="game-design/skills-and-tags/" class="md-nav__link">
+      <a href="../game-design/skills-and-tags/" class="md-nav__link">
         
   
   
@@ -682,7 +717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="game-design/items-and-crafting/" class="md-nav__link">
+      <a href="../game-design/items-and-crafting/" class="md-nav__link">
         
   
   
@@ -710,7 +745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="game-design/enemies-and-encounters/" class="md-nav__link">
+      <a href="../game-design/enemies-and-encounters/" class="md-nav__link">
         
   
   
@@ -738,7 +773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="game-design/biomes/" class="md-nav__link">
+      <a href="../game-design/biomes/" class="md-nav__link">
         
   
   
@@ -766,7 +801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="game-design/narrative-and-setting/" class="md-nav__link">
+      <a href="../game-design/narrative-and-setting/" class="md-nav__link">
         
   
   
@@ -794,7 +829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="game-design/visual-language/" class="md-nav__link">
+      <a href="../game-design/visual-language/" class="md-nav__link">
         
   
   
@@ -822,7 +857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="game-design/audio-direction/" class="md-nav__link">
+      <a href="../game-design/audio-direction/" class="md-nav__link">
         
   
   
@@ -850,7 +885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="game-design/accessibility/" class="md-nav__link">
+      <a href="../game-design/accessibility/" class="md-nav__link">
         
   
   
@@ -878,7 +913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="game-design/glossary/" class="md-nav__link">
+      <a href="../game-design/glossary/" class="md-nav__link">
         
   
   
@@ -906,7 +941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="game-design/brain-reference/" class="md-nav__link">
+      <a href="../game-design/brain-reference/" class="md-nav__link">
         
   
   
@@ -934,7 +969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="game-design/deferred-design/" class="md-nav__link">
+      <a href="../game-design/deferred-design/" class="md-nav__link">
         
   
   
@@ -1016,7 +1051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/" class="md-nav__link">
+      <a href="../technical/" class="md-nav__link">
         
   
   
@@ -1044,7 +1079,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/architecture/" class="md-nav__link">
+      <a href="../technical/architecture/" class="md-nav__link">
         
   
   
@@ -1072,7 +1107,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/technology-baseline/" class="md-nav__link">
+      <a href="../technical/technology-baseline/" class="md-nav__link">
         
   
   
@@ -1100,7 +1135,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/runtime-topology/" class="md-nav__link">
+      <a href="../technical/runtime-topology/" class="md-nav__link">
         
   
   
@@ -1128,7 +1163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/contracts-and-data-flow/" class="md-nav__link">
+      <a href="../technical/contracts-and-data-flow/" class="md-nav__link">
         
   
   
@@ -1156,7 +1191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/simulation-core/" class="md-nav__link">
+      <a href="../technical/simulation-core/" class="md-nav__link">
         
   
   
@@ -1184,7 +1219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/combat-engine/" class="md-nav__link">
+      <a href="../technical/combat-engine/" class="md-nav__link">
         
   
   
@@ -1212,7 +1247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/replay/" class="md-nav__link">
+      <a href="../technical/replay/" class="md-nav__link">
         
   
   
@@ -1240,7 +1275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/brain-runtime/" class="md-nav__link">
+      <a href="../technical/brain-runtime/" class="md-nav__link">
         
   
   
@@ -1268,7 +1303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/stat-pipeline/" class="md-nav__link">
+      <a href="../technical/stat-pipeline/" class="md-nav__link">
         
   
   
@@ -1296,7 +1331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/modifiers-and-tags/" class="md-nav__link">
+      <a href="../technical/modifiers-and-tags/" class="md-nav__link">
         
   
   
@@ -1324,7 +1359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/stat-registry/" class="md-nav__link">
+      <a href="../technical/stat-registry/" class="md-nav__link">
         
   
   
@@ -1352,7 +1387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/items-and-crafting/" class="md-nav__link">
+      <a href="../technical/items-and-crafting/" class="md-nav__link">
         
   
   
@@ -1380,7 +1415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/run-systems/" class="md-nav__link">
+      <a href="../technical/run-systems/" class="md-nav__link">
         
   
   
@@ -1408,7 +1443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/persistence/" class="md-nav__link">
+      <a href="../technical/persistence/" class="md-nav__link">
         
   
   
@@ -1436,7 +1471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/client-architecture/" class="md-nav__link">
+      <a href="../technical/client-architecture/" class="md-nav__link">
         
   
   
@@ -1464,7 +1499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/audio-runtime/" class="md-nav__link">
+      <a href="../technical/audio-runtime/" class="md-nav__link">
         
   
   
@@ -1539,7 +1574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/screens/" class="md-nav__link">
+      <a href="../technical/screens/" class="md-nav__link">
         
   
   
@@ -1567,7 +1602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/screens/ai-editor/" class="md-nav__link">
+      <a href="../technical/screens/ai-editor/" class="md-nav__link">
         
   
   
@@ -1595,7 +1630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/screens/combat-viewing/" class="md-nav__link">
+      <a href="../technical/screens/combat-viewing/" class="md-nav__link">
         
   
   
@@ -1623,7 +1658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/screens/road-forge/" class="md-nav__link">
+      <a href="../technical/screens/road-forge/" class="md-nav__link">
         
   
   
@@ -1651,7 +1686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/screens/inventory-and-crafting/" class="md-nav__link">
+      <a href="../technical/screens/inventory-and-crafting/" class="md-nav__link">
         
   
   
@@ -1679,7 +1714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/screens/progression/" class="md-nav__link">
+      <a href="../technical/screens/progression/" class="md-nav__link">
         
   
   
@@ -1707,7 +1742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/screens/run-setup/" class="md-nav__link">
+      <a href="../technical/screens/run-setup/" class="md-nav__link">
         
   
   
@@ -1735,7 +1770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/screens/run-map/" class="md-nav__link">
+      <a href="../technical/screens/run-map/" class="md-nav__link">
         
   
   
@@ -1763,7 +1798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/screens/room-resolution/" class="md-nav__link">
+      <a href="../technical/screens/room-resolution/" class="md-nav__link">
         
   
   
@@ -1791,7 +1826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/screens/rest/" class="md-nav__link">
+      <a href="../technical/screens/rest/" class="md-nav__link">
         
   
   
@@ -1819,7 +1854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/screens/shop/" class="md-nav__link">
+      <a href="../technical/screens/shop/" class="md-nav__link">
         
   
   
@@ -1847,7 +1882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/screens/run-result/" class="md-nav__link">
+      <a href="../technical/screens/run-result/" class="md-nav__link">
         
   
   
@@ -1875,7 +1910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/screens/replay-library/" class="md-nav__link">
+      <a href="../technical/screens/replay-library/" class="md-nav__link">
         
   
   
@@ -1903,7 +1938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/screens/replay-viewer/" class="md-nav__link">
+      <a href="../technical/screens/replay-viewer/" class="md-nav__link">
         
   
   
@@ -1931,7 +1966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/screens/settings-and-system-menu/" class="md-nav__link">
+      <a href="../technical/screens/settings-and-system-menu/" class="md-nav__link">
         
   
   
@@ -1959,7 +1994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/screens/boot-and-connection/" class="md-nav__link">
+      <a href="../technical/screens/boot-and-connection/" class="md-nav__link">
         
   
   
@@ -1987,7 +2022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/screens/main-menu/" class="md-nav__link">
+      <a href="../technical/screens/main-menu/" class="md-nav__link">
         
   
   
@@ -2023,7 +2058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/content-packages/" class="md-nav__link">
+      <a href="../technical/content-packages/" class="md-nav__link">
         
   
   
@@ -2051,7 +2086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/localization-and-narrative-content/" class="md-nav__link">
+      <a href="../technical/localization-and-narrative-content/" class="md-nav__link">
         
   
   
@@ -2079,7 +2114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/asset-pipeline/" class="md-nav__link">
+      <a href="../technical/asset-pipeline/" class="md-nav__link">
         
   
   
@@ -2107,7 +2142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/development-workflow/" class="md-nav__link">
+      <a href="../technical/development-workflow/" class="md-nav__link">
         
   
   
@@ -2135,7 +2170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/testing-and-ci/" class="md-nav__link">
+      <a href="../technical/testing-and-ci/" class="md-nav__link">
         
   
   
@@ -2163,7 +2198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/future-online/" class="md-nav__link">
+      <a href="../technical/future-online/" class="md-nav__link">
         
   
   
@@ -2191,7 +2226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/production-plan/" class="md-nav__link">
+      <a href="../technical/production-plan/" class="md-nav__link">
         
   
   
@@ -2219,7 +2254,7 @@
   
   
     <li class="md-nav__item">
-      <a href="technical/mvp-definition-of-done/" class="md-nav__link">
+      <a href="../technical/mvp-definition-of-done/" class="md-nav__link">
         
   
   
@@ -2254,7 +2289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="open-questions/" class="md-nav__link">
+      <a href="../open-questions/" class="md-nav__link">
         
   
   
@@ -2301,10 +2336,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#как-пройти-трек-a-понять-игру" class="md-nav__link">
+  <a href="#что-теперь-есть" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Как пройти трек A «Понять игру»?
+        Что теперь есть
       
     </span>
   </a>
@@ -2312,10 +2347,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#как-пройти-трек-b-собрать-игру" class="md-nav__link">
+  <a href="#что-доказано-тестами" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Как пройти трек B «Собрать игру»?
+        Что доказано тестами
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-отложено-сознательно" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что отложено сознательно
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#открытые-места-и-мины" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Открытые места и мины
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#следующий-шаг" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Следующий шаг
       
     </span>
   </a>
@@ -2339,7 +2407,7 @@
 
 
   
-    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/index.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/stage-4b-handoff.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2347,59 +2415,81 @@
   
 
 
-<h1 id="как-читать-документацию-codedungeon">Как читать документацию CodeDungeon?<a class="headerlink" href="#как-читать-документацию-codedungeon" title="Permanent link">&para;</a></h1>
-<p>Это единая документация по игровому дизайну и технической архитектуре CodeDungeon. Она нужна всем, кто проектирует, пишет, собирает, проверяет или развивает игру: первый трек объясняет опыт игрока и правила систем, второй переводит эти правила в границы подсистем, данные, интерфейсы и проверки.</p>
-<h2 id="как-пройти-трек-a-понять-игру">Как пройти трек A «Понять игру»?<a class="headerlink" href="#как-пройти-трек-a-понять-игру" title="Permanent link">&para;</a></h2>
-<ol>
-<li><a href="game-design/">Обзор игры</a> — даёт фантазию игрока и границу MVP.</li>
-<li><a href="game-design/core-loop/">Основной цикл</a> — связывает решения, исполнение и обратную связь.</li>
-<li><a href="game-design/run-structure/">Структура забега</a> — описывает подготовку, карту, победу и смерть.</li>
-<li><a href="game-design/programming-the-hero/">Программирование героя</a> — объясняет Мозг, Память, проверку и обучение.</li>
-<li><a href="game-design/combat-and-replay/">Бой и replay</a> — задаёт боевой опыт и разбор решений.</li>
-<li><a href="game-design/progression-and-builds/">Прогрессия и билды</a> — связывает развитие, сборки и пределы силы.</li>
-<li><a href="game-design/skills-and-tags/">Навыки и теги</a> — определяет язык действий и модификаторов.</li>
-<li><a href="game-design/items-and-crafting/">Предметы и крафт</a> — описывает добычу, экипировку и создание вещей.</li>
-<li><a href="game-design/enemies-and-encounters/">Враги и встречи</a> — задаёт уроки, составы, боссов и эскалацию.</li>
-<li><a href="game-design/biomes/">Биомы</a> — связывает окружение, опасности и встречи.</li>
-<li><a href="game-design/narrative-and-setting/">Нарратив и сеттинг</a> — объясняет бойца, Кузню, гибель и путь.</li>
-<li><a href="game-design/visual-language/">Визуальный язык</a> — задаёт читаемость, камеру, анимацию и стиль.</li>
-<li><a href="game-design/audio-direction/">Звуковое направление</a> — определяет сигналы, музыку и звук replay.</li>
-<li><a href="game-design/accessibility/">Доступность</a> — фиксирует управление, масштабирование и сенсорные настройки.</li>
-<li><a href="game-design/glossary/">Глоссарий</a> — ведёт к определениям без повторения правил.</li>
-<li><a href="game-design/brain-reference/">Справочник Мозг</a> — перечисляет узлы, значения и совместимость.</li>
-<li><a href="game-design/deferred-design/">Отложенный дизайн</a> — изолирует co-op, PvP и Online.</li>
-</ol>
-<h2 id="как-пройти-трек-b-собрать-игру">Как пройти трек B «Собрать игру»?<a class="headerlink" href="#как-пройти-трек-b-собрать-игру" title="Permanent link">&para;</a></h2>
-<ol>
-<li><a href="technical/">Технический индекс</a> — показывает инженерную карту документации.</li>
-<li><a href="technical/architecture/">Архитектурный скелет</a> — задаёт границы подсистем, владение состоянием и контракты.</li>
-<li><a href="technical/technology-baseline/">Технологический baseline</a> — фиксирует обязательные версии, форматы и инструменты.</li>
-<li><a href="technical/runtime-topology/">Топология runtime</a> — определяет запуск, живость и завершение двух процессов.</li>
-<li><a href="technical/contracts-and-data-flow/">Контракты и поток данных</a> — задаёт команды, события и владение данными между Go и Godot.</li>
-<li><a href="technical/simulation-core/">Ядро симуляции</a> — фиксирует порядок тика, Q16.16, RNG и снапшоты.</li>
-<li><a href="technical/combat-engine/">Боевой движок</a> — задаёт арену, движение, опасные зоны и разрешение действий.</li>
-<li><a href="technical/replay/">Replay</a> — определяет контейнер записи, порты, seek и отказ от записи.</li>
-<li><a href="technical/brain-runtime/">Runtime Мозга</a> — описывает словарь, валидацию, компиляцию и исполнение графа.</li>
-<li><a href="technical/stat-pipeline/">Конвейер расчёта</a> — задаёт единую вычислительную формулу.</li>
-<li><a href="technical/modifiers-and-tags/">Модификаторы и теги</a> — определяет, как модификатор находит характеристику.</li>
-<li><a href="technical/stat-registry/">Реестр stat ID</a> — перечисляет стабильные характеристики и их форму.</li>
-<li><a href="technical/items-and-crafting/">Предметы и крафт</a> — определяет реестры, инвентарь и чистые операции крафта.</li>
-<li><a href="technical/run-systems/">Системы забега</a> — ведёт состояние попытки, карту, награды и чекпоинты.</li>
-<li><a href="technical/persistence/">Persistence</a> — задаёт SQLite, репозитории, транзакции и восстановление.</li>
-<li><a href="technical/client-architecture/">Архитектура клиента</a> — определяет проекцию, дерево сцен и границу клиента.</li>
-<li><a href="technical/audio-runtime/">Аудио-runtime</a> — целевой дизайн buses, воспроизведения и настроек громкости.</li>
-<li><a href="technical/screens/">Экраны</a> — задают общие правила интерфейса и раскладывают каждый экран до реализации.</li>
-<li><a href="technical/content-packages/">Пакеты контента</a> — определяет авторинг, схемы, загрузку и публикацию.</li>
-<li><a href="technical/localization-and-narrative-content/">Локализация и нарративный контент</a> — задаёт ключи, форматирование и гейт перевода.</li>
-<li><a href="technical/asset-pipeline/">Конвейер 3D-ассетов</a> — задаёт импорт и валидацию ресурсов.</li>
-<li><a href="technical/development-workflow/">Рабочий процесс разработки</a> — перечисляет инструменты, локальные проверки и передачу работы.</li>
-<li><a href="technical/testing-and-ci/">Тестирование и CI</a> — определяет тесты и расписание проверок.</li>
-<li><a href="technical/future-online/">Будущий Online</a> — изолирует пост-MVP инфраструктуру от локальной игры.</li>
-<li><a href="technical/production-plan/">План производства</a> — задаёт этапы, роли и интеграционные зависимости.</li>
-<li><a href="technical/mvp-definition-of-done/">Definition of Done</a> — завершает трек критериями приёмки MVP.</li>
-</ol>
-<p>Нерешённые вопросы живут только в <a href="open-questions/">реестре</a>, а история изменений — в Git, не в тексте документов.</p>
-<p>Актуальное состояние работ — <a href="stage-4b-handoff/">записка S4b</a>.</p>
+<h1 id="что-закрывает-продолжение-ядра-симуляции-s4b">Что закрывает продолжение ядра симуляции (S4b)<a class="headerlink" href="#что-закрывает-продолжение-ядра-симуляции-s4b" title="Permanent link">&para;</a></h1>
+<p>Записка состояния после реализации геометрии и генератора арены. Она фиксирует
+доставленные части S4, границы этой реализации и вход для следующей работы.
+Нормативные правила остаются в <a href="../technical/">технической документации</a>.</p>
+<h2 id="что-теперь-есть">Что теперь есть<a class="headerlink" href="#что-теперь-есть" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Snapshot/restore принимает только состояния RNG, выведенные из seed и ID
+  стрима, не принимает уже истёкший статус и не принимает переходные фазы
+  действия <code>Pending</code> и <code>Impact</code> на границе тика.</li>
+<li><code>FromRaw64Checked</code>, <code>MulChecked</code>, <code>DivChecked</code> и <code>MulDivChecked</code> дополняют
+  существующие Checked-операции и возвращают признак насыщения без изменения
+  результата обычных форм. Числовая модель описана в
+  <a href="../technical/simulation-core/#как-устроена-числовая-модель">ядре симуляции</a>.</li>
+<li>Стадия 8 разрешает границу арены и контакты с <code>solid &amp;&amp; active</code> геометрией.
+  Каталог объектов, collision view, порядок поправок и fallback реализуют
+  записанный <a href="../technical/combat-engine/#как-разрешаются-движение-и-столкновения">контракт боевого движка</a>.</li>
+<li>Процедурный producer создаёт 3–5 зон, обязательный цикл и Delaunay-срезки,
+  проходы, взвешенный граф порталов и кандидатов появления. Максимин-выбор
+  противников использует кратчайшую Q16.16-длину пути Dijkstra. Полный алгоритм
+  и tie-break принадлежат
+  <a href="../technical/combat-engine/#как-представлена-и-строится-арена">главе об арене</a>.</li>
+<li>Контракт первой партии ассетов арены зафиксирован в
+  <a href="../technical/asset-pipeline/">конвейере ассетов</a> и в машиночитаемом файле
+  <code>codedungeon/assets/arena/arena_asset_contract_v1.json</code>.</li>
+<li>Граф знаний по <code>docs/</code> обновляется после коммита через <code>post-commit</code> и
+  <code>tools/graph-refresh.ps1</code>; установка и режим отказа описаны в
+  <a href="../technical/development-workflow/#как-обновляется-граф-знаний-по-документации">рабочем процессе</a>.</li>
+</ul>
+<h2 id="что-доказано-тестами">Что доказано тестами<a class="headerlink" href="#что-доказано-тестами" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>SimulationVersion</code> и <code>canonicalVersion</code> равны <code>9</code>; текущий корпус лежит
+  только в <code>server/internal/sim/testdata/traces/v9</code>. Корпуса v7 и v8 удалены из
+  рабочего дерева и остаются в истории Git.</li>
+<li>Свежий <code>go test -count=1 -json ./...</code> завершил 401 именованный тест с учётом
+  подтестов без события <code>fail</code>.</li>
+<li>Проверки генератора закрепляют 3–5 зон, Poisson-disk separation на целой
+  Q16.16-решётке, цикл и Delaunay-срезки, веса графа, ширину обязательных
+  проходов, допустимость кандидатов и максимин по кратчайшему пути.</li>
+</ul>
+<h2 id="что-отложено-сознательно">Что отложено сознательно<a class="headerlink" href="#что-отложено-сознательно" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>GenerateArena</code> ещё не подключён к пути encounter/content и вызывается только
+  тестами. Схема, валидатор и канонизация пакета контента остаются этапом S2
+  <a href="../technical/production-plan/#s2-контент-схема-валидатор-канонизация-a--блокирует-s7-s8">плана производства</a>.</li>
+<li>Метрика ближайшей достижимой позиции с чистой линией огня закрыта в
+  документации, но runtime <code>Approach</code> и её проверки ещё не реализованы.</li>
+<li>Квадратные tiles/chunks, декор и размещение объектов внутри зон не входят в
+  логическую топологию генератора и остаются последующей работой.</li>
+<li>JSON-контракт ассетов имеет статус <code>planned</code>: опубликованных файлов и
+  заполненных provenance/hash в этой партии ещё нет.</li>
+<li>Checked-операции делают насыщение наблюдаемым для caller, но общего канала
+  сбора таких сигналов как дефектов прогона пока нет.</li>
+</ul>
+<h2 id="открытые-места-и-мины">Открытые места и мины<a class="headerlink" href="#открытые-места-и-мины" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Первая реализация фиксирует зону как axis-aligned square. Caller задаёт
+  half-extent через <code>GeneratorSpec.ZoneExtent</code>, а ширины — через
+  <code>GeneratorSpec.PassageWidth</code> и <code>GeneratorSpec.ShortcutWidth</code>; спецификация не
+  назначает семейство формы и числовые значения. Смена формы или этих значений
+  меняет канонический artifact, требует новой версии симуляции и пересъёмки
+  корпуса.</li>
+<li>Полный artifact арены содержит граф порталов и веса, а snapshot хранит только
+  границу и collision view стадии 8. Restore не может восстановить из snapshot
+  зоны, проходы, кандидатов появления или полный каталог объектов.</li>
+<li>Автообновление графа зависит от локально установленного hook и локальных
+  prerequisites graphify. Ошибка фоновой пересборки записывается в лог и не
+  отменяет коммит.</li>
+</ul>
+<h2 id="следующий-шаг">Следующий шаг<a class="headerlink" href="#следующий-шаг" title="Permanent link">&para;</a></h2>
+<p>S4 не завершён: Мозг, контейнер replay, production-прогонщик и конвейер
+характеристик остаются в состоянии, указанном в
+<a href="../technical/production-plan/#s4-тик-мозг-реплей-прогонщик-a--блокирует-s6-s9">плане производства</a>.
+Следующая работа с ареной должна подключить producer через канонизированный
+content path и использовать corpus v9 как текущую семантику, а не как фикстуру
+обратной совместимости.</p>
 
 
 
@@ -2455,12 +2545,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.top", "search.highlight", "search.suggest", "content.action.edit"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.top", "search.highlight", "search.suggest", "content.action.edit"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="javascripts/navigation-state.js"></script>
+        <script src="../javascripts/navigation-state.js"></script>
       
     
   </body>

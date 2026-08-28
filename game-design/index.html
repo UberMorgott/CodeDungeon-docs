@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/game-design/">
       
       
-        <link rel="prev" href="../stage-4a-handoff/">
+        <link rel="prev" href="../stage-4b-handoff/">
       
       
         <link rel="next" href="core-loop/">
@@ -342,6 +342,33 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../stage-4b-handoff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что закрывает продолжение ядра симуляции (S4b)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -355,10 +382,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
@@ -376,8 +403,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1009,10 +1036,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
@@ -1030,8 +1057,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1532,10 +1559,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_18" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_18" >
         
           
-          <label class="md-nav__link" for="__nav_5_18" id="__nav_5_18_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_18" id="__nav_6_18_label" tabindex="0">
             
   
   
@@ -1553,8 +1580,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_18_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_18">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_18">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2473,7 +2500,7 @@
 <tr>
 <td>Запуск Godot, IPC и детерминированные примитивы</td>
 <td>Реализовано</td>
-<td><a href="../stage-1-handoff/"><code>docs/stage-1-handoff.md</code></a></td>
+<td><code>server/cmd/codedungeon</code>, <code>server/internal/ipc</code>, <code>server/internal/launch</code>, <code>server/internal/fixed</code>, <code>server/internal/rng</code></td>
 </tr>
 <tr>
 <td>Тик: статусы, таймеры, действия, урон, движение и вытеснение</td>
@@ -2483,37 +2510,37 @@
 <tr>
 <td>Смерть, завершение боя и абсолютный стоп на тике 18 000</td>
 <td>Реализовано</td>
-<td><code>server/internal/sim/tick.go</code>, <a href="../stage-4a-handoff/"><code>docs/stage-4a-handoff.md</code></a></td>
+<td><code>server/internal/sim/tick.go</code>, <code>server/internal/sim/run.go</code></td>
 </tr>
 <tr>
-<td>Каноническое состояние версии 7 и snapshot/restore каждые 40 тиков</td>
-<td>Реализовано</td>
-<td><code>server/internal/sim/canonical.go</code>, <code>server/internal/sim/snapshot.go</code></td>
+<td>Каноническое состояние версии 9 и snapshot/restore каждые 40 тиков</td>
+<td>Реализовано; восстановление проверяет состояния RNG, сроки статусов и фазы действий</td>
+<td><code>server/internal/sim/canonical.go</code>, <code>server/internal/sim/snapshot.go</code>, <code>server/internal/rng/rng.go</code>, <code>server/internal/sim/testdata/traces/v9</code></td>
 </tr>
 <tr>
 <td>Валидация и канонизация пакета контента</td>
 <td>Специфицировано, не реализовано</td>
-<td><a href="../technical/production-plan/#s2-контент-схема-валидатор-канонизация-a--блокирует-s7-s8"><code>docs/technical/production-plan.md</code></a></td>
+<td><code>docs/technical/production-plan.md</code></td>
 </tr>
 <tr>
-<td>Мозг, реплей и прогонщик</td>
+<td>Мозг, контейнер replay и production-прогонщик</td>
 <td>Специфицировано, не реализовано</td>
-<td><a href="../technical/production-plan/#s4-тик-мозг-реплей-прогонщик-a--блокирует-s6-s9"><code>docs/technical/production-plan.md</code></a>, <code>server/internal/sim/tick.go</code></td>
+<td><code>docs/technical/production-plan.md</code>, <code>server/internal/sim/tick.go</code></td>
 </tr>
 <tr>
 <td>Конвейер расчёта характеристик; действия пока несут готовые значения</td>
 <td>Специфицировано, не реализовано</td>
-<td><a href="../technical/stat-pipeline/"><code>docs/technical/stat-pipeline.md</code></a>, <a href="../stage-4a-handoff/"><code>docs/stage-4a-handoff.md</code></a></td>
+<td><code>docs/technical/stat-pipeline.md</code>, <code>docs/stage-4a-handoff.md</code></td>
 </tr>
 <tr>
-<td>Диагностика насыщения fixed-point</td>
-<td>Специфицировано, не реализовано</td>
-<td><a href="../stage-1-handoff/"><code>docs/stage-1-handoff.md</code></a>, <a href="../stage-4a-handoff/"><code>docs/stage-4a-handoff.md</code></a></td>
+<td>Сигнал насыщения fixed-point</td>
+<td>Checked-операции реализованы; централизованный канал диагностики не реализован</td>
+<td><code>server/internal/fixed/fixed.go</code>, <code>docs/technical/simulation-core.md</code></td>
 </tr>
 <tr>
-<td>Геометрия арены и границы, стадия 8 тика</td>
-<td>Не специфицировано</td>
-<td><code>server/internal/sim/tick.go</code></td>
+<td>Арена: геометрия и границы стадии 8, зоны, проходы, граф порталов и точки появления</td>
+<td>Специфицировано и реализовано</td>
+<td><code>server/internal/sim/arena.go</code>, <code>server/internal/sim/bounds.go</code>, <code>server/internal/sim/arena_layout.go</code>, <code>server/internal/sim/arena_generate.go</code>, <code>server/internal/sim/navigation.go</code></td>
 </tr>
 </tbody>
 </table>

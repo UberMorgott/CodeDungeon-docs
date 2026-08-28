@@ -344,6 +344,33 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../stage-4b-handoff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что закрывает продолжение ядра симуляции (S4b)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
     
@@ -353,10 +380,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
@@ -374,8 +401,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -885,10 +912,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
@@ -906,8 +933,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1408,10 +1435,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_18" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_18" >
         
           
-          <label class="md-nav__link" for="__nav_5_18" id="__nav_5_18_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_18" id="__nav_6_18_label" tabindex="0">
             
   
   
@@ -1429,8 +1456,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_18_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_18">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_18">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2558,7 +2585,7 @@ orca orchestration worker-release --dispatch &lt;dispatch_id&gt; --json
 <p>Исполнитель сначала читает <code>AGENTS.md</code> и названные в spec канонические документы. Reviewer работает только на чтение и не расширяет scope; код одного agent family проверяет другой. Tester перед Go-прогоном выполняет <code>go clean -testcache</code>, затем приводит фактический результат <code>go test ./...</code>; отчёт исполнителя помещается в тело завершающего <code>worker_done</code>, а не отправляется отдельным сообщением, которое может потеряться при закрытии dispatch.</p>
 <p>Выбор конкретной модели и reasoning effort является параметром запуска, а не контрактом репозитория. Отсутствие orchestration или MCP не блокирует ручную работу: человек выполняет те же команды, создаёт тот же diff и передаёт тот же handoff. Результат агента не принимается по заявлению исполнителя без локального gate, CI и review.</p>
 <h2 id="как-обновляется-граф-знаний-по-документации">Как обновляется граф знаний по документации?<a class="headerlink" href="#как-обновляется-граф-знаний-по-документации" title="Permanent link">&para;</a></h2>
-<p><code>graphify-out/</code> держит граф знаний по <code>docs/</code> и обновляется сам: <code>tools/install-git-hooks.ps1</code> ставит <code>post-commit</code>, который отсоединённо запускает <code>tools/graph-refresh.ps1</code>, поэтому коммит не ждёт пересборку и не падает на её ошибке. Скрипт сверяет файлы с <code>graphify-out/manifest.json</code>, при отсутствии изменений печатает <code>graph up to date</code> и выходит; изменённый код разбирается детерминированным AST, изменённые документы уходят чанками в <code>codex exec --output-schema</code> по контракту извлечения graphify — без агента и без API-ключа. Дальше идут build, clustering, отчёт и экспорт; манифест сохраняется только после фактической записи графа, <code>.refresh.lock</code> не даёт двум коммитам подряд столкнуться, итог каждого прогона дописывается в <code>graphify-out/refresh.log</code>. Полная пересборка в обход манифеста — <code>tools/graph-refresh.ps1 -Force</code>.</p>
+<p><code>graphify-out/</code> держит граф знаний по <code>docs/</code> и обновляется сам: <code>tools/install-git-hooks.ps1</code> ставит <code>post-commit</code>, который отсоединённо запускает <code>tools/graph-refresh.ps1</code>, поэтому коммит не ждёт пересборку и не падает на её ошибке. Скрипт сверяет файлы с <code>graphify-out/manifest.json</code>, при отсутствии изменений печатает <code>graph up to date</code> и выходит; изменённый код разбирается детерминированным AST, изменённые документы уходят чанками в <code>claude -p --model claude-opus-4-6</code> по контракту извлечения graphify с доступом только на чтение — без интерактивного агента. Дальше идут build, clustering, отчёт и экспорт; манифест сохраняется только после фактической записи графа, <code>.refresh.lock</code> не даёт двум коммитам подряд столкнуться, итог каждого прогона дописывается в <code>graphify-out/refresh.log</code>. Полная пересборка в обход манифеста — <code>tools/graph-refresh.ps1 -Force</code>.</p>
 <h2 id="что-нужно-сделать">Что нужно сделать<a class="headerlink" href="#что-нужно-сделать" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Владелец:</strong> Go/симуляция, этап S0 <a href="../production-plan/">плана производства</a>. Направление Godot/клиент является обязательным потребителем workflow и владеет исполнением клиентских проверок в своих задачах; правила применяются на всех последующих этапах.</li>
