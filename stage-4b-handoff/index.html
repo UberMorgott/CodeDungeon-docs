@@ -2473,9 +2473,9 @@
 </ul>
 <h2 id="что-доказано-тестами">Что доказано тестами<a class="headerlink" href="#что-доказано-тестами" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>SimulationVersion</code> и <code>canonicalVersion</code> равны <code>9</code>; текущий корпус лежит
-  только в <code>server/internal/sim/testdata/traces/v9</code>. Корпуса v7 и v8 удалены из
-  рабочего дерева и остаются в истории Git.</li>
+<li><code>SimulationVersion</code> и <code>canonicalVersion</code> равны <code>10</code>; текущий корпус лежит
+  только в <code>server/internal/sim/testdata/traces/v10</code>. Корпуса v7, v8 и v9
+  удалены из рабочего дерева и остаются в истории Git.</li>
 <li>Свежий <code>go test -count=1 -json ./...</code> завершил 401 именованный тест с учётом
   подтестов без события <code>fail</code>.</li>
 <li>Проверки генератора закрепляют 3–5 зон, Poisson-disk separation на целой
@@ -2504,9 +2504,10 @@
   назначает семейство формы и числовые значения. Смена формы или этих значений
   меняет канонический artifact, требует новой версии симуляции и пересъёмки
   корпуса.</li>
-<li>Полный artifact арены содержит граф порталов и веса, а snapshot хранит только
-  границу и collision view стадии 8. Restore не может восстановить из snapshot
-  зоны, проходы, кандидатов появления или полный каталог объектов.</li>
+<li>Каноническое состояние хранит только 32-байтовый дайджест artifact арены,
+  а капсула восстановления несёт сами байты artifact. Restore сверяет их
+  SHA-256 с дайджестом и выводит из них границу, collision view и terrain;
+  расхождение отвергает snapshot целиком.</li>
 <li>Автообновление графа зависит от локально установленного hook и локальных
   prerequisites graphify. Ошибка фоновой пересборки записывается в лог и не
   отменяет коммит.</li>
