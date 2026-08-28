@@ -1,0 +1,3501 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Живая игровая и техническая документация CodeDungeon">
+      
+      
+      
+        <link rel="canonical" href="https://ubermorgott.github.io/CodeDungeon-docs/technical/arena-model-v10/">
+      
+      
+        <link rel="prev" href="../combat-engine/">
+      
+      
+        <link rel="next" href="../replay/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>How does arena model v10 define an encounter? - CodeDungeon — документация</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-does-arena-model-v10-define-an-encounter" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="CodeDungeon — документация" class="md-header__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CodeDungeon — документация
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              How does arena model v10 define an encounter?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить тёмную тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Включить тёмную тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Включить светлую тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Включить светлую тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CodeDungeon — документация" class="md-nav__button md-logo" aria-label="CodeDungeon — документация" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CodeDungeon — документация
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UberMorgott/CodeDungeon" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UberMorgott/CodeDungeon
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как читать документацию
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stage-1-handoff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что сделано в Stage 1 и что осталось открытым
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stage-4a-handoff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что оставляет открытым ядро симуляции (S4a)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stage-4b-handoff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что закрывает продолжение ядра симуляции (S4b)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Игровой дизайн
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Игровой дизайн
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что это за игра?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/core-loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен основной цикл игры?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/run-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен забег?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/programming-the-hero/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как игрок программирует героя?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/combat-and-replay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как проходит бой и как игрок его разбирает?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/progression-and-builds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как растёт персонаж и из чего собирается билд?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/skills-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроены навыки, теги и модификаторы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/items-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как работают предметы, добыча и крафт?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/enemies-and-encounters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    С кем сражается герой?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/biomes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Чем отличаются биомы?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/narrative-and-setting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что за мир и почему игрок в нём именно программист?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/visual-language/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как игра выглядит и как читается на экране?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/audio-direction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как звучит игра?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/accessibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как игра остаётся доступной?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что означает термин?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/brain-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Какие блоки доступны в редакторе Мозга?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-design/deferred-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что сознательно отложено за пределы MVP?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Техническая документация
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Техническая документация
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как читать техническую документацию CodeDungeon?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Где проходят границы системы и кому принадлежит состояние?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technology-baseline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    На каких технологиях и форматах строится MVP?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runtime-topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как запускаются и завершаются два процесса игры?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contracts-and-data-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как команды, события и данные переходят между Go и Godot?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simulation-core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как работает детерминированное ядро симуляции?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../combat-engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как боевой движок разрешает арену и действия?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How does arena model v10 define an encounter?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How does arena model v10 define an encounter?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-is-in-scope-and-already-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What is in scope and already fixed?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-what-is-the-numeric-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. What is the numeric contract?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-what-is-the-canonical-arena-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. What is the canonical arena model?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. What is the canonical arena model?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-what-do-producers-provide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 What do producers provide?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-how-are-the-boundary-participants-and-anchors-constrained" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 How are the boundary, participants, and anchors constrained?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-which-gameplay-objects-exist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Which gameplay objects exist?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-what-is-stored-and-what-is-derived" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 What is stored and what is derived?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-how-are-objects-ordered-and-mutated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. How are objects ordered and mutated?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-how-does-procedural-generation-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. How does procedural generation work?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. How does procedural generation work?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-what-does-the-generation-profile-contain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 What does the generation profile contain?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-what-is-the-rng-and-placement-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 What is the RNG and placement order?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-which-checks-run-for-each-candidate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Which checks run for each candidate?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-how-are-connectivity-and-finalization-enforced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 How are connectivity and finalization enforced?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-how-are-reachability-and-paths-computed-exactly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. How are reachability and paths computed exactly?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. How are reachability and paths computed exactly?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-how-are-the-forbidden-union-and-coordinate-nodes-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 How are the forbidden union and coordinate nodes built?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-how-is-graph-work-bounded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 How is graph work bounded?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-how-are-spawn-sites-derived-and-assigned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. How are spawn sites derived and assigned?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. How are spawn sites derived and assigned?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-how-are-lattice-sites-derived" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 How are lattice sites derived?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-how-are-participants-assigned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 How are participants assigned?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-how-do-void-and-falling-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. How do void and falling work?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. How do void and falling work?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-how-does-void-membership-treat-dead-entities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 How does void membership treat dead entities?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-which-trajectory-is-swept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Which trajectory is swept?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-how-is-a-pending-fall-resolved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 How is a pending fall resolved?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-which-void-facts-can-ai-observe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 Which void facts can AI observe?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-how-does-quicksand-dwell-affect-status-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. How does quicksand dwell affect status lifecycle?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. How does quicksand dwell affect status lifecycle?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-which-ids-state-and-tempo-floor-are-mandatory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Which IDs, state, and tempo floor are mandatory?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-how-does-the-stage-1-reconciliation-pass-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 How does the stage-1 reconciliation pass work?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-how-are-movement-and-windup-scaled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 How are movement and windup scaled?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-how-is-the-presentation-grid-published" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. How is the presentation grid published?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-how-are-presets-encoded-and-restored" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. How are presets encoded and restored?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-which-versions-and-corpus-ship-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Which versions and corpus ship together?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-what-does-v10-delete-or-migrate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. What does v10 delete or migrate?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-which-acceptance-cases-are-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Which acceptance cases are required?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-which-owner-content-decisions-remain-open" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Which owner content decisions remain open?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../replay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как хранится и читается авторитетная запись забега?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../brain-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как компилируется, проверяется и исполняется Мозг?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stat-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как значение проходит единый конвейер расчёта?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modifiers-and-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как модификатор находит характеристику по тегам?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stat-registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Какие характеристики разрешены в расчёте?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../items-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как реализовать предметы, инвентарь и крафт?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../run-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как сервер ведёт забег, миссию и переходы между узлами?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../persistence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как локальное состояние сохраняется и восстанавливается?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как Godot отображает авторитетное состояние и управляет интерфейсом?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audio-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен аудио-runtime?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_19" id="__nav_6_19_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Экраны
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_19">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Экраны
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроены экраны и общие правила интерфейса?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/ai-editor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран редактора Мозга?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/combat-viewing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен первый просмотр боя?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/road-forge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроена Дорожная кузня?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/inventory-and-crafting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран инвентаря и крафта?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/progression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран прогрессии?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/run-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроена подготовка забега?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/run-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как работает карта маршрута?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/room-resolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран подводит итог комнаты и передаёт добычу?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/rest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран точки отдыха проводит обязательный выбор?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/shop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран лавки проводит покупку и продажу?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/run-result/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как экран итога забега завершает попытку?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/replay-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как библиотека перечисляет сохранённые записи забегов?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/replay-viewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как просмотрщик помогает разобрать запись по боям-главам?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/settings-and-system-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как работают настройки и системное меню?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/boot-and-connection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как клиент показывает запуск и подключение к локальному Go?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screens/main-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как главное меню выбирает профиль и открывает игру?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как авторский JSON становится пакетом контента?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../localization-and-narrative-content/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как текст попадает в игру и остаётся переводимым?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../asset-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как исходный ассет становится ресурсом Godot?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как подготовить изменение и передать его без потери контракта?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing-and-ci/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как тесты доказывают, что изменение можно интегрировать?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../future-online/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как CodeDungeon переходит к публичному Online после MVP?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../production-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    План производства и разделение ролей
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mvp-definition-of-done/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definition of Done для MVP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../open-questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реестр открытых вопросов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-is-in-scope-and-already-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What is in scope and already fixed?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-what-is-the-numeric-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. What is the numeric contract?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-what-is-the-canonical-arena-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. What is the canonical arena model?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. What is the canonical arena model?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-what-do-producers-provide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 What do producers provide?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-how-are-the-boundary-participants-and-anchors-constrained" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 How are the boundary, participants, and anchors constrained?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-which-gameplay-objects-exist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Which gameplay objects exist?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-what-is-stored-and-what-is-derived" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 What is stored and what is derived?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-how-are-objects-ordered-and-mutated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. How are objects ordered and mutated?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-how-does-procedural-generation-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. How does procedural generation work?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. How does procedural generation work?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-what-does-the-generation-profile-contain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 What does the generation profile contain?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-what-is-the-rng-and-placement-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 What is the RNG and placement order?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-which-checks-run-for-each-candidate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Which checks run for each candidate?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-how-are-connectivity-and-finalization-enforced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 How are connectivity and finalization enforced?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-how-are-reachability-and-paths-computed-exactly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. How are reachability and paths computed exactly?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. How are reachability and paths computed exactly?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-how-are-the-forbidden-union-and-coordinate-nodes-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 How are the forbidden union and coordinate nodes built?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-how-is-graph-work-bounded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 How is graph work bounded?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-how-are-spawn-sites-derived-and-assigned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. How are spawn sites derived and assigned?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. How are spawn sites derived and assigned?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-how-are-lattice-sites-derived" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 How are lattice sites derived?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-how-are-participants-assigned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 How are participants assigned?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-how-do-void-and-falling-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. How do void and falling work?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. How do void and falling work?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-how-does-void-membership-treat-dead-entities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 How does void membership treat dead entities?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-which-trajectory-is-swept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Which trajectory is swept?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-how-is-a-pending-fall-resolved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 How is a pending fall resolved?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-which-void-facts-can-ai-observe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 Which void facts can AI observe?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-how-does-quicksand-dwell-affect-status-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. How does quicksand dwell affect status lifecycle?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. How does quicksand dwell affect status lifecycle?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-which-ids-state-and-tempo-floor-are-mandatory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Which IDs, state, and tempo floor are mandatory?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-how-does-the-stage-1-reconciliation-pass-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 How does the stage-1 reconciliation pass work?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-how-are-movement-and-windup-scaled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 How are movement and windup scaled?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-how-is-the-presentation-grid-published" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. How is the presentation grid published?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-how-are-presets-encoded-and-restored" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. How are presets encoded and restored?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-which-versions-and-corpus-ship-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Which versions and corpus ship together?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-what-does-v10-delete-or-migrate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. What does v10 delete or migrate?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-which-acceptance-cases-are-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Which acceptance cases are required?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-which-owner-content-decisions-remain-open" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Which owner content decisions remain open?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/UberMorgott/CodeDungeon/edit/main/docs/technical/arena-model-v10.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="how-does-arena-model-v10-define-an-encounter">How does arena model v10 define an encounter?<a class="headerlink" href="#how-does-arena-model-v10-define-an-encounter" title="Permanent link">&para;</a></h1>
+<p>This chapter is the normative implementation specification for the v10 replacement of the shipped v9 arena model.</p>
+<p><strong>Implements:</strong> <a href="../combat-engine/">authoritative combat geometry</a>, <a href="../simulation-core/">deterministic simulation</a>, and <a href="../../game-design/visual-language/">arena presentation</a>.</p>
+<p>Normative words <code>MUST</code>, <code>MUST NOT</code>, <code>SHALL</code>, and <code>REJECT</code> are requirements. “Reject” means a typed error before tick 0 and no completed combat record. This document specifies simulation behavior, not Go type names.</p>
+<h2 id="1-what-is-in-scope-and-already-fixed">1. What is in scope and already fixed?<a class="headerlink" href="#1-what-is-in-scope-and-already-fixed" title="Permanent link">&para;</a></h2>
+<ol>
+<li>One encounter uses one standalone rectangular arena. Its bounded interior is walkable by default; the camera pans across it. A run still contains many arenas on the global-map path, and there are no linked rooms inside one arena.</li>
+<li>The v10 default boundary is <code>(0, 0, 60 * fixed.ONE, 40 * fixed.ONE)</code>, or <code>60 m × 40 m</code>, and its default spawn lattice step is <code>1 * fixed.ONE</code>. The metre-to-screen assumption is <code>24 m × 13.5 m</code> visible at once in the <code>1280 × 720</code> viewport, an exact common scale of <code>160/3 px/m</code>. The default arena is therefore <code>2.5</code> screen widths by <code>80/27</code> (about <code>2.96</code>) screen heights. The viewport and stretch settings are current project facts (<code>codedungeon/project.godot:23-30</code>).</li>
+<li>Zones do not exist in v10. There are no zone records, zone membership, zone centres, Poisson-disk zone placement, Delaunay edges, passages, portals, or zone-keyed spawn candidates.</li>
+<li>The rectangle edge is impassable. <code>Boundary</code> is its only gameplay representation. Biome perimeter dressing is client-only.</li>
+<li>In-bounds void is gameplay geometry. A unit whose centre enters void falls and dies in the same tick. Hazard patches are walkable quicksand: their tempo slow ramps with sampled dwell time.</li>
+<li>Go owns every authoritative coordinate, region, route, derived spawn, terrain dwell, fall, and death. The Godot grid and Wang tiles are one-way presentation derivations.</li>
+</ol>
+<p>The shipped collision state is already a boundary plus filtered contacts (<code>server/internal/sim/arena.go:93-101</code>), and its body-radius inset defines the legal centre rectangle (<code>server/internal/sim/arena.go:178-207</code>). The v9 layout is a separate zone/portal structure (<code>server/internal/sim/arena_layout.go:46-88</code>), and its connectivity check proves only portal-graph connectivity (<code>server/internal/sim/arena_layout.go:270-287</code>). Production initialization accepts positioned entities through <code>Input</code> and retains the resolved arena (<code>server/internal/sim/run.go:5-16,36-41</code>; <code>server/internal/sim/state.go:45-100</code>; <code>server/internal/sim/types.go:105-124</code>). These are current-code facts, not v10 requirements.</p>
+<h2 id="2-what-is-the-numeric-contract">2. What is the numeric contract?<a class="headerlink" href="#2-what-is-the-numeric-contract" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Every simulation distance, coordinate, speed, radius, clearance, and tempo rate is signed Q16.16 in <code>fixed.Fixed</code>; <code>fixed.ONE == 65536</code>. Ticks, counts, enum values, costs, weights, dwell counters, and stable IDs are integers. The existing contract uses signed <code>int32</code> storage, <code>int64</code> intermediates, no float, and truncation toward zero (<a href="../simulation-core/#как-устроена-числовая-модель">simulation numeric model</a>).</li>
+<li>No v10 simulation code may use <code>float32</code>, <code>float64</code>, a float literal, epsilon, or conversion through float.</li>
+<li>Q16.16 arithmetic and narrowing use <code>internal/fixed</code>. A checked operation reporting saturation rejects the arena or run. In particular, tempo scaling uses <code>MulChecked</code>; <code>Mul</code> discards that saturation flag (<code>server/internal/fixed/fixed.go:144-154</code>).</li>
+<li>Squared distances use exact non-negative integers. Validation requires the boundary's integer diagonal weight, <code>floor(sqrt(span_x^2+span_y^2))</code>, to be at most <code>2^31-1</code> raw units. Therefore every in-arena axis difference used by the section 5.3 gap, section 6.1 edge length, and section 7.1 clearance is at most <code>2^31-1</code>; each square is less than <code>2^62</code> and their sum is less than <code>2^63</code>, which fits <code>uint64</code>. Form signed differences in <code>int64</code>, take their non-negative magnitudes, then convert to <code>uint64</code> before multiplying. The diagonal bound also guarantees that an edge weight narrowed through <code>FromRaw64Checked</code> is representable. A positive Q16.16 gap is at most <code>2^31-1</code>, so its square also fits. Generator predicates outside those bounds may use <code>math/big.Int</code>. Integer square roots use the existing overflow-reporting squared-length pattern and <code>integerSquareRoot</code> (<code>server/internal/fixed/fixed.go:26-34</code>; <code>server/internal/sim/collision.go:194-221</code>).</li>
+<li>Unless stated otherwise, signed division truncates toward zero. For non-negative values, <code>ceil(n/d)</code> is <code>n/d</code> plus one iff <code>n%d != 0</code>; <code>(n+d-1)/d</code> is forbidden.</li>
+<li>One raw unit is <code>1/65536 m</code>.</li>
+</ul>
+<h2 id="3-what-is-the-canonical-arena-model">3. What is the canonical arena model?<a class="headerlink" href="#3-what-is-the-canonical-arena-model" title="Permanent link">&para;</a></h2>
+<h3 id="31-what-do-producers-provide">3.1 What do producers provide?<a class="headerlink" href="#31-what-do-producers-provide" title="Permanent link">&para;</a></h3>
+<p><code>ArenaSpec</code> and <code>ArenaLayout</code> are replaced by one producer input, <code>ArenaDefinition</code>, and one immutable canonical result, <code>ArenaArtifactV10</code>. Procedural and authored producers pass through the same canonicalization and validation.</p>
+<div class="highlight"><pre><span></span><code>ArenaDefinition
+    Boundary                 AABB
+    MaxSupportedBodyRadius   fixed.Fixed
+    SpawnLatticeStep         fixed.Fixed
+    SpawnClearance           fixed.Fixed
+    HeroSpawnCapacity        uint32
+    EnemySpawnCapacity       uint32
+    Objects                  []ArenaObjectDefinition
+    RequiredClearances       []RequiredClearance
+</code></pre></div>
+<p><code>SpawnSites</code> is deliberately absent from producer input, the artifact, and canonical artifact bytes. Sites are a deterministic derived view of the fields above. There is no spawn-site digest: the artifact digest already commits every input from which the complete site set is derived.</p>
+<p>The artifact contains the canonicalized fields above. Producer kind, generation seed, source filename, and provenance do not enter it. Object ID is the canonical object index plus one and is not stored again. The shipped <code>Input</code> and state carry the seed and encounter ID at this seam (<code>server/internal/sim/run.go:5-16</code>; <code>server/internal/sim/state.go:11-22</code>; <code>server/internal/sim/canonical.go:48-57</code>); v10 adds no generation-attempt or retry index.</p>
+<h3 id="32-how-are-the-boundary-participants-and-anchors-constrained">3.2 How are the boundary, participants, and anchors constrained?<a class="headerlink" href="#32-how-are-the-boundary-participants-and-anchors-constrained" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>Boundary</code> is the inclusive Q16.16 AABB <code>(min_x, min_y, max_x, max_y)</code>, with positive spans and integer diagonal weight <code>floor(sqrt(span_x^2+span_y^2)) &lt;= 2^31-1</code> raw units. The simulation does not require either span to be a multiple of a presentation cell.</li>
+<li><code>MaxSupportedBodyRadius &gt; 0</code>, <code>SpawnLatticeStep &gt; 0</code>, and <code>SpawnClearance &gt;= 0</code>.</li>
+<li>V10 initial encounters require <code>HeroSpawnCapacity == 1</code> and <code>1 &lt;= EnemySpawnCapacity &lt;= 5</code>. This matches the existing one-hero and five-enemy ceiling (<a href="../../game-design/enemies-and-encounters/#как-собирается-одиночная-встреча">encounter composition</a>). Resolution MUST validate every initial participant has <code>0 &lt; BodyRadius &lt;= MaxSupportedBodyRadius</code>; otherwise it rejects before tick 0. Body radius is immutable authoritative entity state (<code>server/internal/sim/types.go:105-119</code>). There is no reinforcement-pool input: the shipped encounter input contains only seed, encounter ID, arena, and initial entities (<code>server/internal/sim/run.go:5-16</code>).</li>
+<li>For radius <code>r</code>, legal centres occupy the inclusive rectangle <code>[min_x+r, max_x-r] × [min_y+r, max_y-r]</code>. An empty interval rejects. Touching the perimeter is legal.</li>
+<li>Stored AABBs have positive area. Gameplay AABB membership is inclusive.</li>
+<li>At most 30 initially active <code>Solid</code> plus <code>Void</code> footprints are allowed in one v10 artifact. This is the navigation-density bound used by sections 5.1 and 6.2; inactive catalogue entries and hazards do not count until a future mutation rule activates them.</li>
+<li>The gameplay object count must not exceed <code>0x7fffffff</code>, so every derived terrain status ID is representable and unique.</li>
+</ul>
+<p><code>RequiredClearance</code> is a validation anchor, not a zone:</p>
+<div class="highlight"><pre><span></span><code>ID          uint32, non-zero and unique
+Position    Vec2
+Clearance   fixed.Fixed, &gt;= MaxSupportedBodyRadius
+</code></pre></div>
+<p>At most four required clearances are allowed in v10. Records sort by ascending ID. Each clearance circle must fit the boundary and must not strictly overlap any active solid, hazard, or void. Every required position must lie in the single maximum-radius free-space component required by section 6.1.</p>
+<h3 id="33-which-gameplay-objects-exist">3.3 Which gameplay objects exist?<a class="headerlink" href="#33-which-gameplay-objects-exist" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>ArenaObjectDefinition
+    ContentID        (namespace UTF-8 bytes, uint32 value)
+    Footprint        AABB
+    Kind             Solid | Hazard | Void
+    InitiallyActive  bool
+    RampLossPerTick  fixed.Fixed
+</code></pre></div>
+<ul>
+<li><code>Solid</code> blocks circle bodies and line-of-fire. <code>RampLossPerTick == 0</code>.</li>
+<li><code>Void</code> does not depenetrate a body; inclusive centre entry causes a fall. <code>RampLossPerTick == 0</code>.</li>
+<li><code>Hazard</code> is walkable quicksand. It requires <code>1 &lt;= RampLossPerTick.Raw() &lt;= 49152</code>; section 9 defines dwell and rate.</li>
+</ul>
+<p>All footprints lie inside <code>Boundary</code>. Solid-solid, void-void, and solid-void contact or overlap are legal. This deliberately permits long walls assembled from pieces, L-corners, dense rubble, repeated boxes, and cliff walls touching or overhanging a chasm. Hazard footprints may overlap any role; effects in unwalkable overlap are simply unreachable.</p>
+<p>There is no simulation <code>Decoration</code> kind. Grass, decals, scatter, and decorative dunes are client-owned assets and consume neither object IDs nor canonical bytes. If a future decoration becomes targetable or destructible, that new gameplay kind requires a new simulation version. The current asset catalogue already has client decoration entries (<code>codedungeon/assets/arena/arena_asset_contract_v1.json:368-399</code>).</p>
+<h3 id="34-what-is-stored-and-what-is-derived">3.4 What is stored and what is derived?<a class="headerlink" href="#34-what-is-stored-and-what-is-derived" title="Permanent link">&para;</a></h3>
+<p>Stored in the immutable artifact: boundary, maximum radius, spawn parameters and capacities, the complete ordered gameplay object catalogue, initial activity, ramp payloads, and required clearances.</p>
+<p>Stored in per-tick canonical state: the 32-byte artifact digest, entities, ordinary and terrain statuses, action progress, events, RNG states, and other mutable encounter fields. When destruction ships, add only an activity/durability vector keyed by permanent object ID.</p>
+<p>Derived and non-canonical: the final spawn-witness reserve, spawn sites, collision contacts, forbidden unions, spatial indexes, graph nodes and edges, path-query results, per-site clearance/connectors, hazard membership, presentation cells, and Wang signatures. These views form one <code>ArenaDerivedCache</code>, keyed by the 32-byte artifact digest. A cache can be rebuilt without changing bytes, hashes, events, or RNG.</p>
+<p>Procedural generation MUST return a resolved bundle <code>(artifact bytes, artifact digest, ArenaDerivedCache)</code> from its completed construction, and the caller MUST hand that same bundle to <code>Run</code>; a digest/key mismatch rejects. <code>Run</code> MUST NOT repeat graph or site construction on a matching cache. Authored preset load and snapshot restore are the only v10 paths that rebuild the cache, after decoding and validating artifact bytes and verifying their digest. This replaces the shipped seam where <code>Run</code> calls <code>newState</code>, <code>newState</code> resolves the artifact again, and only its collision arena survives (<code>server/internal/sim/run.go:30-42</code>; <code>server/internal/sim/state.go:40-63,94-100</code>). Current restore decodes canonical bytes into a fresh state (<code>server/internal/sim/snapshot.go:21-33</code>; <code>server/internal/sim/canonical.go:252-272</code>), so the recovery capsule specified in section 11 supplies the immutable artifact bytes needed for that rebuild.</p>
+<p>The current loop hashes canonical state after every tick (<code>server/internal/sim/run.go:52-62</code>), and the hash is SHA-256 over the full canonical buffer (<code>server/internal/sim/canonical.go:48-57,136-139</code>). V10 therefore computes the artifact digest once during resolution and appends only those cached 32 bytes to each canonical state.</p>
+<h2 id="4-how-are-objects-ordered-and-mutated">4. How are objects ordered and mutated?<a class="headerlink" href="#4-how-are-objects-ordered-and-mutated" title="Permanent link">&para;</a></h2>
+<p>Canonical object order is:</p>
+<ol>
+<li>signed raw <code>(min_x, min_y, max_x, max_y)</code>;</li>
+<li>exact canonical content ID bytes <code>&lt;namespace&gt;:&lt;uint32&gt;</code>.</li>
+</ol>
+<p>The shipped comparator and resolver establish that ordering and assign the full-set index (<code>server/internal/sim/arena.go:50-61,113-136</code>; <code>server/internal/sim/arena_layout.go:104-130</code>). Kind, activity, and ramp are not tie-breakers; an identical full key rejects. Equal AABBs with distinct content IDs remain legal, so the existing equal-AABB contact merge is meaningful (<code>server/internal/sim/arena_layout.go:123-130</code>).</p>
+<p>Filtering never renumbers objects. Future destruction or deactivation changes the mutable vector keyed by ID and invalidates derived collision/navigation caches; it never deletes catalogue entries. Composite navigation is built from the exact union of active forbidden rectangles, not from a pair-separation shortcut.</p>
+<h2 id="5-how-does-procedural-generation-work">5. How does procedural generation work?<a class="headerlink" href="#5-how-does-procedural-generation-work" title="Permanent link">&para;</a></h2>
+<h3 id="51-what-does-the-generation-profile-contain">5.1 What does the generation profile contain?<a class="headerlink" href="#51-what-does-the-generation-profile-contain" title="Permanent link">&para;</a></h3>
+<p>The caller supplies every generation number in <code>ArenaGenerationProfile</code>: the arena fields from section 3, <code>MinimumObjectGap</code>, <code>BoundaryClearance</code>, and a placement class for solids, voids, and hazards. A class has <code>Budget</code>, <code>MinCount</code>, <code>MaxCount</code>, and a canonically ordered weighted pool. Entries have content ID, kind, positive Q16.16 width/height, positive cost/weight, and the kind payload.</p>
+<p>Shared profile validation requires:</p>
+<ul>
+<li><code>0 &lt; MinCount &lt;= MaxCount</code> for each of the three classes;</li>
+<li>positive costs and weights, a positive <code>MinimumObjectGap</code>, non-negative boundary clearance, and representable fixed operations;</li>
+<li>the sum of eligible weights to fit positive <code>int32</code> for <code>IntN</code>.</li>
+</ul>
+<p>The concrete v10 targets are Solid <code>14..20</code>, Void <code>6..10</code>, Hazard <code>8..14</code>: up to 44 gameplay footprints, of which at most 30 affect navigation. <code>MinCount</code> is a density target and telemetry threshold, not an arena-validity condition. A class keeps drawing under section 5.2 until <code>MaxCount</code>, budget/pool exhaustion, or its finite attempt bounds; a shortfall is accepted and reported in generation telemetry. It produces neither a typed runtime error nor a caller retry. CI MUST generate the default profile for the fixed corpus <code>N = 256</code> seeds <code>0..255</code> at one fixed encounter ID and assert zero class shortfall and zero construction errors across the corpus. This is a deterministic content-calibration gate, not an arena-validity rule; the generator already receives and consumes the dedicated encounter-generation stream (<code>server/internal/sim/arena_generate.go:79-87</code>).</p>
+<p><code>BoundaryClearance</code> remains an art/composition control that keeps generated terrain away from the perimeter silhouette. <code>MinimumObjectGap</code> remains a gameplay/readability control over movement rhythm between disjoint set pieces. Neither is a connectivity proof, and v10 imposes no lower bound tying either one to <code>MaxSupportedBodyRadius</code> or <code>SpawnLatticeStep</code>. The round-4 acyclic-component rule is deleted. Exact placement guards, not gap or cluster shape, own correctness.</p>
+<p>The simulation imposes no <code>2 m</code> divisibility or minimum footprint size. The current Wang asset publisher imposes those presentation constraints in section 10.</p>
+<h3 id="52-what-is-the-rng-and-placement-order">5.2 What is the RNG and placement order?<a class="headerlink" href="#52-what-is-the-rng-and-placement-order" title="Permanent link">&para;</a></h3>
+<p>Generation uses only RNG system 1. The stream derivation and committed-choice rule are existing contracts (<a href="../simulation-core/#как-расходуется-rng">RNG contract</a>). Classes run <code>Solid</code>, then <code>Void</code>, then <code>Hazard</code>.</p>
+<p>Within a class:</p>
+<ol>
+<li>Build the eligible, non-exhausted pool in canonical content order from entries affordable by the remaining budget.</li>
+<li>Stop if it is empty or <code>MaxCount</code> is reached.</li>
+<li>Select one entry with one <code>IntN(sum_weights)</code> draw over cumulative half-open intervals.</li>
+<li>Try it at most 64 times; every attempt consumes X then Y before geometry tests.</li>
+<li>Draw each candidate minimum uniformly from its inclusive legal raw-coordinate interval. Compute <code>span = hi-lo+1</code> in <code>int64</code>, require <code>1 &lt;= span &lt;= 2147483647</code>, then cast to <code>int32</code>. <code>IntN</code> accepts a positive <code>int32</code> bound (<code>server/internal/rng/rng.go:181-197</code>). Checked addition forms maximum coordinates. There is no rotation.</li>
+<li>Accept the first candidate passing sections 5.3 and 5.4, subtract its cost, and increment the count.</li>
+<li>After 64 failures, exhaust only that pool entry for the class. Consumed draws remain consumed.</li>
+<li>Stop the class under step 2 even when fewer than <code>MinCount</code> placements exist; record the shortfall and accept it.</li>
+</ol>
+<p>There is no random count draw, whole-arena retry, seed mutation, or procedural decoration. A skipped candidate is an ordinary committed RNG outcome: consumed draws remain consumed and generation continues on the one RNG-system-1 stream. The shipped stream contract already makes committed choices consume draws without rewind (<a href="../simulation-core/#как-расходуется-rng">RNG contract</a>).</p>
+<h3 id="53-which-checks-run-for-each-candidate">5.3 Which checks run for each candidate?<a class="headerlink" href="#53-which-checks-run-for-each-candidate" title="Permanent link">&para;</a></h3>
+<p>Per attempt, perform only checks local to the candidate:</p>
+<ul>
+<li>checked boundary clearance and positive AABB;</li>
+<li>duplicate canonical key and kind/payload validity;</li>
+<li>one scan of existing gameplay footprints for exact AABB gap;</li>
+<li>strict intersection with any required-clearance circle, and the exact section 7.1 local-site predicate for every provisional generator spawn witness.</li>
+</ul>
+<p>Composite contact/overlap is legal. For two disjoint footprints, exact Euclidean AABB distance must be at least <code>MinimumObjectGap</code>; distance zero is the deliberate composite exception. Use <code>dx = max(0, A.min_x-B.max_x, B.min_x-A.max_x)</code> and analogous <code>dy</code>, and compare <code>uint64(dx)^2+uint64(dy)^2</code> to the exact <code>uint64(MinimumObjectGap.Raw())^2</code> under the section 2 span proof. Equality is allowed.</p>
+<p>Hazards stop after these checks because they do not change forbidden free space. A solid or void candidate then runs section 5.4. Do not build the weighted visibility graph or run spawn assignment per candidate.</p>
+<h3 id="54-how-are-connectivity-and-finalization-enforced">5.4 How are connectivity and finalization enforced?<a class="headerlink" href="#54-how-are-connectivity-and-finalization-enforced" title="Permanent link">&para;</a></h3>
+<p>After tentatively adding every solid or void candidate that passes section 5.3, run the exact forbidden-union component algorithm in section 6.1 step 3. Skip the candidate unless that algorithm succeeds; consumed draws remain consumed and the arena is not retried.</p>
+<p><strong>Placement invariant:</strong> after every committed solid or void placement, the representable maximum-radius free-centre set is non-empty and has exactly one component. The empty-placement base case is the validated non-empty inset rectangle. The induction step holds because a candidate commits only after the exact post-placement component test establishes the same statement.</p>
+<p>After all three classes, canonicalize once and build the digest-keyed exact union, visibility graph, complete site set, connectors, and spawn reserve metadata for the returned bundle. Debug builds MAY assert the exact-component, static-graph, site-attachment, site-capacity, and synthetic-assignment postconditions, but every release build MUST evaluate them too. Failure returns a typed error and no bundle; it never panics, continues with a partial cache, silently accepts, retries the arena, or mutates the seed. A connector-less site or non-finite required spawn route returns <code>GenerationUnreachableSpawn</code>; other construction inconsistencies return a typed generation-construction error. Structural profile/artifact errors remain ordinary validation errors before generation, and authored presets run the complete shared validation authoritatively because they did not pass through placement guards.</p>
+<h2 id="6-how-are-reachability-and-paths-computed-exactly">6. How are reachability and paths computed exactly?<a class="headerlink" href="#6-how-are-reachability-and-paths-computed-exactly" title="Permanent link">&para;</a></h2>
+<h3 id="61-how-are-the-forbidden-union-and-coordinate-nodes-built">6.1 How are the forbidden union and coordinate nodes built?<a class="headerlink" href="#61-how-are-the-forbidden-union-and-coordinate-nodes-built" title="Permanent link">&para;</a></h3>
+<p>Build exactly one derived graph, at <code>MaxSupportedBodyRadius</code>:</p>
+<ol>
+<li>Inset <code>Boundary</code> by the radius.</li>
+<li>Inflate every active solid AABB by the radius with checked <code>int64</code> coordinates. Void uses its original AABB because its centre is forbidden.</li>
+<li>Compute the exact closed union of all inflated solids and void rectangles. Touching and overlapping composites are one forbidden union. Free-space component analysis is over representable raw centres: vertices are free <code>(int32 raw_x, int32 raw_y)</code> pairs in the inset, and an OPEN edge joins two vertices iff each coordinate differs by at most one raw unit, at least one differs, and their closed segment stays outside the union. Determine its components without enumerating the raw lattice as follows:</li>
+<li><strong>Compression.</strong> Clip each of the at most <code>R = 30</code> forbidden rectangles to the inset and ignore an empty clip. For each axis collect the inset minimum and maximum plus each clipped rectangle's <code>min-1</code>, <code>min</code>, <code>max</code>, and <code>max+1</code>, computing the offsets in <code>int64</code> and clamping them to the inset before narrowing. Sort and deduplicate. Each axis has at most <code>4R+2 = 122</code> coordinates.</li>
+<li><strong>Cells and structure.</strong> For sorted X coordinates, cell column <code>i</code> is the inclusive integer interval <code>[X[i], X[i+1]-1]</code>, or <code>[X[last], inset.max_x]</code> for the last column; discard an empty interval. Rows use the identical Y rule. These intervals partition every inset lattice point, and rectangle membership is constant within each Cartesian-product cell because every <code>min</code> and <code>max+1</code> transition was retained. Scan rectangles in ascending object ID, mark a cell covered when its lower-left lattice point is in the closed union, and create one union-find element for every other cell.</li>
+<li><strong>Adjacency and order.</strong> Traverse rows by increasing Y index and columns by increasing X index. For each uncovered cell, examine already visited neighbours in fixed <code>West, South-West, South, South-East</code> order and merge only when the two cells contain endpoints of an OPEN edge defined above. Cardinal neighbours test the unit edge at the smallest raw coordinate along their common side; diagonal neighbours test only the corresponding one-raw diagonal segment. Attach the larger root ID to the smaller root ID. Closed cell bounds touching only at a corner never cause a merge. Consequently two free regions meeting only at a covered shared corner remain disconnected, while the free points <code>(101,100)</code> and <code>(100,101)</code> in the one-raw pinch merge through their OPEN diagonal edge.</li>
+<li><strong>Result and cost.</strong> Scan roots again in the same row-major order, considering only components that contain at least one free lattice point. Require exactly one non-empty root. With <code>C &lt;= 122^2 = 14,884</code>, coordinate work is <code>O(R log R)</code>, coverage classification is <code>O(CR)</code>, union/find work is <code>O(C alpha(C))</code>, and memory is <code>O(C)</code>; equivalently the bounded dominant term is <code>O(R^3)</code>.</li>
+</ol>
+<p>For a procedural candidate, skip it unless this result succeeds; for an authored artifact, REJECT on the same failure. In raw coordinates, the four closed rectangles <code>[100,100,101,104]</code>, <code>[103,100,104,104]</code>, <code>[100,100,104,101]</code>, and <code>[100,103,104,104]</code> enclose the free point <code>(102,102)</code>. Their rectangle transitions create covered ring cells, so union-find reports the interior root separately from the exterior root. An open corridor one raw unit wide with no legal integer-raw centre between its closed sides does not connect roots. Raw coordinates are signed Q16.16 integers and one metre is exactly 65,536 raw units (<code>server/internal/fixed/fixed.go:1-18,26-34</code>).
+4. At every coordinate where union-outline edges meet, classify the four open local quadrants symbolically from the closed rectangle union; do not sample a floating epsilon. Exactly one occupied quadrant is a convex vertex. First test the one-raw outward diagonal in the opposite quadrant. If that diagonal lies inside a different forbidden footprint, also test the two one-raw axis-adjacent alternatives toward that opposite quadrant; retain each alternative that is inside the inset and outside the closed union. This adds <code>(101,100)</code> and <code>(100,101)</code> for inflated <code>A = {x &lt;= 100, y &lt;= 100}</code> and <code>B = {x &gt;= 101, y &gt;= 101}</code>, even though A's diagonal <code>(101,101)</code> lies in B and B's diagonal <code>(100,100)</code> lies in A. Exactly two opposite occupied quadrants are a pinch and test both one-raw diagonals in the empty quadrants. Two adjacent occupied quadrants are flat/collinear; zero, three, or four occupied quadrants are non-convex/interior. Those cases emit nothing. Every candidate offset is retained only if it is inside the inset and outside the closed union.
+5. Sort retained offsets by <code>(raw_x, raw_y)</code> and remove duplicates. Each source rectangle corner causes at most three candidate offsets: its outward diagonal and two axis-adjacent fallbacks. With at most <code>R = 30</code> active navigation footprints, at most <code>12R = 360</code> offsets can therefore survive under the conservative charge bound. Exceeding 360 is a construction failure, never truncation or content rejection. Add each inset-boundary corner that is outside the union and every valid required position, sort/deduplicate the complete candidate set by the same key, and assign node IDs in that order. Coordinates alone are node identity; source category, object ID, corner, site index, and required ID live only in separate source-to-node mappings.
+6. Add an undirected edge between node pairs whose closed segment stays inside the inset boundary and does not enter or touch the closed forbidden union. Edge weight is exactly <code>floor(sqrt(uint64(dx)^2+uint64(dy)^2))</code>, narrowed with <code>fixed.FromRaw64Checked</code>. The section 2 diagonal bound gives <code>|dx|,|dy| &lt;= 2^31-1</code>, keeps the squared sum below <code>2^63</code>, and guarantees the resulting weight is at most <code>2^31-1</code>. Maximum-radius path distance is the sum of these integer hop weights in <code>int64</code>; it is not an approximation contract to be replaced by another length rule.
+7. Run a component check over all static nodes in every build. A procedural failure returns a typed generation-construction error and no bundle; an authored artifact REJECTS. A debug build MAY additionally assert after the checked path. Section 7.1 applies the same release-safe rule after adding site attachments. This is independent of required-clearance count and therefore also runs when there are zero required positions. The shipped v9 validator likewise rejects when any navigation node is unreachable from its first node (<code>server/internal/sim/arena_layout.go:270-286</code>).</p>
+<p>The conservative 360-offset bound, at most four boundary corners, and at most four required positions give static <code>V &lt;= 368</code>; final coordinate deduplication can only lower it. A woven union can create quadratically many outline intersections and holes, but those intersections are flat/concave rather than new exposed input corners, and step 3 skips the procedural placement or rejects the authored artifact that would leave an extra representable component. Future mutable geometry rebuilds and revalidates the one maximum-radius union and graph and MUST still respect <code>R &lt;= 30</code>.</p>
+<p>For a dynamic point, reuse an equal coordinate or add one temporary node and connect it to the same maximum-radius graph by the same predicate. Dijkstra accumulates in <code>int64</code>. Equal tentative distances settle lower node ID first; equal-distance predecessor choice uses the lexicographically smaller complete node-ID path. No query consumes RNG.</p>
+<h3 id="62-how-is-graph-work-bounded">6.2 How is graph work bounded?<a class="headerlink" href="#62-how-is-graph-work-bounded" title="Permanent link">&para;</a></h3>
+<p>Validation builds and caches only the maximum-radius graph. Every initial participant uses it; a smaller radius enlarges free space and can merge components but cannot split the single component already proved at the maximum radius. No exact-radius graph is built. Spawn lattice points never become permanent static nodes; section 7.1 streams them once through maximum-radius temporary-node connector tests and retains their connector lists in the digest-keyed cache.</p>
+<p>Build one deterministic interval index over forbidden rectangles, with raw interval endpoints and object ID as the stable tie-break. Before any static-edge or site-connector segment/rectangle predicate, shortlist only rectangles whose closed X interval and closed Y interval both overlap the segment's closed AABB, then run the exact predicate on that shortlist in ascending object ID. A rectangle outside that AABB cannot meet the segment, so this broad phase has no false negatives and cannot change nodes, edges, connectors, weights, or ties.</p>
+<p>The implementation and ArenaLab MUST report, without turning telemetry into acceptance rules: candidate counts by class and outcome; <code>MinCount</code> shortfall; compressed coordinate/cell/root counts for every component test; interval-shortlist sizes; exact segment/rectangle predicate counts split among static edges, site connectors, and dynamic attachments; graph nodes/edges; connector-less sites; Dijkstra runs, settled nodes, and relaxations; and cache builds versus hits.</p>
+<p>A cache-hit <code>Run</code> performs no graph or site rebuild; preset load and restore each rebuild once. This replaces the shipped flow that resolves during <code>Run</code> construction (<code>server/internal/sim/run.go:36-55</code>; <code>server/internal/sim/state.go:40-63</code>). Per tick, cached graph construction and lattice streaming cost zero. Site connector lists and multi-source distance fields are derived once for the maximum radius; no all-pairs site graph is built. A route can detour arbitrarily around a void chasm relative to the direct distance; v10 deliberately sets no route-length content cap. That is accepted for the default <code>60 m × 40 m</code> arena under the engine's absolute stop at tick 18,000 (<code>server/internal/sim/tick.go:259-270</code>); distances still accumulate in <code>int64</code> and every fixed narrowing remains checked.</p>
+<h2 id="7-how-are-spawn-sites-derived-and-assigned">7. How are spawn sites derived and assigned?<a class="headerlink" href="#7-how-are-spawn-sites-derived-and-assigned" title="Permanent link">&para;</a></h2>
+<h3 id="71-how-are-lattice-sites-derived">7.1 How are lattice sites derived?<a class="headerlink" href="#71-how-are-lattice-sites-derived" title="Permanent link">&para;</a></h3>
+<p>Enumerate the lattice from <code>(Boundary.min_x, Boundary.min_y)</code> with positive <code>SpawnLatticeStep</code>, X then Y using checked <code>int64</code>. Canonical site order is <code>(raw_x, raw_y)</code>.</p>
+<p>Before consuming generation RNG, profile validation enumerates that lattice in the empty boundary and deterministically finds the lexicographically smallest ordered tuple of <code>HeroSpawnCapacity + EnemySpawnCapacity</code> points that each satisfy the boundary part of the local-site predicate below and whose maximum-radius body circles are pairwise non-overlapping. The search visits candidate indices in ascending order and is bounded by the at-most-six capacity in section 3.2; no such tuple is an invalid generation profile, not a failed arena attempt. The tuple is the generator's provisional witness reserve. Every object candidate, including a hazard, is skipped if it would make a provisional witness fail the complete local-site test below. Under the default profile, all six provisional witnesses consequently occupy the lexicographically earliest feasible min-X corner column. This harmless bias affects only the hidden existence reserve; final assignment still uses the quality order in section 7.2.</p>
+<p>A locally valid point must let a circle of <code>MaxSupportedBodyRadius + SpawnClearance</code> fit inside the boundary without strict overlap with an active solid, and its centre must be outside active hazard and void AABBs. Derived clearance is the minimum raw distance to the boundary and active solid/void AABBs, using the section 2 <code>uint64</code> square bound and the existing integer square root.</p>
+<p>Connect each locally valid point as a temporary attachment node to every visible static node of the maximum-radius graph. The axis-adjacent fallback in section 6.1 closes the demonstrated one-raw pinch, but v10 does not claim a proof that these visibility nodes are complete for every overlapping/touching rectangle union and every lattice attachment. Therefore a connector-less procedural site or non-finite procedural spawn route returns typed <code>GenerationUnreachableSpawn</code> in debug and release builds, with no arena retry; authored artifacts reject when there is no locally valid site, a site has no connector, or the combined graph is disconnected. There is no component selection, pocket acceptance, or component tie-break.</p>
+<p>The complete resulting list is a derived view. Authored presets do not supply or byte-compare it.</p>
+<p>After deriving the final complete site list, select the cache's spawn-witness reserve as the lexicographically smallest ordered tuple of the stored total capacity whose maximum-radius body circles are pairwise non-overlapping. A procedural artifact always has at least one such tuple because its provisional witnesses survived every placement. An authored artifact rejects if no tuple exists. This final reserve, rather than the provisional generator tuple, is rebuilt from artifact fields and is not stored in canonical bytes.</p>
+<h3 id="72-how-are-participants-assigned">7.2 How are participants assigned?<a class="headerlink" href="#72-how-are-participants-assigned" title="Permanent link">&para;</a></h3>
+<p>Participants arrive sorted hero first, then entity ID. Reject non-positive radius, radius above <code>MaxSupportedBodyRadius</code>, or side counts inconsistent with stored capacities. For valid participant input, the final spawn-witness reserve guarantees that body overlap cannot eliminate every candidate.</p>
+<ol>
+<li>First hero: among candidates passing the reserve-completability filter in step 5, greatest derived clearance, then lowest site index.</li>
+<li>Additional heroes do not exist in v10 initial encounters.</li>
+<li>Every maximum-radius path distance used by assignment must be finite. A non-finite distance returns typed <code>GenerationUnreachableSpawn</code> and no partial assignment.</li>
+<li>For the first enemy, among candidates passing step 5, maximize maximum-radius path distance to the hero, then clearance, then lowest site index. For each later enemy, again apply step 5 first, then maximize minimum maximum-radius path distance to the hero, then minimum maximum-radius path distance to already assigned enemies, then clearance, then lowest site index.</li>
+<li>A site is admissible only when its body circle does not overlap an assigned body; equality at <code>(r1+r2)²</code> is legal. It is rankable only if, after tentatively choosing it, enough unused spawn-witness sites remain non-overlapping with every chosen body to fill all remaining roster slots. Because the witnesses are mutually non-overlapping and remain locally valid, this deterministic reserve-completability filter guarantees that at least one rankable choice exists at every step while retaining the stated quality ordering among safe choices.</li>
+<li>Failure of the reserve-completability existence guarantee returns a typed generation-construction error in every build. Fresh input still rejects invalid participant radii/counts or a participant roster inconsistent with stored capacities. <code>GenerationUnreachableSpawn</code> remains reserved for missing connectors or non-finite routes.</li>
+</ol>
+<p>For one assignment step, use the cached maximum-radius site connectors and one hero-source and one assigned-enemy multi-source distance field. Do not construct a participant-radius graph or run a separate Dijkstra for each candidate. Assignment consumes no RNG.</p>
+<h2 id="8-how-do-void-and-falling-work">8. How do void and falling work?<a class="headerlink" href="#8-how-do-void-and-falling-work" title="Permanent link">&para;</a></h2>
+<h3 id="81-how-does-void-membership-treat-dead-entities">8.1 How does void membership treat dead entities?<a class="headerlink" href="#81-how-does-void-membership-treat-dead-entities" title="Permanent link">&para;</a></h3>
+<p>Void uses inclusive centre membership, not body overlap. Lowest object ID wins simultaneous membership. Initial/restored state rejects an <code>Alive == true</code> entity centred in void.</p>
+<p><code>Alive</code>, not <code>Health</code>, controls falling. An <code>Alive == false</code> corpse is inert, is not swept or tested for a new fall, may restore in void, and emits no second death. An entity reduced to zero health in stage 5 remains alive through stages 6–8 and can fall; void then takes cause precedence in stage 9. Existing movement skips dead entities and death is deferred (<code>server/internal/sim/tick.go:236-256,288-297</code>).</p>
+<h3 id="82-which-trajectory-is-swept">8.2 Which trajectory is swept?<a class="headerlink" href="#82-which-trajectory-is-swept" title="Permanent link">&para;</a></h3>
+<p>For each living entity, record exactly one possible directed segment: the position immediately before stage 6 to the position committed by stage-6 movement. Stage-7 participant depenetration and every stage-8 obstacle correction, boundary clamp, closing sweep, or fallback are geometric projections, not physical trajectories (<code>server/internal/sim/collision.go:46-85</code>; <code>server/internal/sim/bounds.go:73-107</code>). They must never be swept.</p>
+<p>After stage 7 commits, test its final centre by point membership. After stage 8 commits, test its final centre again. A boundary clamp that lands inside void falls by membership, but the clamp vector does not cross anything. A stage-8 fallback to the tick-entry origin cannot create a false crossing; the current fallback really does restore that origin (<code>server/internal/sim/tick.go:60-64,83</code>; <code>server/internal/sim/bounds.go:94-106</code>). The first stage-6 sweep hit takes precedence, then the stage-7 landing, then the stage-8 landing; within a check, lower void object ID wins.</p>
+<p>The stage-6 segment uses exact closed Liang-Barsky clipping. Raw coordinates are <code>int32</code> (<code>server/internal/fixed/fixed.go:70-77</code>), so every endpoint/boundary difference has magnitude at most <code>2^32-1</code>. Normalize signs into <code>uint64</code> numerator/positive-denominator pairs; comparing <code>a/b</code> and <code>c/d</code> uses <code>a*d</code> versus <code>c*b</code>, each below <code>2^64</code>. The tick path allocates no <code>big.Int</code>. <code>math/big.Int</code> remains permitted only in off-tick generator predicates, as the current exact generator does (<code>server/internal/sim/arena_generate.go:325-385</code>).</p>
+<h3 id="83-how-is-a-pending-fall-resolved">8.3 How is a pending fall resolved?<a class="headerlink" href="#83-how-is-a-pending-fall-resolved" title="Permanent link">&para;</a></h3>
+<p>The first hit creates a tick-local pending fall that later correction cannot cancel. In stage 9, entities are processed by ascending ID. Pending fall precedes health depletion and:</p>
+<ul>
+<li>sets health to zero and <code>Alive = false</code>, clears action, and zeroes velocity;</li>
+<li>emits one ordinary death event with <code>Cause = VoidFall</code> and the void object ID;</li>
+<li>uses <code>SourceEntityID = 0</code>, including knockback-caused movement;</li>
+<li>participates in the same side-wipe verdict.</li>
+</ul>
+<p>The death payload becomes <code>(EntityID uint64, Cause uint8, CauseObjectID uint64, SourceEntityID uint64)</code>, with causes <code>HealthDepleted=1</code>, <code>VoidFall=2</code>. Non-death canonical events write zeroes in the added fields. The current stage batches deaths in entity order and retains statuses (<code>server/internal/sim/tick.go:272-313</code>).</p>
+<h3 id="84-which-void-facts-can-ai-observe">8.4 Which void facts can AI observe?<a class="headerlink" href="#84-which-void-facts-can-ai-observe" title="Permanent link">&para;</a></h3>
+<p>Solid, hazard, and void footprints are public to both sides. The route service treats void as forbidden. <code>NearestVoid(point)</code> returns presence, lowest-ID nearest void, and floor Euclidean point-to-AABB distance. <code>NominalPushEntersVoid(target, delta)</code> runs the same stage-6 segment predicate on the nominal checked displacement. These facts expose no future RNG, Brain choice, hit result, or collision projection.</p>
+<h2 id="9-how-does-quicksand-dwell-affect-status-lifecycle">9. How does quicksand dwell affect status lifecycle?<a class="headerlink" href="#9-how-does-quicksand-dwell-affect-status-lifecycle" title="Permanent link">&para;</a></h2>
+<h3 id="91-which-ids-state-and-tempo-floor-are-mandatory">9.1 Which IDs, state, and tempo floor are mandatory?<a class="headerlink" href="#91-which-ids-state-and-tempo-floor-are-mandatory" title="Permanent link">&para;</a></h3>
+<p>Terrain statuses need no source/tag byte. The ID itself reserves the namespace:</p>
+<div class="highlight"><pre><span></span><code>0x00000000                  invalid
+0x00000001..0x7fffffff      ordinary status IDs
+0x80000000                  reserved, invalid terrain sentinel
+0x80000001..0xffffffff      terrain status IDs
+</code></pre></div>
+<p>For object ID <code>1..0x7fffffff</code>, a hazard's status ID is <code>0x80000000 | uint32(object_id)</code>. It is unique and derived, so <code>StatusID</code> is not stored in the object. The shared fresh-input and restore validator MUST reject ID zero; MUST classify only <code>1..0x7fffffff</code> as ordinary; and MUST reject any high-bit status unless it satisfies every terrain invariant and maps to the active hazard encoded by its low 31 bits. Ordinary-status creation paths MUST reject the high bit before insertion. This is new validation: the shipped validator checks ordering and expiry but accepts arbitrary canonical <code>uint32</code> IDs (<code>server/internal/sim/state.go:223-236,263-291</code>; <code>server/internal/sim/canonical.go:74-78,294-299</code>).</p>
+<div class="highlight"><pre><span></span><code><span class="kd">type</span><span class="w"> </span><span class="nx">Status</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">ID</span><span class="w">             </span><span class="kt">uint32</span>
+<span class="w">    </span><span class="nx">ExpiresAt</span><span class="w">      </span><span class="kt">uint32</span>
+<span class="w">    </span><span class="nx">DwellHalfTicks</span><span class="w"> </span><span class="kt">uint32</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Ordinary statuses require <code>DwellHalfTicks == 0</code>. Terrain statuses require <code>DwellHalfTicks &gt;= 1</code>, map back to an active hazard object, and between ticks have <code>ExpiresAt == Tick + 1</code>.</p>
+<p>The mandatory tempo floor is <code>TerrainTempoFloorRaw = fixed.ONE / 4 = 16384</code>. For a hazard with <code>ramp = RampLossPerTick.Raw()</code>:</p>
+<div class="highlight"><pre><span></span><code>ticks_to_floor = ceil((65536 - 16384) / ramp)
+half_cap       = 2 * ticks_to_floor
+dwell_half     = min(previous_dwell_half + 2, half_cap)
+dwell          = dwell_half / 2
+loss           = min(uint64(dwell) * uint64(ramp), 49152)
+tempo_raw      = 65536 - loss
+</code></pre></div>
+<p>All values are integer; division truncates and the bounded product fits <code>uint64</code>. A new membership starts at <code>DwellHalfTicks = 2</code>. With no retained terrain status, effective tempo is exactly <code>fixed.ONE == 65536</code>; otherwise it is the minimum tempo of all retained terrain statuses, including a status currently decaying outside its patch. The constant is defined at <code>server/internal/fixed/fixed.go:26-34</code>.</p>
+<p>The floor guarantees windup advances by at least 16384 raw per affected tick, so one nominal windup tick completes within four slow ticks instead of stalling until <code>absoluteStopTick == 18000</code> (<code>server/internal/sim/tick.go:259-270</code>). Because <code>MulChecked</code> truncates each component toward zero (<code>server/internal/fixed/fixed.go:144-154</code>), raw component magnitude 4 is the minimum that remains non-zero at the floor. V10 explicitly accepts that components with magnitude <code>1..3</code> become zero and an otherwise living entity may remain immobile until the absolute stop; there is no minimum-speed content rejection.</p>
+<h3 id="92-how-does-the-stage-1-reconciliation-pass-work">9.2 How does the stage-1 reconciliation pass work?<a class="headerlink" href="#92-how-does-the-stage-1-reconciliation-pass-work" title="Permanent link">&para;</a></h3>
+<p>At stage 1, process every entity by ascending ID. For a living entity only, process hazards by object ID, sample inclusive tick-entry centre membership, and build encountered terrain IDs. A dead entity has an empty encountered set but still runs the same ascending-status-ID merge pass:</p>
+<ol>
+<li>encountered existing terrain status: add 2 to <code>DwellHalfTicks</code>, cap at <code>half_cap</code>, set <code>ExpiresAt = Tick + 1</code>, and keep it;</li>
+<li>non-encountered existing terrain status: decrement <code>DwellHalfTicks</code> by 1. If it becomes zero, remove it and emit exactly one expiry event; otherwise set <code>ExpiresAt = Tick + 1</code> and keep it;</li>
+<li>ordinary status with <code>ExpiresAt &lt;= Tick</code>: remove it and emit exactly one expiry event;</li>
+<li>otherwise keep the ordinary status;</li>
+<li>insert newly encountered terrain IDs in ascending order with <code>DwellHalfTicks = 2</code> and <code>ExpiresAt = Tick + 1</code>.</li>
+</ol>
+<p>Do not call a second generic expiry pass. The shipped <code>expireStatuses</code> visits all entities, uses <code>ExpiresAt &lt;= Tick</code>, and emits during removal (<code>server/internal/sim/tick.go:98-111</code>); v10 replaces it with this single all-entity reconciliation. Death deliberately retains statuses (<code>server/internal/sim/tick.go:282-296</code>), so a corpse's ordinary statuses still expire and its terrain statuses decay to removal here.</p>
+<p>Ramp and decay are deliberately asymmetric integer rates: membership adds two half-ticks per inside sample, while absence removes one half-tick per outside sample. Tempo uses <code>DwellHalfTicks / 2</code> with truncation, and removal occurs only at zero. A retained one-half-tick status therefore applies zero loss for its final retained tick. Crossing a patch entirely between samples still creates no status. Dead entities are never refreshed and therefore decay as continuously absent.</p>
+<p>Overlapping patches keep independent dwell because status ID is per object. Effective tempo is the minimum current or decaying patch rate; rates never multiply. Thus the strongest retained slow wins deterministically.</p>
+<h3 id="93-how-are-movement-and-windup-scaled">9.3 How are movement and windup scaled?<a class="headerlink" href="#93-how-are-movement-and-windup-scaled" title="Permanent link">&para;</a></h3>
+<p>Stage 6 computes the ordinary-plus-forced displacement, then scales X and Y once by effective tempo through <code>fixed.MulChecked</code>. Any saturation aborts the run. Stored velocity/knockback are not overwritten, and stage-7/8 projections are not scaled.</p>
+<p>Authored <code>Windup</code> remains integer ticks. Running <code>WindupRemaining</code> is Q16.16, initialized as checked <code>Windup * fixed.ONE</code>. Each later stage 2 subtracts effective tempo, clamps at zero, and reaches impact on the tick it becomes zero. For zero windup, stage 4 MUST set <code>PhaseImpact</code> directly rather than waiting for stage 2, so stage 5 resolves the impact in the start tick; this is the shipped stage ordering and instant-action transition (<code>server/internal/sim/tick.go:33-45,135-160,173-187</code>).</p>
+<h2 id="10-how-is-the-presentation-grid-published">10. How is the presentation grid published?<a class="headerlink" href="#10-how-is-the-presentation-grid-published" title="Permanent link">&para;</a></h2>
+<p>The current presentation publisher uses <code>2 m × 2 m</code> cells (<a href="../asset-pipeline/#какой-контракт-действует-для-ассетов-арены-v1">arena asset contract</a>; <code>codedungeon/assets/arena/arena_asset_contract_v1.json:18-22</code>). Publication—not simulation artifact validation—therefore requires boundary spans divisible by <code>2 * fixed.ONE</code> and hazard/void footprints at least <code>2 * fixed.ONE</code> on both axes. Changing <code>wang_cell_metres</code> changes publication acceptance only; it does not change simulation version or which artifacts the simulator can validate.</p>
+<p>Published cells are row-major from minimum Y, with half-open interior ownership and inclusive outer maximum edges. Sample N/E/S/W edge midpoints. Independently derive Hazard, Void, and Solid bits; emit the existing fill/transition signatures and composite in that order, so visible priority is Solid over Void over Hazard over walkable. The asset contract defines the roles and 46 signatures (<code>codedungeon/assets/arena/arena_asset_contract_v1.json:122-184</code>).</p>
+<p>The grid is never read by collision, void, hazard membership, navigation, spawn derivation, AI, canonical state, hash, or RNG. Unaddressed decoration is layered entirely by the client.</p>
+<h2 id="11-how-are-presets-encoded-and-restored">11. How are presets encoded and restored?<a class="headerlink" href="#11-how-are-presets-encoded-and-restored" title="Permanent link">&para;</a></h2>
+<p>An authored preset supplies the same <code>ArenaDefinition</code>; it does not supply spawn sites, zones, portals, provenance, or decoration. Q16.16 fields are signed raw <code>int32</code> decimals. Unknown fields, duplicate keys, duplicate object canonical keys, duplicate required IDs, and invalid UTF-8 reject.</p>
+<p>Canonical artifact bytes are little-endian and count-prefixed:</p>
+<ol>
+<li><code>uint32 canonical_version = 10</code>;</li>
+<li>four boundary raw <code>int32</code> values;</li>
+<li>raw maximum radius, spawn step, spawn clearance, hero capacity, enemy capacity;</li>
+<li>object count, then each canonical object: four AABB raw values, namespace length/bytes, content value, kind (<code>Solid=1</code>, <code>Hazard=2</code>, <code>Void=3</code>), initial activity byte, raw ramp loss;</li>
+<li>required count, then ID, raw X/Y, raw clearance in ID order.</li>
+</ol>
+<p>There is no spawn-site section and no decoration kind. Publication requires <code>decode -&gt; validate -&gt; encode</code> byte equality and a committed SHA-256. Two producers resolving the same definition produce identical bytes.</p>
+<p>Canonical entity status bytes append <code>DwellHalfTicks uint32</code> after the existing <code>ID</code> and <code>ExpiresAt</code>; ordinary statuses write zero. <code>Action.WindupRemaining</code> is encoded and decoded as raw Q16.16 <code>int32</code>.</p>
+<p>The v10 digest wins over the v9 stage-8 section: per-tick canonical state stores the cached 32-byte artifact digest immediately after <code>encounter_id</code>, replacing rather than accompanying the inline boundary-plus-contacts bytes. The old section currently occupies exactly that position (<code>server/internal/sim/canonical.go:50-57,110-126</code>; <a href="../combat-engine/">combat engine</a>). A recovery/replay capsule carries immutable artifact bytes once alongside snapshots. Restore decodes and validates the artifact, verifies its SHA-256 against the state digest, then rebuilds boundary, contacts, graph, sites, connectors, indexes, and all other derived views into a cache keyed by that digest. A digest mismatch rejects atomically. When destruction ships, canonical state adds the real mutable activity/durability vector; it still does not repeat immutable catalogue bytes every tick.</p>
+<p>The current <code>server/internal/sim/arena_layout.go:390-497</code> is the complete artifact encoder and decoder, not a deletable zone-only range: framing and object encoding are <code>390-403</code>, layout encoding is <code>405-431</code>, and decoding is <code>438-497</code>. V10 retains/refactors the whole codec and replaces only v9 layout fields.</p>
+<h2 id="12-which-versions-and-corpus-ship-together">12. Which versions and corpus ship together?<a class="headerlink" href="#12-which-versions-and-corpus-ship-together" title="Permanent link">&para;</a></h2>
+<p>Same canonical input/seed producing different state/event sequences changes <code>SimulationVersion</code>; the existing policy names geometry, tie-breaks, RNG sites, future-affecting state, and event order (<a href="../simulation-core/#когда-меняется-версия-симуляции">simulation version policy</a>). Current constants and corpus are v9 (<code>server/internal/sim/types.go:25-35</code>; <code>server/internal/sim/determinism_test.go:22-27</code>).</p>
+<p>V10 ships atomically as <code>SimulationVersion = 10</code>, <code>canonicalVersion = 10</code>, and <code>server/internal/sim/testdata/traces/v10</code>. Record the corpus once after the complete arena, graph, spawn, void, quicksand, event, snapshot, and digest schema lands. Later semantic/canonical changes require v11. Content and wire versions do not substitute for simulation version.</p>
+<h2 id="13-what-does-v10-delete-or-migrate">13. What does v10 delete or migrate?<a class="headerlink" href="#13-what-does-v10-delete-or-migrate" title="Permanent link">&para;</a></h2>
+<p>Delete v9 zone/layout concepts, not reusable artifact/collision infrastructure:</p>
+<ul>
+<li>remove <code>ArenaSpec.Layout</code>, <code>ArenaLayout</code>, <code>Zone</code>, <code>PortalEdge</code>, <code>Passage</code>, and <code>SpawnCandidate.Zone</code> (<code>server/internal/sim/arena.go:74-84</code>; <code>server/internal/sim/arena_layout.go:46-88</code>);</li>
+<li>remove the v9 layout clone assignment/helper and layout validation call/implementation at <code>server/internal/sim/arena_layout.go:133,137-139,143-150,152-316</code>; retain canonical object/collision resolution and specifically the <code>validateArena</code> call at <code>134-136</code>;</li>
+<li>replace portal Dijkstra and zone maximin (<code>server/internal/sim/navigation.go:9-166</code>);</li>
+<li>replace all v9 generator constants, <code>GenerateArena</code>, topology, <code>insideEffectZone</code>, <code>orderedEdge</code>, <code>poissonDiskCentres</code>, and exact topology predicates (<code>server/internal/sim/arena_generate.go:13-77,82-177,183-385</code>); keep <code>math/big.Int</code> only where new off-tick generator predicates actually need it;</li>
+<li>in the full artifact codec, replace only v9 layout/spawn encoding <code>server/internal/sim/arena_layout.go:405-431</code> and decoding <code>458-489</code>; retain and adapt version framing, catalogue encoding, and codec structure <code>390-497</code>;</li>
+<li>rewrite ArenaLab topology DTOs/rendering/tests and the arena passages in <code>docs/technical/combat-engine.md:17-41,79-83,114-118,152-158</code>, including replacement of the stage-8 per-tick arena section by the digest; also update <code>docs/technical/simulation-core.md:90,118</code> and <code>docs/open-questions.md:48-51</code>.</li>
+<li>delete the round-4-only <code>GenerationRetryIndex</code>, <code>MaxGenerationAttempts</code>, retry-index RNG domain, <code>GenerationRetryExhausted</code>, disconnected-space <code>GenerationRejected</code>, <code>GenerationInsufficientPlacements</code>, caller retry section, first-attempt rejection-rate target, and 50,000-pair ArenaLab measurement. None has canonical or recovery encoding in v10. Retain typed <code>GenerationUnreachableSpawn</code> for the section 7 failures.</li>
+</ul>
+<p>Do not remove the global-map multi-arena structure or the <code>void</code> presentation role.</p>
+<h2 id="14-which-acceptance-cases-are-required">14. Which acceptance cases are required?<a class="headerlink" href="#14-which-acceptance-cases-are-required" title="Permanent link">&para;</a></h2>
+<p>Tests must pin at least:</p>
+<ul>
+<li>both producers' identical artifact bytes/digest, no stored spawn sites, no inline stage-8 boundary/contact state section, no generation retry index, generator-cache handoff, zero cache-hit <code>Run</code> rebuild predicates, and restore digest verification/cache rebuild;</li>
+<li>default <code>60 × 40 m</code>, target counts, accepted runtime <code>MinCount</code> shortfall including zero-placement class tails, and zero shortfall and zero construction errors over the fixed 256-seed CI corpus;</li>
+<li>RNG draw order, <code>2147483647</code> span acceptance, <code>2147483648</code> rejection, exhaustion, and unspent budget;</li>
+<li>exact compressed-cell bounds, row-major union-find and merge order, OPEN-edge diagonal handling, the four-rectangle raw-coordinate ring around <code>(102,102)</code>, one-raw corridor rejection, candidate skip with committed draws, authored rejection, and release-build typed failure behavior;</li>
+<li>touching/overlapping composite walls, L-corner, equal AABB, cliff/void union, convex diagonal, blocked-diagonal axis fallbacks, pinch diagonals, flat/concave suppression, the conservative 360-offset and <code>V &lt;= 368</code> bounds, coordinate-node dedupe, and graph ties;</li>
+<li>interval-culling equivalence and all required counters, one maximum-radius graph, min-X-column provisional witnesses, reserve-completable maximum-radius assignment, retained <code>GenerationUnreachableSpawn</code>, first-enemy ordering, enemy separation, actual-radius body overlap rejection, and zero spawn RNG;</li>
+<li>stage-6 void endpoint/edge/tunnelling/knockback, no stage-7/8 projection sweep, clamp landing membership, harmless origin fallback, corpse in void, and zero-health-then-fall cause precedence;</li>
+<li>Liang-Barsky <code>uint64</code> extremes and allocation-free tick sweep;</li>
+<li>validated terrain ID ranges, half-dwell 2 entry, <code>+2</code> inside/<code>-1</code> outside, truncating half-dwell tempo, zero removal, ramp to 16384 floor, corpse ordinary expiry and terrain decay, no-hazard tempo 65536, overlapping-patch independent dwell/strongest-wins, single expiry event, outside-to-outside whole-patch crossing creates no status, <code>MulChecked</code>, accepted sub-four-raw immobility, negative truncation, fractional windup, and zero-windup direct impact;</li>
+<li>publication-only 2 m rules and proof that presentation grid changes do not alter simulation artifact validation, canonical state, or hash;</li>
+<li><code>SimulationVersion == 10</code>, <code>canonicalVersion == 10</code>, <code>fixed.ONE == 65536</code>, and one v10 corpus.</li>
+</ul>
+<h2 id="15-which-owner-content-decisions-remain-open">15. Which owner content decisions remain open?<a class="headerlink" href="#15-which-owner-content-decisions-remain-open" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Per-biome/per-encounter variants around the fixed <code>60 × 40 m</code> default: pool entries, costs, weights, budgets, gaps, spawn step/clearance, required-clearance placement, and each hazard's <code>RampLossPerTick</code>. The behavioral limits and fallback rules above are closed.</li>
+<li>The maximum number of action-created permanent hazards in boss fights. The repository still records the general-two versus accumulating-ruptures conflict (<a href="../../open-questions/#открытые">open questions</a>). It is outside the immutable initial generator and needs an explicit boss/action rule before mutable terrain ships.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.top", "search.highlight", "search.suggest", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/navigation-state.js"></script>
+      
+    
+  </body>
+</html>

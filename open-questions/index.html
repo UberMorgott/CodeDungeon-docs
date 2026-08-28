@@ -1143,6 +1143,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../technical/arena-model-v10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How does arena model v10 define an encounter?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../technical/replay/" class="md-nav__link">
         
   
@@ -1431,10 +1459,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_18" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_19" >
         
           
-          <label class="md-nav__link" for="__nav_6_18" id="__nav_6_18_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_19" id="__nav_6_19_label" tabindex="0">
             
   
   
@@ -1452,8 +1480,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_18_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_18">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_19">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2457,10 +2485,10 @@
 <td>форма дерева и три направления подтверждены, наполнение открыто</td>
 </tr>
 <tr>
-<td>Каковы точные размеры большого прямоугольного AABB арены для каждого класса встречи? Решена форма и масштаб: один AABB, несколько экранов; открыты только числовые min/max validation bounds по классам</td>
+<td>Which per-biome and per-encounter arena variants surround the fixed <code>60 m × 40 m</code> default? The rectangle, default size, and behavioral bounds are closed; pool entries, costs, weights, budgets, gaps, spawn parameters, required clearances, and hazard ramp values remain content decisions</td>
 <td>плейтест</td>
-<td><a href="../game-design/enemies-and-encounters/">Враги и встречи</a></td>
-<td>единый canonical artifact процедурной арены или authored preset</td>
+<td><a href="../technical/arena-model-v10/">Arena model v10</a></td>
+<td>v10 owner content decisions</td>
 </tr>
 <tr>
 <td>Каковы конкретные длительности пяти эффектов контроля и проценты убывающей отдачи? Правила подтверждены, числа открыты и являются значениями плейтеста</td>
@@ -2534,6 +2562,12 @@
 <td><a href="../technical/future-online/">Online и удалённое хранение</a></td>
 <td>каждый соседний компонент назван, хранилище — нет</td>
 </tr>
+<tr>
+<td>How does <code>Approach</code> choose the nearest reachable firing position? Arena v10 defines dynamic graph attachment, deterministic Dijkstra ties, and solid line-of-fire blocking, but it does not define the firing-position candidate set or final ranking key</td>
+<td>реализация</td>
+<td><a href="../technical/combat-engine/">Combat engine</a></td>
+<td>the v9 portal-graph answer was deleted by arena v10</td>
+</tr>
 </tbody>
 </table>
 <h2 id="закрытые">Закрытые<a class="headerlink" href="#закрытые" title="Permanent link">&para;</a></h2>
@@ -2546,20 +2580,16 @@
 </thead>
 <tbody>
 <tr>
-<td>Как tile-based composition соотносится с генератором арены из 3–5 зон?</td>
-<td>Генератор остаётся структурой арены: Poisson-disk centres, полярный порядок, цикл и Delaunay shortcuts задают зоны, проходы, граф порталов и точки появления. Квадратные tiles/chunks в будущем применяются только к внутренней текстуре зон и размещению объектов внутри зон, не заменяя структурную декомпозицию (<code>TestArenaTilesDoNotReplaceZoneTopology</code>) — <a href="../technical/combat-engine/#как-представлена-и-строится-арена">генерация арены</a></td>
+<td>How does tile composition relate to arena generation?</td>
+<td>Settled by v10: tiles compose the complete rectangle and never define authoritative geometry. The presentation grid derives Hazard, Void, and Solid roles independently and composites <code>Solid &gt; Void &gt; Hazard &gt; walkable</code> — <a href="../technical/arena-model-v10/">arena model v10</a></td>
 </tr>
 <tr>
-<td>Какая метрика и какой tie-break задают максимин-размещение противников?</td>
-<td>Кратчайшая Q16.16-длина пути считается Dijkstra по взвешенному графу порталов; ключ выбора — <code>(minimum_path_length DESC, candidate_clearance DESC, canonical_candidate_id ASC)</code>, без RNG. Веса рёбер входят в версионированный canonical payload полного artifact арены при первой реализации генератора; суммы накапливаются в <code>int64</code> и сужаются через <code>fixed.FromRaw64Checked</code> (<code>TestArenaSpawnMaximinUsesWeightedPortalPaths</code>, <code>TestCanonicalArenaPortalEdgeWeights</code>) — <a href="../technical/combat-engine/#как-представлена-и-строится-арена">генерация арены</a></td>
+<td>Which metric and tie-break assign enemy spawns?</td>
+<td>Settled by v10: assignment uses maximum-radius visibility-graph path distance. The first enemy ranks hero distance, clearance, then site index; later enemies rank minimum hero distance, minimum assigned-enemy distance, clearance, then site index. The reserve-completability filter runs before ranking, and assignment consumes no RNG — <a href="../technical/arena-model-v10/">arena model v10</a></td>
 </tr>
 <tr>
-<td>Как выбирается ближайшая достижимая позиция с чистой линией огня?</td>
-<td>Используется та же кратчайшая Q16.16-длина пути по взвешенному графу порталов; ключ — <code>(path_length ASC, straight_line_distance ASC, raw_x ASC, raw_y ASC)</code>, без RNG. Чистая линия огня — коридор <code>BodyRadius</code> бойца, а не отрезок между центрами; длины используют единственный <code>integerSquareRoot</code> (<code>TestApproachFiringPositionUsesWeightedPortalPath</code>, <code>TestLineOfFireUsesBodyRadiusCorridor</code>) — <a href="../technical/combat-engine/#как-представлена-и-строится-арена">генерация арены</a></td>
-</tr>
-<tr>
-<td>Кто задаёт форму и размеры зон и проходов генератора?</td>
-<td>Первая реализация фиксирует выпуклую зону как axis-aligned square: семейство формы выбирает код, а не caller. Caller передаёт её half-extent в <code>GeneratorSpec.ZoneExtent</code> и ширины в <code>GeneratorSpec.PassageWidth</code> и <code>GeneratorSpec.ShortcutWidth</code>, потому что спецификация не назначает ни семейство многоугольника, ни числовые значения. Смена формы или этих значений меняет канонический artifact, поднимает <code>simulation_version</code> и требует переснять корпус — <a href="../technical/combat-engine/#как-представлена-и-строится-арена">генерация арены</a></td>
+<td>Who defines zone shapes and passage widths?</td>
+<td>Superseded by v10: zones and passages do not exist. The boundary and gameplay footprints are AABBs; the profile supplies footprint dimensions, and placement does not rotate them — <a href="../technical/arena-model-v10/">arena model v10</a></td>
 </tr>
 <tr>
 <td>Как устроено <strong>рукопожатие между Godot и побочным процессом ядра</strong>?</td>
@@ -2874,8 +2904,8 @@
 <td>Валидна по построению: скелет → ветви → типы; ассерт инвариантов после генерации; перегенерации нет — <a href="../technical/run-systems/#как-строятся-карта-и-входы-встречи">генератор карты забега</a></td>
 </tr>
 <tr>
-<td>Какой алгоритм собирает арену из паттернов и биомов?</td>
-<td>Процедурная генерация из <code>encounter_id</code> через поток RNG 1: 3–5 зон (Poisson-disk → полярный порядок → цикл + Делоне), граф порталов, навигация движком. См. <a href="../technical/combat-engine/#как-представлена-и-строится-арена">генерация арены</a></td>
+<td>Which algorithm assembles an arena from patterns and biome content?</td>
+<td>Settled by v10: RNG system 1 places weighted Solid, Void, then Hazard pool entries with bounded attempts and committed draws. Every solid or void placement must preserve one maximum-radius free-space component; finalization builds the exact forbidden union, visibility graph, derived spawn sites, and connectors once. There is no whole-arena retry — <a href="../technical/arena-model-v10/">arena model v10</a></td>
 </tr>
 <tr>
 <td>Что является временным внутри забега, если на смерти ничего не теряется?</td>
