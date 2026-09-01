@@ -2489,8 +2489,10 @@ presentation, and the remaining simulation work. Normative rules remain in the
 </ul>
 <h2 id="what-was-deliberately-deferred">What was deliberately deferred<a class="headerlink" href="#what-was-deliberately-deferred" title="Permanent link">&para;</a></h2>
 <ul>
-<li>The shipped generator still places AABB footprints. It does not yet produce
-  ravines, ridges, outcrop clusters, or a grown-in surface. The non-normative
+<li>The generator now runs the desert landform passes — elevation and dunes, the
+  wadi seam, the escarpment — before the weighted placement classes, on the same
+  <code>2 m</code> grid navigation uses. Rocks, cactus thickets, quicksand and the
+  presentation data are not built yet. The non-normative
   <a href="../technical/arena-model-v10/#non-normative-natural-terrain-research">terrain research</a>
   records the candidate methods and rejected alternatives.</li>
 <li><code>NearestVoid</code> and <code>NominalPushEntersVoid</code> are specified in arena model v10 but
@@ -2509,13 +2511,14 @@ presentation, and the remaining simulation work. Normative rules remain in the
 </ul>
 <h2 id="open-places-and-hazards">Open places and hazards<a class="headerlink" href="#open-places-and-hazards" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Settle this first:</strong> a terrain field can contain hundreds of occupied cells,
-  while <code>maxNavigationFootprints</code> is 30 and <code>maxNavigationOffsets</code> is 360.
-  Either add a canonical contiguous-cell-to-rectangle cover that remains within
-  those bounds, or replace visibility-graph navigation with a grid. Rectangle
-  coalescing preserves more of v10 but introduces cover, ID, and attribution
-  rules; grid navigation replaces path metrics, ties, attachment, spawning,
-  caches, the corpus, and the simulation version. No choice has been made.</li>
+<li><strong>Settled.</strong> Navigation is a <code>2 m</code> tile grid: one node per walkable cell centre,
+  the eight neighbours joined by the same exact closed-segment predicate, and the
+  cell count bounded by the arena rectangle alone (<code>maxNavigationCells</code>, 600 cells
+  for the default <code>60 x 40 m</code> arena). <code>maxNavigationFootprints</code> and
+  <code>maxNavigationOffsets</code> are gone, so a terrain field may occupy as many cells as
+  it likes. Rectangle coalescing was rejected: no cover bound is provable for
+  irregular masks, and it would have added cover, ID, and attribution rules
+  without helping navigation.</li>
 <li>The existing collision merge only deduplicates equal AABBs. It does not merge
   arbitrary contacting tile cells into larger rectangles.</li>
 <li>When one movement segment crosses multiple voids, <code>sweptVoid</code> credits the
@@ -2529,9 +2532,10 @@ presentation, and the remaining simulation work. Normative rules remain in the
   does not preserve that comparison; extraction quality still needs diagnosis.</li>
 </ul>
 <h2 id="next-step">Next step<a class="headerlink" href="#next-step" title="Permanent link">&para;</a></h2>
-<p>First resolve rectangle coalescing versus grid navigation in the next arena spec
-round. Then implement the selected integer terrain method without weakening
-connected free space, committed RNG draws, or the no-reroll rule. Use ArenaLab
+<p>Add the remaining landform passes — the spawn and circulation reserve, rock
+fields and cactus thickets, quicksand patches — on top of the grid the desert
+producer already builds, without weakening connected free space, committed RNG
+draws, or the no-reroll rule. Their salts are already drawn. Use ArenaLab
 to tune a desert profile against telemetry. After that, produce the desert tile
 set under the frozen asset contract and build a Godot arena scene with a real
 renderer and camera. Actions, Brain chasm awareness, and the stat pipeline remain
