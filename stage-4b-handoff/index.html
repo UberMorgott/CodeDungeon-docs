@@ -2491,10 +2491,20 @@ presentation, and the remaining simulation work. Normative rules remain in the
 <ul>
 <li>The generator now runs the desert landform passes — elevation and dunes, the
   wadi seam, the escarpment — before the weighted placement classes, on the same
-  <code>2 m</code> grid navigation uses. Rocks, cactus thickets, quicksand and the
-  presentation data are not built yet. The non-normative
+  <code>2 m</code> grid navigation uses. <code>2198fe7</code> added pass 7, the rock fields and cactus
+  thickets (<code>rockSpacing=4 rockThreshold=54000 cactusSpacing=3 cactusNear=22000
+  cactusReach=4</code>, content ids <code>contentRock=101</code> and <code>contentCactus=102</code>); cactus
+  is <code>KindSolid</code>, and destructibility plus bleed-on-kick are reserved for actions
+  later. Quicksand bowls are pass 9, and pass 11 now publishes the three Wang
+  edge-mask layers from the derived cache. The non-normative
   <a href="../technical/arena-model-v10/#non-normative-natural-terrain-research">terrain research</a>
   records the candidate methods and rejected alternatives.</li>
+<li>Walkable FLAVOUR surfaces — sand, dune, wadi, rock remnant — are not published.
+  The frozen asset contract's <code>surface_roles</code> are walkable, solid, hazard, and
+  void, so there is no role to carry a flavour, and it cannot be recovered from
+  the published rectangles either: two arenas with identical footprints can carry
+  different sand tags. It needs an asset contract v2 and its own cosmetic product
+  out of generation, keyed by more than the artifact digest.</li>
 <li><code>NearestVoid</code> and <code>NominalPushEntersVoid</code> are specified in arena model v10 but
   have no implementation or consumer. They belong with actions and Brain
   perception, which do not exist yet.</li>
@@ -2519,6 +2529,12 @@ presentation, and the remaining simulation work. Normative rules remain in the
   it likes. Rectangle coalescing was rejected: no cover bound is provable for
   irregular masks, and it would have added cover, ID, and attribution rules
   without helping navigation.</li>
+<li><strong>Bounded.</strong> Pass 7 made rocks and cactus the landform's first <code>KindSolid</code>, so a
+  one-cell gap between two of them became reachable. A <code>DesertTerrain</code> profile with
+  <code>2 * MaxSupportedBodyRadius &gt;= navCellSize</code> is now rejected statically, before any
+  draw: at exactly half a cell the inflated footprints meet and seal the corridor
+  that pass 8 only proved four-connected. Bodies of <code>1 m</code> or more need a two-cell
+  repair; that is deferred.</li>
 <li>The existing collision merge only deduplicates equal AABBs. It does not merge
   arbitrary contacting tile cells into larger rectangles.</li>
 <li>When one movement segment crosses multiple voids, <code>sweptVoid</code> credits the
@@ -2532,14 +2548,13 @@ presentation, and the remaining simulation work. Normative rules remain in the
   does not preserve that comparison; extraction quality still needs diagnosis.</li>
 </ul>
 <h2 id="next-step">Next step<a class="headerlink" href="#next-step" title="Permanent link">&para;</a></h2>
-<p>Add the remaining landform passes — the spawn and circulation reserve, rock
-fields and cactus thickets, quicksand patches — on top of the grid the desert
-producer already builds, without weakening connected free space, committed RNG
-draws, or the no-reroll rule. Their salts are already drawn. Use ArenaLab
-to tune a desert profile against telemetry. After that, produce the desert tile
-set under the frozen asset contract and build a Godot arena scene with a real
-renderer and camera. Actions, Brain chasm awareness, and the stat pipeline remain
-the next simulation dependencies alongside that presentation work.</p>
+<p>Tune the desert profile in ArenaLab against its telemetry and its new Wang layer
+(COD-28): the landform passes and the presentation publisher are in place, so
+what is left is choosing numbers, not adding mechanisms. After that, produce the
+desert tile set under the frozen asset contract and build a Godot arena scene
+with a real renderer and camera, consuming the published masks. Actions, Brain
+chasm awareness, and the stat pipeline remain the next simulation dependencies
+alongside that presentation work.</p>
 
 
 
