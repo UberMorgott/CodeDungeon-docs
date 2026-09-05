@@ -2146,6 +2146,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#сборка-баз-и-wang-атласа" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сборка баз и Wang-атласа
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#что-фиксируют-body-skeleton-и-socket-contracts" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2465,6 +2476,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#сборка-баз-и-wang-атласа" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сборка баз и Wang-атласа
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#что-фиксируют-body-skeleton-и-socket-contracts" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2626,6 +2648,20 @@
 </table>
 <p>Изменение проекции, масштаба, разрешения, alpha policy, правил шва, origin, палитры или стилевого контракта инвалидирует сгенерированный результат и требует новой версии исходника. Изменение naming, layout, atlas или import settings не инвалидирует исходник: оно требует только повторной упаковки и импорта.</p>
 <p>Модель изображений не считается источником точных размеров, бесшовного повтора по четырём краям, <code>46</code> согласованных Wang-вариантов, единства серии и production alpha. Каждый растровый исходник генерируется в <code>1024 × 1024</code> px; исходник, seed и запись provenance сохраняются. Генерация сразу в размере контракта остаётся предпочтительным путём, но оригинал допустимо получить и в другом размере — например, <code>1254 × 1254</code> RGB от внешнего генератора — и привести к <code>raster.source_dimensions_px</code> записанным детерминированным шагом с явно названным фильтром ресемплинга, например Lanczos, без ручной ретуши после него. В этом случае provenance хранит оба хеша: <code>original</code> до нормализации и <code>source</code> после, вместе с инструментом, версией и параметрами шага. Повтор шага на том же оригинале обязан дать тот же source hash. Затем скрипт выполняет crop, downsample, palette mapping, padding и validation. Швы исправляются через offset-and-inpaint; после правки повторно проверяются все четыре края. Wang-маски авторятся в коде. Gameplay-геометрия авторится как low-poly mesh и никогда не генерируется как изображение.</p>
+<h2 id="сборка-баз-и-wang-атласа">Сборка баз и Wang-атласа<a class="headerlink" href="#сборка-баз-и-wang-атласа" title="Permanent link">&para;</a></h2>
+<p>Растровые шаги выполняет <code>tools/tilegen.py</code> (Python 3, только Pillow):</p>
+<ul>
+<li><code>check &lt;png&gt; --role</code> — метрики отбраковки на линейной яркости: зеркальность, wrap-шов, внутренний повтор, тон void. Печатает все значения, <code>decision</code> (<code>pass|flag|reject</code>) и <code>metric_version: 1</code>; пороги стартовые и не откалиброваны.</li>
+<li><code>seamless &lt;1024&gt; &lt;out&gt;</code> — замыкание перекрытием с обрезкой периода: <code>S=1024</code>, overlap <code>128</code>, период <code>896</code>, смешивание по X, затем по Y с шумом, периодическим по уже замкнутой X.</li>
+<li><code>base &lt;seamless&gt; &lt;out&gt;</code> — периодический ресемплинг в <code>256 × 256</code>.</li>
+<li><code>atlas --contract … --out</code> — сборка <code>2048 × 1536</code>: четыре fill копируются без обработки, <code>42</code> смешанные сигнатуры собираются из билинейного поля угловых меток с шумом, погашенным в приграничной полосе <code>8</code> px; <code>recipe_version: 1</code>. Две свободные ячейки заполняются базой walkable.</li>
+<li><code>junction-check --contract --atlas</code> — доказательство стыковки: краевые профили и угловые значения совпадают у всех сигнатур с одинаковыми метками, а тайлы атласа побайтно воспроизводятся рецептом.</li>
+<li><code>provenance --out …</code> — запись полей, которых требует <code>tools/publish-asset.ps1 -Check</code>.</li>
+</ul>
+<p>Периодический ресемплинг везде один: тайлинг <code>3 × 3</code>, Lanczos, вырезание центра. Обычный resize изолированного квадрата иначе обрабатывает края и ломает период.</p>
+<p>Seed задаётся явно и попадает в JSON-отчёт. <code>seamless</code> разворачивает его через SHA-256, <code>atlas</code> — через SHA-256 от пары, версии рецепта и seed, поэтому все <code>14</code> масок пары делят одно шумовое поле. При тех же входах, версиях и seed выходные PNG побайтно одинаковы: метаданные вычищены, <code>compress_level</code> фиксирован, дата в пиксельный файл не попадает.</p>
+<p>Рядом с атласом пишется <code>&lt;out&gt;.contact.png</code> с подписанными идентификаторами сигнатур. Это контактный лист для человеческого просмотра: он не публикуется и не входит в ассет.</p>
+<p><code>human_review</code> всегда записывается как <code>false</code>. В <code>true</code> его переводит только человек, вручную, после просмотра и только для конкретных хешей.</p>
 <h2 id="что-фиксируют-body-skeleton-и-socket-contracts">Что фиксируют body, skeleton и socket contracts?<a class="headerlink" href="#что-фиксируют-body-skeleton-и-socket-contracts" title="Permanent link">&para;</a></h2>
 <p>Проект использует небольшой versioned registry канонических body profiles и skeleton contracts. Уникальный rig от внешнего генератора не проходит непосредственно в runtime. Body profile задаёт геометрическую основу fitting и связанные с категорией экипировки допуски, а skeleton contract задаёт stable bone names и hierarchy, bind pose, orientation, единицы масштаба и перечень обязательных и необязательных bones.</p>
 <p>Skeleton contract также объявляет sockets оружия, щита, спины, бедра и колчана. Связь bones с hit zones и physical-bone profile хранится как presentation mapping к канонической игровой сущности, а не как вторая схема hit zones. Socket contract фиксирует локальные системы координат и правила совместимости вложений.</p>
