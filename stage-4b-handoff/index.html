@@ -2497,9 +2497,11 @@ presentation, and the remaining simulation work. Normative rules remain in the
   is <code>KindSolid</code>, and destructibility plus bleed-on-kick are reserved for actions
   later. Quicksand bowls are pass 9, and pass 11 now publishes the three Wang
   corner-mask layers from the derived cache. The asset contract was amended to
-  corner-Wang on 2026-09-05 (<code>wang_masks.scheme = "corner"</code>, <code>scheme_version = 2</code>,
-  <code>corner_order</code> NW/NE/SE/SW): edge bits leave corners undefined, so cards COD-32
-  and COD-33 must read <code>corner_order</code> and not <code>edge_order</code>. The non-normative
+  corner-Wang on 2026-09-05 (<code>bfc10fa</code>, <code>c69f614</code>, <code>2f928b4</code>): the 4 bits are the
+  material at the NW, NE, SE, SW corners, <code>wangPublisherVersion = 2</code>, the Go
+  publisher samples cell corners, and the junction invariant is tested. Edge bits
+  leave corners undefined, so cards COD-32 and COD-33 must read <code>corner_order</code> and
+  not <code>edge_order</code>. The non-normative
   <a href="../technical/arena-model-v10/#non-normative-natural-terrain-research">terrain research</a>
   records the candidate methods and rejected alternatives.</li>
 <li>Walkable FLAVOUR surfaces — sand, dune, wadi, rock remnant — are not published.
@@ -2515,12 +2517,27 @@ presentation, and the remaining simulation work. Normative rules remain in the
   but combat still applies one roll in <code>resolveImpacts</code>. Actions still need
   recovery, cancellation, and stable instance ordering. That work also unblocks
   the two action-dependent generator acceptance tests.</li>
-<li>Per-biome arena contents remain untuned. Desert pool entries and counts are to
-  be tuned in ArenaLab against its telemetry rather than fixed in this handoff.</li>
-<li>The arena asset contract at
-  <code>codedungeon/assets/arena/arena_asset_contract_v1.json</code> is frozen, but the
-  directory contains no PNG files. Godot has only <code>boot.tscn</code>: no arena scene,
-  arena renderer, or camera exists.</li>
+<li>COD-28 is closed. <code>9c5423e</code> put <code>DesertTerrainParams</code> on <code>GeneratorSpec</code>;
+  <code>41f67e2</code> and <code>9f5954b</code> added the ArenaLab sliders for it plus the guarantee
+  that untouched sliders digest-match <code>DefaultGenerationProfile()</code>; <code>4656325</code>
+  pinned the calibration over seeds <code>0..255</code> in
+  <code>TestDesertCalibrationOverTheSeedCorpus</code>. The per-arena caps, 18 % rock and
+  6 % cactus, sit just above the measured maxima: they are pins against drift,
+  not targets. Other biomes remain untuned.</li>
+<li>The first desert surface batch is published (<code>095abe8</code> … <code>9b2b553</code>): four bases
+  and the Wang atlas, generated with <code>cx -Img</code> (the Codex CLI image tool,
+  reasoning model gpt-6-astra) and assembled by <code>tools/tilegen.py</code>
+  (check → seamless → base → atlas → junction-check → provenance), RGBA8, in LFS.
+  Originals, sources, seamless plates, prompts, <code>pipeline.json</code> and
+  <code>provenance.json</code> live under <code>codedungeon/art_sources/arena/&lt;id&gt;/</code>;
+  <code>tools/normalize-source.py</code> handles oversized originals, and the contract now
+  allows normalization as long as it is recorded. <code>tools/publish-asset.ps1 -Check</code>
+  is green (5 PASS / 11 SKIP) and runs from <code>tools/check.ps1</code>, not from qgate.
+  Each entry keeps <code>status: planned</code> and <code>human_review: false</code> until the owner
+  approves the contact sheet. The material <code>512x256</code>, decal <code>1024x256</code> and cutout
+  <code>1024x256</code> atlases are COD-33, owned by the second developer.</li>
+<li>Godot still has only <code>boot.tscn</code>: no arena scene or camera (COD-34) and no
+  renderer (COD-32), so <code>WangCells()</code> has no client consumer yet.</li>
 </ul>
 <h2 id="open-places-and-hazards">Open places and hazards<a class="headerlink" href="#open-places-and-hazards" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2544,6 +2561,13 @@ presentation, and the remaining simulation work. Normative rules remain in the
   lowest object ID, not the first intersection along the path. Nearest-along-path
   attribution is physically correct, but only the death record changes.</li>
 <li>The cap on permanent hazards created by boss actions remains undecided.</li>
+<li>Parallel agent commits corrupt history under the pre-commit hook; serialize
+  them.</li>
+<li>The installed Go is 1.26.2 against <code>go.mod</code> 1.26.7, so GOTOOLCHAIN downloads
+  the toolchain and a parallel <code>go build</code> can observe a half-extracted standard
+  library.</li>
+<li>The asset phase of <code>tools/check.ps1</code> is not part of qgate, so a broken publish
+  only surfaces when that script is run.</li>
 <li>The owner still needs to choose and tune each biome's terrain vocabulary:
   what litters a desert or ice cave, which forms appear, and in what numbers.</li>
 <li>The last incremental graph refresh reported 79 extracted nodes for the same
@@ -2551,13 +2575,12 @@ presentation, and the remaining simulation work. Normative rules remain in the
   does not preserve that comparison; extraction quality still needs diagnosis.</li>
 </ul>
 <h2 id="next-step">Next step<a class="headerlink" href="#next-step" title="Permanent link">&para;</a></h2>
-<p>Tune the desert profile in ArenaLab against its telemetry and its new Wang layer
-(COD-28): the landform passes and the presentation publisher are in place, so
-what is left is choosing numbers, not adding mechanisms. After that, produce the
-desert tile set under the frozen asset contract and build a Godot arena scene
-with a real renderer and camera, consuming the published masks. Actions, Brain
-chasm awareness, and the stat pipeline remain the next simulation dependencies
-alongside that presentation work.</p>
+<p>Build the Godot arena scene and camera (COD-34) as the first consumer of
+<code>WangCells()</code>, and publish the three remaining atlases — material <code>512x256</code>,
+decal <code>1024x256</code>, cutout <code>1024x256</code> (COD-33). The desert profile is calibrated
+and the first surface batch is published, so this is the step that turns the
+published masks into something on screen. Actions, Brain chasm awareness, and
+the stat pipeline follow as the next simulation dependencies.</p>
 
 
 
