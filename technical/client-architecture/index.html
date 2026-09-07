@@ -1514,6 +1514,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#как-масштабируется-интерфейс-и-как-готовятся-ассеты" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как масштабируется интерфейс и как готовятся ассеты?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#как-работают-модальные-слои-и-фокус" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2373,6 +2384,116 @@
   
   
   
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Исследования и консультации
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Исследования и консультации
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research/codex-2026-09-05-cod25-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Консультация Codex по действиям COD-25
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research/codex-2026-09-05-cod26-request-id-dedup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Консультация Codex по дедупликации request_id (COD-26)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../open-questions/" class="md-nav__link">
         
@@ -2469,6 +2590,17 @@
     <span class="md-ellipsis">
       
         Как собирается дерево сцен?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#как-масштабируется-интерфейс-и-как-готовятся-ассеты" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как масштабируется интерфейс и как готовятся ассеты?
       
     </span>
   </a>
@@ -2596,6 +2728,16 @@ Go result / snapshot / event -&gt; DTO mapper -&gt; client store -&gt; selectors
 <p><code>WorldRoot</code> создаёт visual entities, camera и эффекты только по кадру playback. Он не отправляет команд и не рассчитывает попадание, HP, цель или столкновение симуляции. <code>UILayer</code> является соседом <code>CombatWorld</code>, поэтому UI не зависит от <code>Node3D</code>-иерархии и не проходит через боевую камеру.</p>
 <p>Базовая композиция рассчитывается на 1920×1080 и проверяется отдельно для 16:9 и 21:9. Ультраширокий вариант перераспределяет свободное место между контейнерами, а не растягивает весь кадр одним коэффициентом. <code>Control</code>-иерархия допускает рост текста, перенос и прокрутку без обрезки действия.</p>
 <p>Экран редактора добавляет <code>GraphWorkspace</code> под свой <code>Control</code>. Workspace владеет только раскладкой, позициями блоков, ghost-проводами, undo и локальным draft; сохранённой истиной остаётся ревизия, принятая Go. Снаружи workspace образует одну остановку фокуса, а пространственная навигация внутри него реализует контракт редактора и не превращает все блоки и порты в общий линейный обход <code>Tab</code>.</p>
+<h2 id="как-масштабируется-интерфейс-и-как-готовятся-ассеты">Как масштабируется интерфейс и как готовятся ассеты?<a class="headerlink" href="#как-масштабируется-интерфейс-и-как-готовятся-ассеты" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Базовый холст — 1280×720 при <code>stretch/mode="canvas_items"</code>, <code>aspect="expand"</code> и дробном масштабе: <code>content_scale_factor</code> равен 1.5 на 1080p, 2.0 на 1440p и 3.0 на 4K. Множители точны только для 16:9; на других соотношениях <code>expand</code> добавляет площадь, а не растягивает кадр.</li>
+<li>Шрифты подключены как MSDF глобально (<code>default_font_multichannel_signed_distance_field=true</code>, <code>generate_mipmaps=true</code>) и пересчитываются под oversampling. Снэппинг не применяется, hinting под MSDF не действует. Визуальная проверка мелкого текста (≤16px эффективного размера) ещё не проведена.</li>
+<li>SVG-иконки интерфейса импортируются как <code>DPITexture</code> (экспериментальный тип Godot 4.7, <code>importer="svg"</code>, расширение <code>.dpitex</code>) с <code>base_scale=1.0</code>. Движок сам растеризует их под текущий масштаб вьюпорта, поэтому отдельные растровые размеры для 2x и 3x не заводятся.</li>
+<li>Растровые иконки авторятся под максимальный отображаемый размер на 4K — логический размер × 3 — и никогда не растягиваются вверх. Текущий источник item-иконок 256×256 покрывает логический слот до ~85px включительно.</li>
+<li>У растровых иконок включён <code>mipmaps/generate=true</code>; фильтр <code>TEXTURE_FILTER_LINEAR_WITH_MIPMAPS</code> задаётся один раз на корневом <code>Control</code> интерфейса и наследуется вниз. Общий <code>rendering/textures/canvas_textures/default_texture_filter</code> проекта не меняется.</li>
+<li><code>TextureRect</code>, чей размер задаёт раскладка, использует <code>expand_mode = EXPAND_IGNORE_SIZE</code>, чтобы крупный источник не раздувал контейнер.</li>
+<li><code>rendering/2d/snap/*</code> остаётся выключенным: при дробном масштабе снэппинг даёт дрожание движущихся элементов.</li>
+</ul>
 <h2 id="как-работают-модальные-слои-и-фокус">Как работают модальные слои и фокус?<a class="headerlink" href="#как-работают-модальные-слои-и-фокус" title="Permanent link">&para;</a></h2>
 <p><code>ModalLayer</code> является единственным владельцем подсказок, контекстных меню, подтверждений, результатов операций, системного меню и ошибок соединения. Приоритет сверху вниз фиксирован: фатальная ошибка или разрыв соединения; подтверждение разрушающего действия; результат транзакции; настройки и системное меню; подсказка или контекстное меню. Одновременно существует не более одного блокирующего модального слоя, а подтверждения не образуют вложенный стек.</p>
 <p>При открытии блокирующего слоя focus manager запоминает вызвавший <code>Control</code>, переводит фокус внутрь модального окна и ограничивает навигацию его интерактивными элементами. После закрытия фокус возвращается вызвавшему элементу; если тот освобождён, выбирается ближайшая допустимая цель в том же контексте. <code>Escape</code> сначала закрывает верхний закрываемый слой, затем детальный вид графа, затем текущий экран.</p>

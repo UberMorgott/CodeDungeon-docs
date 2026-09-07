@@ -2316,6 +2316,116 @@
   
   
   
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Исследования и консультации
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Исследования и консультации
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../research/codex-2026-09-05-cod25-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Консультация Codex по действиям COD-25
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../research/codex-2026-09-05-cod26-request-id-dedup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Консультация Codex по дедупликации request_id (COD-26)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../open-questions/" class="md-nav__link">
         
@@ -2475,6 +2585,26 @@ presentation, and the remaining simulation work. Normative rules remain in the
   enemies instead of packing them one lattice step apart in one cluster.</li>
 <li><code>59dd818</code> makes the graph-refresh log include the exporter's actual error
   instead of only <code>export failed</code>.</li>
+<li>COD-26 is closed (2026-09-06). <code>ed72d45</code> pinned per-session <code>request_id</code> dedup
+  in <a href="../technical/contracts-and-data-flow/">contracts and data flow</a>; <code>850eac2</code>
+  added <code>(*session).command</code> in <code>server/internal/ipc/session.go</code>, the record
+  <code>request_id → {command, reply}</code> (<code>maxSessionRequests = 1024</code> per connection, no
+  eviction), <code>ERROR_CODE_REQUEST_ID_CONFLICT = 8</code> and
+  <code>ERROR_CODE_REQUEST_LIMIT_REACHED = 9</code>; <code>89f8df9</code> freezes the record at first
+  execution (<code>proto.Clone</code> + deep-copied reply); <code>3d62244</code> states what the record
+  fixes and what it does not; <code>66b1fcf</code> names the two codes in <code>ERROR_KEYS</code>.
+  Three Codex review rounds, the last with zero findings. <code>command()</code> has no
+  production caller yet: Stage 1 has no gameplay command, so the first mutating
+  command must route through it.</li>
+<li>COD-25 landed but is not closed. <code>32c02ba</code> added <code>InstanceID</code>
+  (<code>NextActionInstanceID</code>), <code>Recovery</code>/<code>RecoveryRemaining</code> as Q16.16 tempo-scaled
+  timers, <code>PhaseRecovery = 4</code>, <code>EventActionFailed{Reason}</code> (TargetInvalid,
+  ActorDead, Cancelled) in place of the silent fizzle, <code>CancelAction</code> by
+  <code>InstanceID</code> during windup only, and bumped <code>SimulationVersion</code> and
+  <code>canonicalVersion</code> to 11 with the golden hand-moved to <code>traces/v11</code>. Rules are
+  pinned in <a href="../technical/combat-engine/">combat engine</a>; the two Codex design
+  rounds plus the review are in
+  <a href="../research/codex-2026-09-05-cod25-actions/">the research note</a>.</li>
 </ul>
 <h2 id="what-tests-prove">What tests prove<a class="headerlink" href="#what-tests-prove" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2514,9 +2644,10 @@ presentation, and the remaining simulation work. Normative rules remain in the
   have no implementation or consumer. They belong with actions and Brain
   perception, which do not exist yet.</li>
 <li>The nine-stage <a href="../technical/stat-pipeline/">stat pipeline</a> remains specified
-  but combat still applies one roll in <code>resolveImpacts</code>. Actions still need
-  recovery, cancellation, and stable instance ordering. That work also unblocks
-  the two action-dependent generator acceptance tests.</li>
+  but combat still applies one roll in <code>resolveImpacts</code> (COD-24). The "two
+  action-dependent generator acceptance tests" that COD-25 named exist nowhere;
+  they were dropped from its done-when on 2026-09-06. Stagger and interrupt are
+  out of scope until a source of them exists.</li>
 <li>COD-28 is closed. <code>9c5423e</code> put <code>DesertTerrainParams</code> on <code>GeneratorSpec</code>;
   <code>41f67e2</code> and <code>9f5954b</code> added the ArenaLab sliders for it plus the guarantee
   that untouched sliders digest-match <code>DefaultGenerationProfile()</code>; <code>4656325</code>
@@ -2563,6 +2694,21 @@ presentation, and the remaining simulation work. Normative rules remain in the
 <li>The cap on permanent hazards created by boss actions remains undecided.</li>
 <li>Parallel agent commits corrupt history under the pre-commit hook; serialize
   them.</li>
+<li>Git worktrees are unusable here: the pre-commit <code>qgate</code> fails <code>buf breaking</code>
+  in every worktree (the hook exports <code>GIT_DIR</code> without <code>GIT_WORK_TREE</code>, so
+  <code>git -C shared rev-parse --show-toplevel</code> points buf at a <code>.git</code> that does not
+  exist) — filed as quality-gate issue #8. An agent worktree on 2026-09-06 also
+  left the main repository with <code>core.bare=true</code> and later
+  <code>core.worktree=C:/Temp/...</code> in <code>.git/config</code>; both had to be unset by hand.
+  If <code>git status</code> says "must be run in a work tree", check those two keys.</li>
+<li>The Godot client's <code>_reject</code> closes the socket on every error, so a non-fatal
+  <code>REQUEST_ID_CONFLICT</code> will still kill the connection once a real command exists.</li>
+<li>COD-25 review round 1 (Codex, reproduced) left three open P2 defects in
+  <code>server/internal/sim</code>: an input action in <code>PhaseImpact</code> with <code>InstanceID = 0</code>
+  passes <code>newState</code> and later snapshots fail restore; restore accepts two active
+  actions sharing an <code>InstanceID</code>; <code>CancelAction</code> after <code>Outcome != OutcomeNone</code>
+  mutates state and buffers an event that can never be flushed. A partial fix sits
+  in <code>git stash</code> ("wip: COD-25 Codex round-1 fixes").</li>
 <li>The installed Go is 1.26.2 against <code>go.mod</code> 1.26.7, so GOTOOLCHAIN downloads
   the toolchain and a parallel <code>go build</code> can observe a half-extracted standard
   library.</li>
@@ -2575,12 +2721,17 @@ presentation, and the remaining simulation work. Normative rules remain in the
   does not preserve that comparison; extraction quality still needs diagnosis.</li>
 </ul>
 <h2 id="next-step">Next step<a class="headerlink" href="#next-step" title="Permanent link">&para;</a></h2>
-<p>Build the Godot arena scene and camera (COD-34) as the first consumer of
-<code>WangCells()</code>, and publish the three remaining atlases — material <code>512x256</code>,
-decal <code>1024x256</code>, cutout <code>1024x256</code> (COD-33). The desert profile is calibrated
-and the first surface batch is published, so this is the step that turns the
-published masks into something on screen. Actions, Brain chasm awareness, and
-the stat pipeline follow as the next simulation dependencies.</p>
+<ol>
+<li>Finish COD-25: one regression test per open P2 above, fix at the root
+   (every place an <code>Action</code> enters state; every post-encounter mutator), then
+   Codex review until it reports nothing (<code>cx -Review E:\DEV\CodeDungeon -Base
+   &lt;last reviewed&gt; -Deep -Model gpt-6-astra</code>). Move the YouGile card to "Готово".</li>
+<li>Owner: verdict on the Wang atlas contact sheet. On approval set
+   <code>human_review: true</code> in the five <code>provenance.json</code> and <code>status: published</code> on
+   the five contract entries.</li>
+<li>COD-34 (arena scene and camera) and COD-33 (remaining atlases) belong to the
+   second developer. COD-24 (stat pipeline) is the next simulation card here.</li>
+</ol>
 
 
 
