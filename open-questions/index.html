@@ -2760,6 +2760,12 @@
 <td><a href="../game-design/progression-and-builds/#как-миссии-и-забеги-развивают-героя-по-разному">Прогрессия и билды</a></td>
 <td><code>dev-v1</code> поставляет нули вместо невыдуманных чисел</td>
 </tr>
+<tr>
+<td><strong>Однопроцессная топология: spike, toolchain, уточнение «одного файла», сопровождение C++ слоя.</strong> Решено владельцем 2026-09-17: поставляемая игра — один PID, Go <code>c-archive</code> за <code>godot-cpp</code> GDExtension (<a href="../technical/runtime-topology/#решение-владельца-2026-09-17-игра--один-процесс">решение</a>). Открыты: (1) результат kill-or-prove spike; (2) точный Windows C/C++ toolchain — MinGW-w64 или MSVC; (3) «один процесс» означает один PID (предполагается) или буквально один PE-файл (отклонено, если владелец не настоит); (4) кто сопровождает C++ слой (предполагается A)</td>
+<td>реализация</td>
+<td><a href="../technical/runtime-topology/">Топология runtime</a></td>
+<td>решение владельца: один процесс через GDExtension</td>
+</tr>
 </tbody>
 </table>
 <h2 id="закрытые">Закрытые<a class="headerlink" href="#закрытые" title="Permanent link">&para;</a></h2>
@@ -3265,7 +3271,7 @@
 </tr>
 <tr>
 <td>Нужен ли headless-worker Godot теперь, когда физика боя вырезана?</td>
-<td>Нет. Топология — два процесса: Go core и клиент Godot — <a href="../technical/runtime-topology/#какие-процессы-образуют-runtime">топология процессов</a></td>
+<td>Нет. Текущая топология — два процесса: Go core и клиент Godot; поставляемая игра станет одним процессом по <a href="../technical/runtime-topology/#решение-владельца-2026-09-17-игра--один-процесс">решению владельца 2026-09-17</a> — <a href="../technical/runtime-topology/#какие-процессы-образуют-runtime">топология процессов</a></td>
 </tr>
 <tr>
 <td>«Бесконечная битва» и бесконечный режим рекордов — это два режима?</td>

@@ -2653,6 +2653,7 @@
   любая проверка вида «дерево чистое» без сужения области будет на них падать.</li>
 <li><strong><code>internal/launch/process_other.go</code></strong> собирается кросс-компиляцией, но его тест
   никогда не исполнялся на живом Linux.</li>
+<li><strong>Двухпроцессная топология заменяется однопроцессной.</strong> Владелец решил 2026-09-17, что поставляемая игра — один PID (Go <code>c-archive</code> + GDExtension); <code>internal/launch/**</code> и дочерний надзор удаляются после прохождения spike — <a href="../technical/runtime-topology/#решение-владельца-2026-09-17-игра--один-процесс">решение</a>.</li>
 <li><strong>Legacy-остров в Godot удалён целиком.</strong> Вместе с ним ушли заброшенный второй
   Godot-проект <code>client/</code>, четыре экранных autoload, деревья <code>scripts/{entities,game,ui}</code>
   и <code>scenes/{entities,ui}</code>, неиспользуемые спрайты и модели, а также ключи переводов
