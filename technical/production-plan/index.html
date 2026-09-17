@@ -3165,10 +3165,12 @@
 <ul>
 <li><strong>Вход:</strong> S0 и рабочий срез миссий: <code>server/internal/content</code> уже загружает
   <code>content/packages/dev-v1</code> строго, всё-или-ничего, с каноническим хешем и <code>CheckAppendOnly</code>, а
-  <code>server/internal/contentgate</code> проверяет настоящий пакет в <code>go test ./...</code>. S2 расширяет этот
+  <code>server/internal/contentgate</code> проверяет настоящий пакет в <code>go test ./...</code>; append-only правило
+  против базовой ревизии уже держат CI-job <code>content</code> и qgate-проверка <code>content-append-only</code>
+  (<code>tools/check-content-append-only.ps1</code>). S2 расширяет этот
   срез, а не создаёт загрузчик с нуля.</li>
 <li><strong>Выход:</strong> остальные namespace вместе со своими системами, подкоманда <code>validate</code>, эталонные
-  пакеты в <code>content/fixtures/</code>, <code>CheckAppendOnly</code> в CI против базового коммита.</li>
+  пакеты в <code>content/fixtures/</code>.</li>
 <li><strong>Критерий:</strong> <code>validate</code> на эталонном пакете — код 0; на каждом виде порчи — ненулевой код и
   путь до поля; канонизация одного и того же пакета даёт побитово равный результат.</li>
 <li><strong>Проверка:</strong> табличные тесты на порченые пакеты.</li>
