@@ -2737,10 +2737,16 @@
 <td>graph-refresh shrink guard exposed an extraction-quality regression</td>
 </tr>
 <tr>
-<td>Откуда берётся reason code клиентских отказов <code>Boot/Connection</code>: повторяемой ошибки соединения, отсутствующего launch context и потери core? В <code>ErrorCode</code> из <code>shared/proto/codedungeon/ipc/v1/lifecycle.proto</code> для них нет значения, и ничто в Go не классифицирует повторяемость, поэтому ни одной фикстуры с <code>retryable: true</code> нет, хотя <a href="../technical/screens/#какие-состояния-обязательны-для-экранов-с-данными">карта экранов</a> требует фикстуру ошибки с повтором на каждый экран. Позиции: расширить proto enum (нужен review разработчика B для <code>shared/proto</code>) либо завести клиентский enum причин, который зеркалят Go-фикстуры. Так же не заземлены ещё два поля boot view-model: diagnostic identifier и текст lifecycle-подфазы</td>
+<td>Откуда берётся reason code клиентских отказов <code>Boot/Connection</code>: повторяемой ошибки соединения, отсутствующего launch context и потери core? В <code>ErrorCode</code> из <code>shared/proto/codedungeon/ipc/v1/lifecycle.proto</code> для них нет значения, и ничто в Go не классифицирует повторяемость, поэтому ни одной фикстуры с <code>retryable: true</code> нет, хотя <a href="../technical/screens/#какие-состояния-обязательны-для-экранов-с-данными">карта экранов</a> требует фикстуру ошибки с повтором на каждый экран. Позиции: расширить proto enum (нужен review разработчика B для <code>shared/proto</code>) либо завести клиентский enum причин, который зеркалят Go-фикстуры. Так же не заземлены ещё два поля boot view-model: diagnostic identifier и текст lifecycle-подфазы. По той же причине фикстуры ошибки с повтором нет и у экрана <code>Missions</code> (<code>fixtures/ui/missions/</code>, карточка COD-49)</td>
 <td>реализация</td>
 <td><a href="../technical/screens/boot-and-connection/">Boot/Connection</a></td>
 <td><code>fixtures/ui/boot_connection/</code> покрывает только отказы с wire-кодом, все с <code>retryable: false</code></td>
+</tr>
+<tr>
+<td>Нужны ли причины отказа <code>MISSION_START_REASON_UNKNOWN_MISSION</code> и <code>MISSION_START_REASON_UNKNOWN_DIFFICULTY</code>? Они есть в <code>shared/proto/codedungeon/ipc/v1/missions.proto</code>, но ни одна глава не называет для миссий отказ по неизвестному ID миссии или уровня сложности: <a href="../technical/run-systems/#как-проходит-машина-состояний-попытки">системы забега</a> описывают только недоступную миссию и проверку Мозга. Подтвердить предложением в главе либо удалить из схемы, когда появится Go-обработчик <code>StartMission</code></td>
+<td>реализация</td>
+<td><a href="../technical/screens/missions/">Missions</a></td>
+<td>значения enum существуют без документированного правила и без обработчика</td>
 </tr>
 </tbody>
 </table>
