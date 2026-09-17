@@ -1838,6 +1838,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../screens/missions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран обучающих миссий?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../screens/run-setup/" class="md-nav__link">
         
   
@@ -2750,7 +2778,8 @@ Go result / snapshot / event -&gt; DTO mapper -&gt; client store -&gt; selectors
 <p>Отсутствующий ключ является дефектом сборки, а не поводом молча показывать другую строку. CI проверяет полноту <code>ru</code> и <code>en</code>, использование <code>tr()</code> и отсутствие ручной конкатенации множественных форм. Смена locale перестраивает видимые view-model и layout, но не отправляет команду Go и не меняет подтверждённую проекцию.</p>
 <h2 id="как-меняются-клиентские-контракты">Как меняются клиентские контракты?<a class="headerlink" href="#как-меняются-клиентские-контракты" title="Permanent link">&para;</a></h2>
 <p>DTO mapper поддерживает только явно совместимые версии wire-контракта. Неизвестная обязательная семантика, enum или несовместимый handshake не создают частичную проекцию и не получают локальный default; <code>StateBridge</code> остаётся неготовым до успешного compatibility gate. Правила изменения schema и golden fixtures задаёт <a href="../contracts-and-data-flow/#как-эволюционирует-protobuf">владелец wire-контракта</a>.</p>
-<p>Формат view-model fixture совпадает с входом selectors после DTO mapper. Поэтому одна и та же сцена работает на замороженной fixture и на реальном потоке без ветви <code>if fixture</code> и без изменения layout. Направление Godot/клиент читает <code>fixtures/ui/</code>, но не переписывает их для прохождения собственной проверки.</p>
+<p>Каждый файл <code>fixtures/ui/&lt;screen&gt;/&lt;case&gt;.json</code> является парным conformance-вектором. <code>source</code> хранит реальный ProtoJSON сгенерированного сообщения либо <code>client_event</code> для состояния без wire payload, например загрузки. <code>selector_input</code> хранит проекцию после DTO mapper в общей оболочке: <code>phase</code> (<code>loading|ready|empty|stale|error</code>), отсортированные <code>revisions</code> вида <code>{scope, value}</code> с 64-битным значением в десятичной строке, <code>reason</code> из <code>{code, params, retryable}</code>, где <code>code</code> является именем значения proto enum и никогда не ключом перевода, и <code>data</code> — единственная экранно-специфичная часть. Недоступность выражается выключенным действием <code>{enabled: false, reason}</code> внутри <code>data</code>, успех — фазой <code>ready</code> с исходом в <code>data</code>.</p>
+<p>UI-тесты подают <code>selector_input</code> в production selector и production scene, поэтому одна и та же сцена работает на замороженной fixture и на реальном потоке без ветви <code>if fixture</code> и без изменения layout. Отдельный обязательный contract test Godot пропускает <code>source</code> через production parser и DTO mapper и требует глубокого равенства результата с <code>selector_input</code>; именно он делает утверждение «тот же mapping, что и вживую» исполняемым. Направление Godot/клиент читает <code>fixtures/ui/</code>, но не переписывает их для прохождения собственной проверки.</p>
 <p>Локальные настройки и presentation state не повышают server revision и не входят в replay, save или content package. Изменение сцены, темы либо расположения элементов не требует версии gameplay-контракта, пока selectors и команды сохраняют смысл. Если меняется обязательный view-model, сначала меняются владеющий application contract и fixture, затем DTO mapper и только после этого сцена.</p>
 <h2 id="что-нужно-сделать">Что нужно сделать<a class="headerlink" href="#что-нужно-сделать" title="Permanent link">&para;</a></h2>
 <ul>

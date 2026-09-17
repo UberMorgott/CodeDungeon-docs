@@ -1670,6 +1670,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../screens/missions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран обучающих миссий?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../screens/run-setup/" class="md-nav__link">
         
   
@@ -2753,7 +2781,7 @@
 <p>Combat gate объединяет deterministic corpus, invariant tests и replay round-trip капсулы: запись пересчитывается из сохранённых входов и обязана дать те же события, snapshots и терминальный hash, что и исходный расчёт (<a href="../replay/#что-является-источником-воспроизведения">replay</a>). Dungeon gate повторяет генерацию по seed, проверяет топологию и разрешает каждый node/template ID через один content package. Persistence gate прогоняет общий repository contract suite над memory adapter и SQLite, включая concurrency, idempotency, rollback, миграцию и восстановление. Orchestration gate проходит state machine миссии и забега, включая повтор команды и отказ без частичного перехода.</p>
 <p>На S9 сквозной тест запускает Go core и Godot как два процесса, завершает localhost handshake, проводит команду через validation и воспроизводит полученную запись. Обрыв и повторное подключение, перезапуск клиента, повтор <code>request_id</code>, несовместимая версия, sequence gap и неравномерная доставка не меняют авторитетный исход. Проверка jitter оценивает плавность presentation, но никогда не принимает клиентский кадр за состояние симуляции.</p>
 <h2 id="как-принимаются-ui-и-доступность">Как принимаются UI и доступность?<a class="headerlink" href="#как-принимаются-ui-и-доступность" title="Permanent link">&para;</a></h2>
-<p>Каждый из шестнадцати экранов рендерится headless из замороженной fixture без запущенного Go core. Один и тот же view-model adapter обслуживает fixture и live DTO. Корпус покрывает skeleton загрузки, ошибку с повтором, stale revision и пустое состояние; если доменный инвариант исключает состояние, экранная глава содержит проверяемое доказательство неприменимости.</p>
+<p>Каждый из семнадцати экранов рендерится headless из замороженной fixture без запущенного Go core. Fixture и live DTO проходят через одни и те же selectors и сцены, а production mapper доказан парным вектором: contract test Godot пропускает <code>source</code> фикстуры через production parser и mapper и требует глубокого равенства с её <code>selector_input</code> (<a href="../client-architecture/#как-меняются-клиентские-контракты">формат</a>). Свежесть файлов доказывает обычный <code>go test ./...</code>: <code>TestFixturesCurrent</code> падает на отсутствующем, лишнем или разошедшемся файле, а обновляет их только <code>go test ./internal/uifixture -run TestFixturesCurrent -update</code> из <code>server/</code>. Корпус покрывает skeleton загрузки, ошибку с повтором, stale revision и пустое состояние; если доменный инвариант исключает состояние, экранная глава содержит проверяемое доказательство неприменимости.</p>
 <p>Navigation smoke проходит весь допустимый граф, а reducer tests доказывают, что server event остаётся единственным источником gameplay-state. Проверки на 16:9 и 21:9 используют отдельные snapshots композиции. Все player-visible строки проходят через <code>tr()</code>, каждый использованный ключ имеет <code>ru</code> и <code>en</code>, а литерал вне <code>translations.csv</code> блокирует сборку.</p>
 <p>Accessibility gate выполняет задачи, а не ищет наличие настройки. Keyboard-only прогон достигает каждого действия мыши, не попадает в ловушку фокуса и после модального слоя возвращается к вызвавшему элементу; screen reader объявляет смену экрана, роль, состояние и результат действия. Максимальный поддерживаемый масштаб не обрезает текст и controls, проверка в оттенках серого сохраняет механические различия, а бой без звука и необязательных эффектов остаётся читаемым.</p>
 <p>Числовая часть телеграфа автоматически проверяет опубликованные полосы длительностей и разделение соседних полос по <a href="../../game-design/visual-language/#как-строится-время-замаха">визуальному контракту</a>. Ручная приёмка каждой пары «действие × облик» проверяет распознавание в штатной камере, оттенках серого, без звука и при полной группе. Автоматический snapshot не заменяет проверку позы, силуэта и понятности задачи.</p>
@@ -2769,7 +2797,7 @@
 <li><strong>Владелец:</strong> Go/симуляция владеет <code>tools/check.ps1</code>, CI, static/unit/property/contract gates, детерминированным корпусом и harness: фундамент создаётся на S0, fixed-point/RNG проверки — на S1, потиковые трассы и replay checks — на S4, матрица — на S6, package acceptance — на S8, двухпроцессная интеграция — на S9 по <a href="../production-plan/">плану производства</a>. Godot/клиент владеет headless UI, navigation, layout и accessibility checks на S3 и своей стороной сквозного теста на S9.</li>
 <li><strong>Артефакты:</strong> <code>tools/check.ps1</code> и repository wrappers; jobs в <code>.github/workflows/</code>; <code>internal/fixed/fixed_test.go</code>, <code>internal/rng/rng_test.go</code>, <code>internal/sim/determinism_test.go</code>; <code>testdata/determinism/</code> и <code>internal/sim/testdata/traces/v&lt;N&gt;/</code>; batch runner, типизированная JSONL-запись и encoder в <code>internal/harness/</code>; contract fixtures для Protobuf, content, repositories и replay; read-only <code>fixtures/ui/</code>; headless screen, reducer, navigation, layout и accessibility tests под <code>codedungeon/tests/</code>; публикуемые отчёты малой и широкой матриц.</li>
 <li><strong>Форма детерминированного корпуса (S4).</strong> Файлы: <code>server/internal/sim/canonical.go</code> (каноническая кодировка + <code>StateHash</code>), <code>server/internal/sim/determinism_test.go</code>, <code>server/internal/sim/testdata/traces/v&lt;canonical_state_version&gt;/minimal.golden.json</code>; выбор, смену и удаление каталога задаёт единственная <a href="../simulation-core/#когда-меняется-версия-симуляции">corpus policy владельца версии</a>. В том же коммите <code>../sim</code> добавляется в <code>deterministicPackages</code> в <code>detgate_test.go</code>. Хеш: полный <code>sha256.Sum256</code> канонических байт, 64 hex-символа, не усекать. Отдельной «только для хеша» сериализации нет — снимок и хеш потребляют один и тот же результат <code>appendCanonicalState</code>. Кодировка: явный little-endian через <code>binary.LittleEndian.Append*</code>, длина перед срезами и строками, bool как 0/1, сущности в порядке стабильного ID. Запрещено: <code>int</code>, native endian, хеширование памяти структуры, map, gob, JSON, protobuf, рефлексия, указатели, <code>hash/maphash</code>. nil и пустой срез различать осознанно. Три теста: <code>TestDeterminismRepeatRun</code> (два свежих прогона в одном процессе, сравнение хеша каждого тика, сообщать первый разошедшийся тик), <code>TestDeterminismGolden</code> (эталон через <code>//go:embed</code>, сверка контрольных точек каждые 60 тиков и терминального хеша; CI никогда не переписывает файл), <code>TestDeterminismInterleaved</code> (последовательная база, затем восемь <code>t.Parallel</code> подтестов со свежим состоянием, сверка с базой; без правки GOMAXPROCS и без sleep). Кросс-платформенность отдельным заданием не проверяется: общий закоммиченный эталон и есть точка встречи — Linux == эталон == Windows, оба задания CI уже гоняют <code>go test ./...</code>. Сегодня ничего не добавляется: <code>fixed</code> и <code>rng</code> уже несут закоммиченные точные и эталонные векторы, оба задания CI их гоняют на Linux и Windows; синтетический совмещённый хеш дублировал бы их, ничего не покрывая. Корпус появляется вместе с первым <code>internal/sim</code>.</li>
-<li><strong>Готово, когда:</strong> <code>tools/check.ps1</code> возвращает <code>0</code> на чистом дереве и ненулевой код на каждом отрицательном примере; повтор deterministic corpus в двух процессах и при разном числе workers даёт одинаковые checkpoints, events и terminal hashes; CI не меняет golden data; JSONL содержит все свойства идентичности и перечисленные result fields, а неполная матрица названа неуспешной; малый и ночной batch используют соответственно два крайних намерения и весь эталонный корпус; каждый contract fixture одинаково читается Go и Godot; шестнадцать экранов проходят четыре состояния, keyboard-only path, focus return, screen reader, 16:9, 21:9, максимальный масштаб и grayscale; S9 сохраняет потиковый исход при reconnect и jitter; nightly публикует широкий отчёт, race, fuzz и benchmark results.</li>
+<li><strong>Готово, когда:</strong> <code>tools/check.ps1</code> возвращает <code>0</code> на чистом дереве и ненулевой код на каждом отрицательном примере; повтор deterministic corpus в двух процессах и при разном числе workers даёт одинаковые checkpoints, events и terminal hashes; CI не меняет golden data; JSONL содержит все свойства идентичности и перечисленные result fields, а неполная матрица названа неуспешной; малый и ночной batch используют соответственно два крайних намерения и весь эталонный корпус; каждый contract fixture одинаково читается Go и Godot; семнадцать экранов проходят четыре состояния, keyboard-only path, focus return, screen reader, 16:9, 21:9, максимальный масштаб и grayscale; S9 сохраняет потиковый исход при reconnect и jitter; nightly публикует широкий отчёт, race, fuzz и benchmark results.</li>
 <li><strong>Не трогать:</strong> порядок тика, canonical state, RNG и fixed-point принадлежат <code>simulation-core.md</code>; combat geometry и абсолютный stop — <code>combat-engine.md</code>; формулы и trace — <code>stat-pipeline.md</code>; словарь, компиляция и бюджет Памяти — <code>brain-runtime.md</code>; replay container и compatibility — <code>replay.md</code>; Protobuf, opcode и envelope — <code>contracts-and-data-flow.md</code>; content schema, ID и publication — <code>content-packages.md</code>; save transactions — <code>persistence.md</code>; store, mapper, focus и modal runtime — <code>client-architecture.md</code>; состав экранов — <code>screens/</code>; локальный workflow — <code>development-workflow.md</code>; post-MVP проверки — <code>future-online.md</code>.</li>
 </ul>
 <h2 id="что-читать-дальше">Что читать дальше?<a class="headerlink" href="#что-читать-дальше" title="Permanent link">&para;</a></h2>

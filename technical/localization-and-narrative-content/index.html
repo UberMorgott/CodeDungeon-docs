@@ -1670,6 +1670,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../screens/missions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как устроен экран обучающих миссий?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../screens/run-setup/" class="md-nav__link">
         
   
@@ -2657,7 +2685,7 @@
 <p>Требование к размерному запасу layout берётся из <a href="../../open-questions/#открытые">записи реестра о бюджете расширения текста</a>. До появления числа экраны используют перенос и прокрутку и не вводят собственный процент или предел; общие правила layout и конкретные снимки принадлежат экранным главам.</p>
 <h2 id="что-нужно-сделать">Что нужно сделать<a class="headerlink" href="#что-нужно-сделать" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Владелец:</strong> Godot/клиент ведёт translation keys, <code>translations.csv</code>, Godot import и нарративные строки. На S0b он создаёт таблицу и подключает её к проекту, на S3 переводит через неё все шестнадцать экранов, на S7 добавляет строки для авторского контента; Go/симуляция на S0 предоставляет правило реестра и CI-гейт, а при валидации пакета проверяет только разрешимость ссылок по <a href="../production-plan/">плану производства</a>.</li>
+<li><strong>Владелец:</strong> Godot/клиент ведёт translation keys, <code>translations.csv</code>, Godot import и нарративные строки. На S0b он создаёт таблицу и подключает её к проекту, на S3 переводит через неё все семнадцать экранов, на S7 добавляет строки для авторского контента; Go/симуляция на S0 предоставляет правило реестра и CI-гейт, а при валидации пакета проверяет только разрешимость ссылок по <a href="../production-plan/">плану производства</a>.</li>
 <li><strong>Артефакты:</strong> <code>codedungeon/assets/translations/translations.csv</code> с наборами <code>ru</code> и <code>en</code>; регистрация translation resources в проекте Godot; translation-key references в GDScript, scenes, view-model fixtures и JSON definitions; проверка таблицы, ссылок, параметров, множественных форм и видимых литералов в <code>tools/check.ps1</code> и CI; positive и negative fixtures для отсутствующего ключа, неполного locale, дубликата, несовпадающих параметров и текста вне таблицы; localization и headless screen tests.</li>
 <li><strong>Готово, когда:</strong> один и тот же client build переключается между <code>ru</code> и <code>en</code> без обращения к Go; каждый видимый текст приходит из <code>translations.csv</code> через штатный механизм Godot; все ссылки из экранов, fixtures и валидного content package разрешаются; удалённый или дублирующийся ключ, пустой перевод, несовпадающие параметры, ручная множественная форма и пользовательский литерал вне таблицы дают ненулевой код проверки; пакет с отсутствующим ключом не публикуется и не активируется; locale не меняет команды, revisions, stable IDs, сохранение или replay; новая нарративная запись связана с существующей игровой функцией и не вводит механику; проверки S0, S0b, S3 и S7 проходят через <code>tools/check.ps1</code>.</li>
 <li><strong>Не трогать:</strong> gameplay-смысл и авторские ограничения задаёт <code>game-design/narrative-and-setting.md</code>; JSON Schema, manifest, content ID, <code>ContentSnapshot</code>, публикация и rollback принадлежат <code>content-packages.md</code>; wire fields и коды причин — <code>contracts-and-data-flow.md</code>; store, locale switching и перестроение view-model — <code>client-architecture.md</code>; layout, screen states, focus и экранный диктор — <code>screens/</code>; расписание всех CI-гейтов — <code>testing-and-ci.md</code>; изображения, шрифты, provenance и Godot import нетекстовых ресурсов — <code>asset-pipeline.md</code>.</li>
