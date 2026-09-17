@@ -2844,6 +2844,12 @@
 <td><a href="../technical/persistence/#как-домен-обращается-к-хранилищу">Persistence</a></td>
 <td>срез 4 COD-27: application layer и порт хранилища каталога профилей</td>
 </tr>
+<tr>
+<td>Как жить с падением около 1 % экспортированных запусков Godot 4.7.1 с кодом <code>0xC06D007F</code>? Spike одного процесса показал, что оно происходит до загрузки нашего расширения, внутри системной <code>dinput8.dll</code> (гонка отложенной загрузки <code>CreateInputHostForProcess</code>, Windows сборки 26100.8037 LTSC), и воспроизводится без расширения вовсе. Не проверено: воспроизводится ли на обычной (не LTSC) Windows и помогает ли смягчение на стороне клиента (например, отключение DirectInput-джойстиков в экспорте).</td>
+<td>исследование</td>
+<td><a href="../technical/runtime-topology/">Runtime topology</a></td>
+<td>spike одного процесса v2, 2026-09-17</td>
+</tr>
 </tbody>
 </table>
 <h2 id="закрытые">Закрытые<a class="headerlink" href="#закрытые" title="Permanent link">&para;</a></h2>
