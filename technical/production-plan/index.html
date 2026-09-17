@@ -3000,7 +3000,7 @@
 <tr>
 <td><code>content/schema/v1/</code></td>
 <td>A</td>
-<td>схемы пакета</td>
+<td>отложено: схема пакета — Go-загрузчик <code>internal/content</code>, JSON Schema вернётся генерируемым артефактом</td>
 </tr>
 <tr>
 <td><code>content/packages/dev-v1/</code></td>
@@ -3121,7 +3121,9 @@
 <ul>
 <li><strong>Вход:</strong> решения этого документа.</li>
 <li><strong>Выход:</strong> раскладка каталогов, <code>go.mod</code>, <code>.github/workflows</code> с гейтами, <code>tools/check.ps1</code>,
-  CODEOWNERS, схемы JSON, реестр id, формат view-model фикстуры.
+  CODEOWNERS, формат view-model фикстуры. Схем и реестров id для систем, которых ещё нет, S0
+  не обещает: схема контента — исполняемый Go-загрузчик, она и выпущенные id появляются вместе
+  с системой, которая их читает (<a href="../content-packages/">пакеты контента</a>).
   Набор view-model фикстур, покрывающий все 17 экранов в четырёх обязательных состояниях
   (скелет загрузки, ошибка с повтором, устаревшая ревизия, пусто).
   Каталог проекта Godot уже называется <code>codedungeon/</code> вместе с аддоном
@@ -3129,8 +3131,8 @@
   <code>docs/technical/mvp-definition-of-done.md</code> (<code>codedungeon/scripts/**</code>, <code>codedungeon/scenes/**</code>),
   <code>docs/technical/development-workflow.md</code> и <code>docs/technical/technology-baseline.md</code> указывают
   на этот путь.</li>
-<li><strong>Критерий:</strong> объявленный выход проверяется на существование — раскладка каталогов, все
-  схемы, реестр id, формат фикстуры и полный набор фикстур на 17 экранов в четырёх состояниях;
+<li><strong>Критерий:</strong> объявленный выход проверяется на существование — раскладка каталогов,
+  формат фикстуры и полный набор фикстур на 17 экранов в четырёх состояниях;
   гейты проверяются отдельно отрицательными примерами. Каждый гейт <code>tools/check.ps1</code> доказан
   отрицательным примером — на подсаженный дефект (литерал мимо <code>tr()</code>, сломанный пакет, float
   в ядре, дрейф кодогенерации) гейт падает, на чистом дереве проходит.</li>
@@ -3161,9 +3163,12 @@
 </blockquote>
 <h3 id="s2-контент-схема-валидатор-канонизация-a--блокирует-s7-s8">S2. Контент: схема, валидатор, канонизация (A) — БЛОКИРУЕТ S7, S8<a class="headerlink" href="#s2-контент-схема-валидатор-канонизация-a--блокирует-s7-s8" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Вход:</strong> S0, схема пакета.</li>
-<li><strong>Выход:</strong> загрузчик, валидатор, канонизация пакета, подкоманда <code>validate</code>, эталонные пакеты
-  в <code>content/fixtures/</code>.</li>
+<li><strong>Вход:</strong> S0 и рабочий срез миссий: <code>server/internal/content</code> уже загружает
+  <code>content/packages/dev-v1</code> строго, всё-или-ничего, с каноническим хешем и <code>CheckAppendOnly</code>, а
+  <code>server/internal/contentgate</code> проверяет настоящий пакет в <code>go test ./...</code>. S2 расширяет этот
+  срез, а не создаёт загрузчик с нуля.</li>
+<li><strong>Выход:</strong> остальные namespace вместе со своими системами, подкоманда <code>validate</code>, эталонные
+  пакеты в <code>content/fixtures/</code>, <code>CheckAppendOnly</code> в CI против базового коммита.</li>
 <li><strong>Критерий:</strong> <code>validate</code> на эталонном пакете — код 0; на каждом виде порчи — ненулевой код и
   путь до поля; канонизация одного и того же пакета даёт побитово равный результат.</li>
 <li><strong>Проверка:</strong> табличные тесты на порченые пакеты.</li>

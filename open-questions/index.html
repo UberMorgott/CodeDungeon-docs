@@ -2748,6 +2748,18 @@
 <td><a href="../technical/screens/missions/">Missions</a></td>
 <td>значения enum существуют без документированного правила и без обработчика</td>
 </tr>
+<tr>
+<td>Когда handshake начнёт передавать настоящий хеш контента? Сейчас <code>server/internal/ipc/handshake.go</code> хеширует встроенный пустой manifest (<code>empty_manifest.json</code>), а не загруженный пакет. Переход на <code>Snapshot.Hash()</code> требует раскладки каталога <code>content/</code> рядом с лаунчером и новых эталонных кадров в тесте кодека Godot <code>codedungeon/scripts/ipc/ipc_codec_headless_test.gd</code> — это файл разработчика B, поэтому замена согласуется заранее</td>
+<td>реализация</td>
+<td><a href="../technical/content-packages/#как-пакет-загружается">Пакеты контента</a></td>
+<td>срез 1 загрузчика контента считает хеш, но рукопожатие его не использует</td>
+</tr>
+<tr>
+<td>Сколько очков навыков и ячеек рюкзака даёт каждая миссия и каждый её уровень сложности? GDD называет эти награды, но не даёт ни одного числа, поэтому <code>content/packages/dev-v1/missions/definitions.json</code> несёт нули; пока все миссии дают Память, правило «пустая награда — ошибка контента» не срабатывает</td>
+<td>дизайн</td>
+<td><a href="../game-design/progression-and-builds/#как-миссии-и-забеги-развивают-героя-по-разному">Прогрессия и билды</a></td>
+<td><code>dev-v1</code> поставляет нули вместо невыдуманных чисел</td>
+</tr>
 </tbody>
 </table>
 <h2 id="закрытые">Закрытые<a class="headerlink" href="#закрытые" title="Permanent link">&para;</a></h2>
