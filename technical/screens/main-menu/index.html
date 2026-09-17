@@ -2907,6 +2907,74 @@
 <h2 id="какие-сценарии-фиксируют-контракт">Какие сценарии фиксируют контракт?<a class="headerlink" href="#какие-сценарии-фиксируют-контракт" title="Permanent link">&para;</a></h2>
 <p>Успешный путь из <code>Boot/Connection</code> загружает список один раз, открывает выбранный профиль только после ответа Go и приводит в одну принадлежащую ему Кузню. Создание из пустого состояния формирует профиль через Go, обновляет список и использует тот же маршрут входа. Повторный command outcome и двойной клик не создают дубликат профиля и не выполняют второй переход.</p>
 <p>Loading, empty, stale revision, read error, command error и success fixtures строят одну разметку. Ошибка чтения предоставляет повтор, stale revision перечитывает список без подмены идентичности, а невалидное сохранение не загружается частично и передаётся пользовательскому flow Кузни. Возврат из системного меню и отмена выхода восстанавливают правильный фокус.</p>
+<p>В <code>fixtures/ui/main_menu/</code> лежат четырнадцать кейсов. Их пишет Go-пакет <code>server/internal/uifixture</code>: каждый исход получен вызовом настоящих <code>Catalog.Create</code> и <code>Catalog.Open</code> из <code>server/internal/profile</code>, а причина отказа переведена в wire-enum пакетом <code>server/internal/profilewire</code>. ID профилей синтетические и постоянные (<code>000000000000000000000000000000a1</code> и далее). В командных кейсах <code>given</code> содержит snapshot, который экран держит, и затем отправленную команду; <code>expected_catalog_revision</code> команды равна revision этого snapshot. Отказ сохраняет строки прежнего snapshot в <code>data</code> и добавляет <code>catalog_revision</code>, которую сообщил Go.</p>
+<table>
+<thead>
+<tr>
+<th>Файл</th>
+<th>Что фиксирует</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>loading.json</code></td>
+<td>ключ <code>profileCatalogSnapshot</code> ещё не пришёл: <code>client_event</code>, строк и revision нет</td>
+</tr>
+<tr>
+<td><code>empty.json</code></td>
+<td>первый запуск: тело snapshot равно <code>{}</code>, revision читается как <code>"0"</code>, фаза <code>empty</code></td>
+</tr>
+<tr>
+<td><code>ready_single.json</code></td>
+<td>список из одного профиля на revision 1</td>
+</tr>
+<tr>
+<td><code>ready.json</code></td>
+<td>три профиля в порядке создания, включая кириллическое имя в каноническом виде</td>
+</tr>
+<tr>
+<td><code>create_accepted_first.json</code></td>
+<td>создание из пустого каталога: ожидаемая revision 0, принятая revision 1 и созданная строка</td>
+</tr>
+<tr>
+<td><code>create_accepted.json</code></td>
+<td>создание в непустом каталоге: команда несёт сырое имя с лишними пробелами, исход — каноническое</td>
+</tr>
+<tr>
+<td><code>create_stale_revision.json</code></td>
+<td>экран держит revision 1, Go — revision 3: <code>CATALOG_REVISION_STALE</code>, фаза <code>stale</code></td>
+</tr>
+<tr>
+<td><code>create_name_empty.json</code></td>
+<td>имя из одних пробелов: <code>NAME_EMPTY</code></td>
+</tr>
+<tr>
+<td><code>create_name_too_long.json</code></td>
+<td>25 code points при пределе 24: <code>NAME_TOO_LONG</code></td>
+</tr>
+<tr>
+<td><code>create_name_forbidden_character.json</code></td>
+<td>управляющий символ <code></code> в имени: <code>NAME_FORBIDDEN_CHARACTER</code></td>
+</tr>
+<tr>
+<td><code>create_name_taken.json</code></td>
+<td>то же имя в другом регистре: <code>NAME_TAKEN</code></td>
+</tr>
+<tr>
+<td><code>open_accepted.json</code></td>
+<td>принятое открытие: <code>profile_id</code> и <code>profile_revision</code>, единственное основание перейти в <code>Hub</code></td>
+</tr>
+<tr>
+<td><code>open_stale_revision.json</code></td>
+<td>открытие по устаревшей revision: <code>CATALOG_REVISION_STALE</code>, фаза <code>stale</code></td>
+</tr>
+<tr>
+<td><code>open_unknown_profile.json</code></td>
+<td>ID, которого нет в каталоге: <code>UNKNOWN_PROFILE</code></td>
+</tr>
+</tbody>
+</table>
+<p>Вектора ошибки чтения с повтором пока нет — он ждёт client-local reason code из <a href="../../../open-questions/">реестра открытых вопросов</a>. Состояние «Недоступность» тоже не имеет вектора: <code>ProfileEntry</code> не несёт признака запрета открытия, поэтому Go сейчас не может его выразить. Ветвь невалидного сохранения в <code>OpenProfileOutcome</code> появится вместе с её аддитивным исходом.</p>
 <p>Экран не показывает постоянную панель вкладок, персонажей, Мозги, инвентарь, прогресс или команды забега. Полный сценарий выполняется клавиатурой и диктором; снимки layout, localization и grayscale проходят; ни одна player-visible строка не остаётся в <code>.tscn</code> или <code>.gd</code>.</p>
 <h2 id="что-нужно-сделать">Что нужно сделать<a class="headerlink" href="#что-нужно-сделать" title="Permanent link">&para;</a></h2>
 <ul>
